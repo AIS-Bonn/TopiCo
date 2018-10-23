@@ -1,4 +1,4 @@
-<img src="TopiCo.png" width="500">
+<img src="TopiCo_with_subtitle.png" width="600">
 
 # TopiCo - Time-optimal Trajectory Generation and Control
 **TopiCo** generates time-optimal second- and third order trajectories from arbitrary start- to arbitrary target states.
@@ -8,7 +8,7 @@ Since the method is very fast (<<1ms per axis per trajectory), it can be used in
 With the ability to predict the target state, trajectories end in an optimal interception point when the waypoint is non-stationary.
 The method has been successfully used as model predictive controller on different micro aerial vehicles, in different research projects and robotic competitions.
 
-<img src="example.png" width="800">
+<img src="example.png" width="1000">
 
 # Papers describing the Approach
 Marius Beul and Sven Behnke: [Fast Full State Trajectory Generation for Multirotors](http://ais.uni-bonn.de/papers/ICUAS_2017_Beul_Trajectory_Generation.pdf)  
