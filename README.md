@@ -1,4 +1,4 @@
-<img src="TopiCo_with_subtitle.png" width="600">
+<img align="center" src="TopiCo_with_subtitle.png" width="600">
 
 # TopiCo - Time-optimal Trajectory Generation and Control
 **TopiCo** generates time-optimal second- and third order trajectories from arbitrary start- to arbitrary target states.
