@@ -1,12 +1,9 @@
 <img align="center" src="TopiCo_with_subtitle.png" width="600">
 
 # TopiCo - Time-optimal Trajectory Generation and Control
-**TopiCo** generates time-optimal second- and third order trajectories from arbitrary start- to arbitrary target states.
-The trajectories respect per-axis constraints on minimum and maximum velocity, acceleration and jerk.
-Individual axes can be coupled by synchronizing the total time of each trajectory.
-Since the method is very fast (<<1ms per axis per trajectory), it can be used in closed loop even for fast systems.
-With the ability to predict the target state, trajectories end in an optimal interception point when the waypoint is non-stationary.
-The method has been successfully used as model predictive controller on different micro aerial vehicles, in different research projects and robotic competitions.
+**TopiCo** efficiently (<<1ms per axis per trajectory) generates smooth, dynamically feasible, time-optimal, third-order trajectories from arbitrary start- to arbitrary target-states. Trajectories comply with asymmetric state- and input constraints and successfully handle initial states that lie outside of the allowed state space. Trajectories for an arbitrary number of axes are generated simultaneously, and three different approaches can temporally synchronize them. TopiCo can also target partially defined target states, exploiting the undefined degrees of freedom to speed up the trajectory. Synchronized trajectories targeting incompletely defined target states either maximize or minimize the free degrees of freedom. TopiCo can estimate and actively compensate global acceleration biases, thus enhancing the disturbance rejection capabilities. Besides third-order trajectories, TopiCo can also generate second- and first-order trajectories. TopiCo also generates interception trajectories targeting dynamic waypoints.
+
+TopiCo has been successfully used as model predictive controller on different micro aerial vehicles, in different research projects and robotic competitions.
 
 <img src="example.png" width="1000">
 
