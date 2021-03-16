@@ -1,4 +1,4 @@
-Copyright (c) 2018, University of Bonn, Autonomous Intelligent Systems.
+Copyright (c) 2021, University of Bonn, Autonomous Intelligent Systems.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,

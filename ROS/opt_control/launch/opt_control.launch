@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="opt_control" type="opt_control_node" name="opt_control" output="screen">
+    </node>
+</launch>
+

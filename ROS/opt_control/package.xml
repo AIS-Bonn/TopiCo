@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>opt_control</name>
+  <version>0.0.0</version>
+  <description>Generates time-optimal second- and third order trajectories from arbitrary start- to arbitrary target states.</description>
+  <maintainer email="mbeul@ais.uni-bonn.de">Marius Beul</maintainer>
+  <license>BSD-3</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>std_srvs</depend>
+  <depend>dynamic_reconfigure</depend>
+  <depend>interactive_markers</depend>
+  <depend>tf</depend>
+  <depend>message_generation</depend>
+  <depend>message_runtime</depend>
+
+
+  <export>
+  </export>
+</package>

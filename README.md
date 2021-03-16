@@ -179,6 +179,6 @@ Timesteps of sampled trajectory.
 Marius Beul <mbeul@ais.uni-bonn.de>
 Institute of Computer Science VI
 Rheinische Friedrich-Wilhelms-Universität Bonn
-Endenicher Allee 19a
+Friedrich-Hirzebruch-Allee 5
 53115 Bonn
 ```
