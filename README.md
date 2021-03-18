@@ -58,26 +58,25 @@ Given that the trajectory consists of m axes and n consecutive waypoints, the va
 | J_max            | double | (m x n)     |
 | J_min            | double | (m x n)     |
 | A_global         | double | (m x 1)     |
-| b_comp_global    | bool   | (1 x 1)     |
 | b_sync_V         | bool   | (m x n)     |
 | b_sync_A         | bool   | (m x n)     |
 | b_sync_J         | bool   | (m x n)     |
 | b_sync_W         | bool   | (m x n)     |
-| b_rotate         | bool   | (1 x n)     |
-| b_best_solution  | bool   | (m x n)     |
+| b_rotate         | bool   | (n-1 x n)   |
 | b_hard_vel_limit | bool   | (m x n)     |
 | b_catch_up       | bool   | (m x n)     |
-| solution_in      | int16  | (m x 2 x n) |
+| direction        | int8   | (m x n)     |
 | ts_rollout       | double | (1 x 1)     |
 |                  |        |             |
 | J_setp_struct    | struct | (m x 1)     |
-| solution_out     | int16  | (m x 2 x n) |
+| solution_out     | int32  | (m x n)     |
 | T_waypoints      | double | (m x n)     |
-| P_rollout        | double | (m x ?)     |
-| V_rollout        | double | (m x ?)     |
-| A_rollout        | double | (m x ?)     |
-| J_rollout        | double | (m x ?)     |
-| t_rollout        | double | (m x ?)     |
+| P                | double | (m x ?)     |
+| V                | double | (m x ?)     |
+| A                | double | (m x ?)     |
+| J                | double | (m x ?)     |
+| t                | double | (m x ?)     |
+
 
 
 ### State_start
@@ -107,10 +106,7 @@ Maximum jerk per axis per waypoint. By setting this to Inf, the order of the tra
 Minimum jerk per axis per waypoint. By setting this to Inf, the order of the trajectory can be reduced.
 
 ### A_global
-Global acceleration. This can be for example constant sidewind when controlling an MAV.
-
-### b_comp_global
-Should global acceleration be compensated?
+Global acceleration. This can be for example constant wind when controlling an MAV.
 
 ### b_sync_V
 Should the velocity of faster axes be reduced to synchronize with the slowest axis. When b_sync_V, b_sync_A, and b_sync_J are switched on (and b_sync_W switched off), the trajectory with the smallest deviation from the time-optimal trajectory is chosen.
@@ -127,17 +123,14 @@ Should all axes be synchronized by waiting? This means that faster axes wait bef
 ### b_rotate
 Rotate the axes so that the x-axis points into the direction of movement between waypoints. This only works with more than one axis. Considering a 3-dimensional trajectory (x,y,z), the coordinate system is rotated about the z-axis.
 
-### b_best_solution
-Should the best solution be returned? See _solution_in_ for details.
-
 ### b_hard_vel_limit
 This only affects trajectories that start in an infeasible (outside of allowed velocity or acceleration margins) state. If the start velocity is infeasible, should we return to the allowed bounds as fast as possible (b_hard_vel_limit ==  true) resulting in the shortest possible time outside the limits, or is it allowed to stay outside a little longer for shortest total time and a smoother trajectory. See also Example 2. This parameter also affects axes that are slowed down to synchronize with the slowest axis. If the parameter is false, synchonized axes can stay outside bounds for a significant time.
 
 ### b_catch_up
 Should later synchronized axes try to catch up with unsynchronized previous axes? So, should they catch up in time to synchronize again?
 
-### solution_in
-Each trajectory connecting two waypoints for a single axis can be one of 24 cases (time-optimal) and one of 28 cases (synchronized). If _b_best_solution_ is set to false, not all cases are tried to find a solution for the problem, but when a solution is found, return. If you know the case beforehand (e.g. from a previous run with similar waypoints), you can provide the initial case here. If the case is not suitable for the problem however, the method will try the other cases until it finds a solution. Set _solution_in_ to -1 if you have no clue about the possible case.
+### direction
+When parts of the waypoint are undefined, should the undefined degrees of freedom be maximized (direction == 1) or minimized (direction == -1).
 
 ### ts_rollout
 Defines the timesteps at which the trajectory is sampled. See variable _t_rollout_ below.
@@ -151,19 +144,19 @@ This encodes the cases of the time-optimal and synchronized trajectories.
 ### T_waypoints
 This variable gives the incremental times between waypoints for each axis.
 
-### P_rollout
+### P
 Position of sampled trajectory with timesteps _ts_rollout_.
 
-### V_rollout
+### V
 Velocity of sampled trajectory with timesteps _ts_rollout_.
 
-### A_rollout
+### A
 Acceleration of sampled trajectory with timesteps _ts_rollout_.
 
-### J_rollout
+### J
 Jerk of sampled trajectory with timesteps _ts_rollout_.
 
-### t_rollout
+### t
 Timesteps of sampled trajectory.
 
 # License
