@@ -39,7 +39,7 @@ The variable `index_example` selects the example.
 - Example 3 generates a predefined second order trajectory with two consecutive waypoints for a single axis.  
 - Example 4 generates a predefined synchronized trajectory with two consecutive waypoints for two axes.  
 - Example 5 generates a predefined trajectory with two consecutive waypoints for a single axis with undefined (NaN) components of the first waypoint.  
-- Example 6 generates a random trajectory with up to five consecutive waypoints for up to ten axes.
+- Example 6 generates a random trajectory with up to five consecutive waypoints for up to seven axes.
 
 
 # Meaning of variables and size of matrices
