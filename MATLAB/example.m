@@ -165,7 +165,7 @@ b_rotate          = false(num_axes-1,num_waypoints);
 b_hard_V_lim      = false(num_axes,num_waypoints);
 b_catch_up        = true(num_axes,num_waypoints);
 direction         = zeros(num_axes,num_waypoints,'int8');
-ts_rollout        = Inf;
+ts_rollout        = 0.01;
 
 
 %% ----------   Compute    ----------

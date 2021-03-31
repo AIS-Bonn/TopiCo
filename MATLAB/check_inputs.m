@@ -184,9 +184,9 @@ function check_inputs(State_start,Waypoints,V_max,V_min,A_max,A_min,J_max,J_min,
                 case 4
                     fprintf('Warning: Waypoint configuration leads to violation of constraints; V_wayp + V_wayp_pred < V_min!\n');
                 case 5
-                    %fprintf('Warning: Waypoint configuration leads to violation of constraints; V_wayp to close to V_max to prevent future violation of constraints with J_min!\n');
+                    fprintf('Warning: Waypoint configuration leads to violation of constraints; V_wayp to close to V_max to prevent future violation of constraints with J_min!\n');
                 case 6
-                    %fprintf('Warning: Waypoint configuration leads to violation of constraints; V_wayp to close to V_min to prevent future violation of constraints with J_max!\n');
+                    fprintf('Warning: Waypoint configuration leads to violation of constraints; V_wayp to close to V_min to prevent future violation of constraints with J_max!\n');
                 case 7
                     fprintf('Warning: Waypoint configuration leads to violation of constraints; V_wayp to close to V_min and A_wayp too large (positive) to be reached with J_max!\n');
                 case 8

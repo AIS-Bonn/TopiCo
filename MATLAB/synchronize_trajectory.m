@@ -229,7 +229,7 @@ function [t_out,J_out,solution_out] = synchronize_trajectory(P_init,V_init,A_ini
     end
     
     for index_axis = 1:num_axes
-        t_out{index_axis} = [t_red{index_axis},t{index_axis}];
-        J_out{index_axis} = [J_red{index_axis},J{index_axis}];
+        t_out{index_axis} = [t_red{index_axis},t{index_axis}(1,:)];
+        J_out{index_axis} = [J_red{index_axis},J{index_axis}(1,:)];
     end
 end
