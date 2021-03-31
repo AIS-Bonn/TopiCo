@@ -165,18 +165,18 @@ b_rotate          = false(num_axes-1,num_waypoints);
 b_hard_V_lim      = false(num_axes,num_waypoints);
 b_catch_up        = true(num_axes,num_waypoints);
 direction         = zeros(num_axes,num_waypoints,'int8');
-ts_rollout        = 0.01;
+ts_rollout        = Inf;
 
 
 %% ----------   Compute    ----------
 tic;
-%[J_setp_struct,solution_out,T_waypoints,P,V,A,J,t] = topico(State_start,Waypoints,V_max,V_min,A_max,A_min,J_max,J_min,A_global,b_sync_V,b_sync_A,b_sync_J,b_sync_W,b_rotate,b_hard_V_lim,b_catch_up,direction,ts_rollout); 
-[J_setp_struct,solution_out,T_waypoints,P,V,A,J,t] = topico_mex(State_start,Waypoints,V_max,V_min,A_max,A_min,J_max,J_min,A_global,b_sync_V,b_sync_A,b_sync_J,b_sync_W,b_rotate,b_hard_V_lim,b_catch_up,direction,ts_rollout); 
+%[J_setp_struct,solution_out,T_waypoints,P,V,A,J,t] = topico(State_start,Waypoints,V_max,V_min,A_max,A_min,J_max,J_min,A_global,b_sync_V,b_sync_A,b_sync_J,b_sync_W,b_rotate,b_hard_V_lim,b_catch_up,direction,ts_rollout);
+[J_setp_struct,solution_out,T_waypoints,P,V,A,J,t] = topico_mex(State_start,Waypoints,V_max,V_min,A_max,A_min,J_max,J_min,A_global,b_sync_V,b_sync_A,b_sync_J,b_sync_W,b_rotate,b_hard_V_lim,b_catch_up,direction,ts_rollout);
 t_elapsed = toc;
 
 
 %% ----------     Output     ----------
-disp(['Debug: Generated trajectory for ',num2str(num_axes),' axes and ',num2str(num_waypoints),' waypoints in ',num2str(t_elapsed),'s!']);
+disp(['Debug: Generated trajectory for ',int2str(num_axes),' axes and ',int2str(num_waypoints),' waypoints in ',num2str(t_elapsed),'s!']);
 show_trajectory_1D;
 
 if (index_example == 4)

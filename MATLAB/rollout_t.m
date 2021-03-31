@@ -38,7 +38,6 @@
 %% --------------------------------------------------------------------
 
 function [P,V,A,J,t] = rollout_t(P_init,V_init,A_init,J_setp_struct,ts,T) %#codegen
-    coder.extrinsic('num2str');
     
     num_axes = size(J_setp_struct,2);
 
@@ -49,23 +48,33 @@ function [P,V,A,J,t] = rollout_t(P_init,V_init,A_init,J_setp_struct,ts,T) %#code
         end
     end
     
-    num_iterations = uint64(T/ts)+2; %Better to make one iteration too much -> Trajectory rollout never ends before reaching final waypoint
-    
-    num_iterations_warning = 10000;
-    if (num_iterations > num_iterations_warning)
-        fprintf(['Warning: Very many rollout iterations (',num2str(num_iterations),' > ',num2str(num_iterations_warning),')!\n']);
+    ts_warning_threshold = 0.001;
+    if (ts < ts_warning_threshold)
+      fprintf('Warning: Very small ts!\n');
+    end
+
+    num_iterations = uint32(ceil(T/ts)+1); %Better to make one iteration too much -> Trajectory rollout never ends before reaching final waypoint
+
+    num_iterations_warning_threshold = 10000;
+    if (num_iterations > num_iterations_warning_threshold)
+        fprintf('Warning: Very many rollout iterations (');printint(num_iterations); fprintf(' > ');printint(num_iterations_warning_threshold);fprintf(')!\n');
     end
  
-    P = zeros(num_axes,num_iterations);
-    V = zeros(num_axes,num_iterations);
-    A = zeros(num_axes,num_iterations);
+    P = P_init.*ones(num_axes,num_iterations);
+    V = V_init.*ones(num_axes,num_iterations);
+    A = A_init.*ones(num_axes,num_iterations);
     J = zeros(num_axes,num_iterations);
-    t = repmat(0:ts:ts*double(num_iterations-1),num_axes,1);
     
-   for index_axis = 1:num_axes
-        for index_iteration = 1:num_iterations
-            [P(index_axis,index_iteration),V(index_axis,index_iteration),A(index_axis,index_iteration),J(index_axis,index_iteration)] = evaluate_to_time(P_init(index_axis),V_init(index_axis),A_init(index_axis),J_setp_struct(index_axis),t(1,index_iteration));
+    if (~isinf(ts))
+        t = repmat(0.0:ts:ts*double(num_iterations-1),num_axes,1);
+
+        for index_axis = 1:num_axes
+            for index_iteration = 1:num_iterations
+                [P(index_axis,index_iteration),V(index_axis,index_iteration),A(index_axis,index_iteration),J(index_axis,index_iteration)] = evaluate_to_time(P_init(index_axis),V_init(index_axis),A_init(index_axis),J_setp_struct(index_axis),t(1,index_iteration));
+            end
         end
-   end
+    else
+        t = zeros(num_axes,num_iterations);
+    end
    
 end

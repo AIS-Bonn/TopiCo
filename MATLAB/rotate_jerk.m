@@ -38,7 +38,6 @@
 %% --------------------------------------------------------------------
 
 function [t_out_1,J_out_1,t_out_2,J_out_2] = rotate_jerk(alpha,t_1,J_1,t_2,J_2) %#codegen
-    coder.extrinsic('num2str');
 
     t_cumsum_x = cumsum(t_1(1,:));
     t_cumsum_y = cumsum(t_2(1,:));

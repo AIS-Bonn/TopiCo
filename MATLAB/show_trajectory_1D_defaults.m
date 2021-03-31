@@ -94,7 +94,7 @@ end
 if (~exist('axisnames','var'))
     axisnames = cell(num_axes,1);
     for index_axis = 1:num_axes
-        axisnames{index_axis} = ['Axis ',num2str(index_axis)];
+        axisnames{index_axis} = ['Axis ',int2str(index_axis)];
     end
 end
 if (~exist('color_line','var'))

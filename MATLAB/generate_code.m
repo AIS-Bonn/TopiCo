@@ -38,8 +38,9 @@
 %% --------------------------------------------------------------------
 
 addpath('a','ab','abc','abcd','abcde','abcdef','abcdefg','abcdeg','abcef','abcefg','abceg','ac','acd','acde','acdef','acdefg','acdeg','acef','acefg','aceg');
+cd(fileparts(mfilename('fullpath')));
 
-for index_code_gen = 1
+for index_code_gen = 2
 
     if (index_code_gen == 1)
         cfg = coder.config('mex');
@@ -57,10 +58,10 @@ for index_code_gen = 1
     if (index_code_gen == 2)
         cfg = coder.config('lib','ecoder',false);
         cfg.BuildConfiguration = 'Faster Runs';
-        cfg.GenerateReport = true;
+        cfg.GenerateReport = false;
         cfg.RuntimeChecks = true;
         cfg.EnableOpenMP = false;
-        cfg.GenCodeOnly = false;
+        cfg.GenCodeOnly = true;
         cfg.SaturateOnIntegerOverflow = false;
         cfg.SupportNonFinite = true;
         cfg.TargetLang = 'C++';

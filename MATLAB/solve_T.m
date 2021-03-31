@@ -38,7 +38,6 @@
 %% --------------------------------------------------------------------
 
 function [t_out,J_out,solution_out] = solve_T(P_init,V_init,A_init,P_wayp,V_wayp,A_wayp,V_max,V_min,A_max,A_min,J_max,J_min,t_sync,b_sync_V,b_sync_A,b_sync_J,b_sync_W,direction) %#codegen
-    coder.extrinsic('num2str');
     
     num_valid = 0;
     num_times = 11;
@@ -556,7 +555,7 @@ function [t_out,J_out,solution_out] = solve_T(P_init,V_init,A_init,P_wayp,V_wayp
                 t_test = acdefg_T_P(-P_init,-V_init,-A_init,-P_wayp,-V_wayp,-A_wayp,-V_min,-V_max,-A_min,-A_max,-J_min,-J_max,t_sync);
             otherwise
                 t_test = zero_O(P_init,V_init,A_init,P_wayp,V_wayp,A_wayp,V_max,V_min,A_max,A_min,J_max,J_min);
-                fprintf(['Error: Solution prior ',num2str(solution),' is not valid!\n']);
+                fprintf('Error: Solution prior ');printint(solution);fprintf(' is not valid!\n');
         end
         valid = check(t_test,J_test,P_init,V_init,A_init,P_wayp,V_wayp,A_wayp,V_max,V_min,A_max,A_min,J_max,J_min,t_sync);
         for index_t = 1:size(valid,2)
@@ -596,7 +595,7 @@ function [t_out,J_out,solution_out] = solve_T(P_init,V_init,A_init,P_wayp,V_wayp
     if (num_valid == 0)
         fprintf('Error: Could not find valid timed solution!\n');
     elseif (num_valid > 1)
-        fprintf(['Debug: Multiple (',num2str(num_valid),') timed solutions!\n']);
+        fprintf('Debug: Multiple (');printint(num_valid);fprintf(') timed solutions!\n');
         [~,index_sorted] = sort(sum(solution_out,2),'descend'); %TODO Here should be a better sorting instead of sorting via the Case ID
         t_out = t_out(index_sorted,:);
         J_out = J_out(index_sorted,:);

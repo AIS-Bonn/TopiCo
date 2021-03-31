@@ -121,7 +121,7 @@ end
                 t_marker = J_setp_struct(index_axis).time(index_times) - ts_rollout;
                 line([t_marker, t_marker],[axislimits_1D(1,3), axislimits_1D(1,4)],'Color','black','LineStyle',':','Linewidth',size_segment);
                 if (b_plot_numbers == true)
-                    text(J_setp_struct(index_axis).time(index_times-1) + (J_setp_struct(index_axis).time(index_times) - J_setp_struct(index_axis).time(index_times-1)) / 2,axislimits_1D(1,4),num2str(index_times-1),'FontSize',size_font,'FontName','Times','HorizontalAlignment','center','VerticalAlignment','bottom');
+                    text(J_setp_struct(index_axis).time(index_times-1) + (J_setp_struct(index_axis).time(index_times) - J_setp_struct(index_axis).time(index_times-1)) / 2,axislimits_1D(1,4),int2str(index_times-1),'FontSize',size_font,'FontName','Times','HorizontalAlignment','center','VerticalAlignment','bottom');
                 end
                 if (b_plot_markers(1) == true)
                     [P_switch,V_switch,A_switch,J_switch] = evaluate_to_time(State_start(index_axis,1),State_start(index_axis,2),State_start(index_axis,3),J_setp_struct(index_axis),t_marker);

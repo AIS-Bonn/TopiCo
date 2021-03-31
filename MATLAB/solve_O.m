@@ -38,7 +38,6 @@
 %% --------------------------------------------------------------------
 
 function [t_out,J_out,solution_out] = solve_O(P_init,V_init,A_init,P_wayp,V_wayp,A_wayp,V_max,V_min,A_max,A_min,J_max,J_min) %#codegen
-    coder.extrinsic('num2str');
     
     num_valid = 0;
     num_times = 7;
@@ -367,7 +366,7 @@ function [t_out,J_out,solution_out] = solve_O(P_init,V_init,A_init,P_wayp,V_wayp
                 t_test = acd_NO_P(-P_init,-V_init,-A_init,-P_wayp,-V_wayp,-A_wayp,-V_min,-V_max,-A_min,-A_max,-J_min,-J_max);
             otherwise
                 t_test = zero_O(P_init,V_init,A_init,P_wayp,V_wayp,A_wayp,V_max,V_min,A_max,A_min,J_max,J_min);
-                fprintf(['Error: Solution prior ',num2str(solution),' is not valid!\n']);
+                fprintf('Error: Solution prior ');printint(solution);fprintf(' is not valid!\n');
         end
         valid = check(t_test,J_test,P_init,V_init,A_init,P_wayp,V_wayp,A_wayp,V_max,V_min,A_max,A_min,J_max,J_min);
         for index_t = 1:size(valid,2)
@@ -400,7 +399,7 @@ function [t_out,J_out,solution_out] = solve_O(P_init,V_init,A_init,P_wayp,V_wayp
     if (num_valid == 0)
         fprintf('Error: Could not find valid optimal solution!\n');
     elseif (num_valid > 1)
-        fprintf(['Debug: Multiple (',num2str(num_valid),') optimal solutions!\n']);
+        fprintf('Debug: Multiple (');printint(num_valid);fprintf(') optimal solutions!\n');
         [~,index_sorted] = sort(sum(t_out,2));
         t_out = t_out(index_sorted,:);
         J_out = J_out(index_sorted,:);

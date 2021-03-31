@@ -38,7 +38,6 @@
 %% --------------------------------------------------------------------
 
 function [J_setp_struct,solution_out,T_waypoints,P,V,A,J,t] = topico(State_start,Waypoints,V_max_in,V_min_in,A_max_in,A_min_in,J_max_in,J_min_in,A_global,b_sync_V_in,b_sync_A_in,b_sync_J_in,b_sync_W_in,b_rotate_in,b_hard_V_lim_in,b_catch_up_in,direction_in,ts_rollout) %#codegen
-    coder.extrinsic('num2str');
     
     num_axes = size(Waypoints,1);
     num_waypoints = size(Waypoints,3);
@@ -69,7 +68,7 @@ function [J_setp_struct,solution_out,T_waypoints,P,V,A,J,t] = topico(State_start
     A_curr = State_start(:,3);
 
     for index_waypoint = 1:num_waypoints
-        fprintf(['Debug: Generating trajectory for waypoint ',num2str(index_waypoint),'!\n']);
+        fprintf('Debug: Generating trajectory for waypoint ');printint(index_waypoint);fprintf('!\n');
 
         % Evolve
         Waypoint_evolved  = evolve_waypoints(Waypoints(:,:,index_waypoint),sum(T_waypoints(:,1:index_waypoint-1),2));

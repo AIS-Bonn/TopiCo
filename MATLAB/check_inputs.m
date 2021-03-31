@@ -38,7 +38,6 @@
 %% --------------------------------------------------------------------
 
 function check_inputs(State_start,Waypoints,V_max,V_min,A_max,A_min,J_max,J_min,A_global,b_sync_V,b_sync_A,b_sync_J,b_sync_W,b_rotate,b_hard_V_lim,b_catch_up,direction,ts_rollout) %#codegen
-    coder.extrinsic('num2str');
 
     num_axes = size(Waypoints,1);
     num_waypoints = size(Waypoints,3);
@@ -61,7 +60,7 @@ function check_inputs(State_start,Waypoints,V_max,V_min,A_max,A_min,J_max,J_min,
     validateattributes(b_hard_V_lim,{'logical'},{'size',[num_axes,num_waypoints]},mfilename,'b_hard_V_lim',15);
     validateattributes(b_catch_up,{'logical'},{'size',[num_axes,num_waypoints]},mfilename,'b_catch_up',16);
     validateattributes(direction,{'int8'},{'size',[num_axes,num_waypoints],'finite',},mfilename,'direction',17);
-    validateattributes(ts_rollout,{'double'},{'size',[1,1],'finite','real'},mfilename,'ts_rollout',18);
+    validateattributes(ts_rollout,{'double'},{'size',[1,1],'nonnan','positive'},mfilename,'ts_rollout',18);
     
 
     if (sum(sum(direction == -1 | direction == 0 | direction == 1,1),2)~=num_axes*num_waypoints)

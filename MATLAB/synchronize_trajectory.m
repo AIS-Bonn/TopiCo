@@ -38,7 +38,6 @@
 %% --------------------------------------------------------------------
 
 function [t_out,J_out,solution_out] = synchronize_trajectory(P_init,V_init,A_init,P_wayp,V_wayp,A_wayp,V_max,V_min,A_max,A_min,J_max,J_min,b_sync_V,b_sync_A,b_sync_J,b_sync_W,b_hard_V_lim,T_catch_up,direction) %#codegen
-    coder.extrinsic('num2str');
 
     num_axes = size(P_init,1);
     
@@ -120,17 +119,17 @@ function [t_out,J_out,solution_out] = synchronize_trajectory(P_init,V_init,A_ini
     end
    
     %% Correct Feasibility
-    parfor index_axis = 1:num_axes
-    %for index_axis = 1:num_axes
-       fprintf(['Debug: Ax[',num2str(index_axis),'] Correcting feasibility!\n']);
+    %parfor index_axis = 1:num_axes
+    for index_axis = 1:num_axes
+       fprintf('Debug: Ax[');printint(index_axis);fprintf('] Correcting feasibility!\n');
        [t_red{index_axis},J_red{index_axis}] = correct_feasibility(P_init(index_axis),V_init(index_axis),A_init(index_axis),V_max(index_axis),V_min(index_axis),A_max(index_axis),A_min(index_axis),J_max(index_axis),J_min(index_axis),b_hard_V_lim(index_axis));
        [P_init(index_axis),V_init(index_axis),A_init(index_axis)] = evaluate_to_time(P_init(index_axis),V_init(index_axis),A_init(index_axis),construct_setp_struct(t_red{index_axis},J_red{index_axis}));
     end
 
     %% Find optimal solution
-    parfor index_axis = 1:num_axes
-    %for index_axis = 1:num_axes
-        fprintf(['Debug: Ax[',num2str(index_axis),'] Generating optimal solutions!\n']);
+    %parfor index_axis = 1:num_axes
+    for index_axis = 1:num_axes
+        fprintf('Debug: Ax[');printint(index_axis);fprintf('] Generating optimal solutions!\n');
         [t_opt{index_axis,1},J_opt{index_axis,1},solution_opt{index_axis,1}] = solve_O(P_init(index_axis),V_init(index_axis),A_init(index_axis),P_wayp(index_axis),V_wayp(index_axis),A_wayp(index_axis),V_max(index_axis),V_min(index_axis),A_max(index_axis),A_min(index_axis),J_max(index_axis),J_min(index_axis));
         
         if isempty(solution_opt{index_axis,1}) %So that coder does not crash
@@ -141,9 +140,10 @@ function [t_out,J_out,solution_out] = synchronize_trajectory(P_init,V_init,A_ini
         end
     end
     
+    
 
     %% Find timed solution
-    if (num_axes > 1)
+    if (num_axes > 1 && any(b_sync_V == true | b_sync_A == true | b_sync_J == true | b_sync_W == true))
         t_opt_test = t_opt;
         J_opt_test = J_opt;
         solution_opt_test = solution_opt;
@@ -159,24 +159,24 @@ function [t_out,J_out,solution_out] = synchronize_trajectory(P_init,V_init,A_ini
             end
             [~,axis_max] = max(T - T_catch_up);
             t_sync = T(axis_max) + T_catch_up - T_catch_up(axis_max);
-            fprintf(['Debug: Ax[',num2str(index_axis),'] is the slowest axis!\n']);
+            fprintf('Debug: Ax[');printint(index_axis);fprintf('] is the slowest axis!\n');
             for index_axis = 1:num_axes
                 if (index_axis ~= axis_max && (b_sync_V(index_axis) == true || b_sync_A(index_axis) == true || b_sync_J(index_axis) == true || b_sync_W(index_axis) == true))
                     if (direction(index_axis) == 0 && (isnan(P_wayp(index_axis)) || isnan(V_wayp(index_axis)) || isnan(A_wayp(index_axis))))
-                        fprintf(['Debug: Ax[',num2str(index_axis),'] Replacing NaNs with values from optimal solution!\n']);
+                        fprintf('Debug: Ax[');printint(index_axis);fprintf('] Replacing NaNs with values from optimal solution!\n');
                         [P_wayp(index_axis),V_wayp(index_axis),A_wayp(index_axis),~] = evaluate_to_time(P_init(index_axis),V_init(index_axis),A_init(index_axis),construct_setp_struct(t_opt_test{index_axis}(1,:),J_opt_test{index_axis}(1,:)));
-                        fprintf(['Debug: Ax[',num2str(index_axis),'] Finding possible multiple solutions for updated state!\n']);
+                        fprintf('Debug: Ax[');printint(index_axis);fprintf('] Finding possible multiple solutions for updated state!\n');
                         [t_opt_test{index_axis},J_opt_test{index_axis},solution_opt_test{index_axis}] = solve_O(P_init(index_axis),V_init(index_axis),A_init(index_axis),P_wayp(index_axis),V_wayp(index_axis),A_wayp(index_axis),V_max(index_axis),V_min(index_axis),A_max(index_axis),A_min(index_axis),J_max(index_axis),J_min(index_axis));     
                     end
-                    fprintf(['Debug: Ax[',num2str(index_axis),'] Searching for timed solutions!\n']);
+                    fprintf('Debug: Ax[');printint(index_axis);fprintf('] Searching for timed solutions!\n');
                     [t_tim{index_axis,1},J_tim{index_axis,1},solution_tim{index_axis,1}] = solve_T(P_init(index_axis),V_init(index_axis),A_init(index_axis),P_wayp(index_axis),V_wayp(index_axis),A_wayp(index_axis),V_max(index_axis),V_min(index_axis),A_max(index_axis),A_min(index_axis),J_max(index_axis),J_min(index_axis),t_sync(index_axis),b_sync_V(index_axis),b_sync_A(index_axis),b_sync_J(index_axis),b_sync_W(index_axis),direction(index_axis));
                     if (~isempty(solution_tim{index_axis}))
-                        fprintf(['Debug: Ax[',num2str(index_axis),'] Found timed solution!\n']);
+                        fprintf('Debug: Ax[');printint(index_axis);fprintf('] Found timed solution!\n');
                         t{index_axis,:} = t_tim{index_axis}(1,:);
                         J{index_axis,:} = J_tim{index_axis}(1,:);
                         solution_out(index_axis,1) = solution_tim{index_axis}(1,:);
                     else
-                        fprintf(['Debug: Ax[',num2str(index_axis),'] Considering slower solution!\n']);
+                        fprintf('Debug: Ax[');printint(index_axis);fprintf('] Considering slower solution!\n');
                         t_opt_test{index_axis} = circshift(t_opt_test{index_axis},-1);
                         J_opt_test{index_axis} = circshift(J_opt_test{index_axis},-1);
                         solution_opt_test{index_axis} = circshift(solution_opt_test{index_axis},-1);
@@ -201,14 +201,11 @@ function [t_out,J_out,solution_out] = synchronize_trajectory(P_init,V_init,A_ini
             end
             solution_opt_test_all = solution_opt_test_all(1:idx-1);
             
-            if (all(b_sync_V == false & b_sync_A == false & b_sync_J == false & b_sync_W == false))
-                fprintf('Debug: No axis to be synchronized. Exiting synchronization!\n');
-                break;
-            elseif (all(solution_out(:,1) ~= -1))
-                fprintf(['Debug: Found timed solutions for all ',num2str(num_axes),' axes after ',num2str(index_iteration),' iterations. Exiting synchronization!\n']);
+            if (all(solution_out(:,1) ~= -1))
+                fprintf('Debug: Found timed solutions for all ');printint(num_axes);fprintf(' axes after ');printint(index_iteration);fprintf(' iterations. Exiting synchronization!\n');
                 break;
             elseif (nnz(solution_opt_test_all ~= -1) == 0)       
-                fprintf(['Error: Could not find a timed solution after ',num2str(index_iteration),' iterations. Exiting synchronization!\n']);
+                fprintf('Error: Could not find a timed solution after ');printint(index_iteration);fprintf(' iterations. Exiting synchronization!\n');
                 for idx_axis = 1:num_axes
                     t{index_axis,:} = [t_opt{index_axis,:}(1,:),zeros(1,4)];
                     J{index_axis,:} = [J_opt{index_axis,:}(1,:),zeros(1,4)];
@@ -216,7 +213,7 @@ function [t_out,J_out,solution_out] = synchronize_trajectory(P_init,V_init,A_ini
                 end
                 break;
             elseif (index_iteration == max_iterations)
-                fprintf(['Error: Could not find a timed solution after maximum iterations (',num2str(max_iterations),'). Exiting synchronization!\n']);
+                fprintf('Error: Could not find a timed solution after maximum iterations (');printint(max_iterations);fprintf('). Exiting synchronization!\n');
                 for idx_axis = 1:num_axes
                     t{index_axis,:} = [t_opt{index_axis,:}(1,:),zeros(1,4)];
                     J{index_axis,:} = [J_opt{index_axis,:}(1,:),zeros(1,4)];
@@ -226,6 +223,7 @@ function [t_out,J_out,solution_out] = synchronize_trajectory(P_init,V_init,A_ini
             end
         end
     else
+        fprintf('Debug: No axis to be synchronized!\n');
         t = t_opt;
         J = J_opt;
     end
