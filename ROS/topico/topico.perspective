@@ -1,0 +1,437 @@
+{
+  "keys": {},
+  "groups": {
+    "pluginmanager": {
+      "keys": {
+        "running-plugins": {
+          "type": "repr",
+          "repr": "{u'rqt_publisher/Publisher': [1]}"
+        }
+      },
+      "groups": {
+        "plugin__rqt_rviz__RViz__1": {
+          "keys": {},
+          "groups": {
+            "dock_widget__": {
+              "keys": {
+                "dockable": {
+                  "type": "repr",
+                  "repr": "u'true'"
+                },
+                "parent": {
+                  "type": "repr",
+                  "repr": "None"
+                },
+                "dock_widget_title": {
+                  "type": "repr",
+                  "repr": "u'default.rviz[*] - RViz'"
+                }
+              },
+              "groups": {}
+            },
+            "plugin": {
+              "keys": {
+                "rviz_config_file": {
+                  "type": "repr",
+                  "repr": "u''"
+                },
+                "hide_menu": {
+                  "type": "repr",
+                  "repr": "u'false'"
+                }
+              },
+              "groups": {}
+            }
+          }
+        },
+        "plugin__rqt_reconfigure__Param__1": {
+          "keys": {},
+          "groups": {
+            "dock_widget___plugincontainer_top_widget": {
+              "keys": {
+                "dockable": {
+                  "type": "repr",
+                  "repr": "u'true'"
+                },
+                "parent": {
+                  "type": "repr",
+                  "repr": "None"
+                },
+                "dock_widget_title": {
+                  "type": "repr",
+                  "repr": "u'Dynamic Reconfigure'"
+                }
+              },
+              "groups": {}
+            },
+            "plugin": {
+              "keys": {
+                "expanded_nodes": {
+                  "type": "repr",
+                  "repr": "None"
+                },
+                "splitter": {
+                  "type": "repr(QByteArray.hex)",
+                  "repr(QByteArray.hex)": "QtCore.QByteArray('000000ff00000001000000020000013d0000010301ffffffff010000000100')",
+                  "pretty-print": "       =       "
+                },
+                "selected_nodes": {
+                  "type": "repr",
+                  "repr": "None"
+                },
+                "_splitter": {
+                  "type": "repr(QByteArray.hex)",
+                  "repr(QByteArray.hex)": "QtCore.QByteArray('000000ff000000010000000200000175000000640100000009010000000200')",
+                  "pretty-print": "       u d     "
+                },
+                "text": {
+                  "type": "repr",
+                  "repr": "u''"
+                }
+              },
+              "groups": {}
+            }
+          }
+        },
+        "plugin__parametertuner__Parametertuner__1": {
+          "keys": {},
+          "groups": {
+            "dock_widget__parametertuner": {
+              "keys": {
+                "dockable": {
+                  "type": "repr",
+                  "repr": "u'true'"
+                },
+                "parent": {
+                  "type": "repr",
+                  "repr": "None"
+                },
+                "dock_widget_title": {
+                  "type": "repr",
+                  "repr": "u'Parameter Tuner'"
+                }
+              },
+              "groups": {}
+            }
+          }
+        },
+        "plugin__config_tuner::ConfigTuner__1": {
+          "keys": {},
+          "groups": {
+            "dock_widget__ConfigTuner": {
+              "keys": {
+                "dockable": {
+                  "type": "repr",
+                  "repr": "u'true'"
+                },
+                "parent": {
+                  "type": "repr",
+                  "repr": "None"
+                },
+                "dock_widget_title": {
+                  "type": "repr",
+                  "repr": "u'/mbzirc3/config_server'"
+                }
+              },
+              "groups": {}
+            },
+            "plugin": {
+              "keys": {
+                "filter": {
+                  "type": "repr",
+                  "repr": "u''"
+                },
+                "prefix": {
+                  "type": "repr",
+                  "repr": "u'/mbzirc3/config_server'"
+                },
+                "header_state": {
+                  "type": "repr(QByteArray.hex)",
+                  "repr(QByteArray.hex)": "QtCore.QByteArray('000000ff000000000000000100000001000000000000000000000000000000000000000000000003a0000000020100000100000000000000000000000064ffffffff0000008100000000000000020000027500000001000000000000012b0000000100000000000003e800000000c8')",
+                  "pretty-print": "                              d         u     +        "
+                }
+              },
+              "groups": {}
+            }
+          }
+        },
+        "plugin__rqt_publisher__Publisher__2": {
+          "keys": {},
+          "groups": {
+            "plugin": {
+              "keys": {
+                "publishers": {
+                  "type": "repr",
+                  "repr": "u'[]'"
+                }
+              },
+              "groups": {}
+            }
+          }
+        },
+        "plugin__nimbro_fsm2__GUI__2": {
+          "keys": {},
+          "groups": {
+            "dock_widget__StateMachineGUI": {
+              "keys": {
+                "dockable": {
+                  "type": "repr",
+                  "repr": "u'true'"
+                },
+                "parent": {
+                  "type": "repr",
+                  "repr": "None"
+                },
+                "dock_widget_title": {
+                  "type": "repr",
+                  "repr": "u'/mbzirc7/fsm_waiter'"
+                }
+              },
+              "groups": {}
+            },
+            "plugin": {
+              "keys": {
+                "check_subgraph": {
+                  "type": "repr",
+                  "repr": "u'false'"
+                },
+                "check_ratio": {
+                  "type": "repr",
+                  "repr": "u'false'"
+                },
+                "splitter_h": {
+                  "type": "repr(QByteArray.hex)",
+                  "repr(QByteArray.hex)": "QtCore.QByteArray('000000ff00000001000000020000039e000000f701ffffffff010000000100')",
+                  "pretty-print": "               "
+                },
+                "splitter_v": {
+                  "type": "repr(QByteArray.hex)",
+                  "repr(QByteArray.hex)": "QtCore.QByteArray('000000ff00000001000000020000034c000001f901ffffffff010000000200')",
+                  "pretty-print": "       L       "
+                },
+                "prefix": {
+                  "type": "repr",
+                  "repr": "u'/mbzirc7/fsm_waiter'"
+                },
+                "check_subgraph_align": {
+                  "type": "repr",
+                  "repr": "u'false'"
+                },
+                "check_transpose": {
+                  "type": "repr",
+                  "repr": "u'false'"
+                }
+              },
+              "groups": {}
+            }
+          }
+        },
+        "plugin__rqt_publisher__Publisher__1": {
+          "keys": {},
+          "groups": {
+            "dock_widget__PublisherWidget": {
+              "keys": {
+                "dockable": {
+                  "type": "repr",
+                  "repr": "True"
+                },
+                "parent": {
+                  "type": "repr",
+                  "repr": "None"
+                },
+                "dock_widget_title": {
+                  "type": "repr",
+                  "repr": "u'Message Publisher'"
+                }
+              },
+              "groups": {}
+            },
+            "plugin": {
+              "keys": {
+                "publishers": {
+                  "type": "repr",
+                  "repr": "u'[{\\'topic_name\\': \\'/topico/init_odometry\\', \\'type_name\\': \\'nav_msgs/Odometry\\', \\'enabled\\': False, \\'rate\\': 10.0, \\'expressions\\': {u\\'/topico/init_odometry/twist/twist/linear/y\\': \\'0.8\\', u\\'/topico/init_odometry/child_frame_id\\': \"\\'\\'\", u\\'/topico/init_odometry/twist/twist/linear/z\\': \\'0.5\\', u\\'/topico/init_odometry/header/frame_id\\': \\'world\\', u\\'/topico/init_odometry/twist/twist/linear/x\\': \\'0.0\\'}, \\'publisher_id\\': 0, \\'counter\\': 59569}, {\\'topic_name\\': \\'/topico/wayp_odometry\\', \\'type_name\\': \\'nav_msgs/Odometry\\', \\'enabled\\': False, \\'rate\\': 10.0, \\'expressions\\': {u\\'/topico/wayp_odometry/header/frame_id\\': \\'world\\', u\\'/topico/wayp_odometry/child_frame_id\\': \"\\'\\'\", u\\'/topico/wayp_odometry/twist/twist/linear/x\\': \\'0.5\\', u\\'/topico/wayp_odometry/twist/twist/linear/y\\': \\'0.5\\', u\\'/topico/wayp_odometry/pose/pose/position/x\\': \\'5\\', u\\'/topico/wayp_odometry/twist/twist/linear/z\\': \\'0.5\\'}, \\'publisher_id\\': 1, \\'counter\\': 59566}]'"
+                }
+              },
+              "groups": {}
+            }
+          }
+        },
+        "plugin__rqt_console__Console__1": {
+          "keys": {},
+          "groups": {
+            "dock_widget__ConsoleWidget": {
+              "keys": {
+                "dockable": {
+                  "type": "repr",
+                  "repr": "u'true'"
+                },
+                "parent": {
+                  "type": "repr",
+                  "repr": "None"
+                },
+                "dock_widget_title": {
+                  "type": "repr",
+                  "repr": "u'Console'"
+                }
+              },
+              "groups": {}
+            },
+            "plugin": {
+              "keys": {
+                "show_highlighted_only": {
+                  "type": "repr",
+                  "repr": "u'false'"
+                },
+                "message_limit": {
+                  "type": "repr",
+                  "repr": "u'20000'"
+                },
+                "exclude_filters": {
+                  "type": "repr",
+                  "repr": "u'severity'"
+                },
+                "table_splitter": {
+                  "type": "repr(QByteArray.hex)",
+                  "repr(QByteArray.hex)": "QtCore.QByteArray('000000ff00000001000000020000077d000000000100000009010000000200')",
+                  "pretty-print": "       }       "
+                },
+                "highlight_filters": {
+                  "type": "repr",
+                  "repr": "u'message'"
+                },
+                "paused": {
+                  "type": "repr",
+                  "repr": "u'false'"
+                },
+                "settings_exist": {
+                  "type": "repr",
+                  "repr": "u'true'"
+                },
+                "filter_splitter": {
+                  "type": "repr(QByteArray.hex)",
+                  "repr(QByteArray.hex)": "QtCore.QByteArray('000000ff0000000100000002000000d9000000d90100000009010000000200')",
+                  "pretty-print": "               "
+                }
+              },
+              "groups": {
+                "exclude_filter_0": {
+                  "keys": {
+                    "enabled": {
+                      "type": "repr",
+                      "repr": "u'true'"
+                    },
+                    "itemlist": {
+                      "type": "repr",
+                      "repr": "u''"
+                    }
+                  },
+                  "groups": {}
+                },
+                "highlight_filter_0": {
+                  "keys": {
+                    "regex": {
+                      "type": "repr",
+                      "repr": "u'false'"
+                    },
+                    "text": {
+                      "type": "repr",
+                      "repr": "u''"
+                    },
+                    "enabled": {
+                      "type": "repr",
+                      "repr": "u'false'"
+                    }
+                  },
+                  "groups": {}
+                }
+              }
+            }
+          }
+        },
+        "plugin__nimbro_fsm2__GUI__1": {
+          "keys": {},
+          "groups": {
+            "dock_widget__StateMachineGUI": {
+              "keys": {
+                "dockable": {
+                  "type": "repr",
+                  "repr": "u'true'"
+                },
+                "parent": {
+                  "type": "repr",
+                  "repr": "None"
+                },
+                "dock_widget_title": {
+                  "type": "repr",
+                  "repr": "u'/mbzirc9/fsm_extinguisher'"
+                }
+              },
+              "groups": {}
+            },
+            "plugin": {
+              "keys": {
+                "check_subgraph": {
+                  "type": "repr",
+                  "repr": "u'true'"
+                },
+                "check_ratio": {
+                  "type": "repr",
+                  "repr": "u'true'"
+                },
+                "splitter_h": {
+                  "type": "repr(QByteArray.hex)",
+                  "repr(QByteArray.hex)": "QtCore.QByteArray('000000ff000000010000000200000000000005b501ffffffff010000000100')",
+                  "pretty-print": "               "
+                },
+                "splitter_v": {
+                  "type": "repr(QByteArray.hex)",
+                  "repr(QByteArray.hex)": "QtCore.QByteArray('000000ff0000000100000002000002be0000011401ffffffff010000000200')",
+                  "pretty-print": "               "
+                },
+                "prefix": {
+                  "type": "repr",
+                  "repr": "u'/mbzirc7/fsm_chaser'"
+                },
+                "check_subgraph_align": {
+                  "type": "repr",
+                  "repr": "u'false'"
+                },
+                "check_transpose": {
+                  "type": "repr",
+                  "repr": "u'false'"
+                }
+              },
+              "groups": {}
+            }
+          }
+        }
+      }
+    },
+    "mainwindow": {
+      "keys": {
+        "geometry": {
+          "type": "repr(QByteArray.hex)",
+          "repr(QByteArray.hex)": "QtCore.QByteArray('01d9d0cb00020000000000310000001b00000b3f00000653000000310000003700000b3f0000065300000000000000000b40')",
+          "pretty-print": "     1   ? S 1 7 ? S    @"
+        },
+        "state": {
+          "type": "repr(QByteArray.hex)",
+          "repr(QByteArray.hex)": "QtCore.QByteArray('000000ff00000000fd000000010000000300000b0f000005f1fc0100000007fb00000058007200710074005f007000750062006c00690073006800650072005f005f005000750062006c00690073006800650072005f005f0031005f005f005000750062006c00690073006800650072005700690064006700650074010000000000000b0f0000023d00fffffffb0000006c007200710074005f007200650063006f006e006600690067007500720065005f005f0050006100720061006d005f005f0031005f005f005f0070006c007500670069006e0063006f006e007400610069006e00650072005f0074006f0070005f007700690064006700650074010000048d000006820000000000000000fb00000078007200710074005f00720075006e00740069006d0065005f006d006f006e00690074006f0072005f005f00520075006e00740069006d0065004d006f006e00690074006f0072005f005f0031005f005f00520075006e00740069006d0065004d006f006e00690074006f00720057006900640067006500740100000000000003160000000000000000fb00000042007200710074005f007300720076005f005f00530065007200760069006300650073005f005f0031005f005f006d0065007300730061006700650073002e00750069010000082e000002b00000000000000000fb00000042007200710074005f006e00610076005f0076006900650077005f005f004e0061007600690067006100740069006f006e0056006900650077005f005f0031005f005f01000002a3000001b00000000000000000fb00000026007200710074005f007200760069007a005f005f005200560069007a005f005f0031005f005f010000040b000003440000000000000000fb0000004a007200710074005f0071007500610064005f006700750069005f005f007200710074005f0071007500610064005f006700750069005f00620061007300690063005f005f0031005f005f010000092a000001b4000000000000000000000b0f0000000000000004000000040000000800000008fc00000001000000030000000100000036004d0069006e0069006d0069007a006500640044006f0063006b00570069006400670065007400730054006f006f006c0062006100720000000000ffffffff0000000000000000')",
+          "pretty-print": "                 Xrqt_publisher__Publisher__1__PublisherWidget          lrqt_reconfigure__Param__1___plugincontainer_top_widget          xrqt_runtime_monitor__RuntimeMonitor__1__RuntimeMonitorWidget          Brqt_srv__Services__1__messages.ui          Brqt_nav_view__NavigationView__1__          &rqt_rviz__RViz__1__          Jrqt_quad_gui__rqt_quad_gui_basic__1__                            6MinimizedDockWidgetsToolbar        "
+        }
+      },
+      "groups": {
+        "toolbar_areas": {
+          "keys": {
+            "MinimizedDockWidgetsToolbar": {
+              "type": "repr",
+              "repr": "8"
+            }
+          },
+          "groups": {}
+        }
+      }
+    }
+  }
+}

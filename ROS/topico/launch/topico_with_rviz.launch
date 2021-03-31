@@ -1,0 +1,6 @@
+<launch>
+    <node pkg="topico" type="topico_node" name="topico" output="screen" />
+    <node name = "rqt" pkg = "rqt_gui" type = "rqt_gui" respawn = "false" output = "screen" args = "--perspective-file $(find topico)/topico.perspective"/>
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find topico)/topico.rviz" />
+</launch>
+

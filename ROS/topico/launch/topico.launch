@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="topico" type="topico_node" name="topico" output="screen" />
+</launch>
+
