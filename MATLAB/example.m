@@ -170,8 +170,8 @@ ts_rollout        = Inf;
 
 %% ----------   Compute    ----------
 tic;
-%[J_setp_struct,solution_out,T_waypoints,P,V,A,J,t] = topico(State_start,Waypoints,V_max,V_min,A_max,A_min,J_max,J_min,A_global,b_sync_V,b_sync_A,b_sync_J,b_sync_W,b_rotate,b_hard_V_lim,b_catch_up,direction,ts_rollout);
-[J_setp_struct,solution_out,T_waypoints,P,V,A,J,t] = topico_mex(State_start,Waypoints,V_max,V_min,A_max,A_min,J_max,J_min,A_global,b_sync_V,b_sync_A,b_sync_J,b_sync_W,b_rotate,b_hard_V_lim,b_catch_up,direction,ts_rollout);
+[J_setp_struct,solution_out,T_waypoints,P,V,A,J,t] = topico(State_start,Waypoints,V_max,V_min,A_max,A_min,J_max,J_min,A_global,b_sync_V,b_sync_A,b_sync_J,b_sync_W,b_rotate,b_hard_V_lim,b_catch_up,direction,ts_rollout);
+%[J_setp_struct,solution_out,T_waypoints,P,V,A,J,t] = topico_mex(State_start,Waypoints,V_max,V_min,A_max,A_min,J_max,J_min,A_global,b_sync_V,b_sync_A,b_sync_J,b_sync_W,b_rotate,b_hard_V_lim,b_catch_up,direction,ts_rollout);
 t_elapsed = toc;
 
 
