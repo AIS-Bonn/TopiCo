@@ -197,7 +197,7 @@ int main(int argc, char **argv)
           b_rotate[idx_dim + num_dim * idx_wayp]     = false;
         }
       }
-      ts_rollout = 0.1
+      ts_rollout = 0.1;
 
       
       topico(State_start, Waypoints, V_max, V_min, A_max, A_min, J_max, J_min, A_global, b_sync_V, b_sync_A, b_sync_J, b_sync_W, b_rotate, b_hard_V_lim, b_catch_up, direction, ts_rollout, J_setp_struct,solution_out, T_waypoints, P, V, A, J, t);
