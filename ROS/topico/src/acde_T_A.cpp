@@ -12,7 +12,7 @@
 #include "acde_T_A.h"
 #include "rt_nonfinite.h"
 #include "sqrt.h"
-#include "topico_data.h"
+#include "topico_wrapper_data.h"
 
 // Function Definitions
 void acde_T_A(double V_init, double A_init, double A_wayp, double V_max,

@@ -90,10 +90,11 @@ for index_code_gen = 2
     ARGS{1}{size(ARGS{1},2)+1} = coder.typeof(int8(0),[Inf Inf],[0 0]); % direction
     ARGS{1}{size(ARGS{1},2)+1} = coder.typeof(0,[1 1],[0 0]);           % ts_rollout
     
-    codegen -v -config cfg topico -o topico_mex -args ARGS{1}
-    
     if (index_code_gen == 1)
+        codegen -v -config cfg topico -o topico_mex -args ARGS{1}
         copyfile(['codegen/mex/topico/topico_mex.',mexext],['topico_mex.',mexext]);
+    elseif (index_code_gen == 2)
+        codegen -v -config cfg topico_wrapper -args ARGS{1}
     end
 
 end

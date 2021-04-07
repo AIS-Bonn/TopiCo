@@ -11,7 +11,7 @@
 // Include files
 #include "validateattributes.h"
 #include "rt_nonfinite.h"
-#include "topico_types.h"
+#include "topico_wrapper_types.h"
 #include "coder_array.h"
 #include "rt_nonfinite.h"
 #include <cmath>
@@ -20,7 +20,7 @@
 #include <string>
 
 // Variable Definitions
-static rtRunTimeErrorInfo b_emlrtRTEI = {
+static rtRunTimeErrorInfo emlrtRTEI = {
     10,             // lineNo
     23,             // colNo
     "validatesize", // fName
@@ -28,7 +28,7 @@ static rtRunTimeErrorInfo b_emlrtRTEI = {
     "validatesize.m" // pName
 };
 
-static rtRunTimeErrorInfo c_emlrtRTEI = {
+static rtRunTimeErrorInfo b_emlrtRTEI = {
     15,             // lineNo
     19,             // colNo
     "validatesize", // fName
@@ -36,7 +36,7 @@ static rtRunTimeErrorInfo c_emlrtRTEI = {
     "validatesize.m" // pName
 };
 
-static rtRunTimeErrorInfo d_emlrtRTEI = {
+static rtRunTimeErrorInfo c_emlrtRTEI = {
     14,               // lineNo
     37,               // colNo
     "validatefinite", // fName
@@ -44,7 +44,7 @@ static rtRunTimeErrorInfo d_emlrtRTEI = {
     "validatefinite.m" // pName
 };
 
-static rtRunTimeErrorInfo e_emlrtRTEI = {
+static rtRunTimeErrorInfo d_emlrtRTEI = {
     14,               // lineNo
     37,               // colNo
     "validatenonnan", // fName
@@ -56,10 +56,10 @@ static rtRunTimeErrorInfo e_emlrtRTEI = {
 static void b_rtErrorWithMessageID(const char *b, const char *aFcnName,
                                    int aLineNum);
 
+static void c_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
+
 static void c_rtErrorWithMessageID(const char *b, const char *aFcnName,
                                    int aLineNum);
-
-static void d_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 
 static void d_rtErrorWithMessageID(const char *b, const char *aFcnName,
                                    int aLineNum);
@@ -88,21 +88,21 @@ static void c_rtErrorWithMessageID(const char *b, const char *aFcnName,
   throw std::runtime_error(outStream.str());
 }
 
-static void d_rtErrorWithMessageID(const char *b, const char *aFcnName,
-                                   int aLineNum)
+static void c_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
 {
   std::stringstream outStream;
-  ((outStream << "Expected ") << b) << " to be positive.";
+  outStream
+      << "Argument \'size\' must be followed by a real array of integers.";
   outStream << "\n";
   ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
   throw std::runtime_error(outStream.str());
 }
 
-static void d_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+static void d_rtErrorWithMessageID(const char *b, const char *aFcnName,
+                                   int aLineNum)
 {
   std::stringstream outStream;
-  outStream
-      << "Argument \'size\' must be followed by a real array of integers.";
+  ((outStream << "Expected ") << b) << " to be positive.";
   outStream << "\n";
   ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
   throw std::runtime_error(outStream.str());
@@ -132,14 +132,14 @@ void b_validateattributes(const ::coder::array<double, 2U> &a,
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (rtIsInf(attributes_f2[1]) || (!(attributes_f2[1] >= 0.0)) ||
         (!(attributes_f2[1] == std::floor(attributes_f2[1])))))) {
-    d_rtErrorWithMessageID(b_emlrtRTEI.fName, b_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID(emlrtRTEI.fName, emlrtRTEI.lineNo);
   }
   if (((!(attributes_f2[0] != attributes_f2[0])) &&
        (!(attributes_f2[0] == a.size(0)))) ||
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (!(attributes_f2[1] == a.size(1))))) {
-    rtErrorWithMessageID("Input number 3, V_max,", c_emlrtRTEI.fName,
-                         c_emlrtRTEI.lineNo);
+    rtErrorWithMessageID("Input number 3, V_max,", b_emlrtRTEI.fName,
+                         b_emlrtRTEI.lineNo);
   }
   p = true;
   i = a.size(0) * a.size(1);
@@ -154,8 +154,8 @@ void b_validateattributes(const ::coder::array<double, 2U> &a,
     }
   }
   if (!p) {
-    c_rtErrorWithMessageID("input number 3, V_max,", e_emlrtRTEI.fName,
-                           e_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID("input number 3, V_max,", d_emlrtRTEI.fName,
+                           d_emlrtRTEI.lineNo);
   }
 }
 
@@ -172,14 +172,14 @@ void c_validateattributes(const ::coder::array<double, 2U> &a,
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (rtIsInf(attributes_f2[1]) || (!(attributes_f2[1] >= 0.0)) ||
         (!(attributes_f2[1] == std::floor(attributes_f2[1])))))) {
-    d_rtErrorWithMessageID(b_emlrtRTEI.fName, b_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID(emlrtRTEI.fName, emlrtRTEI.lineNo);
   }
   if (((!(attributes_f2[0] != attributes_f2[0])) &&
        (!(attributes_f2[0] == a.size(0)))) ||
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (!(attributes_f2[1] == a.size(1))))) {
-    rtErrorWithMessageID("Input number 4, V_min,", c_emlrtRTEI.fName,
-                         c_emlrtRTEI.lineNo);
+    rtErrorWithMessageID("Input number 4, V_min,", b_emlrtRTEI.fName,
+                         b_emlrtRTEI.lineNo);
   }
   p = true;
   i = a.size(0) * a.size(1);
@@ -194,8 +194,8 @@ void c_validateattributes(const ::coder::array<double, 2U> &a,
     }
   }
   if (!p) {
-    c_rtErrorWithMessageID("input number 4, V_min,", e_emlrtRTEI.fName,
-                           e_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID("input number 4, V_min,", d_emlrtRTEI.fName,
+                           d_emlrtRTEI.lineNo);
   }
 }
 
@@ -212,14 +212,14 @@ void d_validateattributes(const ::coder::array<double, 2U> &a,
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (rtIsInf(attributes_f2[1]) || (!(attributes_f2[1] >= 0.0)) ||
         (!(attributes_f2[1] == std::floor(attributes_f2[1])))))) {
-    d_rtErrorWithMessageID(b_emlrtRTEI.fName, b_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID(emlrtRTEI.fName, emlrtRTEI.lineNo);
   }
   if (((!(attributes_f2[0] != attributes_f2[0])) &&
        (!(attributes_f2[0] == a.size(0)))) ||
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (!(attributes_f2[1] == a.size(1))))) {
-    rtErrorWithMessageID("Input number 5, A_max,", c_emlrtRTEI.fName,
-                         c_emlrtRTEI.lineNo);
+    rtErrorWithMessageID("Input number 5, A_max,", b_emlrtRTEI.fName,
+                         b_emlrtRTEI.lineNo);
   }
   p = true;
   i = a.size(0) * a.size(1);
@@ -234,8 +234,8 @@ void d_validateattributes(const ::coder::array<double, 2U> &a,
     }
   }
   if (!p) {
-    c_rtErrorWithMessageID("input number 5, A_max,", e_emlrtRTEI.fName,
-                           e_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID("input number 5, A_max,", d_emlrtRTEI.fName,
+                           d_emlrtRTEI.lineNo);
   }
 }
 
@@ -252,14 +252,14 @@ void e_validateattributes(const ::coder::array<double, 2U> &a,
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (rtIsInf(attributes_f2[1]) || (!(attributes_f2[1] >= 0.0)) ||
         (!(attributes_f2[1] == std::floor(attributes_f2[1])))))) {
-    d_rtErrorWithMessageID(b_emlrtRTEI.fName, b_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID(emlrtRTEI.fName, emlrtRTEI.lineNo);
   }
   if (((!(attributes_f2[0] != attributes_f2[0])) &&
        (!(attributes_f2[0] == a.size(0)))) ||
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (!(attributes_f2[1] == a.size(1))))) {
-    rtErrorWithMessageID("Input number 6, A_min,", c_emlrtRTEI.fName,
-                         c_emlrtRTEI.lineNo);
+    rtErrorWithMessageID("Input number 6, A_min,", b_emlrtRTEI.fName,
+                         b_emlrtRTEI.lineNo);
   }
   p = true;
   i = a.size(0) * a.size(1);
@@ -274,8 +274,8 @@ void e_validateattributes(const ::coder::array<double, 2U> &a,
     }
   }
   if (!p) {
-    c_rtErrorWithMessageID("input number 6, A_min,", e_emlrtRTEI.fName,
-                           e_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID("input number 6, A_min,", d_emlrtRTEI.fName,
+                           d_emlrtRTEI.lineNo);
   }
 }
 
@@ -292,14 +292,14 @@ void f_validateattributes(const ::coder::array<double, 2U> &a,
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (rtIsInf(attributes_f2[1]) || (!(attributes_f2[1] >= 0.0)) ||
         (!(attributes_f2[1] == std::floor(attributes_f2[1])))))) {
-    d_rtErrorWithMessageID(b_emlrtRTEI.fName, b_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID(emlrtRTEI.fName, emlrtRTEI.lineNo);
   }
   if (((!(attributes_f2[0] != attributes_f2[0])) &&
        (!(attributes_f2[0] == a.size(0)))) ||
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (!(attributes_f2[1] == a.size(1))))) {
-    rtErrorWithMessageID("Input number 7, J_max,", c_emlrtRTEI.fName,
-                         c_emlrtRTEI.lineNo);
+    rtErrorWithMessageID("Input number 7, J_max,", b_emlrtRTEI.fName,
+                         b_emlrtRTEI.lineNo);
   }
   p = true;
   i = a.size(0) * a.size(1);
@@ -314,8 +314,8 @@ void f_validateattributes(const ::coder::array<double, 2U> &a,
     }
   }
   if (!p) {
-    c_rtErrorWithMessageID("input number 7, J_max,", e_emlrtRTEI.fName,
-                           e_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID("input number 7, J_max,", d_emlrtRTEI.fName,
+                           d_emlrtRTEI.lineNo);
   }
 }
 
@@ -332,14 +332,14 @@ void g_validateattributes(const ::coder::array<double, 2U> &a,
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (rtIsInf(attributes_f2[1]) || (!(attributes_f2[1] >= 0.0)) ||
         (!(attributes_f2[1] == std::floor(attributes_f2[1])))))) {
-    d_rtErrorWithMessageID(b_emlrtRTEI.fName, b_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID(emlrtRTEI.fName, emlrtRTEI.lineNo);
   }
   if (((!(attributes_f2[0] != attributes_f2[0])) &&
        (!(attributes_f2[0] == a.size(0)))) ||
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (!(attributes_f2[1] == a.size(1))))) {
-    rtErrorWithMessageID("Input number 8, J_min,", c_emlrtRTEI.fName,
-                         c_emlrtRTEI.lineNo);
+    rtErrorWithMessageID("Input number 8, J_min,", b_emlrtRTEI.fName,
+                         b_emlrtRTEI.lineNo);
   }
   p = true;
   i = a.size(0) * a.size(1);
@@ -354,8 +354,8 @@ void g_validateattributes(const ::coder::array<double, 2U> &a,
     }
   }
   if (!p) {
-    c_rtErrorWithMessageID("input number 8, J_min,", e_emlrtRTEI.fName,
-                           e_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID("input number 8, J_min,", d_emlrtRTEI.fName,
+                           d_emlrtRTEI.lineNo);
   }
 }
 
@@ -368,14 +368,14 @@ void h_validateattributes(const ::coder::array<bool, 2U> &a,
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (rtIsInf(attributes_f2[1]) || (!(attributes_f2[1] >= 0.0)) ||
         (!(attributes_f2[1] == std::floor(attributes_f2[1])))))) {
-    d_rtErrorWithMessageID(b_emlrtRTEI.fName, b_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID(emlrtRTEI.fName, emlrtRTEI.lineNo);
   }
   if (((!(attributes_f2[0] != attributes_f2[0])) &&
        (!(attributes_f2[0] == a.size(0)))) ||
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (!(attributes_f2[1] == a.size(1))))) {
-    rtErrorWithMessageID("Input number 10, b_sync_V,", c_emlrtRTEI.fName,
-                         c_emlrtRTEI.lineNo);
+    rtErrorWithMessageID("Input number 10, b_sync_V,", b_emlrtRTEI.fName,
+                         b_emlrtRTEI.lineNo);
   }
 }
 
@@ -388,14 +388,14 @@ void i_validateattributes(const ::coder::array<bool, 2U> &a,
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (rtIsInf(attributes_f2[1]) || (!(attributes_f2[1] >= 0.0)) ||
         (!(attributes_f2[1] == std::floor(attributes_f2[1])))))) {
-    d_rtErrorWithMessageID(b_emlrtRTEI.fName, b_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID(emlrtRTEI.fName, emlrtRTEI.lineNo);
   }
   if (((!(attributes_f2[0] != attributes_f2[0])) &&
        (!(attributes_f2[0] == a.size(0)))) ||
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (!(attributes_f2[1] == a.size(1))))) {
-    rtErrorWithMessageID("Input number 11, b_sync_A,", c_emlrtRTEI.fName,
-                         c_emlrtRTEI.lineNo);
+    rtErrorWithMessageID("Input number 11, b_sync_A,", b_emlrtRTEI.fName,
+                         b_emlrtRTEI.lineNo);
   }
 }
 
@@ -408,14 +408,14 @@ void j_validateattributes(const ::coder::array<bool, 2U> &a,
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (rtIsInf(attributes_f2[1]) || (!(attributes_f2[1] >= 0.0)) ||
         (!(attributes_f2[1] == std::floor(attributes_f2[1])))))) {
-    d_rtErrorWithMessageID(b_emlrtRTEI.fName, b_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID(emlrtRTEI.fName, emlrtRTEI.lineNo);
   }
   if (((!(attributes_f2[0] != attributes_f2[0])) &&
        (!(attributes_f2[0] == a.size(0)))) ||
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (!(attributes_f2[1] == a.size(1))))) {
-    rtErrorWithMessageID("Input number 12, b_sync_J,", c_emlrtRTEI.fName,
-                         c_emlrtRTEI.lineNo);
+    rtErrorWithMessageID("Input number 12, b_sync_J,", b_emlrtRTEI.fName,
+                         b_emlrtRTEI.lineNo);
   }
 }
 
@@ -428,14 +428,14 @@ void k_validateattributes(const ::coder::array<bool, 2U> &a,
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (rtIsInf(attributes_f2[1]) || (!(attributes_f2[1] >= 0.0)) ||
         (!(attributes_f2[1] == std::floor(attributes_f2[1])))))) {
-    d_rtErrorWithMessageID(b_emlrtRTEI.fName, b_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID(emlrtRTEI.fName, emlrtRTEI.lineNo);
   }
   if (((!(attributes_f2[0] != attributes_f2[0])) &&
        (!(attributes_f2[0] == a.size(0)))) ||
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (!(attributes_f2[1] == a.size(1))))) {
-    rtErrorWithMessageID("Input number 13, b_sync_W,", c_emlrtRTEI.fName,
-                         c_emlrtRTEI.lineNo);
+    rtErrorWithMessageID("Input number 13, b_sync_W,", b_emlrtRTEI.fName,
+                         b_emlrtRTEI.lineNo);
   }
 }
 
@@ -448,14 +448,14 @@ void l_validateattributes(const ::coder::array<bool, 2U> &a,
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (rtIsInf(attributes_f2[1]) || (!(attributes_f2[1] >= 0.0)) ||
         (!(attributes_f2[1] == std::floor(attributes_f2[1])))))) {
-    d_rtErrorWithMessageID(b_emlrtRTEI.fName, b_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID(emlrtRTEI.fName, emlrtRTEI.lineNo);
   }
   if (((!(attributes_f2[0] != attributes_f2[0])) &&
        (!(attributes_f2[0] == a.size(0)))) ||
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (!(attributes_f2[1] == a.size(1))))) {
-    rtErrorWithMessageID("Input number 14, b_rotate,", c_emlrtRTEI.fName,
-                         c_emlrtRTEI.lineNo);
+    rtErrorWithMessageID("Input number 14, b_rotate,", b_emlrtRTEI.fName,
+                         b_emlrtRTEI.lineNo);
   }
 }
 
@@ -468,14 +468,14 @@ void m_validateattributes(const ::coder::array<bool, 2U> &a,
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (rtIsInf(attributes_f2[1]) || (!(attributes_f2[1] >= 0.0)) ||
         (!(attributes_f2[1] == std::floor(attributes_f2[1])))))) {
-    d_rtErrorWithMessageID(b_emlrtRTEI.fName, b_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID(emlrtRTEI.fName, emlrtRTEI.lineNo);
   }
   if (((!(attributes_f2[0] != attributes_f2[0])) &&
        (!(attributes_f2[0] == a.size(0)))) ||
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (!(attributes_f2[1] == a.size(1))))) {
-    rtErrorWithMessageID("Input number 15, b_hard_V_lim,", c_emlrtRTEI.fName,
-                         c_emlrtRTEI.lineNo);
+    rtErrorWithMessageID("Input number 15, b_hard_V_lim,", b_emlrtRTEI.fName,
+                         b_emlrtRTEI.lineNo);
   }
 }
 
@@ -488,14 +488,14 @@ void n_validateattributes(const ::coder::array<bool, 2U> &a,
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (rtIsInf(attributes_f2[1]) || (!(attributes_f2[1] >= 0.0)) ||
         (!(attributes_f2[1] == std::floor(attributes_f2[1])))))) {
-    d_rtErrorWithMessageID(b_emlrtRTEI.fName, b_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID(emlrtRTEI.fName, emlrtRTEI.lineNo);
   }
   if (((!(attributes_f2[0] != attributes_f2[0])) &&
        (!(attributes_f2[0] == a.size(0)))) ||
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (!(attributes_f2[1] == a.size(1))))) {
-    rtErrorWithMessageID("Input number 16, b_catch_up,", c_emlrtRTEI.fName,
-                         c_emlrtRTEI.lineNo);
+    rtErrorWithMessageID("Input number 16, b_catch_up,", b_emlrtRTEI.fName,
+                         b_emlrtRTEI.lineNo);
   }
 }
 
@@ -508,14 +508,14 @@ void validateattributes(const ::coder::array<signed char, 2U> &a,
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (rtIsInf(attributes_f2[1]) || (!(attributes_f2[1] >= 0.0)) ||
         (!(attributes_f2[1] == std::floor(attributes_f2[1])))))) {
-    d_rtErrorWithMessageID(b_emlrtRTEI.fName, b_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID(emlrtRTEI.fName, emlrtRTEI.lineNo);
   }
   if (((!(attributes_f2[0] != attributes_f2[0])) &&
        (!(attributes_f2[0] == a.size(0)))) ||
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (!(attributes_f2[1] == a.size(1))))) {
-    rtErrorWithMessageID("Input number 17, direction,", c_emlrtRTEI.fName,
-                         c_emlrtRTEI.lineNo);
+    rtErrorWithMessageID("Input number 17, direction,", b_emlrtRTEI.fName,
+                         b_emlrtRTEI.lineNo);
   }
 }
 
@@ -532,14 +532,14 @@ void validateattributes(const ::coder::array<double, 2U> &a,
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (rtIsInf(attributes_f2[1]) || (!(attributes_f2[1] >= 0.0)) ||
         (!(attributes_f2[1] == std::floor(attributes_f2[1])))))) {
-    d_rtErrorWithMessageID(b_emlrtRTEI.fName, b_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID(emlrtRTEI.fName, emlrtRTEI.lineNo);
   }
   if (((!(attributes_f2[0] != attributes_f2[0])) &&
        (!(attributes_f2[0] == a.size(0)))) ||
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (!(attributes_f2[1] == 3.0)))) {
-    rtErrorWithMessageID("Input number 1, State_start,", c_emlrtRTEI.fName,
-                         c_emlrtRTEI.lineNo);
+    rtErrorWithMessageID("Input number 1, State_start,", b_emlrtRTEI.fName,
+                         b_emlrtRTEI.lineNo);
   }
   p = true;
   i = a.size(0) * 3;
@@ -554,8 +554,8 @@ void validateattributes(const ::coder::array<double, 2U> &a,
     }
   }
   if (!p) {
-    b_rtErrorWithMessageID("input number 1, State_start,", d_emlrtRTEI.fName,
-                           d_emlrtRTEI.lineNo);
+    b_rtErrorWithMessageID("input number 1, State_start,", c_emlrtRTEI.fName,
+                           c_emlrtRTEI.lineNo);
   }
 }
 
@@ -571,8 +571,8 @@ void validateattributes(double a)
   bool p;
   p = !rtIsNaN(a);
   if (!p) {
-    c_rtErrorWithMessageID("input number 18, ts_rollout,", e_emlrtRTEI.fName,
-                           e_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID("input number 18, ts_rollout,", d_emlrtRTEI.fName,
+                           d_emlrtRTEI.lineNo);
   }
   p = !(a <= 0.0);
   if (!p) {
@@ -593,14 +593,14 @@ void validateattributes(const ::coder::array<double, 1U> &a,
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (rtIsInf(attributes_f2[1]) || (!(attributes_f2[1] >= 0.0)) ||
         (!(attributes_f2[1] == std::floor(attributes_f2[1])))))) {
-    d_rtErrorWithMessageID(b_emlrtRTEI.fName, b_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID(emlrtRTEI.fName, emlrtRTEI.lineNo);
   }
   if (((!(attributes_f2[0] != attributes_f2[0])) &&
        (!(attributes_f2[0] == a.size(0)))) ||
       ((!(attributes_f2[1] != attributes_f2[1])) &&
        (!(attributes_f2[1] == 1.0)))) {
-    rtErrorWithMessageID("Input number 9, A_global,", c_emlrtRTEI.fName,
-                         c_emlrtRTEI.lineNo);
+    rtErrorWithMessageID("Input number 9, A_global,", b_emlrtRTEI.fName,
+                         b_emlrtRTEI.lineNo);
   }
   p = true;
   k = 0;
@@ -614,8 +614,8 @@ void validateattributes(const ::coder::array<double, 1U> &a,
     }
   }
   if (!p) {
-    b_rtErrorWithMessageID("input number 9, A_global,", d_emlrtRTEI.fName,
-                           d_emlrtRTEI.lineNo);
+    b_rtErrorWithMessageID("input number 9, A_global,", c_emlrtRTEI.fName,
+                           c_emlrtRTEI.lineNo);
   }
 }
 
@@ -631,7 +631,7 @@ void validateattributes(const ::coder::array<double, 3U> &a,
       ((!(attributes_f2[2] != attributes_f2[2])) &&
        (rtIsInf(attributes_f2[2]) ||
         (!(attributes_f2[2] == std::floor(attributes_f2[2])))))) {
-    d_rtErrorWithMessageID(b_emlrtRTEI.fName, b_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID(emlrtRTEI.fName, emlrtRTEI.lineNo);
   }
   if (((!(attributes_f2[0] != attributes_f2[0])) &&
        (!(attributes_f2[0] == a.size(0)))) ||
@@ -639,8 +639,8 @@ void validateattributes(const ::coder::array<double, 3U> &a,
        (!(attributes_f2[1] == 5.0))) ||
       ((!(attributes_f2[2] != attributes_f2[2])) &&
        (!(attributes_f2[2] == a.size(2))))) {
-    rtErrorWithMessageID("Input number 2, Waypoints,", c_emlrtRTEI.fName,
-                         c_emlrtRTEI.lineNo);
+    rtErrorWithMessageID("Input number 2, Waypoints,", b_emlrtRTEI.fName,
+                         b_emlrtRTEI.lineNo);
   }
 }
 

@@ -12,9 +12,9 @@
 #include "acdeg_TV_AVP.h"
 #include "roots.h"
 #include "rt_nonfinite.h"
-#include "topico_data.h"
-#include "topico_rtwutil.h"
-#include "topico_types.h"
+#include "topico_wrapper_data.h"
+#include "topico_wrapper_rtwutil.h"
+#include "topico_wrapper_types.h"
 #include <algorithm>
 #include <cmath>
 #include <cstring>
@@ -690,23 +690,23 @@ void acdeg_TV_AVP(double P_init, double V_init, double A_init, double P_wayp,
     }
     p = (t4_size == 5);
     if (!p) {
-      h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
     }
     p = ((t4_size == 5) && p);
     if (!p) {
-      h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
     }
     p = ((t4_size == 5) && p);
     if (!p) {
-      h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
     }
     p = ((t4_size == 5) && p);
     if (!p) {
-      h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
     }
     p = ((t4_size == 5) && p);
     if (!p) {
-      h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
     }
     if (0 <= t4_size - 1) {
       std::copy(&z_data[0], &z_data[t4_size], &t[0]);

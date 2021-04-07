@@ -13,8 +13,8 @@
 #include "power.h"
 #include "rt_nonfinite.h"
 #include "sqrt.h"
-#include "topico_data.h"
-#include "topico_rtwutil.h"
+#include "topico_wrapper_data.h"
+#include "topico_wrapper_rtwutil.h"
 #include "rt_nonfinite.h"
 #include <cmath>
 

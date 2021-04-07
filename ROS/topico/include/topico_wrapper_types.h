@@ -3,19 +3,27 @@
 // perform academic research at degree granting institutions only.  Not
 // for government, commercial, or other organizational use.
 //
-// topico_types.h
+// topico_wrapper_types.h
 //
-// Code generation for function 'topico'
+// Code generation for function 'topico_wrapper'
 //
 
-#ifndef TOPICO_TYPES_H
-#define TOPICO_TYPES_H
+#ifndef TOPICO_WRAPPER_TYPES_H
+#define TOPICO_WRAPPER_TYPES_H
 
 // Include files
 #include "rtwtypes.h"
 #include "coder_array.h"
 
 // Type Definitions
+struct rtEqualityCheckInfo {
+  int nDims;
+  int lineNo;
+  int colNo;
+  const char *fName;
+  const char *pName;
+};
+
 struct rtBoundsCheckInfo {
   int iFirst;
   int iLast;
@@ -25,14 +33,6 @@ struct rtBoundsCheckInfo {
   const char *fName;
   const char *pName;
   int checkKind;
-};
-
-struct rtEqualityCheckInfo {
-  int nDims;
-  int lineNo;
-  int colNo;
-  const char *fName;
-  const char *pName;
 };
 
 struct rtRunTimeErrorInfo {
@@ -52,4 +52,4 @@ struct struct0_T {
 };
 
 #endif
-// End of code generation (topico_types.h)
+// End of code generation (topico_wrapper_types.h)

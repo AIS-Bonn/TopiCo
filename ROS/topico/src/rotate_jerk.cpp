@@ -14,12 +14,13 @@
 #include "eml_int_forloop_overflow_check.h"
 #include "find.h"
 #include "rt_nonfinite.h"
-#include "topico_data.h"
-#include "topico_rtwutil.h"
-#include "topico_types.h"
-#include "unique.h"
+#include "topico_wrapper_rtwutil.h"
+#include "topico_wrapper_types.h"
+#include "useConstantDim.h"
 #include "coder_array.h"
+#include "rt_nonfinite.h"
 #include <cmath>
+#include <math.h>
 
 // Function Definitions
 void rotate_jerk(double alpha, const coder::array<double, 2U> &t_1,
@@ -81,25 +82,11 @@ void rotate_jerk(double alpha, const coder::array<double, 2U> &t_1,
       "/home/lmbeul/Desktop/TopiCo/MATLAB/rotate_jerk.m", // pName
       0                                                   // checkKind
   };
-  static rtBoundsCheckInfo sb_emlrtBCI = {
-      -1,                                                 // iFirst
-      -1,                                                 // iLast
-      43,                                                 // lineNo
-      29,                                                 // colNo
-      "t_2",                                              // aName
-      "rotate_jerk",                                      // fName
-      "/home/lmbeul/Desktop/TopiCo/MATLAB/rotate_jerk.m", // pName
-      0                                                   // checkKind
-  };
-  static rtBoundsCheckInfo tb_emlrtBCI = {
-      -1,                                                 // iFirst
-      -1,                                                 // iLast
-      42,                                                 // lineNo
-      29,                                                 // colNo
-      "t_1",                                              // aName
-      "rotate_jerk",                                      // fName
-      "/home/lmbeul/Desktop/TopiCo/MATLAB/rotate_jerk.m", // pName
-      0                                                   // checkKind
+  static rtRunTimeErrorInfo t_emlrtRTEI = {
+      236,                                                           // lineNo
+      1,                                                             // colNo
+      "unique_vector",                                               // fName
+      "/usr/local/MATLAB/R2021a/toolbox/eml/lib/matlab/ops/unique.m" // pName
   };
   coder::array<double, 2U> J_rot;
   coder::array<double, 2U> J_x;
@@ -107,12 +94,25 @@ void rotate_jerk(double alpha, const coder::array<double, 2U> &t_1,
   coder::array<double, 2U> t_cumsum;
   coder::array<double, 2U> t_cumsum_x;
   coder::array<double, 2U> t_cumsum_y;
+  coder::array<int, 2U> idx;
+  coder::array<int, 1U> iwork;
   coder::array<bool, 2U> b_t_cumsum_x;
   double index_x_data;
+  double index_y_data;
   int ii_size[2];
+  int b_i;
+  int exponent;
   int i;
-  int ii_data;
-  int input_sizes_idx_1;
+  int i2;
+  int j;
+  int k;
+  int n;
+  int na;
+  int p;
+  int pEnd;
+  int q;
+  int qEnd;
+  bool exitg1;
   //  ---------------------------------------------------------------------
   //  Package:    TopiCo (https://github.com/AIS-Bonn/TopiCo)
   //  Version:    2021-03-18 12:09:55
@@ -150,121 +150,248 @@ void rotate_jerk(double alpha, const coder::array<double, 2U> &t_1,
   //  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   //  POSSIBILITY OF SUCH DAMAGE.
   //  --------------------------------------------------------------------
-  if (1 > t_1.size(0)) {
-    rtDynamicBoundsError(1, 1, t_1.size(0), &tb_emlrtBCI);
-  }
-  input_sizes_idx_1 = t_1.size(1);
+  q = t_1.size(1);
   t_cumsum_x.set_size(1, t_1.size(1));
-  for (i = 0; i < input_sizes_idx_1; i++) {
-    t_cumsum_x[i] = t_1[t_1.size(0) * i];
+  for (i = 0; i < q; i++) {
+    t_cumsum_x[i] = t_1[i];
   }
-  if ((t_cumsum_x.size(1) != 0) && (t_cumsum_x.size(1) != 1)) {
-    input_sizes_idx_1 = t_cumsum_x.size(1);
-    if ((1 <= t_cumsum_x.size(1) - 1) &&
-        (t_cumsum_x.size(1) - 1 > 2147483646)) {
-      coder::check_forloop_overflow_error();
-    }
-    for (ii_data = 0; ii_data <= input_sizes_idx_1 - 2; ii_data++) {
-      t_cumsum_x[ii_data + 1] = t_cumsum_x[ii_data] + t_cumsum_x[ii_data + 1];
-    }
-  }
-  if (1 > t_2.size(0)) {
-    rtDynamicBoundsError(1, 1, t_2.size(0), &sb_emlrtBCI);
-  }
-  input_sizes_idx_1 = t_2.size(1);
+  coder::internal::useConstantDim(t_cumsum_x);
+  q = t_2.size(1);
   t_cumsum_y.set_size(1, t_2.size(1));
-  for (i = 0; i < input_sizes_idx_1; i++) {
-    t_cumsum_y[i] = t_2[t_2.size(0) * i];
+  for (i = 0; i < q; i++) {
+    t_cumsum_y[i] = t_2[i];
   }
-  if ((t_cumsum_y.size(1) != 0) && (t_cumsum_y.size(1) != 1)) {
-    input_sizes_idx_1 = t_cumsum_y.size(1);
-    if ((1 <= t_cumsum_y.size(1) - 1) &&
-        (t_cumsum_y.size(1) - 1 > 2147483646)) {
-      coder::check_forloop_overflow_error();
-    }
-    for (ii_data = 0; ii_data <= input_sizes_idx_1 - 2; ii_data++) {
-      t_cumsum_y[ii_data + 1] = t_cumsum_y[ii_data] + t_cumsum_y[ii_data + 1];
-    }
-  }
+  coder::internal::useConstantDim(t_cumsum_y);
   J_x.set_size(1, t_cumsum_x.size(1) + t_cumsum_y.size(1));
-  input_sizes_idx_1 = t_cumsum_x.size(1);
-  for (i = 0; i < input_sizes_idx_1; i++) {
+  q = t_cumsum_x.size(1);
+  for (i = 0; i < q; i++) {
     J_x[i] = t_cumsum_x[i];
   }
-  input_sizes_idx_1 = t_cumsum_y.size(1);
-  for (i = 0; i < input_sizes_idx_1; i++) {
+  q = t_cumsum_y.size(1);
+  for (i = 0; i < q; i++) {
     J_x[i + t_cumsum_x.size(1)] = t_cumsum_y[i];
   }
-  coder::unique_vector(J_x, t_cumsum);
+  na = J_x.size(1);
+  n = J_x.size(1) + 1;
+  idx.set_size(1, J_x.size(1));
+  q = J_x.size(1);
+  for (i = 0; i < q; i++) {
+    idx[i] = 0;
+  }
+  if (J_x.size(1) != 0) {
+    iwork.set_size(J_x.size(1));
+    b_i = J_x.size(1) - 1;
+    if ((1 <= J_x.size(1) - 1) && (J_x.size(1) - 1 > 2147483645)) {
+      coder::check_forloop_overflow_error();
+    }
+    for (k = 1; k <= b_i; k += 2) {
+      index_x_data = J_x[k];
+      if ((J_x[k - 1] <= index_x_data) || rtIsNaN(index_x_data)) {
+        idx[k - 1] = k;
+        idx[k] = k + 1;
+      } else {
+        idx[k - 1] = k + 1;
+        idx[k] = k;
+      }
+    }
+    if ((J_x.size(1) & 1) != 0) {
+      idx[J_x.size(1) - 1] = J_x.size(1);
+    }
+    b_i = 2;
+    while (b_i < n - 1) {
+      i2 = b_i << 1;
+      j = 1;
+      for (pEnd = b_i + 1; pEnd < n; pEnd = qEnd + b_i) {
+        int kEnd;
+        p = j;
+        q = pEnd - 1;
+        qEnd = j + i2;
+        if (qEnd > n) {
+          qEnd = n;
+        }
+        k = 0;
+        kEnd = qEnd - j;
+        while (k + 1 <= kEnd) {
+          index_x_data = J_x[idx[q] - 1];
+          i = idx[p - 1];
+          if ((J_x[i - 1] <= index_x_data) || rtIsNaN(index_x_data)) {
+            iwork[k] = i;
+            p++;
+            if (p == pEnd) {
+              while (q + 1 < qEnd) {
+                k++;
+                iwork[k] = idx[q];
+                q++;
+              }
+            }
+          } else {
+            iwork[k] = idx[q];
+            q++;
+            if (q + 1 == qEnd) {
+              while (p < pEnd) {
+                k++;
+                iwork[k] = idx[p - 1];
+                p++;
+              }
+            }
+          }
+          k++;
+        }
+        for (k = 0; k < kEnd; k++) {
+          idx[(j + k) - 1] = iwork[k];
+        }
+        j = qEnd;
+      }
+      b_i = i2;
+    }
+  }
+  t_cumsum.set_size(1, J_x.size(1));
+  if ((1 <= J_x.size(1)) && (J_x.size(1) > 2147483646)) {
+    coder::check_forloop_overflow_error();
+  }
+  for (k = 0; k < na; k++) {
+    t_cumsum[k] = J_x[idx[k] - 1];
+  }
+  k = 0;
+  while ((k + 1 <= na) && rtIsInf(t_cumsum[k]) && (t_cumsum[k] < 0.0)) {
+    k++;
+  }
+  q = k;
+  k = J_x.size(1);
+  while ((k >= 1) && rtIsNaN(t_cumsum[k - 1])) {
+    k--;
+  }
+  pEnd = J_x.size(1) - k;
+  exitg1 = false;
+  while ((!exitg1) && (k >= 1)) {
+    index_x_data = t_cumsum[k - 1];
+    if (rtIsInf(index_x_data) && (index_x_data > 0.0)) {
+      k--;
+    } else {
+      exitg1 = true;
+    }
+  }
+  b_i = (J_x.size(1) - k) - pEnd;
+  p = 0;
+  if (q > 0) {
+    p = 1;
+    if (q > 2147483646) {
+      coder::check_forloop_overflow_error();
+    }
+  }
+  while (q + 1 <= k) {
+    index_x_data = t_cumsum[q];
+    i2 = q;
+    int exitg2;
+    do {
+      exitg2 = 0;
+      q++;
+      if (q + 1 > k) {
+        exitg2 = 1;
+      } else {
+        index_y_data = std::abs(index_x_data / 2.0);
+        if ((!rtIsInf(index_y_data)) && (!rtIsNaN(index_y_data))) {
+          if (index_y_data <= 2.2250738585072014E-308) {
+            index_y_data = 4.94065645841247E-324;
+          } else {
+            frexp(index_y_data, &exponent);
+            index_y_data = std::ldexp(1.0, exponent - 53);
+          }
+        } else {
+          index_y_data = rtNaN;
+        }
+        if ((!(std::abs(index_x_data - t_cumsum[q]) < index_y_data)) &&
+            ((!rtIsInf(t_cumsum[q])) || (!rtIsInf(index_x_data)) ||
+             ((t_cumsum[q] > 0.0) != (index_x_data > 0.0)))) {
+          exitg2 = 1;
+        }
+      }
+    } while (exitg2 == 0);
+    p++;
+    t_cumsum[p - 1] = index_x_data;
+    if ((i2 + 1 <= q) && (q > 2147483646)) {
+      coder::check_forloop_overflow_error();
+    }
+  }
+  if (b_i > 0) {
+    p++;
+    t_cumsum[p - 1] = t_cumsum[k];
+    if (b_i > 2147483646) {
+      coder::check_forloop_overflow_error();
+    }
+  }
+  q = k + b_i;
+  for (j = 0; j < pEnd; j++) {
+    t_cumsum[p + j] = t_cumsum[q + j];
+  }
+  p += pEnd;
+  if (p > J_x.size(1)) {
+    i_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+  }
+  if (1 > p) {
+    p = 0;
+  }
+  t_cumsum.set_size(t_cumsum.size(0), p);
   J_rot.set_size(2, t_cumsum.size(1));
-  input_sizes_idx_1 = t_cumsum.size(1) << 1;
-  for (i = 0; i < input_sizes_idx_1; i++) {
+  q = t_cumsum.size(1) << 1;
+  for (i = 0; i < q; i++) {
     J_rot[i] = 0.0;
   }
-  if ((J_1.size(0) != 1) && ((J_1.size(0) != 0) && (J_1.size(1) != 0))) {
-    h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
-  }
-  if ((J_1.size(0) != 0) && (J_1.size(1) != 0)) {
-    input_sizes_idx_1 = J_1.size(1);
+  if (J_1.size(1) != 0) {
+    b_i = J_1.size(1);
   } else {
-    input_sizes_idx_1 = 0;
+    b_i = 0;
   }
-  J_x.set_size(1, input_sizes_idx_1 + 1);
-  for (i = 0; i < input_sizes_idx_1; i++) {
+  J_x.set_size(1, b_i + 1);
+  for (i = 0; i < b_i; i++) {
     J_x[i] = J_1[i];
   }
-  J_x[input_sizes_idx_1] = 0.0;
+  J_x[b_i] = 0.0;
   //  Assume zero Jerk input after trajectory
-  if ((J_2.size(0) != 1) && ((J_2.size(0) != 0) && (J_2.size(1) != 0))) {
-    h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
-  }
-  if ((J_2.size(0) != 0) && (J_2.size(1) != 0)) {
-    input_sizes_idx_1 = J_2.size(1);
+  if (J_2.size(1) != 0) {
+    b_i = J_2.size(1);
   } else {
-    input_sizes_idx_1 = 0;
+    b_i = 0;
   }
-  J_y.set_size(1, input_sizes_idx_1 + 1);
-  for (i = 0; i < input_sizes_idx_1; i++) {
+  J_y.set_size(1, b_i + 1);
+  for (i = 0; i < b_i; i++) {
     J_y[i] = J_2[i];
   }
-  J_y[input_sizes_idx_1] = 0.0;
+  J_y[b_i] = 0.0;
   //  Assume zero Jerk input after trajectory
   i = t_cumsum.size(1);
-  for (int b_index = 0; b_index < i; b_index++) {
+  for (pEnd = 0; pEnd < i; pEnd++) {
     double d;
-    double index_y_data;
     double result_data_idx_0;
-    int i1;
-    int loop_ub;
-    if (b_index + 1 > t_cumsum.size(1)) {
-      rtDynamicBoundsError(b_index + 1, 1, t_cumsum.size(1), &rb_emlrtBCI);
+    if (pEnd + 1 > t_cumsum.size(1)) {
+      rtDynamicBoundsError(pEnd + 1, 1, t_cumsum.size(1), &rb_emlrtBCI);
     }
-    index_y_data = t_cumsum[b_index];
+    index_y_data = t_cumsum[pEnd];
     b_t_cumsum_x.set_size(1, t_cumsum_x.size(1));
-    input_sizes_idx_1 = t_cumsum_x.size(1);
-    for (i1 = 0; i1 < input_sizes_idx_1; i1++) {
-      b_t_cumsum_x[i1] = (t_cumsum_x[i1] >= index_y_data);
+    q = t_cumsum_x.size(1);
+    for (p = 0; p < q; p++) {
+      b_t_cumsum_x[p] = (t_cumsum_x[p] >= index_y_data);
     }
-    coder::b_eml_find(b_t_cumsum_x, (int *)&ii_data, ii_size);
-    input_sizes_idx_1 = ii_size[1];
-    for (i1 = 0; i1 < input_sizes_idx_1; i1++) {
-      index_x_data = ii_data;
+    coder::b_eml_find(b_t_cumsum_x, (int *)&b_i, ii_size);
+    q = ii_size[1];
+    for (p = 0; p < q; p++) {
+      index_x_data = b_i;
     }
-    if (b_index + 1 > t_cumsum.size(1)) {
-      rtDynamicBoundsError(b_index + 1, 1, t_cumsum.size(1), &qb_emlrtBCI);
+    if (pEnd + 1 > t_cumsum.size(1)) {
+      rtDynamicBoundsError(pEnd + 1, 1, t_cumsum.size(1), &qb_emlrtBCI);
     }
-    index_y_data = t_cumsum[b_index];
+    index_y_data = t_cumsum[pEnd];
     b_t_cumsum_x.set_size(1, t_cumsum_y.size(1));
-    loop_ub = t_cumsum_y.size(1);
-    for (i1 = 0; i1 < loop_ub; i1++) {
-      b_t_cumsum_x[i1] = (t_cumsum_y[i1] >= index_y_data);
+    i2 = t_cumsum_y.size(1);
+    for (p = 0; p < i2; p++) {
+      b_t_cumsum_x[p] = (t_cumsum_y[p] >= index_y_data);
     }
-    coder::b_eml_find(b_t_cumsum_x, (int *)&ii_data, ii_size);
-    loop_ub = ii_size[1];
-    for (i1 = 0; i1 < loop_ub; i1++) {
-      index_y_data = ii_data;
+    coder::b_eml_find(b_t_cumsum_x, (int *)&b_i, ii_size);
+    i2 = ii_size[1];
+    for (p = 0; p < i2; p++) {
+      index_y_data = b_i;
     }
-    if (input_sizes_idx_1 == 0) {
+    if (q == 0) {
       index_x_data = static_cast<double>(t_1.size(1)) + 1.0;
       //  Assume zero Jerk input after trajectory
     }
@@ -272,14 +399,14 @@ void rotate_jerk(double alpha, const coder::array<double, 2U> &t_1,
       index_y_data = static_cast<double>(t_2.size(1)) + 1.0;
       //  Assume zero Jerk input after trajectory
     }
-    for (i1 = 0; i1 < 1; i1++) {
+    for (p = 0; p < 1; p++) {
       if ((static_cast<int>(index_x_data) < 1) ||
           (static_cast<int>(index_x_data) > J_x.size(1))) {
         rtDynamicBoundsError(static_cast<int>(index_x_data), 1, J_x.size(1),
                              &pb_emlrtBCI);
       }
     }
-    for (i1 = 0; i1 < 1; i1++) {
+    for (p = 0; p < 1; p++) {
       if ((static_cast<int>(index_y_data) < 1) ||
           (static_cast<int>(index_y_data) > J_y.size(1))) {
         rtDynamicBoundsError(static_cast<int>(index_y_data), 1, J_y.size(1),
@@ -287,7 +414,7 @@ void rotate_jerk(double alpha, const coder::array<double, 2U> &t_1,
       }
     }
     result_data_idx_0 = J_x[static_cast<int>(index_x_data) - 1];
-    index_x_data = J_y[static_cast<int>(index_y_data) - 1];
+    index_y_data = J_y[static_cast<int>(index_y_data) - 1];
     //  ---------------------------------------------------------------------
     //  Package:    TopiCo (https://github.com/AIS-Bonn/TopiCo)
     //  Version:    2021-03-18 12:09:55
@@ -325,46 +452,45 @@ void rotate_jerk(double alpha, const coder::array<double, 2U> &t_1,
     //  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
     //  POSSIBILITY OF SUCH DAMAGE.
     //  --------------------------------------------------------------------
-    index_y_data = std::cos(-alpha);
+    index_x_data = std::cos(-alpha);
     d = std::sin(-alpha);
-    if (b_index + 1 > J_rot.size(1)) {
-      rtDynamicBoundsError(b_index + 1, 1, J_rot.size(1), &nb_emlrtBCI);
+    if (pEnd + 1 > J_rot.size(1)) {
+      rtDynamicBoundsError(pEnd + 1, 1, J_rot.size(1), &nb_emlrtBCI);
     }
-    J_rot[2 * b_index] = index_y_data * result_data_idx_0 + d * index_x_data;
-    if (b_index + 1 > J_rot.size(1)) {
-      rtDynamicBoundsError(b_index + 1, 1, J_rot.size(1), &nb_emlrtBCI);
+    J_rot[2 * pEnd] = index_x_data * result_data_idx_0 + d * index_y_data;
+    if (pEnd + 1 > J_rot.size(1)) {
+      rtDynamicBoundsError(pEnd + 1, 1, J_rot.size(1), &nb_emlrtBCI);
     }
-    J_rot[2 * b_index + 1] =
-        index_y_data * index_x_data - d * result_data_idx_0;
+    J_rot[2 * pEnd + 1] = index_x_data * index_y_data - d * result_data_idx_0;
   }
-  t_cumsum_x.set_size(1, t_cumsum.size(1) + 1);
-  t_cumsum_x[0] = 0.0;
-  input_sizes_idx_1 = t_cumsum.size(1);
+  J_x.set_size(1, t_cumsum.size(1) + 1);
+  J_x[0] = 0.0;
+  b_i = t_cumsum.size(1);
   if ((1 <= t_cumsum.size(1)) && (t_cumsum.size(1) > 2147483646)) {
     coder::check_forloop_overflow_error();
   }
-  for (ii_data = 0; ii_data < input_sizes_idx_1; ii_data++) {
-    t_cumsum_x[ii_data + 1] = t_cumsum[ii_data];
+  for (j = 0; j < b_i; j++) {
+    J_x[j + 1] = t_cumsum[j];
   }
-  coder::diff(t_cumsum_x, t_out_1);
-  t_cumsum_x.set_size(1, t_cumsum.size(1) + 1);
-  t_cumsum_x[0] = 0.0;
-  input_sizes_idx_1 = t_cumsum.size(1);
+  coder::diff(J_x, t_out_1);
+  J_x.set_size(1, t_cumsum.size(1) + 1);
+  J_x[0] = 0.0;
+  b_i = t_cumsum.size(1);
   if ((1 <= t_cumsum.size(1)) && (t_cumsum.size(1) > 2147483646)) {
     coder::check_forloop_overflow_error();
   }
-  for (ii_data = 0; ii_data < input_sizes_idx_1; ii_data++) {
-    t_cumsum_x[ii_data + 1] = t_cumsum[ii_data];
+  for (j = 0; j < b_i; j++) {
+    J_x[j + 1] = t_cumsum[j];
   }
-  coder::diff(t_cumsum_x, t_out_2);
-  input_sizes_idx_1 = J_rot.size(1);
+  coder::diff(J_x, t_out_2);
+  q = J_rot.size(1);
   J_out_1.set_size(1, J_rot.size(1));
-  for (i = 0; i < input_sizes_idx_1; i++) {
+  for (i = 0; i < q; i++) {
     J_out_1[i] = J_rot[2 * i];
   }
-  input_sizes_idx_1 = J_rot.size(1);
+  q = J_rot.size(1);
   J_out_2.set_size(1, J_rot.size(1));
-  for (i = 0; i < input_sizes_idx_1; i++) {
+  for (i = 0; i < q; i++) {
     J_out_2[i] = J_rot[2 * i + 1];
   }
 }

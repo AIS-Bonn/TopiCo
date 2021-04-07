@@ -12,12 +12,12 @@
 #include "find.h"
 #include "eml_int_forloop_overflow_check.h"
 #include "rt_nonfinite.h"
-#include "topico_rtwutil.h"
-#include "topico_types.h"
+#include "topico_wrapper_rtwutil.h"
+#include "topico_wrapper_types.h"
 #include "coder_array.h"
 
 // Variable Definitions
-static rtRunTimeErrorInfo m_emlrtRTEI = {
+static rtRunTimeErrorInfo l_emlrtRTEI = {
     392,                                                           // lineNo
     1,                                                             // colNo
     "find_first_indices",                                          // fName
@@ -64,7 +64,7 @@ void b_eml_find(const ::coder::array<bool, 2U> &x, int i_data[], int i_size[2])
     }
   }
   if (idx > k) {
-    i_rtErrorWithMessageID(m_emlrtRTEI.fName, m_emlrtRTEI.lineNo);
+    i_rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
   }
   if (k == 1) {
     if (idx == 0) {
@@ -109,7 +109,7 @@ void eml_find(const ::coder::array<bool, 2U> &x, ::coder::array<int, 2U> &i)
     }
   }
   if (idx > x.size(1)) {
-    i_rtErrorWithMessageID(m_emlrtRTEI.fName, m_emlrtRTEI.lineNo);
+    i_rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
   }
   if (x.size(1) == 1) {
     if (idx == 0) {

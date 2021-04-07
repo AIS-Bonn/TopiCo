@@ -11,9 +11,9 @@
 // Include files
 #include "abcdefg_NO_VP.h"
 #include "rt_nonfinite.h"
-#include "topico_data.h"
-#include "topico_rtwutil.h"
-#include "topico_types.h"
+#include "topico_wrapper_data.h"
+#include "topico_wrapper_rtwutil.h"
+#include "topico_wrapper_types.h"
 #include <cmath>
 
 // Function Definitions

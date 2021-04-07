@@ -11,12 +11,12 @@
 // Include files
 #include "select_cases_O.h"
 #include "rt_nonfinite.h"
-#include "topico_rtwutil.h"
-#include "topico_types.h"
+#include "topico_wrapper_rtwutil.h"
+#include "topico_wrapper_types.h"
 #include "coder_bounded_array.h"
 
 // Type Definitions
-struct cell_wrap_16 {
+struct cell_wrap_18 {
   coder::bounded_array<int, 33U, 2U> f1;
 };
 
@@ -27,7 +27,7 @@ static bool caselut_not_empty;
 void select_cases_O(unsigned char n, unsigned char cond, int cases_data[],
                     int cases_size[2])
 {
-  static cell_wrap_16 caselut[224];
+  static cell_wrap_18 caselut[224];
   static rtBoundsCheckInfo nb_emlrtBCI = {
       0,                                                     // iFirst
       6,                                                     // iLast

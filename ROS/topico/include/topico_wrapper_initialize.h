@@ -3,13 +3,13 @@
 // perform academic research at degree granting institutions only.  Not
 // for government, commercial, or other organizational use.
 //
-// topico_initialize.h
+// topico_wrapper_initialize.h
 //
-// Code generation for function 'topico_initialize'
+// Code generation for function 'topico_wrapper_initialize'
 //
 
-#ifndef TOPICO_INITIALIZE_H
-#define TOPICO_INITIALIZE_H
+#ifndef TOPICO_WRAPPER_INITIALIZE_H
+#define TOPICO_WRAPPER_INITIALIZE_H
 
 // Include files
 #include "rtwtypes.h"
@@ -17,7 +17,7 @@
 #include <cstdlib>
 
 // Function Declarations
-extern void topico_initialize();
+extern void topico_wrapper_initialize();
 
 #endif
-// End of code generation (topico_initialize.h)
+// End of code generation (topico_wrapper_initialize.h)

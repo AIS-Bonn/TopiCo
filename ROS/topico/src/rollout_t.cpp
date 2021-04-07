@@ -15,10 +15,10 @@
 #include "i64ddiv.h"
 #include "printint.h"
 #include "rt_nonfinite.h"
-#include "topico_data.h"
-#include "topico_internal_types.h"
-#include "topico_rtwutil.h"
-#include "topico_types.h"
+#include "topico_wrapper_data.h"
+#include "topico_wrapper_internal_types.h"
+#include "topico_wrapper_rtwutil.h"
+#include "topico_wrapper_types.h"
 #include "coder_array.h"
 #include "rt_nonfinite.h"
 #include <cmath>
@@ -331,7 +331,7 @@ void rollout_t(const coder::array<double, 1U> &P_init,
     while (divisor >= 1UL) {
       unsigned long d;
       if (divisor == 0UL) {
-        e_rtErrorWithMessageID(h_emlrtRTEI.fName, h_emlrtRTEI.lineNo);
+        d_rtErrorWithMessageID(g_emlrtRTEI.fName, g_emlrtRTEI.lineNo);
       }
       d = _u64_div__(number, divisor);
       b_leading = ((d == 0UL) && b_leading);

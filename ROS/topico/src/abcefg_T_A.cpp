@@ -11,7 +11,7 @@
 // Include files
 #include "abcefg_T_A.h"
 #include "rt_nonfinite.h"
-#include "topico_rtwutil.h"
+#include "topico_wrapper_rtwutil.h"
 
 // Function Definitions
 void abcefg_T_A(double V_init, double A_init, double A_wayp, double V_max,

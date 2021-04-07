@@ -276,6 +276,7 @@ src/check_feasibility.cpp
 src/check_inputs.cpp
 src/circshift.cpp
 src/combineVectorElements.cpp
+src/compensate_global.cpp
 src/construct_setp_struct.cpp
 src/correct_feasibility.cpp
 src/cut_to_time.cpp
@@ -314,12 +315,11 @@ src/sqrt.cpp
 src/sub2ind.cpp
 src/sum.cpp
 src/synchronize_trajectory.cpp
-src/topico.cpp
-src/topico_data.cpp
-src/topico_initialize.cpp
-src/topico_rtwutil.cpp
-src/topico_terminate.cpp
-src/unique.cpp
+src/topico_wrapper.cpp
+src/topico_wrapper_data.cpp
+src/topico_wrapper_initialize.cpp
+src/topico_wrapper_rtwutil.cpp
+src/topico_wrapper_terminate.cpp
 src/useConstantDim.cpp
 src/vAllOrAny.cpp
 src/validateattributes.cpp

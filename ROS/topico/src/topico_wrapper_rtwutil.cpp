@@ -3,15 +3,15 @@
 // perform academic research at degree granting institutions only.  Not
 // for government, commercial, or other organizational use.
 //
-// topico_rtwutil.cpp
+// topico_wrapper_rtwutil.cpp
 //
-// Code generation for function 'topico_rtwutil'
+// Code generation for function 'topico_wrapper_rtwutil'
 //
 
 // Include files
-#include "topico_rtwutil.h"
+#include "topico_wrapper_rtwutil.h"
 #include "rt_nonfinite.h"
-#include "topico_types.h"
+#include "topico_wrapper_types.h"
 #include "rt_defines.h"
 #include "rt_nonfinite.h"
 #include <cmath>
@@ -38,7 +38,7 @@ unsigned long _u64_minus__(unsigned long b, unsigned long c)
   return a;
 }
 
-void e_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+void d_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
 {
   std::stringstream outStream;
   outStream << "Divide by zero.";
@@ -381,4 +381,4 @@ double rt_powd_snf(double u0, double u1)
   return y;
 }
 
-// End of code generation (topico_rtwutil.cpp)
+// End of code generation (topico_wrapper_rtwutil.cpp)

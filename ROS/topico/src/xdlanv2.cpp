@@ -11,7 +11,7 @@
 // Include files
 #include "xdlanv2.h"
 #include "rt_nonfinite.h"
-#include "topico_rtwutil.h"
+#include "topico_wrapper_rtwutil.h"
 #include "rt_nonfinite.h"
 #include <cmath>
 

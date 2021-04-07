@@ -12,8 +12,8 @@
 #include "abcdefg_T_AP.h"
 #include "rt_nonfinite.h"
 #include "sqrt.h"
-#include "topico_data.h"
-#include "topico_rtwutil.h"
+#include "topico_wrapper_data.h"
+#include "topico_wrapper_rtwutil.h"
 
 // Function Definitions
 void abcdefg_T_AP(double P_init, double V_init, double A_init, double P_wayp,

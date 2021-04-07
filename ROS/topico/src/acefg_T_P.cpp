@@ -12,9 +12,9 @@
 #include "acefg_T_P.h"
 #include "roots.h"
 #include "rt_nonfinite.h"
-#include "topico_data.h"
-#include "topico_rtwutil.h"
-#include "topico_types.h"
+#include "topico_wrapper_data.h"
+#include "topico_wrapper_rtwutil.h"
+#include "topico_wrapper_types.h"
 #include <algorithm>
 #include <cstring>
 
@@ -553,19 +553,19 @@ void acefg_T_P(double P_init, double V_init, double A_init, double P_wayp,
     }
     b = (t1_size == 6);
     if (!b) {
-      h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
     }
     b = ((t1_size == 6) && b);
     if (!b) {
-      h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
     }
     b = ((t1_size == 6) && b);
     if (!b) {
-      h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
     }
     b = ((t1_size == 6) && b);
     if (!b) {
-      h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
     }
     if (0 <= t1_size - 1) {
       std::copy(&t1_data[0], &t1_data[t1_size], &t[0]);

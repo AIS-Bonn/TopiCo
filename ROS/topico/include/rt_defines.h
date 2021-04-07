@@ -5,7 +5,7 @@
 //
 // rt_defines.h
 //
-// Code generation for function 'topico'
+// Code generation for function 'topico_wrapper'
 //
 
 #ifndef RT_DEFINES_H

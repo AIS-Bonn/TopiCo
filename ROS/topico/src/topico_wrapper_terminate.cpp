@@ -3,21 +3,21 @@
 // perform academic research at degree granting institutions only.  Not
 // for government, commercial, or other organizational use.
 //
-// topico_terminate.cpp
+// topico_wrapper_terminate.cpp
 //
-// Code generation for function 'topico_terminate'
+// Code generation for function 'topico_wrapper_terminate'
 //
 
 // Include files
-#include "topico_terminate.h"
+#include "topico_wrapper_terminate.h"
 #include "rt_nonfinite.h"
-#include "topico_data.h"
+#include "topico_wrapper_data.h"
 
 // Function Definitions
-void topico_terminate()
+void topico_wrapper_terminate()
 {
   // (no terminate code required)
-  isInitialized_topico_mex = false;
+  isInitialized_topico_wrapper = false;
 }
 
-// End of code generation (topico_terminate.cpp)
+// End of code generation (topico_wrapper_terminate.cpp)

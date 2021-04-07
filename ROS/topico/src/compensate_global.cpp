@@ -12,8 +12,8 @@
 #include "compensate_global.h"
 #include "repmat.h"
 #include "rt_nonfinite.h"
-#include "topico_rtwutil.h"
-#include "topico_types.h"
+#include "topico_wrapper_rtwutil.h"
+#include "topico_wrapper_types.h"
 #include "coder_array.h"
 
 // Function Definitions

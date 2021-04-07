@@ -11,7 +11,7 @@
 // Include files
 #include "sub2ind.h"
 #include "rt_nonfinite.h"
-#include "topico_types.h"
+#include "topico_wrapper_types.h"
 #include <sstream>
 #include <stdexcept>
 #include <string>

@@ -3,29 +3,29 @@
 // perform academic research at degree granting institutions only.  Not
 // for government, commercial, or other organizational use.
 //
-// topico_data.h
+// topico_wrapper_data.h
 //
-// Code generation for function 'topico_data'
+// Code generation for function 'topico_wrapper_data'
 //
 
-#ifndef TOPICO_DATA_H
-#define TOPICO_DATA_H
+#ifndef TOPICO_WRAPPER_DATA_H
+#define TOPICO_WRAPPER_DATA_H
 
 // Include files
 #include "rtwtypes.h"
-#include "topico_types.h"
+#include "topico_wrapper_types.h"
 #include <cstddef>
 #include <cstdlib>
 
 // Variable Declarations
 extern unsigned char nlut[8];
 extern unsigned char condlut[48];
-extern rtRunTimeErrorInfo h_emlrtRTEI;
-extern rtRunTimeErrorInfo k_emlrtRTEI;
+extern rtRunTimeErrorInfo g_emlrtRTEI;
+extern rtRunTimeErrorInfo j_emlrtRTEI;
 extern rtRunTimeErrorInfo o_emlrtRTEI;
 extern rtRunTimeErrorInfo p_emlrtRTEI;
 extern rtRunTimeErrorInfo q_emlrtRTEI;
-extern bool isInitialized_topico_mex;
+extern bool isInitialized_topico_wrapper;
 
 #endif
-// End of code generation (topico_data.h)
+// End of code generation (topico_wrapper_data.h)

@@ -13,10 +13,10 @@
 #include "eml_int_forloop_overflow_check.h"
 #include "rt_nonfinite.h"
 #include "simplify_setp.h"
-#include "topico_data.h"
-#include "topico_internal_types.h"
-#include "topico_rtwutil.h"
-#include "topico_types.h"
+#include "topico_wrapper_data.h"
+#include "topico_wrapper_internal_types.h"
+#include "topico_wrapper_rtwutil.h"
+#include "topico_wrapper_types.h"
 #include "coder_array.h"
 #include <algorithm>
 
@@ -87,7 +87,7 @@ void b_construct_setp_struct(
     sizes_idx_0 = 1;
   }
   if ((t_in2_size[0] != sizes_idx_0) && (t_in2_size[0] != 0)) {
-    h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+    h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
   }
   if (t_in2_size[0] != 0) {
     sizes_idx_1 = 7;
@@ -110,7 +110,7 @@ void b_construct_setp_struct(
     sizes_idx_0 = 1;
   }
   if ((J_in2_size[0] != sizes_idx_0) && (J_in2_size[0] != 0)) {
-    h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+    h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
   }
   if (J_in2_size[0] != 0) {
     sizes_idx_1 = 7;
@@ -230,26 +230,6 @@ void construct_setp_struct(const coder::array<cell_wrap_0, 2U> &t_in2,
   static rtBoundsCheckInfo rb_emlrtBCI = {
       -1,                                                           // iFirst
       -1,                                                           // iLast
-      73,                                                           // lineNo
-      41,                                                           // colNo
-      "t",                                                          // aName
-      "construct_setp_struct",                                      // fName
-      "/home/lmbeul/Desktop/TopiCo/MATLAB/construct_setp_struct.m", // pName
-      0                                                             // checkKind
-  };
-  static rtBoundsCheckInfo sb_emlrtBCI = {
-      -1,                                                           // iFirst
-      -1,                                                           // iLast
-      73,                                                           // lineNo
-      48,                                                           // colNo
-      "J",                                                          // aName
-      "construct_setp_struct",                                      // fName
-      "/home/lmbeul/Desktop/TopiCo/MATLAB/construct_setp_struct.m", // pName
-      0                                                             // checkKind
-  };
-  static rtBoundsCheckInfo tb_emlrtBCI = {
-      -1,                                                           // iFirst
-      -1,                                                           // iLast
       79,                                                           // lineNo
       9,                                                            // colNo
       "J_setp_struct",                                              // aName
@@ -257,7 +237,7 @@ void construct_setp_struct(const coder::array<cell_wrap_0, 2U> &t_in2,
       "/home/lmbeul/Desktop/TopiCo/MATLAB/construct_setp_struct.m", // pName
       0                                                             // checkKind
   };
-  static rtBoundsCheckInfo ub_emlrtBCI = {
+  static rtBoundsCheckInfo sb_emlrtBCI = {
       -1,                                                           // iFirst
       -1,                                                           // iLast
       80,                                                           // lineNo
@@ -267,7 +247,7 @@ void construct_setp_struct(const coder::array<cell_wrap_0, 2U> &t_in2,
       "/home/lmbeul/Desktop/TopiCo/MATLAB/construct_setp_struct.m", // pName
       0                                                             // checkKind
   };
-  static rtBoundsCheckInfo vb_emlrtBCI = {
+  static rtBoundsCheckInfo tb_emlrtBCI = {
       -1,                                                           // iFirst
       -1,                                                           // iLast
       80,                                                           // lineNo
@@ -277,7 +257,7 @@ void construct_setp_struct(const coder::array<cell_wrap_0, 2U> &t_in2,
       "/home/lmbeul/Desktop/TopiCo/MATLAB/construct_setp_struct.m", // pName
       0                                                             // checkKind
   };
-  static rtBoundsCheckInfo wb_emlrtBCI = {
+  static rtBoundsCheckInfo ub_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
       67,                                                            // lineNo
@@ -289,8 +269,6 @@ void construct_setp_struct(const coder::array<cell_wrap_0, 2U> &t_in2,
   };
   coder::array<double, 2U> J;
   coder::array<double, 2U> J_2;
-  coder::array<double, 2U> b_J;
-  coder::array<double, 2U> b_t;
   coder::array<double, 2U> t;
   coder::array<double, 2U> t_2;
   int i;
@@ -346,14 +324,13 @@ void construct_setp_struct(const coder::array<cell_wrap_0, 2U> &t_in2,
     i2 = t_in2.size(1);
   }
   for (int index_axis = 0; index_axis < i; index_axis++) {
+    int b_loop_ub;
     int loop_ub;
-    int outsize_idx_1;
-    int result;
+    int t_idx_1;
     t.set_size(1, 0);
     J.set_size(1, 0);
     for (int index_waypoint = 0; index_waypoint < i2; index_waypoint++) {
       int i3;
-      bool empty_non_axis_sizes;
       if (index_axis > t_in2.size(0) - 1) {
         rtDynamicBoundsError(index_axis, 0, t_in2.size(0) - 1, &ob_emlrtBCI);
       }
@@ -361,59 +338,31 @@ void construct_setp_struct(const coder::array<cell_wrap_0, 2U> &t_in2,
         rtDynamicBoundsError(index_waypoint, 0, t_in2.size(1) - 1,
                              &nb_emlrtBCI);
       }
-      if ((t.size(0) != 0) && (t.size(1) != 0)) {
-        result = t.size(0);
-      } else if ((t_in2[index_axis + t_in2.size(0) * index_waypoint].f1.size(
-                      0) != 0) &&
-                 (t_in2[index_axis + t_in2.size(0) * index_waypoint].f1.size(
-                      1) != 0)) {
-        result = t_in2[index_axis + t_in2.size(0) * index_waypoint].f1.size(0);
+      if (t.size(1) != 0) {
+        b_loop_ub = t.size(1);
       } else {
-        result = t.size(0);
-        if (t_in2[index_axis + t_in2.size(0) * index_waypoint].f1.size(0) >
-            t.size(0)) {
-          result =
-              t_in2[index_axis + t_in2.size(0) * index_waypoint].f1.size(0);
-        }
+        b_loop_ub = 0;
       }
-      if ((t.size(0) != result) && ((t.size(0) != 0) && (t.size(1) != 0))) {
-        h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
-      }
-      if ((t_in2[index_axis + t_in2.size(0) * index_waypoint].f1.size(0) !=
-           result) &&
-          ((t_in2[index_axis + t_in2.size(0) * index_waypoint].f1.size(0) !=
-            0) &&
-           (t_in2[index_axis + t_in2.size(0) * index_waypoint].f1.size(1) !=
-            0))) {
-        h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
-      }
-      empty_non_axis_sizes = (result == 0);
-      if (empty_non_axis_sizes || ((t.size(0) != 0) && (t.size(1) != 0))) {
-        loop_ub = t.size(1);
+      if (t_in2[index_axis + t_in2.size(0) * index_waypoint].f1.size(1) != 0) {
+        loop_ub = t_in2[index_axis + t_in2.size(0) * index_waypoint].f1.size(1);
       } else {
         loop_ub = 0;
       }
-      if (empty_non_axis_sizes ||
-          ((t_in2[index_axis + t_in2.size(0) * index_waypoint].f1.size(0) !=
-            0) &&
-           (t_in2[index_axis + t_in2.size(0) * index_waypoint].f1.size(1) !=
-            0))) {
-        outsize_idx_1 =
-            t_in2[index_axis + t_in2.size(0) * index_waypoint].f1.size(1);
+      if (t.size(1) != 0) {
+        t_idx_1 = t.size(1);
       } else {
-        outsize_idx_1 = 0;
+        t_idx_1 = 0;
       }
-      for (i1 = 0; i1 < loop_ub; i1++) {
-        for (i3 = 0; i3 < result; i3++) {
-          t[i3 + t.size(0) * i1] = t[i3 + result * i1];
+      for (i1 = 0; i1 < b_loop_ub; i1++) {
+        for (i3 = 0; i3 < 1; i3++) {
+          t[i1] = t[i1];
         }
       }
-      t.set_size(result, loop_ub + outsize_idx_1);
-      for (i1 = 0; i1 < outsize_idx_1; i1++) {
-        for (i3 = 0; i3 < result; i3++) {
-          t[i3 + t.size(0) * (i1 + loop_ub)] =
-              t_in2[index_axis + t_in2.size(0) * index_waypoint]
-                  .f1[i3 + result * i1];
+      t.set_size(1, b_loop_ub + loop_ub);
+      for (i1 = 0; i1 < loop_ub; i1++) {
+        for (i3 = 0; i3 < 1; i3++) {
+          t[i1 + t_idx_1] =
+              t_in2[index_axis + t_in2.size(0) * index_waypoint].f1[i1];
         }
       }
       if (index_axis > J_in2.size(0) - 1) {
@@ -423,121 +372,79 @@ void construct_setp_struct(const coder::array<cell_wrap_0, 2U> &t_in2,
         rtDynamicBoundsError(index_waypoint, 0, J_in2.size(1) - 1,
                              &qb_emlrtBCI);
       }
-      if ((J.size(0) != 0) && (J.size(1) != 0)) {
-        result = J.size(0);
-      } else if ((J_in2[index_axis + J_in2.size(0) * index_waypoint].f1.size(
-                      0) != 0) &&
-                 (J_in2[index_axis + J_in2.size(0) * index_waypoint].f1.size(
-                      1) != 0)) {
-        result = J_in2[index_axis + J_in2.size(0) * index_waypoint].f1.size(0);
+      if (J.size(1) != 0) {
+        b_loop_ub = J.size(1);
       } else {
-        result = J.size(0);
-        if (J_in2[index_axis + J_in2.size(0) * index_waypoint].f1.size(0) >
-            J.size(0)) {
-          result =
-              J_in2[index_axis + J_in2.size(0) * index_waypoint].f1.size(0);
-        }
+        b_loop_ub = 0;
       }
-      if ((J.size(0) != result) && ((J.size(0) != 0) && (J.size(1) != 0))) {
-        h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
-      }
-      if ((J_in2[index_axis + J_in2.size(0) * index_waypoint].f1.size(0) !=
-           result) &&
-          ((J_in2[index_axis + J_in2.size(0) * index_waypoint].f1.size(0) !=
-            0) &&
-           (J_in2[index_axis + J_in2.size(0) * index_waypoint].f1.size(1) !=
-            0))) {
-        h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
-      }
-      empty_non_axis_sizes = (result == 0);
-      if (empty_non_axis_sizes || ((J.size(0) != 0) && (J.size(1) != 0))) {
-        loop_ub = J.size(1);
+      if (J_in2[index_axis + J_in2.size(0) * index_waypoint].f1.size(1) != 0) {
+        loop_ub = J_in2[index_axis + J_in2.size(0) * index_waypoint].f1.size(1);
       } else {
         loop_ub = 0;
       }
-      if (empty_non_axis_sizes ||
-          ((J_in2[index_axis + J_in2.size(0) * index_waypoint].f1.size(0) !=
-            0) &&
-           (J_in2[index_axis + J_in2.size(0) * index_waypoint].f1.size(1) !=
-            0))) {
-        outsize_idx_1 =
-            J_in2[index_axis + J_in2.size(0) * index_waypoint].f1.size(1);
+      if (J.size(1) != 0) {
+        t_idx_1 = J.size(1);
       } else {
-        outsize_idx_1 = 0;
+        t_idx_1 = 0;
       }
+      for (i1 = 0; i1 < b_loop_ub; i1++) {
+        for (i3 = 0; i3 < 1; i3++) {
+          J[i1] = J[i1];
+        }
+      }
+      J.set_size(1, b_loop_ub + loop_ub);
       for (i1 = 0; i1 < loop_ub; i1++) {
-        for (i3 = 0; i3 < result; i3++) {
-          J[i3 + J.size(0) * i1] = J[i3 + result * i1];
-        }
-      }
-      J.set_size(result, loop_ub + outsize_idx_1);
-      for (i1 = 0; i1 < outsize_idx_1; i1++) {
-        for (i3 = 0; i3 < result; i3++) {
-          J[i3 + J.size(0) * (i1 + loop_ub)] =
-              J_in2[index_axis + J_in2.size(0) * index_waypoint]
-                  .f1[i3 + result * i1];
+        for (i3 = 0; i3 < 1; i3++) {
+          J[i1 + t_idx_1] =
+              J_in2[index_axis + J_in2.size(0) * index_waypoint].f1[i1];
         }
       }
     }
-    if (1 > t.size(0)) {
-      rtDynamicBoundsError(1, 1, t.size(0), &rb_emlrtBCI);
-    }
-    if (1 > J.size(0)) {
-      rtDynamicBoundsError(1, 1, J.size(0), &sb_emlrtBCI);
-    }
-    loop_ub = t.size(1);
-    b_t.set_size(1, t.size(1));
-    for (i1 = 0; i1 < loop_ub; i1++) {
-      b_t[i1] = t[t.size(0) * i1];
-    }
-    loop_ub = J.size(1);
-    b_J.set_size(1, J.size(1));
-    for (i1 = 0; i1 < loop_ub; i1++) {
-      b_J[i1] = J[J.size(0) * i1];
-    }
-    simplify_setp(b_t, b_J, t_2, J_2);
+    t.set_size(1, t.size(1));
+    J.set_size(1, J.size(1));
+    simplify_setp(t, J, t_2, J_2);
     if ((t_2.size(1) != 0) && (t_2.size(1) != 1)) {
-      result = t_2.size(1);
+      loop_ub = t_2.size(1);
       if ((1 <= t_2.size(1) - 1) && (t_2.size(1) - 1 > 2147483646)) {
         coder::check_forloop_overflow_error();
       }
-      for (outsize_idx_1 = 0; outsize_idx_1 <= result - 2; outsize_idx_1++) {
-        t_2[outsize_idx_1 + 1] = t_2[outsize_idx_1] + t_2[outsize_idx_1 + 1];
+      for (t_idx_1 = 0; t_idx_1 <= loop_ub - 2; t_idx_1++) {
+        t_2[t_idx_1 + 1] = t_2[t_idx_1] + t_2[t_idx_1 + 1];
       }
     }
-    b_t.set_size(1, t_2.size(1) + 1);
-    b_t[0] = 0.0;
-    result = t_2.size(1);
+    t.set_size(1, t_2.size(1) + 1);
+    t[0] = 0.0;
+    loop_ub = t_2.size(1);
     if ((1 <= t_2.size(1)) && (t_2.size(1) > 2147483646)) {
       coder::check_forloop_overflow_error();
     }
-    for (outsize_idx_1 = 0; outsize_idx_1 < result; outsize_idx_1++) {
-      b_t[outsize_idx_1 + 1] = t_2[outsize_idx_1];
+    for (t_idx_1 = 0; t_idx_1 < loop_ub; t_idx_1++) {
+      t[t_idx_1 + 1] = t_2[t_idx_1];
     }
-    result = J_setp_struct.size(1);
+    loop_ub = J_setp_struct.size(1);
     if (index_axis + 1 > J_setp_struct.size(1)) {
       rtDynamicBoundsError(index_axis + 1, 1, J_setp_struct.size(1),
-                           &tb_emlrtBCI);
+                           &rb_emlrtBCI);
     }
     J_setp_struct[J_setp_struct.size(0) * index_axis].time.set_size(
-        b_t.size(1),
+        t.size(1),
         J_setp_struct[J_setp_struct.size(0) * index_axis].time.size(1));
-    if (index_axis + 1 > result) {
-      rtDynamicBoundsError(index_axis + 1, 1, result, &tb_emlrtBCI);
+    if (index_axis + 1 > loop_ub) {
+      rtDynamicBoundsError(index_axis + 1, 1, loop_ub, &rb_emlrtBCI);
     }
     J_setp_struct[J_setp_struct.size(0) * index_axis].time.set_size(
         J_setp_struct[J_setp_struct.size(0) * index_axis].time.size(0), 1);
-    loop_ub = b_t.size(1);
-    for (i1 = 0; i1 < loop_ub; i1++) {
-      if (index_axis + 1 > result) {
-        rtDynamicBoundsError(index_axis + 1, 1, result, &tb_emlrtBCI);
+    b_loop_ub = t.size(1);
+    for (i1 = 0; i1 < b_loop_ub; i1++) {
+      if (index_axis + 1 > loop_ub) {
+        rtDynamicBoundsError(index_axis + 1, 1, loop_ub, &rb_emlrtBCI);
       }
-      J_setp_struct[index_axis].time[i1] = b_t[i1];
+      J_setp_struct[index_axis].time[i1] = t[i1];
     }
-    loop_ub = J_2.size(1) - 1;
+    b_loop_ub = J_2.size(1) - 1;
     if (index_axis + 1 > J_setp_struct.size(1)) {
       rtDynamicBoundsError(index_axis + 1, 1, J_setp_struct.size(1),
-                           &ub_emlrtBCI);
+                           &sb_emlrtBCI);
     }
     J_setp_struct[J_setp_struct.size(0) * index_axis].signals.values.set_size(
         1,
@@ -545,38 +452,38 @@ void construct_setp_struct(const coder::array<cell_wrap_0, 2U> &t_in2,
             1));
     if (index_axis + 1 > J_setp_struct.size(1)) {
       rtDynamicBoundsError(index_axis + 1, 1, J_setp_struct.size(1),
-                           &ub_emlrtBCI);
+                           &sb_emlrtBCI);
     }
     J_setp_struct[J_setp_struct.size(0) * index_axis].signals.values.set_size(
         J_setp_struct[J_setp_struct.size(0) * index_axis].signals.values.size(
             0),
         J_2.size(1));
-    result = J_setp_struct.size(1);
+    loop_ub = J_setp_struct.size(1);
     if (index_axis + 1 > J_setp_struct.size(1)) {
       rtDynamicBoundsError(index_axis + 1, 1, J_setp_struct.size(1),
-                           &ub_emlrtBCI);
+                           &sb_emlrtBCI);
     }
     if (index_axis + 1 > J_setp_struct.size(1)) {
       rtDynamicBoundsError(index_axis + 1, 1, J_setp_struct.size(1),
-                           &ub_emlrtBCI);
+                           &sb_emlrtBCI);
     }
-    for (i1 = 0; i1 <= loop_ub; i1++) {
-      if (index_axis + 1 > result) {
-        rtDynamicBoundsError(index_axis + 1, 1, result, &vb_emlrtBCI);
+    for (i1 = 0; i1 <= b_loop_ub; i1++) {
+      if (index_axis + 1 > loop_ub) {
+        rtDynamicBoundsError(index_axis + 1, 1, loop_ub, &tb_emlrtBCI);
       }
       J_setp_struct[index_axis].signals.values[i1] = J_2[i1];
     }
-    result = J_setp_struct.size(1);
+    loop_ub = J_setp_struct.size(1);
     if (index_axis + 1 > J_setp_struct.size(1)) {
       rtDynamicBoundsError(index_axis + 1, 1, J_setp_struct.size(1),
-                           &wb_emlrtBCI);
+                           &ub_emlrtBCI);
     }
     J_setp_struct[J_setp_struct.size(0) * index_axis].signals.values.set_size(
         1,
         J_setp_struct[J_setp_struct.size(0) * index_axis].signals.values.size(
             1));
-    if (index_axis + 1 > result) {
-      rtDynamicBoundsError(index_axis + 1, 1, result, &vb_emlrtBCI);
+    if (index_axis + 1 > loop_ub) {
+      rtDynamicBoundsError(index_axis + 1, 1, loop_ub, &tb_emlrtBCI);
     }
     J_setp_struct[J_setp_struct.size(0) * index_axis].signals.values.set_size(
         J_setp_struct[J_setp_struct.size(0) * index_axis].signals.values.size(
@@ -584,152 +491,10 @@ void construct_setp_struct(const coder::array<cell_wrap_0, 2U> &t_in2,
         J_2.size(1) + 1);
     if (index_axis + 1 > J_setp_struct.size(1)) {
       rtDynamicBoundsError(index_axis + 1, 1, J_setp_struct.size(1),
-                           &ub_emlrtBCI);
+                           &sb_emlrtBCI);
     }
     J_setp_struct[index_axis].signals.values[J_2.size(1)] = 0.0;
   }
-}
-
-void construct_setp_struct(
-    const coder::array<double, 2U> &t_in2,
-    const coder::array<double, 2U> &J_in2,
-    coder::array<double, 2U> &J_setp_struct_time,
-    coder::array<double, 2U> &J_setp_struct_signals_values)
-{
-  coder::array<double, 2U> J;
-  coder::array<double, 2U> J_2;
-  coder::array<double, 2U> b_J;
-  coder::array<double, 2U> b_t;
-  coder::array<double, 2U> t;
-  coder::array<double, 2U> t_2;
-  int i;
-  int i1;
-  int result;
-  int sizes_idx_1;
-  //  ---------------------------------------------------------------------
-  //  Package:    TopiCo (https://github.com/AIS-Bonn/TopiCo)
-  //  Version:    2021-03-18 12:09:55
-  //  Maintainer: Marius Beul (mbeul@ais.uni-bonn.de)
-  //  License:    BSD
-  //  ---------------------------------------------------------------------
-  //  Software License Agreement (BSD License)
-  //  Copyright (c) 2021, Computer Science Institute VI, University of Bonn
-  //  All rights reserved.
-  //  Redistribution and use in source and binary forms, with or without
-  //  modification, are permitted provided that the following conditions
-  //  are met:
-  //
-  //  * Redistributions of source code must retain the above copyright
-  //    notice, this list of conditions and the following disclaimer.
-  //  * Redistributions in binary form must reproduce the above
-  //    copyright notice, this list of conditions and the following
-  //    disclaimer in the documentation and/or other materials provided
-  //    with the distribution.
-  //  * Neither the name of University of Bonn, Computer Science Institute
-  //    VI nor the names of its contributors may be used to endorse or
-  //    promote products derived from this software without specific
-  //    prior written permission.
-  //
-  //  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-  //  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-  //  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-  //  FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
-  //  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-  //  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-  //  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-  //  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-  //  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-  //  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
-  //  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-  //  POSSIBILITY OF SUCH DAMAGE.
-  //  --------------------------------------------------------------------
-  if ((t_in2.size(0) != 0) && (t_in2.size(1) != 0)) {
-    result = t_in2.size(0);
-  } else {
-    result = 1;
-    if (t_in2.size(0) > 1) {
-      result = t_in2.size(0);
-    }
-  }
-  if ((t_in2.size(0) != result) &&
-      ((t_in2.size(0) != 0) && (t_in2.size(1) != 0))) {
-    h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
-  }
-  if ((t_in2.size(0) != 0) && (t_in2.size(1) != 0)) {
-    sizes_idx_1 = t_in2.size(1);
-  } else {
-    sizes_idx_1 = 0;
-  }
-  t.set_size(result, sizes_idx_1);
-  for (i = 0; i < sizes_idx_1; i++) {
-    for (i1 = 0; i1 < result; i1++) {
-      t[i1 + t.size(0) * i] = t_in2[i1 + result * i];
-    }
-  }
-  if ((J_in2.size(0) != 0) && (J_in2.size(1) != 0)) {
-    result = J_in2.size(0);
-  } else {
-    result = 1;
-    if (J_in2.size(0) > 1) {
-      result = J_in2.size(0);
-    }
-  }
-  if ((J_in2.size(0) != result) &&
-      ((J_in2.size(0) != 0) && (J_in2.size(1) != 0))) {
-    h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
-  }
-  if ((J_in2.size(0) != 0) && (J_in2.size(1) != 0)) {
-    sizes_idx_1 = J_in2.size(1);
-  } else {
-    sizes_idx_1 = 0;
-  }
-  J.set_size(result, sizes_idx_1);
-  for (i = 0; i < sizes_idx_1; i++) {
-    for (i1 = 0; i1 < result; i1++) {
-      J[i1 + J.size(0) * i] = J_in2[i1 + result * i];
-    }
-  }
-  result = t.size(1);
-  b_t.set_size(1, t.size(1));
-  for (i = 0; i < result; i++) {
-    b_t[i] = t[t.size(0) * i];
-  }
-  result = J.size(1);
-  b_J.set_size(1, J.size(1));
-  for (i = 0; i < result; i++) {
-    b_J[i] = J[J.size(0) * i];
-  }
-  simplify_setp(b_t, b_J, t_2, J_2);
-  if ((t_2.size(1) != 0) && (t_2.size(1) != 1)) {
-    result = t_2.size(1);
-    if ((1 <= t_2.size(1) - 1) && (t_2.size(1) - 1 > 2147483646)) {
-      coder::check_forloop_overflow_error();
-    }
-    for (sizes_idx_1 = 0; sizes_idx_1 <= result - 2; sizes_idx_1++) {
-      t_2[sizes_idx_1 + 1] = t_2[sizes_idx_1] + t_2[sizes_idx_1 + 1];
-    }
-  }
-  b_t.set_size(1, t_2.size(1) + 1);
-  b_t[0] = 0.0;
-  result = t_2.size(1);
-  if ((1 <= t_2.size(1)) && (t_2.size(1) > 2147483646)) {
-    coder::check_forloop_overflow_error();
-  }
-  for (sizes_idx_1 = 0; sizes_idx_1 < result; sizes_idx_1++) {
-    b_t[sizes_idx_1 + 1] = t_2[sizes_idx_1];
-  }
-  J_setp_struct_time.set_size(b_t.size(1), 1);
-  result = b_t.size(1);
-  for (i = 0; i < result; i++) {
-    J_setp_struct_time[i] = b_t[i];
-  }
-  J_setp_struct_signals_values.set_size(1, J_2.size(1));
-  result = J_2.size(1);
-  for (i = 0; i < result; i++) {
-    J_setp_struct_signals_values[i] = J_2[i];
-  }
-  J_setp_struct_signals_values.set_size(1, J_2.size(1) + 1);
-  J_setp_struct_signals_values[J_2.size(1)] = 0.0;
 }
 
 void construct_setp_struct(

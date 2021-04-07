@@ -13,14 +13,14 @@
 #include "combineVectorElements.h"
 #include "eml_int_forloop_overflow_check.h"
 #include "rt_nonfinite.h"
-#include "topico_internal_types.h"
-#include "topico_rtwutil.h"
-#include "topico_types.h"
+#include "topico_wrapper_internal_types.h"
+#include "topico_wrapper_rtwutil.h"
+#include "topico_wrapper_types.h"
 #include "coder_array.h"
 
 // Function Definitions
-void cut_to_time(const cell_wrap_15 *t_in, const cell_wrap_15 *J_in, double T,
-                 cell_wrap_15 *t_out, cell_wrap_15 *J_out)
+void cut_to_time(const cell_wrap_17 *t_in, const cell_wrap_17 *J_in, double T,
+                 cell_wrap_17 *t_out, cell_wrap_17 *J_out)
 {
   static rtBoundsCheckInfo nb_emlrtBCI = {
       -1,                                                 // iFirst

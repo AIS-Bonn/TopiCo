@@ -11,7 +11,7 @@
 // Include files
 #include "abcdef_NO_VP.h"
 #include "rt_nonfinite.h"
-#include "topico_rtwutil.h"
+#include "topico_wrapper_rtwutil.h"
 
 // Function Definitions
 void abcdef_NO_VP(double P_init, double V_init, double A_init, double P_wayp,

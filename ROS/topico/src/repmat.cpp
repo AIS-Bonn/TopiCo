@@ -12,7 +12,7 @@
 #include "repmat.h"
 #include "eml_int_forloop_overflow_check.h"
 #include "rt_nonfinite.h"
-#include "topico_types.h"
+#include "topico_wrapper_types.h"
 #include "coder_array.h"
 #include <sstream>
 #include <stdexcept>

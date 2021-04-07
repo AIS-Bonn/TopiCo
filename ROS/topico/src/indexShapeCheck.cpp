@@ -11,13 +11,13 @@
 // Include files
 #include "indexShapeCheck.h"
 #include "rt_nonfinite.h"
-#include "topico_types.h"
+#include "topico_wrapper_types.h"
 #include <sstream>
 #include <stdexcept>
 #include <string>
 
 // Variable Definitions
-static rtRunTimeErrorInfo j_emlrtRTEI = {
+static rtRunTimeErrorInfo i_emlrtRTEI = {
     121,           // lineNo
     5,             // colNo
     "errOrWarnIf", // fName
@@ -69,14 +69,14 @@ void indexShapeCheck(const int matrixSize[2])
     }
   }
   if (nonSingletonDimFound && (matrixSize[0] != 1)) {
-    l_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+    l_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
   }
 }
 
 void indexShapeCheck(int matrixSize)
 {
   if (matrixSize == 1) {
-    g_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+    g_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
   }
 }
 

@@ -11,9 +11,9 @@
 // Include files
 #include "select_cases_TV.h"
 #include "rt_nonfinite.h"
-#include "topico_internal_types.h"
-#include "topico_rtwutil.h"
-#include "topico_types.h"
+#include "topico_wrapper_internal_types.h"
+#include "topico_wrapper_rtwutil.h"
+#include "topico_wrapper_types.h"
 #include "coder_bounded_array.h"
 
 // Variable Definitions
@@ -23,7 +23,7 @@ static bool b_caselut_not_empty;
 void select_cases_TV(unsigned char n, unsigned char cond, bool b_sync_V,
                      int cases_data[], int cases_size[2])
 {
-  static cell_wrap_21 caselut[224];
+  static cell_wrap_22 caselut[224];
   static rtBoundsCheckInfo nb_emlrtBCI = {
       0,                                                      // iFirst
       31,                                                     // iLast

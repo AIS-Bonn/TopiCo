@@ -11,7 +11,7 @@
 // Include files
 #include "check_feasibility.h"
 #include "rt_nonfinite.h"
-#include "topico_data.h"
+#include "topico_wrapper_data.h"
 
 // Function Definitions
 unsigned char check_feasibility(double V_wayp, double A_wayp, double V_max,

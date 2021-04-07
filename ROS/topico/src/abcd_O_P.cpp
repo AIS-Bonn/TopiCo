@@ -11,7 +11,7 @@
 // Include files
 #include "abcd_O_P.h"
 #include "rt_nonfinite.h"
-#include "topico_rtwutil.h"
+#include "topico_wrapper_rtwutil.h"
 
 // Function Definitions
 void abcd_O_P(double P_init, double V_init, double A_init, double P_wayp,

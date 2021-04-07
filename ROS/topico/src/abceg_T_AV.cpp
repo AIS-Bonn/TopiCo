@@ -12,7 +12,7 @@
 #include "abceg_T_AV.h"
 #include "rt_nonfinite.h"
 #include "sqrt.h"
-#include "topico_data.h"
+#include "topico_wrapper_data.h"
 
 // Function Definitions
 void abceg_T_AV(double V_init, double A_init, double V_wayp, double A_wayp,

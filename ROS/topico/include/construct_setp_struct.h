@@ -34,12 +34,6 @@ void construct_setp_struct(const coder::array<cell_wrap_0, 2U> &t_in2,
                            coder::array<struct0_T, 2U> &J_setp_struct);
 
 void construct_setp_struct(
-    const coder::array<double, 2U> &t_in2,
-    const coder::array<double, 2U> &J_in2,
-    coder::array<double, 2U> &J_setp_struct_time,
-    coder::array<double, 2U> &J_setp_struct_signals_values);
-
-void construct_setp_struct(
     const double t_in2_data[], const int t_in2_size[2],
     const double J_in2_data[], const int J_in2_size[2],
     coder::array<double, 2U> &J_setp_struct_time,

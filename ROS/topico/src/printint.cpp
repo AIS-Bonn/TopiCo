@@ -12,9 +12,9 @@
 #include "printint.h"
 #include "i64ddiv.h"
 #include "rt_nonfinite.h"
-#include "topico_data.h"
-#include "topico_rtwutil.h"
-#include "topico_types.h"
+#include "topico_wrapper_data.h"
+#include "topico_wrapper_rtwutil.h"
+#include "topico_wrapper_types.h"
 #include <cmath>
 #include <stdio.h>
 
@@ -74,7 +74,7 @@ void printint(int number)
   while (divisor >= 1UL) {
     unsigned long d;
     if (divisor == 0UL) {
-      e_rtErrorWithMessageID(h_emlrtRTEI.fName, h_emlrtRTEI.lineNo);
+      d_rtErrorWithMessageID(g_emlrtRTEI.fName, g_emlrtRTEI.lineNo);
     }
     d = _u64_div__(b_number, divisor);
     b_leading = ((d == 0UL) && b_leading);
@@ -142,7 +142,7 @@ void printint(double number)
   while (divisor >= 1UL) {
     unsigned long d;
     if (divisor == 0UL) {
-      e_rtErrorWithMessageID(h_emlrtRTEI.fName, h_emlrtRTEI.lineNo);
+      d_rtErrorWithMessageID(g_emlrtRTEI.fName, g_emlrtRTEI.lineNo);
     }
     d = _u64_div__(b_number, divisor);
     b_leading = ((d == 0UL) && b_leading);

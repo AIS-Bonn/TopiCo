@@ -3,17 +3,17 @@
 // perform academic research at degree granting institutions only.  Not
 // for government, commercial, or other organizational use.
 //
-// topico_internal_types.h
+// topico_wrapper_internal_types.h
 //
-// Code generation for function 'topico'
+// Code generation for function 'topico_wrapper'
 //
 
-#ifndef TOPICO_INTERNAL_TYPES_H
-#define TOPICO_INTERNAL_TYPES_H
+#ifndef TOPICO_WRAPPER_INTERNAL_TYPES_H
+#define TOPICO_WRAPPER_INTERNAL_TYPES_H
 
 // Include files
 #include "rtwtypes.h"
-#include "topico_types.h"
+#include "topico_wrapper_types.h"
 #include "coder_array.h"
 #include "coder_bounded_array.h"
 
@@ -26,7 +26,7 @@ struct rtDoubleCheckInfo {
   int checkKind;
 };
 
-struct cell_wrap_21 {
+struct cell_wrap_22 {
   coder::bounded_array<int, 24U, 2U> f1;
 };
 
@@ -34,9 +34,9 @@ struct cell_wrap_0 {
   coder::array<double, 2U> f1;
 };
 
-struct cell_wrap_15 {
+struct cell_wrap_17 {
   coder::array<double, 2U> f1;
 };
 
 #endif
-// End of code generation (topico_internal_types.h)
+// End of code generation (topico_wrapper_internal_types.h)

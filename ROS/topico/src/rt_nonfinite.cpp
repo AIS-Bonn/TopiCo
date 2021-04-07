@@ -5,7 +5,7 @@
 //
 // rt_nonfinite.cpp
 //
-// Code generation for function 'topico'
+// Code generation for function 'topico_wrapper'
 //
 
 // Abstract:

@@ -13,9 +13,9 @@
 #include "cut_to_time.h"
 #include "diff.h"
 #include "rt_nonfinite.h"
-#include "topico_internal_types.h"
-#include "topico_rtwutil.h"
-#include "topico_types.h"
+#include "topico_wrapper_internal_types.h"
+#include "topico_wrapper_rtwutil.h"
+#include "topico_wrapper_types.h"
 #include "coder_array.h"
 
 // Variable Definitions
@@ -218,10 +218,10 @@ void evaluate_to_time(
   coder::array<double, 2U> V_eval;
   coder::array<double, 1U> b_J_setp_struct_time;
   coder::array<double, 1U> r;
-  cell_wrap_15 J_remaining;
-  cell_wrap_15 J_temp;
-  cell_wrap_15 t_remaining;
-  cell_wrap_15 t_temp;
+  cell_wrap_17 J_remaining;
+  cell_wrap_17 J_temp;
+  cell_wrap_17 t_remaining;
+  cell_wrap_17 t_temp;
   double J_curr;
   double a;
   int i;
@@ -462,10 +462,10 @@ void evaluate_to_time(
   coder::array<double, 2U> V_eval;
   coder::array<double, 1U> b_J_setp_struct_time;
   coder::array<double, 1U> r;
-  cell_wrap_15 J_remaining;
-  cell_wrap_15 J_temp;
-  cell_wrap_15 t_remaining;
-  cell_wrap_15 t_temp;
+  cell_wrap_17 J_remaining;
+  cell_wrap_17 J_temp;
+  cell_wrap_17 t_remaining;
+  cell_wrap_17 t_temp;
   double J_curr;
   double a;
   int i;
@@ -722,10 +722,10 @@ void evaluate_to_time(
   coder::array<double, 2U> V_eval;
   coder::array<double, 1U> b_J_setp_struct_time;
   coder::array<double, 1U> r;
-  cell_wrap_15 J_remaining;
-  cell_wrap_15 J_temp;
-  cell_wrap_15 t_remaining;
-  cell_wrap_15 t_temp;
+  cell_wrap_17 J_remaining;
+  cell_wrap_17 J_temp;
+  cell_wrap_17 t_remaining;
+  cell_wrap_17 t_temp;
   double J_curr;
   double a;
   int i;

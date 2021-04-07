@@ -12,9 +12,9 @@
 #include "circshift.h"
 #include "eml_int_forloop_overflow_check.h"
 #include "rt_nonfinite.h"
-#include "topico_data.h"
-#include "topico_rtwutil.h"
-#include "topico_types.h"
+#include "topico_wrapper_data.h"
+#include "topico_wrapper_rtwutil.h"
+#include "topico_wrapper_types.h"
 #include <cmath>
 #include <cstring>
 
@@ -38,7 +38,7 @@ void circshift(double a_data[], const int a_size[2])
     ns = 0;
     shiftright = false;
     if (1 > a_size[dim]) {
-      e_rtErrorWithMessageID(h_emlrtRTEI.fName, h_emlrtRTEI.lineNo);
+      d_rtErrorWithMessageID(g_emlrtRTEI.fName, g_emlrtRTEI.lineNo);
     }
     if (1 > (a_size[dim] >> 1)) {
       ns = a_size[dim] - 2;

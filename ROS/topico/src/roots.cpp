@@ -12,8 +12,8 @@
 #include "roots.h"
 #include "eig.h"
 #include "rt_nonfinite.h"
-#include "topico_rtwutil.h"
-#include "topico_types.h"
+#include "topico_wrapper_rtwutil.h"
+#include "topico_wrapper_types.h"
 #include "vAllOrAny.h"
 #include "rt_nonfinite.h"
 #include <cmath>

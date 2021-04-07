@@ -5,7 +5,7 @@
 //
 // rt_nonfinite.h
 //
-// Code generation for function 'topico'
+// Code generation for function 'topico_wrapper'
 //
 
 #ifndef RT_NONFINITE_H

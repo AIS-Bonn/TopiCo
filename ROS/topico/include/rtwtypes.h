@@ -5,7 +5,7 @@
 //
 // rtwtypes.h
 //
-// Code generation for function 'topico'
+// Code generation for function 'topico_wrapper'
 //
 
 #ifndef RTWTYPES_H

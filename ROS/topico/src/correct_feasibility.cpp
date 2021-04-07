@@ -17,8 +17,8 @@
 #include "rt_nonfinite.h"
 #include "simplify_setp.h"
 #include "solve_O.h"
-#include "topico_rtwutil.h"
-#include "topico_types.h"
+#include "topico_wrapper_rtwutil.h"
+#include "topico_wrapper_types.h"
 #include "useConstantDim.h"
 #include "coder_array.h"
 #include <algorithm>

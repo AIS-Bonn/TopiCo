@@ -14,8 +14,8 @@
 #include "check_feasibility.h"
 #include "combineVectorElements.h"
 #include "rt_nonfinite.h"
-#include "topico_rtwutil.h"
-#include "topico_types.h"
+#include "topico_wrapper_rtwutil.h"
+#include "topico_wrapper_types.h"
 #include "validateattributes.h"
 #include "coder_array.h"
 #include "rt_nonfinite.h"
@@ -27,25 +27,25 @@
 // Function Declarations
 static void b_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 
-static void c_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
+static void rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 
 // Function Definitions
 static void b_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
-{
-  std::stringstream outStream;
-  outStream << "To RESHAPE the number of elements must not change.";
-  outStream << "\n";
-  ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
-  throw std::runtime_error(outStream.str());
-}
-
-static void c_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
 {
   std::stringstream outStream;
   outStream
       << "To RESHAPE the number of elements must not change, and if the input "
          "is empty, the maximum dimension length cannot be increased u"
          "nless the output size is fixed.";
+  outStream << "\n";
+  ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
+  throw std::runtime_error(outStream.str());
+}
+
+static void rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+{
+  std::stringstream outStream;
+  outStream << "To RESHAPE the number of elements must not change.";
   outStream << "\n";
   ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
   throw std::runtime_error(outStream.str());
@@ -873,13 +873,13 @@ void check_inputs(const coder::array<double, 2U> &State_start,
     maxdimlen = nx;
   }
   if (Waypoints.size(0) > maxdimlen) {
-    c_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    b_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
   }
   if (Waypoints.size(2) > maxdimlen) {
-    c_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    b_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
   }
   if (Waypoints.size(0) * Waypoints.size(2) != nx) {
-    b_rtErrorWithMessageID(u_emlrtRTEI.fName, u_emlrtRTEI.lineNo);
+    rtErrorWithMessageID(u_emlrtRTEI.fName, u_emlrtRTEI.lineNo);
   }
   b_Waypoints[0] = Waypoints.size(0);
   b_Waypoints[1] = Waypoints.size(2);
@@ -923,13 +923,13 @@ void check_inputs(const coder::array<double, 2U> &State_start,
     maxdimlen = nx;
   }
   if (Waypoints.size(0) > maxdimlen) {
-    c_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    b_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
   }
   if (Waypoints.size(2) > maxdimlen) {
-    c_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    b_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
   }
   if (Waypoints.size(0) * Waypoints.size(2) != nx) {
-    b_rtErrorWithMessageID(u_emlrtRTEI.fName, u_emlrtRTEI.lineNo);
+    rtErrorWithMessageID(u_emlrtRTEI.fName, u_emlrtRTEI.lineNo);
   }
   b_Waypoints[0] = Waypoints.size(0);
   b_Waypoints[1] = Waypoints.size(2);
@@ -973,13 +973,13 @@ void check_inputs(const coder::array<double, 2U> &State_start,
     maxdimlen = nx;
   }
   if (Waypoints.size(0) > maxdimlen) {
-    c_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    b_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
   }
   if (Waypoints.size(2) > maxdimlen) {
-    c_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    b_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
   }
   if (Waypoints.size(0) * Waypoints.size(2) != nx) {
-    b_rtErrorWithMessageID(u_emlrtRTEI.fName, u_emlrtRTEI.lineNo);
+    rtErrorWithMessageID(u_emlrtRTEI.fName, u_emlrtRTEI.lineNo);
   }
   b_Waypoints[0] = Waypoints.size(0);
   b_Waypoints[1] = Waypoints.size(2);
@@ -1023,13 +1023,13 @@ void check_inputs(const coder::array<double, 2U> &State_start,
     maxdimlen = nx;
   }
   if (Waypoints.size(0) > maxdimlen) {
-    c_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    b_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
   }
   if (Waypoints.size(2) > maxdimlen) {
-    c_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    b_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
   }
   if (Waypoints.size(0) * Waypoints.size(2) != nx) {
-    b_rtErrorWithMessageID(u_emlrtRTEI.fName, u_emlrtRTEI.lineNo);
+    rtErrorWithMessageID(u_emlrtRTEI.fName, u_emlrtRTEI.lineNo);
   }
   b_Waypoints[0] = Waypoints.size(0);
   b_Waypoints[1] = Waypoints.size(2);
@@ -1477,14 +1477,18 @@ void check_inputs(const coder::array<double, 2U> &State_start,
         fflush(stdout);
         break;
       case 5U:
-        // fprintf('Warning: Waypoint configuration leads to violation of
-        // constraints; V_wayp to close to V_max to prevent future violation of
-        // constraints with J_min!\n');
+        printf("Warning: Waypoint configuration leads to violation of "
+               "constraints; V_wayp to close to V_max to prevent future "
+               "violation of const"
+               "raints with J_min!\n");
+        fflush(stdout);
         break;
       case 6U:
-        // fprintf('Warning: Waypoint configuration leads to violation of
-        // constraints; V_wayp to close to V_min to prevent future violation of
-        // constraints with J_max!\n');
+        printf("Warning: Waypoint configuration leads to violation of "
+               "constraints; V_wayp to close to V_min to prevent future "
+               "violation of const"
+               "raints with J_max!\n");
+        fflush(stdout);
         break;
       case 7U:
         printf("Warning: Waypoint configuration leads to violation of "

@@ -22,25 +22,33 @@
 #include "rt_nonfinite.h"
 #include "solve_O.h"
 #include "solve_T.h"
-#include "topico_data.h"
-#include "topico_internal_types.h"
-#include "topico_rtwutil.h"
-#include "topico_types.h"
+#include "topico_wrapper_data.h"
+#include "topico_wrapper_internal_types.h"
+#include "topico_wrapper_rtwutil.h"
+#include "topico_wrapper_types.h"
 #include "coder_array.h"
 #include "coder_bounded_array.h"
 #include "rt_nonfinite.h"
 #include <stdio.h>
 
 // Type Definitions
+struct cell_wrap_15 {
+  double f1[11];
+};
+
 struct cell_wrap_12 {
   coder::bounded_array<double, 4U, 2U> f1;
 };
 
 struct cell_wrap_13 {
-  coder::bounded_array<double, 1100U, 2U> f1;
+  coder::bounded_array<double, 700U, 2U> f1;
 };
 
 struct cell_wrap_14 {
+  coder::bounded_array<double, 1100U, 2U> f1;
+};
+
+struct cell_wrap_16 {
   coder::bounded_array<int, 100U, 1U> f1;
 };
 
@@ -76,9 +84,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ad_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      117,                                                           // lineNo
-      13,                                                            // colNo
-      "J_min",                                                       // aName
+      125,                                                           // lineNo
+      125,                                                           // colNo
+      "V_max",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -87,8 +95,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       133,                                                           // lineNo
-      126,                                                           // colNo
-      "A_init",                                                      // aName
+      202,                                                           // colNo
+      "V_max",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -96,9 +104,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo af_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      161,                                                           // lineNo
-      22,                                                            // colNo
-      "T",                                                           // aName
+      167,                                                           // lineNo
+      223,                                                           // colNo
+      "J_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -106,9 +114,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ag_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
-      299,                                                           // colNo
-      "J_max",                                                       // aName
+      172,                                                           // lineNo
+      119,                                                           // colNo
+      "V_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -116,9 +124,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ah_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
-      22,                                                            // colNo
-      "t_tim",                                                       // aName
+      176,                                                           // lineNo
+      61,                                                            // colNo
+      "J_tim{index_axis}",                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -126,9 +134,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ai_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      180,                                                           // lineNo
-      60,                                                            // colNo
-      "t_opt_test",                                                  // aName
+      165,                                                           // lineNo
+      98,                                                            // colNo
+      "V_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -136,19 +144,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo aj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      210,                                                           // lineNo
-      46,                                                            // colNo
-      "t_opt",                                                       // aName
-      "synchronize_trajectory",                                      // fName
-      "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
-      0 // checkKind
-  };
-  static rtBoundsCheckInfo ak_emlrtBCI = {
-      -1,                                                            // iFirst
-      -1,                                                            // iLast
-      232,                                                           // lineNo
-      9,                                                             // colNo
-      "t_out",                                                       // aName
+      220,                                                           // lineNo
+      77,                                                            // colNo
+      "solution_opt{index_axis,:}",                                  // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -167,8 +165,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       125,                                                           // lineNo
-      68,                                                            // colNo
-      "P_init",                                                      // aName
+      143,                                                           // colNo
+      "V_min",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -177,8 +175,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       133,                                                           // lineNo
-      145,                                                           // colNo
-      "P_wayp",                                                      // aName
+      220,                                                           // colNo
+      "V_min",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -186,9 +184,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo bf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      161,                                                           // lineNo
-      49,                                                            // colNo
-      "T_catch_up",                                                  // aName
+      167,                                                           // lineNo
+      207,                                                           // colNo
+      "t_opt_test{index_axis}",                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -196,9 +194,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo bg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
-      317,                                                           // colNo
-      "J_min",                                                       // aName
+      172,                                                           // lineNo
+      138,                                                           // colNo
+      "A_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -206,9 +204,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo bh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
-      42,                                                            // colNo
-      "J_tim",                                                       // aName
+      176,                                                           // lineNo
+      25,                                                            // colNo
+      "J",                                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -216,9 +214,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo bi_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      180,                                                           // lineNo
-      36,                                                            // colNo
-      "t_opt_test",                                                  // aName
+      165,                                                           // lineNo
+      127,                                                           // colNo
+      "A_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -226,19 +224,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo bj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      210,                                                           // lineNo
-      60,                                                            // colNo
-      "t_opt{index_axis,:}",                                         // aName
-      "synchronize_trajectory",                                      // fName
-      "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
-      0 // checkKind
-  };
-  static rtBoundsCheckInfo bk_emlrtBCI = {
-      -1,                                                            // iFirst
-      -1,                                                            // iLast
-      233,                                                           // lineNo
-      36,                                                            // colNo
-      "J_red",                                                       // aName
+      220,                                                           // lineNo
+      21,                                                            // colNo
+      "solution_out",                                                // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -257,8 +245,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       125,                                                           // lineNo
-      87,                                                            // colNo
-      "V_init",                                                      // aName
+      161,                                                           // colNo
+      "A_max",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -267,8 +255,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       133,                                                           // lineNo
-      164,                                                           // colNo
-      "V_wayp",                                                      // aName
+      238,                                                           // colNo
+      "A_max",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -276,9 +264,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo cf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      164,                                                           // lineNo
-      48,                                                            // colNo
-      "b_sync_V",                                                    // aName
+      167,                                                           // lineNo
+      235,                                                           // colNo
+      "J_opt_test{index_axis}",                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -286,9 +274,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo cg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
-      72,                                                            // colNo
-      "solution_opt_test",                                           // aName
+      172,                                                           // lineNo
+      157,                                                           // colNo
+      "P_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -296,8 +284,8 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ch_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
-      62,                                                            // colNo
+      177,                                                           // lineNo
+      67,                                                            // colNo
       "solution_tim",                                                // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
@@ -306,29 +294,19 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ci_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      180,                                                           // lineNo
-      25,                                                            // colNo
-      "t_opt_test",                                                  // aName
+      164,                                                           // lineNo
+      80,                                                            // colNo
+      "b_sync_A",                                                    // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
   };
   static rtBoundsCheckInfo cj_emlrtBCI = {
-      -1,                                                            // iFirst
-      -1,                                                            // iLast
-      210,                                                           // lineNo
-      23,                                                            // colNo
-      "t",                                                           // aName
-      "synchronize_trajectory",                                      // fName
-      "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
-      0 // checkKind
-  };
-  static rtBoundsCheckInfo ck_emlrtBCI = {
-      -1,                                                            // iFirst
-      -1,                                                            // iLast
-      233,                                                           // lineNo
-      50,                                                            // colNo
-      "J",                                                           // aName
+      1,                                                             // iFirst
+      100,                                                           // iLast
+      202,                                                           // lineNo
+      61,                                                            // colNo
+      "solution_opt_test_all",                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -347,8 +325,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       125,                                                           // lineNo
-      106,                                                           // colNo
-      "A_init",                                                      // aName
+      179,                                                           // colNo
+      "A_min",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -357,8 +335,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       133,                                                           // lineNo
-      183,                                                           // colNo
-      "A_wayp",                                                      // aName
+      256,                                                           // colNo
+      "A_min",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -366,9 +344,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo df_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      165,                                                           // lineNo
-      25,                                                            // colNo
-      "direction",                                                   // aName
+      167,                                                           // lineNo
+      105,                                                           // colNo
+      "P_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -376,9 +354,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo dg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
-      37,                                                            // colNo
-      "t_opt_test",                                                  // aName
+      172,                                                           // lineNo
+      176,                                                           // colNo
+      "V_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -386,9 +364,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo dh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      173,                                                           // lineNo
-      47,                                                            // colNo
-      "solution_tim",                                                // aName
+      177,                                                           // lineNo
+      79,                                                            // colNo
+      "solution_tim{index_axis}",                                    // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -396,9 +374,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo di_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      181,                                                           // lineNo
-      71,                                                            // colNo
-      "J_opt_test",                                                  // aName
+      164,                                                           // lineNo
+      112,                                                           // colNo
+      "b_sync_J",                                                    // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -406,19 +384,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo dj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      210,                                                           // lineNo
-      21,                                                            // colNo
-      "t",                                                           // aName
-      "synchronize_trajectory",                                      // fName
-      "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
-      0 // checkKind
-  };
-  static rtBoundsCheckInfo dk_emlrtBCI = {
-      -1,                                                            // iFirst
-      -1,                                                            // iLast
-      233,                                                           // lineNo
-      9,                                                             // colNo
-      "J_out",                                                       // aName
+      228,                                                           // lineNo
+      38,                                                            // colNo
+      "t_opt",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -437,8 +405,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       125,                                                           // lineNo
-      125,                                                           // colNo
-      "V_max",                                                       // aName
+      197,                                                           // colNo
+      "J_max",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -447,8 +415,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       133,                                                           // lineNo
-      202,                                                           // colNo
-      "V_max",                                                       // aName
+      274,                                                           // colNo
+      "J_max",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -456,9 +424,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ef_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      165,                                                           // lineNo
-      69,                                                            // colNo
-      "P_wayp",                                                      // aName
+      167,                                                           // lineNo
+      124,                                                           // colNo
+      "V_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -466,9 +434,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo eg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
-      26,                                                            // colNo
-      "t_opt_test",                                                  // aName
+      172,                                                           // lineNo
+      195,                                                           // colNo
+      "A_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -476,9 +444,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo eh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      175,                                                           // lineNo
-      49,                                                            // colNo
-      "t_tim",                                                       // aName
+      177,                                                           // lineNo
+      25,                                                            // colNo
+      "solution_out",                                                // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -486,9 +454,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ei_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      181,                                                           // lineNo
-      60,                                                            // colNo
-      "J_opt_test",                                                  // aName
+      164,                                                           // lineNo
+      144,                                                           // colNo
+      "b_sync_W",                                                    // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -496,9 +464,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ej_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      211,                                                           // lineNo
-      46,                                                            // colNo
-      "J_opt",                                                       // aName
+      228,                                                           // lineNo
+      52,                                                            // colNo
+      "t_opt{index_axis,:}",                                         // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -517,8 +485,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       125,                                                           // lineNo
-      143,                                                           // colNo
-      "V_min",                                                       // aName
+      215,                                                           // colNo
+      "J_min",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -527,8 +495,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       133,                                                           // lineNo
-      220,                                                           // colNo
-      "V_min",                                                       // aName
+      292,                                                           // colNo
+      "J_min",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -537,8 +505,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       167,                                                           // lineNo
-      195,                                                           // colNo
-      "t_opt_test",                                                  // aName
+      143,                                                           // colNo
+      "A_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -546,9 +514,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo fg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
-      60,                                                            // colNo
-      "J_opt_test",                                                  // aName
+      172,                                                           // lineNo
+      214,                                                           // colNo
+      "V_max",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -556,9 +524,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo fh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      175,                                                           // lineNo
-      61,                                                            // colNo
-      "t_tim{index_axis}",                                           // aName
+      189,                                                           // lineNo
+      51,                                                            // colNo
+      "t_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -566,9 +534,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo fi_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      181,                                                           // lineNo
-      36,                                                            // colNo
-      "J_opt_test",                                                  // aName
+      198,                                                           // lineNo
+      65,                                                            // colNo
+      "solution_opt_test",                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -576,9 +544,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo fj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      211,                                                           // lineNo
-      60,                                                            // colNo
-      "J_opt{index_axis,:}",                                         // aName
+      228,                                                           // lineNo
+      13,                                                            // colNo
+      "t",                                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -597,8 +565,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       125,                                                           // lineNo
-      161,                                                           // colNo
-      "A_max",                                                       // aName
+      233,                                                           // colNo
+      "b_hard_V_lim",                                                // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -607,8 +575,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       133,                                                           // lineNo
-      238,                                                           // colNo
-      "A_max",                                                       // aName
+      10,                                                            // colNo
+      "t_opt",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -617,8 +585,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       167,                                                           // lineNo
-      223,                                                           // colNo
-      "J_opt_test",                                                  // aName
+      26,                                                            // colNo
+      "P_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -626,9 +594,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo gg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
-      49,                                                            // colNo
-      "J_opt_test",                                                  // aName
+      172,                                                           // lineNo
+      232,                                                           // colNo
+      "V_min",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -636,9 +604,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo gh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      175,                                                           // lineNo
-      25,                                                            // colNo
-      "t",                                                           // aName
+      189,                                                           // lineNo
+      65,                                                            // colNo
+      "t_opt_test{index_axis,:}",                                    // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -646,9 +614,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo gi_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      181,                                                           // lineNo
-      25,                                                            // colNo
-      "J_opt_test",                                                  // aName
+      199,                                                           // lineNo
+      95,                                                            // colNo
+      "solution_opt_test",                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -656,9 +624,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo gj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      211,                                                           // lineNo
-      23,                                                            // colNo
-      "J",                                                           // aName
+      229,                                                           // lineNo
+      38,                                                            // colNo
+      "J_opt",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -677,8 +645,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       125,                                                           // lineNo
-      179,                                                           // colNo
-      "A_min",                                                       // aName
+      15,                                                            // colNo
+      "t_red",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -687,8 +655,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       133,                                                           // lineNo
-      256,                                                           // colNo
-      "A_min",                                                       // aName
+      30,                                                            // colNo
+      "J_opt",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -697,8 +665,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       167,                                                           // lineNo
-      207,                                                           // colNo
-      "t_opt_test{index_axis}",                                      // aName
+      45,                                                            // colNo
+      "V_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -707,8 +675,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       172,                                                           // lineNo
-      100,                                                           // colNo
-      "P_init",                                                      // aName
+      250,                                                           // colNo
+      "A_max",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -716,19 +684,19 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo hh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      176,                                                           // lineNo
-      49,                                                            // colNo
-      "J_tim",                                                       // aName
+      189,                                                           // lineNo
+      21,                                                            // colNo
+      "t",                                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
   };
   static rtBoundsCheckInfo hi_emlrtBCI = {
-      -1,                                                            // iFirst
-      -1,                                                            // iLast
-      182,                                                           // lineNo
-      67,                                                            // colNo
-      "solution_opt_test",                                           // aName
+      1,                                                             // iFirst
+      100,                                                           // iLast
+      199,                                                           // lineNo
+      39,                                                            // colNo
+      "solution_opt_test_all",                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -736,9 +704,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo hj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      211,                                                           // lineNo
-      21,                                                            // colNo
-      "J",                                                           // aName
+      229,                                                           // lineNo
+      52,                                                            // colNo
+      "J_opt{index_axis,:}",                                         // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -757,8 +725,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       125,                                                           // lineNo
-      197,                                                           // colNo
-      "J_max",                                                       // aName
+      9,                                                             // colNo
+      "t_red",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -767,8 +735,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       133,                                                           // lineNo
-      274,                                                           // colNo
-      "J_max",                                                       // aName
+      50,                                                            // colNo
+      "solution_opt",                                                // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -777,8 +745,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       167,                                                           // lineNo
-      235,                                                           // colNo
-      "J_opt_test{index_axis}",                                      // aName
+      64,                                                            // colNo
+      "A_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -787,8 +755,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       172,                                                           // lineNo
-      119,                                                           // colNo
-      "V_init",                                                      // aName
+      268,                                                           // colNo
+      "A_min",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -796,19 +764,19 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ih_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      176,                                                           // lineNo
-      61,                                                            // colNo
-      "J_tim{index_axis}",                                           // aName
+      190,                                                           // lineNo
+      51,                                                            // colNo
+      "J_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
   };
   static rtBoundsCheckInfo ii_emlrtBCI = {
-      -1,                                                            // iFirst
-      -1,                                                            // iLast
-      183,                                                           // lineNo
-      36,                                                            // colNo
-      "t_opt_test",                                                  // aName
+      1,                                                             // iFirst
+      100,                                                           // iLast
+      199,                                                           // lineNo
+      43,                                                            // colNo
+      "solution_opt_test_all",                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -816,9 +784,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ij_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      212,                                                           // lineNo
-      63,                                                            // colNo
-      "solution_opt",                                                // aName
+      229,                                                           // lineNo
+      13,                                                            // colNo
+      "J",                                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -837,8 +805,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       125,                                                           // lineNo
-      215,                                                           // colNo
-      "J_min",                                                       // aName
+      33,                                                            // colNo
+      "J_red",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -846,9 +814,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo je_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      133,                                                           // lineNo
-      292,                                                           // colNo
-      "J_min",                                                       // aName
+      135,                                                           // lineNo
+      33,                                                            // colNo
+      "solution_opt",                                                // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -856,8 +824,8 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo jf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      167,                                                           // lineNo
-      105,                                                           // colNo
+      169,                                                           // lineNo
+      113,                                                           // colNo
       "P_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
@@ -867,8 +835,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       172,                                                           // lineNo
-      138,                                                           // colNo
-      "A_init",                                                      // aName
+      286,                                                           // colNo
+      "J_max",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -876,9 +844,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo jh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      176,                                                           // lineNo
-      25,                                                            // colNo
-      "J",                                                           // aName
+      190,                                                           // lineNo
+      65,                                                            // colNo
+      "J_opt_test{index_axis,:}",                                    // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -886,9 +854,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ji_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      183,                                                           // lineNo
-      48,                                                            // colNo
-      "t_opt_test{index_axis}",                                      // aName
+      210,                                                           // lineNo
+      46,                                                            // colNo
+      "t_opt",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -896,9 +864,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo jj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      212,                                                           // lineNo
-      77,                                                            // colNo
-      "solution_opt{index_axis,:}",                                  // aName
+      230,                                                           // lineNo
+      55,                                                            // colNo
+      "solution_opt",                                                // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -917,8 +885,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       125,                                                           // lineNo
-      233,                                                           // colNo
-      "b_hard_V_lim",                                                // aName
+      27,                                                            // colNo
+      "J_red",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -926,9 +894,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ke_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      133,                                                           // lineNo
-      50,                                                            // colNo
-      "solution_opt",                                                // aName
+      137,                                                           // lineNo
+      19,                                                            // colNo
+      "t_opt",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -936,8 +904,8 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo kf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      167,                                                           // lineNo
-      124,                                                           // colNo
+      169,                                                           // lineNo
+      132,                                                           // colNo
       "V_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
@@ -947,8 +915,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       172,                                                           // lineNo
-      157,                                                           // colNo
-      "P_wayp",                                                      // aName
+      304,                                                           // colNo
+      "J_min",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -956,9 +924,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo kh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      177,                                                           // lineNo
-      67,                                                            // colNo
-      "solution_tim",                                                // aName
+      190,                                                           // lineNo
+      21,                                                            // colNo
+      "J",                                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -966,9 +934,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ki_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      183,                                                           // lineNo
-      25,                                                            // colNo
-      "t_opt_test",                                                  // aName
+      210,                                                           // lineNo
+      60,                                                            // colNo
+      "t_opt{index_axis,:}",                                         // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -976,9 +944,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo kj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      212,                                                           // lineNo
-      21,                                                            // colNo
-      "solution_out",                                                // aName
+      230,                                                           // lineNo
+      69,                                                            // colNo
+      "solution_opt{index_axis,:}",                                  // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -996,8 +964,8 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ld_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      125,                                                           // lineNo
-      15,                                                            // colNo
+      126,                                                           // lineNo
+      165,                                                           // colNo
       "t_red",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
@@ -1006,8 +974,8 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo le_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      133,                                                           // lineNo
-      16,                                                            // colNo
+      137,                                                           // lineNo
+      13,                                                            // colNo
       "t_opt",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
@@ -1016,8 +984,8 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo lf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      167,                                                           // lineNo
-      143,                                                           // colNo
+      169,                                                           // lineNo
+      151,                                                           // colNo
       "A_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
@@ -1027,8 +995,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       172,                                                           // lineNo
-      176,                                                           // colNo
-      "V_wayp",                                                      // aName
+      322,                                                           // colNo
+      "t_sync",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1036,9 +1004,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo lh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      177,                                                           // lineNo
-      79,                                                            // colNo
-      "solution_tim{index_axis}",                                    // aName
+      191,                                                           // lineNo
+      68,                                                            // colNo
+      "solution_opt_test",                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1046,9 +1014,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo li_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      184,                                                           // lineNo
-      36,                                                            // colNo
-      "J_opt_test",                                                  // aName
+      210,                                                           // lineNo
+      21,                                                            // colNo
+      "t",                                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1056,9 +1024,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo lj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      218,                                                           // lineNo
-      46,                                                            // colNo
-      "t_opt",                                                       // aName
+      230,                                                           // lineNo
+      13,                                                            // colNo
+      "solution_out",                                                // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1066,8 +1034,8 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo mc_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      62,                                                            // lineNo
-      27,                                                            // colNo
+      96,                                                            // lineNo
+      9,                                                             // colNo
       "t",                                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
@@ -1076,9 +1044,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo md_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      125,                                                           // lineNo
-      9,                                                             // colNo
-      "t_red",                                                       // aName
+      126,                                                           // lineNo
+      183,                                                           // colNo
+      "J_red",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1086,9 +1054,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo me_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      133,                                                           // lineNo
-      10,                                                            // colNo
-      "t_opt",                                                       // aName
+      138,                                                           // lineNo
+      19,                                                            // colNo
+      "J_opt",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1096,8 +1064,8 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo mf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      167,                                                           // lineNo
-      26,                                                            // colNo
+      169,                                                           // lineNo
+      170,                                                           // colNo
       "P_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
@@ -1107,8 +1075,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       172,                                                           // lineNo
-      195,                                                           // colNo
-      "A_wayp",                                                      // aName
+      341,                                                           // colNo
+      "b_sync_V",                                                    // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1116,9 +1084,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo mh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      177,                                                           // lineNo
-      25,                                                            // colNo
-      "solution_out",                                                // aName
+      191,                                                           // lineNo
+      82,                                                            // colNo
+      "solution_opt_test{index_axis,:}",                             // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1126,9 +1094,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo mi_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      184,                                                           // lineNo
-      48,                                                            // colNo
-      "J_opt_test{index_axis}",                                      // aName
+      211,                                                           // lineNo
+      46,                                                            // colNo
+      "J_opt",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1136,9 +1104,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo mj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      218,                                                           // lineNo
-      60,                                                            // colNo
-      "t_opt{index_axis,:}",                                         // aName
+      235,                                                           // lineNo
+      36,                                                            // colNo
+      "t_red",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1156,9 +1124,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo nc_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      96,                                                            // lineNo
-      11,                                                            // colNo
-      "t",                                                           // aName
+      100,                                                           // lineNo
+      9,                                                             // colNo
+      "J",                                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1166,9 +1134,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo nd_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      125,                                                           // lineNo
-      33,                                                            // colNo
-      "J_red",                                                       // aName
+      126,                                                           // lineNo
+      86,                                                            // colNo
+      "P_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1176,8 +1144,8 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ne_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      133,                                                           // lineNo
-      36,                                                            // colNo
+      138,                                                           // lineNo
+      13,                                                            // colNo
       "J_opt",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
@@ -1186,8 +1154,8 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo nf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      167,                                                           // lineNo
-      45,                                                            // colNo
+      169,                                                           // lineNo
+      189,                                                           // colNo
       "V_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
@@ -1197,8 +1165,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       172,                                                           // lineNo
-      214,                                                           // colNo
-      "V_max",                                                       // aName
+      362,                                                           // colNo
+      "b_sync_A",                                                    // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1206,9 +1174,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo nh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      189,                                                           // lineNo
-      51,                                                            // colNo
-      "t_opt_test",                                                  // aName
+      191,                                                           // lineNo
+      21,                                                            // colNo
+      "solution_out",                                                // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1216,9 +1184,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ni_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      184,                                                           // lineNo
-      25,                                                            // colNo
-      "J_opt_test",                                                  // aName
+      211,                                                           // lineNo
+      60,                                                            // colNo
+      "J_opt{index_axis,:}",                                         // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1226,8 +1194,8 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo nj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      218,                                                           // lineNo
-      23,                                                            // colNo
+      235,                                                           // lineNo
+      50,                                                            // colNo
       "t",                                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
@@ -1246,9 +1214,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo oc_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      96,                                                            // lineNo
-      9,                                                             // colNo
-      "t",                                                           // aName
+      62,                                                            // lineNo
+      27,                                                            // colNo
+      "solution_opt",                                                // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1256,9 +1224,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo od_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      125,                                                           // lineNo
-      27,                                                            // colNo
-      "J_red",                                                       // aName
+      126,                                                           // lineNo
+      105,                                                           // colNo
+      "V_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1266,9 +1234,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo oe_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      133,                                                           // lineNo
-      30,                                                            // colNo
-      "J_opt",                                                       // aName
+      139,                                                           // lineNo
+      13,                                                            // colNo
+      "solution_opt",                                                // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1276,8 +1244,8 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo of_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      167,                                                           // lineNo
-      64,                                                            // colNo
+      169,                                                           // lineNo
+      208,                                                           // colNo
       "A_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
@@ -1287,8 +1255,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       172,                                                           // lineNo
-      232,                                                           // colNo
-      "V_min",                                                       // aName
+      383,                                                           // colNo
+      "b_sync_J",                                                    // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1296,9 +1264,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo oh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      189,                                                           // lineNo
-      65,                                                            // colNo
-      "t_opt_test{index_axis,:}",                                    // aName
+      180,                                                           // lineNo
+      60,                                                            // colNo
+      "t_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1306,9 +1274,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo oi_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      185,                                                           // lineNo
-      43,                                                            // colNo
-      "solution_opt_test",                                           // aName
+      211,                                                           // lineNo
+      21,                                                            // colNo
+      "J",                                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1316,9 +1284,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo oj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      218,                                                           // lineNo
-      21,                                                            // colNo
-      "t",                                                           // aName
+      235,                                                           // lineNo
+      9,                                                             // colNo
+      "t_out",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1336,9 +1304,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo pc_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      62,                                                            // lineNo
-      27,                                                            // colNo
-      "J",                                                           // aName
+      105,                                                           // lineNo
+      9,                                                             // colNo
+      "solution_opt",                                                // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1347,8 +1315,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       126,                                                           // lineNo
-      165,                                                           // colNo
-      "t_red",                                                       // aName
+      124,                                                           // colNo
+      "A_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1356,9 +1324,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo pe_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      135,                                                           // lineNo
-      33,                                                            // colNo
-      "solution_opt",                                                // aName
+      152,                                                           // lineNo
+      61,                                                            // colNo
+      "t_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1367,8 +1335,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       169,                                                           // lineNo
-      113,                                                           // colNo
-      "P_init",                                                      // aName
+      227,                                                           // colNo
+      "V_max",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1377,8 +1345,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       172,                                                           // lineNo
-      250,                                                           // colNo
-      "A_max",                                                       // aName
+      404,                                                           // colNo
+      "b_sync_W",                                                    // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1386,9 +1354,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ph_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      189,                                                           // lineNo
-      23,                                                            // colNo
-      "t",                                                           // aName
+      181,                                                           // lineNo
+      60,                                                            // colNo
+      "J_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1396,9 +1364,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo pi_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      185,                                                           // lineNo
-      25,                                                            // colNo
-      "solution_opt_test{index_axis}",                               // aName
+      212,                                                           // lineNo
+      63,                                                            // colNo
+      "solution_opt",                                                // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1406,9 +1374,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo pj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      219,                                                           // lineNo
-      46,                                                            // colNo
-      "J_opt",                                                       // aName
+      236,                                                           // lineNo
+      36,                                                            // colNo
+      "J_red",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1426,9 +1394,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo qc_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      100,                                                           // lineNo
-      11,                                                            // colNo
-      "J",                                                           // aName
+      62,                                                            // lineNo
+      27,                                                            // colNo
+      "solution_tim",                                                // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1437,8 +1405,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       126,                                                           // lineNo
-      183,                                                           // colNo
-      "J_red",                                                       // aName
+      9,                                                             // colNo
+      "P_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1446,9 +1414,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo qe_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      137,                                                           // lineNo
-      19,                                                            // colNo
-      "t_opt",                                                       // aName
+      158,                                                           // lineNo
+      48,                                                            // colNo
+      "t_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1457,8 +1425,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       169,                                                           // lineNo
-      132,                                                           // colNo
-      "V_init",                                                      // aName
+      245,                                                           // colNo
+      "V_min",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1467,8 +1435,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       172,                                                           // lineNo
-      268,                                                           // colNo
-      "A_min",                                                       // aName
+      425,                                                           // colNo
+      "direction",                                                   // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1476,9 +1444,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo qh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      189,                                                           // lineNo
-      21,                                                            // colNo
-      "t",                                                           // aName
+      182,                                                           // lineNo
+      67,                                                            // colNo
+      "solution_opt_test",                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1486,9 +1454,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo qi_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      165,                                                           // lineNo
-      98,                                                            // colNo
-      "V_wayp",                                                      // aName
+      212,                                                           // lineNo
+      77,                                                            // colNo
+      "solution_opt{index_axis,:}",                                  // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1496,9 +1464,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo qj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      219,                                                           // lineNo
-      60,                                                            // colNo
-      "J_opt{index_axis,:}",                                         // aName
+      236,                                                           // lineNo
+      50,                                                            // colNo
+      "J",                                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1516,9 +1484,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo rc_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      100,                                                           // lineNo
+      109,                                                           // lineNo
       9,                                                             // colNo
-      "J",                                                           // aName
+      "solution_tim",                                                // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1527,8 +1495,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       126,                                                           // lineNo
-      86,                                                            // colNo
-      "P_init",                                                      // aName
+      28,                                                            // colNo
+      "V_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1536,9 +1504,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo re_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      137,                                                           // lineNo
-      13,                                                            // colNo
-      "t_opt",                                                       // aName
+      158,                                                           // lineNo
+      60,                                                            // colNo
+      "t_opt_test{index_axis}",                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1547,8 +1515,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       169,                                                           // lineNo
-      151,                                                           // colNo
-      "A_init",                                                      // aName
+      263,                                                           // colNo
+      "A_max",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1557,8 +1525,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       172,                                                           // lineNo
-      286,                                                           // colNo
-      "J_max",                                                       // aName
+      22,                                                            // colNo
+      "t_tim",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1566,9 +1534,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo rh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      190,                                                           // lineNo
-      51,                                                            // colNo
-      "J_opt_test",                                                  // aName
+      183,                                                           // lineNo
+      36,                                                            // colNo
+      "t_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1576,9 +1544,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ri_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      165,                                                           // lineNo
-      127,                                                           // colNo
-      "A_wayp",                                                      // aName
+      212,                                                           // lineNo
+      21,                                                            // colNo
+      "solution_out",                                                // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1586,9 +1554,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo rj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      219,                                                           // lineNo
-      23,                                                            // colNo
-      "J",                                                           // aName
+      236,                                                           // lineNo
+      9,                                                             // colNo
+      "J_out",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1606,9 +1574,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo sc_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      62,                                                            // lineNo
-      27,                                                            // colNo
-      "solution_opt",                                                // aName
+      113,                                                           // lineNo
+      25,                                                            // colNo
+      "J_max",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1617,8 +1585,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       126,                                                           // lineNo
-      105,                                                           // colNo
-      "V_init",                                                      // aName
+      47,                                                            // colNo
+      "A_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1626,9 +1594,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo se_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      138,                                                           // lineNo
-      19,                                                            // colNo
-      "J_opt",                                                       // aName
+      158,                                                           // lineNo
+      17,                                                            // colNo
+      "T",                                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1637,8 +1605,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       169,                                                           // lineNo
-      170,                                                           // colNo
-      "P_wayp",                                                      // aName
+      281,                                                           // colNo
+      "A_min",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1647,8 +1615,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       172,                                                           // lineNo
-      304,                                                           // colNo
-      "J_min",                                                       // aName
+      42,                                                            // colNo
+      "J_tim",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1656,9 +1624,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo sh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      190,                                                           // lineNo
-      65,                                                            // colNo
-      "J_opt_test{index_axis,:}",                                    // aName
+      183,                                                           // lineNo
+      48,                                                            // colNo
+      "t_opt_test{index_axis}",                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1666,19 +1634,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo si_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      164,                                                           // lineNo
-      80,                                                            // colNo
-      "b_sync_A",                                                    // aName
-      "synchronize_trajectory",                                      // fName
-      "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
-      0 // checkKind
-  };
-  static rtBoundsCheckInfo sj_emlrtBCI = {
-      -1,                                                            // iFirst
-      -1,                                                            // iLast
-      219,                                                           // lineNo
-      21,                                                            // colNo
-      "J",                                                           // aName
+      218,                                                           // lineNo
+      46,                                                            // colNo
+      "t_opt",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1696,9 +1654,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo tc_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      105,                                                           // lineNo
-      9,                                                             // colNo
-      "solution_opt",                                                // aName
+      114,                                                           // lineNo
+      13,                                                            // colNo
+      "J_max",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1706,9 +1664,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo td_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      126,                                                           // lineNo
-      124,                                                           // colNo
-      "A_init",                                                      // aName
+      133,                                                           // lineNo
+      88,                                                            // colNo
+      "P_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1716,9 +1674,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo te_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      138,                                                           // lineNo
-      13,                                                            // colNo
-      "J_opt",                                                       // aName
+      161,                                                           // lineNo
+      22,                                                            // colNo
+      "T",                                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1727,8 +1685,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       169,                                                           // lineNo
-      189,                                                           // colNo
-      "V_wayp",                                                      // aName
+      299,                                                           // colNo
+      "J_max",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1737,8 +1695,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       172,                                                           // lineNo
-      322,                                                           // colNo
-      "t_sync",                                                      // aName
+      62,                                                            // colNo
+      "solution_tim",                                                // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1746,9 +1704,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo th_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      190,                                                           // lineNo
-      23,                                                            // colNo
-      "J",                                                           // aName
+      183,                                                           // lineNo
+      25,                                                            // colNo
+      "t_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1756,19 +1714,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ti_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      164,                                                           // lineNo
-      112,                                                           // colNo
-      "b_sync_J",                                                    // aName
-      "synchronize_trajectory",                                      // fName
-      "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
-      0 // checkKind
-  };
-  static rtBoundsCheckInfo tj_emlrtBCI = {
-      -1,                                                            // iFirst
-      -1,                                                            // iLast
-      220,                                                           // lineNo
-      63,                                                            // colNo
-      "solution_opt",                                                // aName
+      218,                                                           // lineNo
+      60,                                                            // colNo
+      "t_opt{index_axis,:}",                                         // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1786,9 +1734,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo uc_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      62,                                                            // lineNo
-      27,                                                            // colNo
-      "solution_tim",                                                // aName
+      116,                                                           // lineNo
+      25,                                                            // colNo
+      "J_min",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1796,9 +1744,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ud_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      126,                                                           // lineNo
-      9,                                                             // colNo
-      "P_init",                                                      // aName
+      133,                                                           // lineNo
+      107,                                                           // colNo
+      "V_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1806,9 +1754,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ue_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      139,                                                           // lineNo
-      13,                                                            // colNo
-      "solution_opt",                                                // aName
+      161,                                                           // lineNo
+      49,                                                            // colNo
+      "T_catch_up",                                                  // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1817,8 +1765,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       169,                                                           // lineNo
-      208,                                                           // colNo
-      "A_wayp",                                                      // aName
+      317,                                                           // colNo
+      "J_min",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1826,9 +1774,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ug_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
-      341,                                                           // colNo
-      "b_sync_V",                                                    // aName
+      173,                                                           // lineNo
+      47,                                                            // colNo
+      "solution_tim",                                                // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1836,9 +1784,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo uh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      190,                                                           // lineNo
-      21,                                                            // colNo
-      "J",                                                           // aName
+      184,                                                           // lineNo
+      36,                                                            // colNo
+      "J_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1846,19 +1794,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ui_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      164,                                                           // lineNo
-      144,                                                           // colNo
-      "b_sync_W",                                                    // aName
-      "synchronize_trajectory",                                      // fName
-      "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
-      0 // checkKind
-  };
-  static rtBoundsCheckInfo uj_emlrtBCI = {
-      -1,                                                            // iFirst
-      -1,                                                            // iLast
-      220,                                                           // lineNo
-      77,                                                            // colNo
-      "solution_opt{index_axis,:}",                                  // aName
+      218,                                                           // lineNo
+      21,                                                            // colNo
+      "t",                                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1876,9 +1814,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo vc_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      109,                                                           // lineNo
-      9,                                                             // colNo
-      "solution_tim",                                                // aName
+      117,                                                           // lineNo
+      13,                                                            // colNo
+      "J_min",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1886,9 +1824,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo vd_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      126,                                                           // lineNo
-      28,                                                            // colNo
-      "V_init",                                                      // aName
+      133,                                                           // lineNo
+      126,                                                           // colNo
+      "A_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1896,9 +1834,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ve_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      152,                                                           // lineNo
-      61,                                                            // colNo
-      "t_opt_test",                                                  // aName
+      164,                                                           // lineNo
+      48,                                                            // colNo
+      "b_sync_V",                                                    // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1907,8 +1845,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       169,                                                           // lineNo
-      227,                                                           // colNo
-      "V_max",                                                       // aName
+      26,                                                            // colNo
+      "t_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1916,9 +1854,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo vg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
-      362,                                                           // colNo
-      "b_sync_A",                                                    // aName
+      175,                                                           // lineNo
+      49,                                                            // colNo
+      "t_tim",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1926,9 +1864,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo vh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      191,                                                           // lineNo
-      68,                                                            // colNo
-      "solution_opt_test",                                           // aName
+      184,                                                           // lineNo
+      48,                                                            // colNo
+      "J_opt_test{index_axis}",                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1936,19 +1874,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo vi_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      198,                                                           // lineNo
-      65,                                                            // colNo
-      "solution_opt_test",                                           // aName
-      "synchronize_trajectory",                                      // fName
-      "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
-      0 // checkKind
-  };
-  static rtBoundsCheckInfo vj_emlrtBCI = {
-      -1,                                                            // iFirst
-      -1,                                                            // iLast
-      220,                                                           // lineNo
-      21,                                                            // colNo
-      "solution_out",                                                // aName
+      219,                                                           // lineNo
+      46,                                                            // colNo
+      "J_opt",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1966,9 +1894,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo wc_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      113,                                                           // lineNo
-      25,                                                            // colNo
-      "J_max",                                                       // aName
+      125,                                                           // lineNo
+      68,                                                            // colNo
+      "P_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1976,9 +1904,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo wd_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      126,                                                           // lineNo
-      47,                                                            // colNo
-      "A_init",                                                      // aName
+      133,                                                           // lineNo
+      145,                                                           // colNo
+      "P_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1986,9 +1914,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo we_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      158,                                                           // lineNo
-      48,                                                            // colNo
-      "t_opt_test",                                                  // aName
+      165,                                                           // lineNo
+      25,                                                            // colNo
+      "direction",                                                   // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -1997,8 +1925,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       169,                                                           // lineNo
-      245,                                                           // colNo
-      "V_min",                                                       // aName
+      49,                                                            // colNo
+      "J_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -2006,9 +1934,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo wg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
-      383,                                                           // colNo
-      "b_sync_J",                                                    // aName
+      175,                                                           // lineNo
+      61,                                                            // colNo
+      "t_tim{index_axis}",                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -2016,9 +1944,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo wh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      191,                                                           // lineNo
-      82,                                                            // colNo
-      "solution_opt_test{index_axis,:}",                             // aName
+      184,                                                           // lineNo
+      25,                                                            // colNo
+      "J_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -2026,19 +1954,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo wi_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      199,                                                           // lineNo
-      95,                                                            // colNo
-      "solution_opt_test",                                           // aName
-      "synchronize_trajectory",                                      // fName
-      "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
-      0 // checkKind
-  };
-  static rtBoundsCheckInfo wj_emlrtBCI = {
-      1,                                                             // iFirst
-      100,                                                           // iLast
-      202,                                                           // lineNo
-      61,                                                            // colNo
-      "solution_opt_test_all",                                       // aName
+      219,                                                           // lineNo
+      60,                                                            // colNo
+      "J_opt{index_axis,:}",                                         // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -2056,9 +1974,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo xc_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      114,                                                           // lineNo
-      13,                                                            // colNo
-      "J_max",                                                       // aName
+      125,                                                           // lineNo
+      87,                                                            // colNo
+      "V_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -2067,8 +1985,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       133,                                                           // lineNo
-      88,                                                            // colNo
-      "P_init",                                                      // aName
+      164,                                                           // colNo
+      "V_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -2076,9 +1994,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo xe_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      158,                                                           // lineNo
-      60,                                                            // colNo
-      "t_opt_test{index_axis}",                                      // aName
+      165,                                                           // lineNo
+      69,                                                            // colNo
+      "P_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -2087,8 +2005,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       169,                                                           // lineNo
-      263,                                                           // colNo
-      "A_max",                                                       // aName
+      72,                                                            // colNo
+      "solution_opt_test",                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -2096,9 +2014,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo xg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
-      404,                                                           // colNo
-      "b_sync_W",                                                    // aName
+      175,                                                           // lineNo
+      25,                                                            // colNo
+      "t",                                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -2106,29 +2024,19 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo xh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      191,                                                           // lineNo
-      21,                                                            // colNo
-      "solution_out",                                                // aName
+      185,                                                           // lineNo
+      43,                                                            // colNo
+      "solution_opt_test",                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
   };
   static rtBoundsCheckInfo xi_emlrtBCI = {
-      1,                                                             // iFirst
-      100,                                                           // iLast
-      199,                                                           // lineNo
-      39,                                                            // colNo
-      "solution_opt_test_all",                                       // aName
-      "synchronize_trajectory",                                      // fName
-      "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
-      0 // checkKind
-  };
-  static rtBoundsCheckInfo xj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      232,                                                           // lineNo
-      36,                                                            // colNo
-      "t_red",                                                       // aName
+      219,                                                           // lineNo
+      21,                                                            // colNo
+      "J",                                                           // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -2146,9 +2054,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo yc_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      116,                                                           // lineNo
-      25,                                                            // colNo
-      "J_min",                                                       // aName
+      125,                                                           // lineNo
+      106,                                                           // colNo
+      "A_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -2157,8 +2065,8 @@ void synchronize_trajectory(
       -1,                                                            // iFirst
       -1,                                                            // iLast
       133,                                                           // lineNo
-      107,                                                           // colNo
-      "V_init",                                                      // aName
+      183,                                                           // colNo
+      "A_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -2166,9 +2074,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ye_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      158,                                                           // lineNo
-      17,                                                            // colNo
-      "T",                                                           // aName
+      167,                                                           // lineNo
+      195,                                                           // colNo
+      "t_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -2176,9 +2084,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo yf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
-      281,                                                           // colNo
-      "A_min",                                                       // aName
+      172,                                                           // lineNo
+      100,                                                           // colNo
+      "P_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -2186,9 +2094,9 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo yg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
-      425,                                                           // colNo
-      "direction",                                                   // aName
+      176,                                                           // lineNo
+      49,                                                            // colNo
+      "J_tim",                                                       // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -2196,29 +2104,19 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo yh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      180,                                                           // lineNo
-      71,                                                            // colNo
-      "t_opt_test",                                                  // aName
+      185,                                                           // lineNo
+      25,                                                            // colNo
+      "solution_opt_test{index_axis}",                               // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
   };
   static rtBoundsCheckInfo yi_emlrtBCI = {
-      1,                                                             // iFirst
-      100,                                                           // iLast
-      199,                                                           // lineNo
-      43,                                                            // colNo
-      "solution_opt_test_all",                                       // aName
-      "synchronize_trajectory",                                      // fName
-      "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
-      0 // checkKind
-  };
-  static rtBoundsCheckInfo yj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      232,                                                           // lineNo
-      50,                                                            // colNo
-      "t",                                                           // aName
+      220,                                                           // lineNo
+      63,                                                            // colNo
+      "solution_opt",                                                // aName
       "synchronize_trajectory",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m", // pName
       0 // checkKind
@@ -2244,40 +2142,37 @@ void synchronize_trajectory(
       "synchronize_trajectory",                                     // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m" // pName
   };
-  coder::array<cell_wrap_0, 1U> J;
-  coder::array<cell_wrap_0, 1U> J_opt;
-  coder::array<cell_wrap_0, 1U> J_opt_test;
-  coder::array<cell_wrap_0, 1U> t;
-  coder::array<cell_wrap_0, 1U> t_opt;
-  coder::array<cell_wrap_0, 1U> t_opt_test;
   coder::array<cell_wrap_12, 1U> J_red;
   coder::array<cell_wrap_12, 1U> t_red;
-  coder::array<cell_wrap_13, 1U> J_tim;
-  coder::array<cell_wrap_13, 1U> t_tim;
-  coder::array<cell_wrap_14, 1U> solution_opt;
-  coder::array<cell_wrap_14, 1U> solution_opt_test;
-  coder::array<cell_wrap_14, 1U> solution_tim;
+  coder::array<cell_wrap_13, 1U> J_opt;
+  coder::array<cell_wrap_13, 1U> J_opt_test;
+  coder::array<cell_wrap_13, 1U> t_opt;
+  coder::array<cell_wrap_13, 1U> t_opt_test;
+  coder::array<cell_wrap_14, 1U> J_tim;
+  coder::array<cell_wrap_14, 1U> t_tim;
+  coder::array<cell_wrap_15, 1U> J;
+  coder::array<cell_wrap_15, 1U> t;
+  coder::array<cell_wrap_16, 1U> solution_opt;
+  coder::array<cell_wrap_16, 1U> solution_opt_test;
+  coder::array<cell_wrap_16, 1U> solution_tim;
   coder::array<double, 2U> t18_signals_values;
   coder::array<double, 2U> t18_time;
   coder::array<double, 1U> T;
   coder::array<double, 1U> t_sync;
   coder::array<bool, 1U> b_solution_out;
   coder::array<bool, 1U> r;
-  double b_tmp_data[700];
-  double tmp_data[700];
-  double b_t_opt_test[11];
   double b_J_opt_test[7];
-  double c_t_opt_test[7];
+  double b_t_opt_test[7];
   double dv[4];
   double dv1[4];
   double idx;
   int solution_opt_test_all[100];
-  int b_tmp_size[2];
   int iv[2];
-  int tmp_size[2];
+  int iv1[2];
   int b_i;
-  int b_t_out;
+  int b_index_axis;
   int b_unnamed_idx_0;
+  int c_unnamed_idx_0;
   int i;
   int i1;
   int index_axis;
@@ -2430,11 +2325,11 @@ void synchronize_trajectory(
     if (i1 > t_opt.size(0) - 1) {
       rtDynamicBoundsError(i1, 0, t_opt.size(0) - 1, &ac_emlrtBCI);
     }
-    t_opt[i1].f1.set_size(0, t_opt[i1].f1.size(1));
+    t_opt[i1].f1.size[0] = 0;
     if (i1 > b_i) {
       rtDynamicBoundsError(i1, 0, b_i, &ac_emlrtBCI);
     }
-    t_opt[i1].f1.set_size(t_opt[i1].f1.size(0), 0);
+    t_opt[i1].f1.size[1] = 7;
   }
   i1 = P_init.size(0);
   t_opt.set_size(P_init.size(0));
@@ -2443,27 +2338,27 @@ void synchronize_trajectory(
     if (index_axis > t_opt.size(0) - 1) {
       rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1, &bc_emlrtBCI);
     }
-    t_opt[index_axis].f1.set_size(0, t_opt[index_axis].f1.size(1));
+    t_opt[index_axis].f1.size[0] = 0;
     if (index_axis > t_opt.size(0) - 1) {
       rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1, &bc_emlrtBCI);
     }
-    t_opt[index_axis].f1.set_size(t_opt[index_axis].f1.size(0), 7);
+    t_opt[index_axis].f1.size[1] = 7;
     if (index_axis > t_opt.size(0) - 1) {
       rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1, &bc_emlrtBCI);
     }
   }
-  loop_ub = P_init.size(0);
+  unnamed_idx_0 = P_init.size(0);
   J_opt.set_size(P_init.size(0));
-  for (i1 = 0; i1 < loop_ub; i1++) {
+  for (i1 = 0; i1 < unnamed_idx_0; i1++) {
     b_i = J_opt.size(0) - 1;
     if (i1 > J_opt.size(0) - 1) {
       rtDynamicBoundsError(i1, 0, J_opt.size(0) - 1, &cc_emlrtBCI);
     }
-    J_opt[i1].f1.set_size(0, J_opt[i1].f1.size(1));
+    J_opt[i1].f1.size[0] = 0;
     if (i1 > b_i) {
       rtDynamicBoundsError(i1, 0, b_i, &cc_emlrtBCI);
     }
-    J_opt[i1].f1.set_size(J_opt[i1].f1.size(0), 0);
+    J_opt[i1].f1.size[1] = 7;
   }
   i1 = P_init.size(0);
   J_opt.set_size(P_init.size(0));
@@ -2472,18 +2367,18 @@ void synchronize_trajectory(
     if (index_axis > J_opt.size(0) - 1) {
       rtDynamicBoundsError(index_axis, 0, J_opt.size(0) - 1, &dc_emlrtBCI);
     }
-    J_opt[index_axis].f1.set_size(0, J_opt[index_axis].f1.size(1));
+    J_opt[index_axis].f1.size[0] = 0;
     if (index_axis > J_opt.size(0) - 1) {
       rtDynamicBoundsError(index_axis, 0, J_opt.size(0) - 1, &dc_emlrtBCI);
     }
-    J_opt[index_axis].f1.set_size(J_opt[index_axis].f1.size(0), 7);
+    J_opt[index_axis].f1.size[1] = 7;
     if (index_axis > J_opt.size(0) - 1) {
       rtDynamicBoundsError(index_axis, 0, J_opt.size(0) - 1, &dc_emlrtBCI);
     }
   }
-  unnamed_idx_0 = P_init.size(0);
+  b_unnamed_idx_0 = P_init.size(0);
   t_tim.set_size(P_init.size(0));
-  for (i1 = 0; i1 < unnamed_idx_0; i1++) {
+  for (i1 = 0; i1 < b_unnamed_idx_0; i1++) {
     b_i = t_tim.size(0) - 1;
     if (i1 > t_tim.size(0) - 1) {
       rtDynamicBoundsError(i1, 0, t_tim.size(0) - 1, &ec_emlrtBCI);
@@ -2510,9 +2405,9 @@ void synchronize_trajectory(
       rtDynamicBoundsError(index_axis, 0, t_tim.size(0) - 1, &fc_emlrtBCI);
     }
   }
-  unnamed_idx_0 = P_init.size(0);
+  b_unnamed_idx_0 = P_init.size(0);
   J_tim.set_size(P_init.size(0));
-  for (i1 = 0; i1 < unnamed_idx_0; i1++) {
+  for (i1 = 0; i1 < b_unnamed_idx_0; i1++) {
     b_i = J_tim.size(0) - 1;
     if (i1 > J_tim.size(0) - 1) {
       rtDynamicBoundsError(i1, 0, J_tim.size(0) - 1, &gc_emlrtBCI);
@@ -2539,16 +2434,16 @@ void synchronize_trajectory(
       rtDynamicBoundsError(index_axis, 0, J_tim.size(0) - 1, &hc_emlrtBCI);
     }
   }
-  unnamed_idx_0 = P_init.size(0);
+  b_unnamed_idx_0 = P_init.size(0);
   t_out.set_size(P_init.size(0));
-  for (i1 = 0; i1 < unnamed_idx_0; i1++) {
-    b_t_out = t_out.size(0) - 1;
+  for (i1 = 0; i1 < b_unnamed_idx_0; i1++) {
+    b_i = t_out.size(0) - 1;
     if (i1 > t_out.size(0) - 1) {
       rtDynamicBoundsError(i1, 0, t_out.size(0) - 1, &ic_emlrtBCI);
     }
     t_out[i1].f1.set_size(0, t_out[i1].f1.size(1));
-    if (i1 > b_t_out) {
-      rtDynamicBoundsError(i1, 0, b_t_out, &ic_emlrtBCI);
+    if (i1 > b_i) {
+      rtDynamicBoundsError(i1, 0, b_i, &ic_emlrtBCI);
     }
     t_out[i1].f1.set_size(t_out[i1].f1.size(0), 0);
   }
@@ -2568,16 +2463,16 @@ void synchronize_trajectory(
       rtDynamicBoundsError(index_axis, 0, t_out.size(0) - 1, &jc_emlrtBCI);
     }
   }
-  b_unnamed_idx_0 = P_init.size(0);
+  c_unnamed_idx_0 = P_init.size(0);
   J_out.set_size(P_init.size(0));
-  for (i1 = 0; i1 < b_unnamed_idx_0; i1++) {
-    b_t_out = J_out.size(0) - 1;
+  for (i1 = 0; i1 < c_unnamed_idx_0; i1++) {
+    b_i = J_out.size(0) - 1;
     if (i1 > J_out.size(0) - 1) {
       rtDynamicBoundsError(i1, 0, J_out.size(0) - 1, &kc_emlrtBCI);
     }
     J_out[i1].f1.set_size(0, J_out[i1].f1.size(1));
-    if (i1 > b_t_out) {
-      rtDynamicBoundsError(i1, 0, b_t_out, &kc_emlrtBCI);
+    if (i1 > b_i) {
+      rtDynamicBoundsError(i1, 0, b_i, &kc_emlrtBCI);
     }
     J_out[i1].f1.set_size(J_out[i1].f1.size(0), 0);
   }
@@ -2597,83 +2492,35 @@ void synchronize_trajectory(
       rtDynamicBoundsError(index_axis, 0, J_out.size(0) - 1, &lc_emlrtBCI);
     }
   }
-  b_i = P_init.size(0);
-  t.set_size(P_init.size(0));
-  for (i1 = 0; i1 < b_i; i1++) {
-    b_t_out = t.size(0) - 1;
-    if (i1 > t.size(0) - 1) {
-      rtDynamicBoundsError(i1, 0, t.size(0) - 1, &mc_emlrtBCI);
-    }
-    t[i1].f1.set_size(0, t[i1].f1.size(1));
-    if (i1 > b_t_out) {
-      rtDynamicBoundsError(i1, 0, b_t_out, &mc_emlrtBCI);
-    }
-    t[i1].f1.set_size(t[i1].f1.size(0), 0);
-  }
   i1 = P_init.size(0);
   t.set_size(P_init.size(0));
   for (index_axis = 0; index_axis < i1; index_axis++) {
     // coder
-    if (index_axis > t.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, t.size(0) - 1, &nc_emlrtBCI);
-    }
-    t[index_axis].f1.set_size(1, t[index_axis].f1.size(1));
-    if (index_axis > t.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, t.size(0) - 1, &nc_emlrtBCI);
-    }
-    t[index_axis].f1.set_size(t[index_axis].f1.size(0), 11);
-    b_i = t.size(0);
-    if (index_axis > t.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, t.size(0) - 1, &nc_emlrtBCI);
-    }
-    for (b_t_out = 0; b_t_out < 11; b_t_out++) {
-      if (index_axis > b_i - 1) {
-        rtDynamicBoundsError(index_axis, 0, b_i - 1, &oc_emlrtBCI);
+    loop_ub = t.size(0) - 1;
+    for (b_i = 0; b_i < 11; b_i++) {
+      if (index_axis > loop_ub) {
+        rtDynamicBoundsError(index_axis, 0, loop_ub, &mc_emlrtBCI);
       }
-      t[index_axis].f1[b_t_out] = 0.0;
+      t[index_axis].f1[b_i] = 0.0;
     }
-  }
-  b_i = P_init.size(0);
-  J.set_size(P_init.size(0));
-  for (i1 = 0; i1 < b_i; i1++) {
-    b_t_out = J.size(0) - 1;
-    if (i1 > J.size(0) - 1) {
-      rtDynamicBoundsError(i1, 0, J.size(0) - 1, &pc_emlrtBCI);
-    }
-    J[i1].f1.set_size(0, J[i1].f1.size(1));
-    if (i1 > b_t_out) {
-      rtDynamicBoundsError(i1, 0, b_t_out, &pc_emlrtBCI);
-    }
-    J[i1].f1.set_size(J[i1].f1.size(0), 0);
   }
   i1 = P_init.size(0);
   J.set_size(P_init.size(0));
   for (index_axis = 0; index_axis < i1; index_axis++) {
     // coder
-    if (index_axis > J.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, J.size(0) - 1, &qc_emlrtBCI);
-    }
-    J[index_axis].f1.set_size(1, J[index_axis].f1.size(1));
-    if (index_axis > J.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, J.size(0) - 1, &qc_emlrtBCI);
-    }
-    J[index_axis].f1.set_size(J[index_axis].f1.size(0), 11);
-    b_i = J.size(0);
-    if (index_axis > J.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, J.size(0) - 1, &qc_emlrtBCI);
-    }
-    for (b_t_out = 0; b_t_out < 11; b_t_out++) {
-      if (index_axis > b_i - 1) {
-        rtDynamicBoundsError(index_axis, 0, b_i - 1, &rc_emlrtBCI);
+    loop_ub = J.size(0) - 1;
+    for (b_i = 0; b_i < 11; b_i++) {
+      if (index_axis > loop_ub) {
+        rtDynamicBoundsError(index_axis, 0, loop_ub, &nc_emlrtBCI);
       }
-      J[index_axis].f1[b_t_out] = 0.0;
+      J[index_axis].f1[b_i] = 0.0;
     }
   }
   b_i = P_init.size(0);
   solution_opt.set_size(P_init.size(0));
   for (i1 = 0; i1 < b_i; i1++) {
     if (i1 > solution_opt.size(0) - 1) {
-      rtDynamicBoundsError(i1, 0, solution_opt.size(0) - 1, &sc_emlrtBCI);
+      rtDynamicBoundsError(i1, 0, solution_opt.size(0) - 1, &oc_emlrtBCI);
     }
     solution_opt[i1].f1.size[0] = 0;
   }
@@ -2684,11 +2531,11 @@ void synchronize_trajectory(
     b_i = solution_opt.size(0) - 1;
     if (index_axis > solution_opt.size(0) - 1) {
       rtDynamicBoundsError(index_axis, 0, solution_opt.size(0) - 1,
-                           &tc_emlrtBCI);
+                           &pc_emlrtBCI);
     }
     solution_opt[index_axis].f1.size[0] = 1;
     if (index_axis > b_i) {
-      rtDynamicBoundsError(index_axis, 0, b_i, &tc_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, b_i, &pc_emlrtBCI);
     }
     solution_opt[index_axis].f1.data[0] = -1;
   }
@@ -2696,7 +2543,7 @@ void synchronize_trajectory(
   solution_tim.set_size(P_init.size(0));
   for (i1 = 0; i1 < b_i; i1++) {
     if (i1 > solution_tim.size(0) - 1) {
-      rtDynamicBoundsError(i1, 0, solution_tim.size(0) - 1, &uc_emlrtBCI);
+      rtDynamicBoundsError(i1, 0, solution_tim.size(0) - 1, &qc_emlrtBCI);
     }
     solution_tim[i1].f1.size[0] = 0;
   }
@@ -2707,31 +2554,31 @@ void synchronize_trajectory(
     b_i = solution_tim.size(0) - 1;
     if (index_axis > solution_tim.size(0) - 1) {
       rtDynamicBoundsError(index_axis, 0, solution_tim.size(0) - 1,
-                           &vc_emlrtBCI);
+                           &rc_emlrtBCI);
     }
     solution_tim[index_axis].f1.size[0] = 1;
     if (index_axis > b_i) {
-      rtDynamicBoundsError(index_axis, 0, b_i, &vc_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, b_i, &rc_emlrtBCI);
     }
     solution_tim[index_axis].f1.data[0] = -1;
   }
   i1 = P_init.size(0);
   for (index_axis = 0; index_axis < i1; index_axis++) {
     if (index_axis + 1 > J_max.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, J_max.size(0), &wc_emlrtBCI);
+      rtDynamicBoundsError(index_axis + 1, 1, J_max.size(0), &sc_emlrtBCI);
     }
     if (rtIsInf(J_max[index_axis])) {
       if (index_axis + 1 > J_max.size(0)) {
-        rtDynamicBoundsError(index_axis + 1, 1, J_max.size(0), &xc_emlrtBCI);
+        rtDynamicBoundsError(index_axis + 1, 1, J_max.size(0), &tc_emlrtBCI);
       }
       J_max[index_axis] = 1.0E+6;
     }
     if (index_axis + 1 > J_min.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, J_min.size(0), &yc_emlrtBCI);
+      rtDynamicBoundsError(index_axis + 1, 1, J_min.size(0), &uc_emlrtBCI);
     }
     if (rtIsInf(J_min[index_axis])) {
       if (index_axis + 1 > J_min.size(0)) {
-        rtDynamicBoundsError(index_axis + 1, 1, J_min.size(0), &ad_emlrtBCI);
+        rtDynamicBoundsError(index_axis + 1, 1, J_min.size(0), &vc_emlrtBCI);
       }
       J_min[index_axis] = -1.0E+6;
     }
@@ -2746,35 +2593,35 @@ void synchronize_trajectory(
     printf("] Correcting feasibility!\n");
     fflush(stdout);
     if (index_axis + 1 > P_init.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, P_init.size(0), &bd_emlrtBCI);
+      rtDynamicBoundsError(index_axis + 1, 1, P_init.size(0), &wc_emlrtBCI);
     }
     if (index_axis + 1 > V_init.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, V_init.size(0), &cd_emlrtBCI);
+      rtDynamicBoundsError(index_axis + 1, 1, V_init.size(0), &xc_emlrtBCI);
     }
     if (index_axis + 1 > A_init.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, A_init.size(0), &dd_emlrtBCI);
+      rtDynamicBoundsError(index_axis + 1, 1, A_init.size(0), &yc_emlrtBCI);
     }
     if (index_axis + 1 > V_max.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, V_max.size(0), &ed_emlrtBCI);
+      rtDynamicBoundsError(index_axis + 1, 1, V_max.size(0), &ad_emlrtBCI);
     }
     if (index_axis + 1 > V_min.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, V_min.size(0), &fd_emlrtBCI);
+      rtDynamicBoundsError(index_axis + 1, 1, V_min.size(0), &bd_emlrtBCI);
     }
     if (index_axis + 1 > A_max.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, A_max.size(0), &gd_emlrtBCI);
+      rtDynamicBoundsError(index_axis + 1, 1, A_max.size(0), &cd_emlrtBCI);
     }
     if (index_axis + 1 > A_min.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, A_min.size(0), &hd_emlrtBCI);
+      rtDynamicBoundsError(index_axis + 1, 1, A_min.size(0), &dd_emlrtBCI);
     }
     if (index_axis + 1 > J_max.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, J_max.size(0), &id_emlrtBCI);
+      rtDynamicBoundsError(index_axis + 1, 1, J_max.size(0), &ed_emlrtBCI);
     }
     if (index_axis + 1 > J_min.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, J_min.size(0), &jd_emlrtBCI);
+      rtDynamicBoundsError(index_axis + 1, 1, J_min.size(0), &fd_emlrtBCI);
     }
     if (index_axis + 1 > b_hard_V_lim.size(0)) {
       rtDynamicBoundsError(index_axis + 1, 1, b_hard_V_lim.size(0),
-                           &kd_emlrtBCI);
+                           &gd_emlrtBCI);
     }
     correct_feasibility(P_init[index_axis], V_init[index_axis],
                         A_init[index_axis], V_max[index_axis],
@@ -2782,87 +2629,87 @@ void synchronize_trajectory(
                         J_max[index_axis], J_min[index_axis],
                         b_hard_V_lim[index_axis], dv, dv1);
     if (index_axis > t_red.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, t_red.size(0) - 1, &ld_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, t_red.size(0) - 1, &hd_emlrtBCI);
     }
     t_red[index_axis].f1.size[0] = 1;
     if (index_axis > t_red.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, t_red.size(0) - 1, &ld_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, t_red.size(0) - 1, &hd_emlrtBCI);
     }
     t_red[index_axis].f1.size[1] = 4;
     b_i = t_red.size(0);
     if (index_axis > t_red.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, t_red.size(0) - 1, &ld_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, t_red.size(0) - 1, &hd_emlrtBCI);
     }
     if (index_axis > t_red.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, t_red.size(0) - 1, &ld_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, t_red.size(0) - 1, &hd_emlrtBCI);
     }
     t_red[index_axis].f1.data[0] = dv[0];
     if (index_axis > b_i - 1) {
-      rtDynamicBoundsError(index_axis, 0, b_i - 1, &md_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, b_i - 1, &id_emlrtBCI);
     }
     t_red[index_axis].f1.data[1] = dv[1];
     if (index_axis > b_i - 1) {
-      rtDynamicBoundsError(index_axis, 0, b_i - 1, &md_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, b_i - 1, &id_emlrtBCI);
     }
     t_red[index_axis].f1.data[2] = dv[2];
     if (index_axis > b_i - 1) {
-      rtDynamicBoundsError(index_axis, 0, b_i - 1, &md_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, b_i - 1, &id_emlrtBCI);
     }
     t_red[index_axis].f1.data[3] = dv[3];
     if (index_axis > J_red.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, J_red.size(0) - 1, &nd_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, J_red.size(0) - 1, &jd_emlrtBCI);
     }
     J_red[index_axis].f1.size[0] = 1;
     if (index_axis > J_red.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, J_red.size(0) - 1, &nd_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, J_red.size(0) - 1, &jd_emlrtBCI);
     }
     J_red[index_axis].f1.size[1] = 4;
     b_i = J_red.size(0);
     if (index_axis > J_red.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, J_red.size(0) - 1, &nd_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, J_red.size(0) - 1, &jd_emlrtBCI);
     }
     if (index_axis > J_red.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, J_red.size(0) - 1, &nd_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, J_red.size(0) - 1, &jd_emlrtBCI);
     }
     J_red[index_axis].f1.data[0] = dv1[0];
     if (index_axis > b_i - 1) {
-      rtDynamicBoundsError(index_axis, 0, b_i - 1, &od_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, b_i - 1, &kd_emlrtBCI);
     }
     J_red[index_axis].f1.data[1] = dv1[1];
     if (index_axis > b_i - 1) {
-      rtDynamicBoundsError(index_axis, 0, b_i - 1, &od_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, b_i - 1, &kd_emlrtBCI);
     }
     J_red[index_axis].f1.data[2] = dv1[2];
     if (index_axis > b_i - 1) {
-      rtDynamicBoundsError(index_axis, 0, b_i - 1, &od_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, b_i - 1, &kd_emlrtBCI);
     }
     J_red[index_axis].f1.data[3] = dv1[3];
     if (index_axis > t_red.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, t_red.size(0) - 1, &pd_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, t_red.size(0) - 1, &ld_emlrtBCI);
     }
     if (index_axis > J_red.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, J_red.size(0) - 1, &qd_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, J_red.size(0) - 1, &md_emlrtBCI);
     }
     construct_setp_struct(t_red[index_axis].f1.data, t_red[index_axis].f1.size,
                           J_red[index_axis].f1.data, J_red[index_axis].f1.size,
                           t18_time, t18_signals_values);
     if (index_axis + 1 > P_init.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, P_init.size(0), &rd_emlrtBCI);
+      rtDynamicBoundsError(index_axis + 1, 1, P_init.size(0), &nd_emlrtBCI);
     }
     if (index_axis + 1 > V_init.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, V_init.size(0), &sd_emlrtBCI);
+      rtDynamicBoundsError(index_axis + 1, 1, V_init.size(0), &od_emlrtBCI);
     }
     if (index_axis + 1 > A_init.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, A_init.size(0), &td_emlrtBCI);
+      rtDynamicBoundsError(index_axis + 1, 1, A_init.size(0), &pd_emlrtBCI);
     }
     if (index_axis + 1 > P_init.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, P_init.size(0), &ud_emlrtBCI);
+      rtDynamicBoundsError(index_axis + 1, 1, P_init.size(0), &qd_emlrtBCI);
     }
     if (index_axis + 1 > V_init.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, V_init.size(0), &vd_emlrtBCI);
+      rtDynamicBoundsError(index_axis + 1, 1, V_init.size(0), &rd_emlrtBCI);
     }
     if (index_axis + 1 > A_init.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, A_init.size(0), &wd_emlrtBCI);
+      rtDynamicBoundsError(index_axis + 1, 1, A_init.size(0), &sd_emlrtBCI);
     }
     evaluate_to_time(P_init[index_axis], V_init[index_axis], A_init[index_axis],
                      t18_time, t18_signals_values, &P_init[index_axis],
@@ -2870,166 +2717,134 @@ void synchronize_trajectory(
   }
   //     %% Find optimal solution
   // parfor index_axis = 1:num_axes
-  J_opt.set_size(loop_ub);
+  index_axis = 0;
+  J_opt.set_size(unnamed_idx_0);
   t_opt.set_size(i);
-  for (index_axis = 0; index_axis <= num_axes; index_axis++) {
+  for (b_index_axis = 0; b_index_axis <= num_axes; b_index_axis++) {
+    index_axis = b_index_axis;
     printf("Debug: Ax[");
     fflush(stdout);
-    printint(static_cast<double>(index_axis) + 1.0);
+    printint(static_cast<double>(b_index_axis) + 1.0);
     printf("] Generating optimal solutions!\n");
     fflush(stdout);
-    if (index_axis + 1 > P_init.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, P_init.size(0), &xd_emlrtBCI);
+    if (b_index_axis + 1 > P_init.size(0)) {
+      rtDynamicBoundsError(b_index_axis + 1, 1, P_init.size(0), &td_emlrtBCI);
     }
-    if (index_axis + 1 > V_init.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, V_init.size(0), &yd_emlrtBCI);
+    if (b_index_axis + 1 > V_init.size(0)) {
+      rtDynamicBoundsError(b_index_axis + 1, 1, V_init.size(0), &ud_emlrtBCI);
     }
-    if (index_axis + 1 > A_init.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, A_init.size(0), &ae_emlrtBCI);
+    if (b_index_axis + 1 > A_init.size(0)) {
+      rtDynamicBoundsError(b_index_axis + 1, 1, A_init.size(0), &vd_emlrtBCI);
     }
-    if (index_axis + 1 > P_wayp.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, P_wayp.size(0), &be_emlrtBCI);
+    if (b_index_axis + 1 > P_wayp.size(0)) {
+      rtDynamicBoundsError(b_index_axis + 1, 1, P_wayp.size(0), &wd_emlrtBCI);
     }
-    if (index_axis + 1 > V_wayp.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, V_wayp.size(0), &ce_emlrtBCI);
+    if (b_index_axis + 1 > V_wayp.size(0)) {
+      rtDynamicBoundsError(b_index_axis + 1, 1, V_wayp.size(0), &xd_emlrtBCI);
     }
-    if (index_axis + 1 > A_wayp.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, A_wayp.size(0), &de_emlrtBCI);
+    if (b_index_axis + 1 > A_wayp.size(0)) {
+      rtDynamicBoundsError(b_index_axis + 1, 1, A_wayp.size(0), &yd_emlrtBCI);
     }
-    if (index_axis + 1 > V_max.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, V_max.size(0), &ee_emlrtBCI);
+    if (b_index_axis + 1 > V_max.size(0)) {
+      rtDynamicBoundsError(b_index_axis + 1, 1, V_max.size(0), &ae_emlrtBCI);
     }
-    if (index_axis + 1 > V_min.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, V_min.size(0), &fe_emlrtBCI);
+    if (b_index_axis + 1 > V_min.size(0)) {
+      rtDynamicBoundsError(b_index_axis + 1, 1, V_min.size(0), &be_emlrtBCI);
     }
-    if (index_axis + 1 > A_max.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, A_max.size(0), &ge_emlrtBCI);
+    if (b_index_axis + 1 > A_max.size(0)) {
+      rtDynamicBoundsError(b_index_axis + 1, 1, A_max.size(0), &ce_emlrtBCI);
     }
-    if (index_axis + 1 > A_min.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, A_min.size(0), &he_emlrtBCI);
+    if (b_index_axis + 1 > A_min.size(0)) {
+      rtDynamicBoundsError(b_index_axis + 1, 1, A_min.size(0), &de_emlrtBCI);
     }
-    if (index_axis + 1 > J_max.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, J_max.size(0), &ie_emlrtBCI);
+    if (b_index_axis + 1 > J_max.size(0)) {
+      rtDynamicBoundsError(b_index_axis + 1, 1, J_max.size(0), &ee_emlrtBCI);
     }
-    if (index_axis + 1 > J_min.size(0)) {
-      rtDynamicBoundsError(index_axis + 1, 1, J_min.size(0), &je_emlrtBCI);
+    if (b_index_axis + 1 > J_min.size(0)) {
+      rtDynamicBoundsError(b_index_axis + 1, 1, J_min.size(0), &fe_emlrtBCI);
     }
-    if (index_axis > solution_opt.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, solution_opt.size(0) - 1,
-                           &ke_emlrtBCI);
+    if (b_index_axis > t_opt.size(0) - 1) {
+      rtDynamicBoundsError(b_index_axis, 0, t_opt.size(0) - 1, &ge_emlrtBCI);
     }
-    solve_O(P_init[index_axis], V_init[index_axis], A_init[index_axis],
-            P_wayp[index_axis], V_wayp[index_axis], A_wayp[index_axis],
-            V_max[index_axis], V_min[index_axis], A_max[index_axis],
-            A_min[index_axis], J_max[index_axis], J_min[index_axis], tmp_data,
-            tmp_size, b_tmp_data, b_tmp_size, solution_opt[index_axis].f1.data,
-            &i);
-    solution_opt[index_axis].f1.size[0] = i;
-    loop_ub = tmp_size[0] * 7;
-    if (index_axis > t_opt.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1, &le_emlrtBCI);
+    if (b_index_axis > J_opt.size(0) - 1) {
+      rtDynamicBoundsError(b_index_axis, 0, J_opt.size(0) - 1, &he_emlrtBCI);
     }
-    t_opt[index_axis].f1.set_size(tmp_size[0], t_opt[index_axis].f1.size(1));
-    if (index_axis > t_opt.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1, &le_emlrtBCI);
+    if (b_index_axis > solution_opt.size(0) - 1) {
+      rtDynamicBoundsError(b_index_axis, 0, solution_opt.size(0) - 1,
+                           &ie_emlrtBCI);
     }
-    t_opt[index_axis].f1.set_size(t_opt[index_axis].f1.size(0), 7);
-    i = t_opt.size(0);
-    if (index_axis > t_opt.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1, &le_emlrtBCI);
+    solve_O(P_init[b_index_axis], V_init[b_index_axis], A_init[b_index_axis],
+            P_wayp[b_index_axis], V_wayp[b_index_axis], A_wayp[b_index_axis],
+            V_max[b_index_axis], V_min[b_index_axis], A_max[b_index_axis],
+            A_min[b_index_axis], J_max[b_index_axis], J_min[b_index_axis],
+            t_opt[b_index_axis].f1.data, iv, J_opt[b_index_axis].f1.data, iv1,
+            solution_opt[b_index_axis].f1.data, &i);
+    solution_opt[b_index_axis].f1.size[0] = i;
+    J_opt[b_index_axis].f1.size[0] = iv1[0];
+    J_opt[b_index_axis].f1.size[1] = iv1[1];
+    t_opt[b_index_axis].f1.size[0] = iv[0];
+    t_opt[b_index_axis].f1.size[1] = iv[1];
+    if (b_index_axis > solution_opt.size(0) - 1) {
+      rtDynamicBoundsError(b_index_axis, 0, solution_opt.size(0) - 1,
+                           &je_emlrtBCI);
     }
-    if (index_axis > t_opt.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1, &le_emlrtBCI);
-    }
-    for (i1 = 0; i1 < loop_ub; i1++) {
-      if (index_axis > i - 1) {
-        rtDynamicBoundsError(index_axis, 0, i - 1, &me_emlrtBCI);
-      }
-      t_opt[index_axis].f1[i1] = tmp_data[i1];
-    }
-    loop_ub = b_tmp_size[0] * 7;
-    if (index_axis > J_opt.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, J_opt.size(0) - 1, &ne_emlrtBCI);
-    }
-    J_opt[index_axis].f1.set_size(b_tmp_size[0], J_opt[index_axis].f1.size(1));
-    if (index_axis > J_opt.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, J_opt.size(0) - 1, &ne_emlrtBCI);
-    }
-    J_opt[index_axis].f1.set_size(J_opt[index_axis].f1.size(0), 7);
-    i = J_opt.size(0);
-    if (index_axis > J_opt.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, J_opt.size(0) - 1, &ne_emlrtBCI);
-    }
-    if (index_axis > J_opt.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, J_opt.size(0) - 1, &ne_emlrtBCI);
-    }
-    for (i1 = 0; i1 < loop_ub; i1++) {
-      if (index_axis > i - 1) {
-        rtDynamicBoundsError(index_axis, 0, i - 1, &oe_emlrtBCI);
-      }
-      J_opt[index_axis].f1[i1] = b_tmp_data[i1];
-    }
-    if (index_axis > solution_opt.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, solution_opt.size(0) - 1,
-                           &pe_emlrtBCI);
-    }
-    if (solution_opt[index_axis].f1.size[0] == 0) {
+    if (solution_opt[b_index_axis].f1.size[0] == 0) {
       // So that coder does not crash
       printf("Error: This usually can NOT happen. Using idle trajectory to "
              "prevent segfault!\n");
       fflush(stdout);
-      if (index_axis > t_opt.size(0) - 1) {
-        rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1, &qe_emlrtBCI);
+      if (b_index_axis > t_opt.size(0) - 1) {
+        rtDynamicBoundsError(b_index_axis, 0, t_opt.size(0) - 1, &ke_emlrtBCI);
       }
-      t_opt[index_axis].f1.set_size(1, t_opt[index_axis].f1.size(1));
-      if (index_axis > t_opt.size(0) - 1) {
-        rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1, &qe_emlrtBCI);
+      t_opt[b_index_axis].f1.size[0] = 1;
+      if (b_index_axis > t_opt.size(0) - 1) {
+        rtDynamicBoundsError(b_index_axis, 0, t_opt.size(0) - 1, &ke_emlrtBCI);
       }
-      t_opt[index_axis].f1.set_size(t_opt[index_axis].f1.size(0), 7);
-      i = t_opt.size(0);
-      if (index_axis > t_opt.size(0) - 1) {
-        rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1, &qe_emlrtBCI);
+      t_opt[b_index_axis].f1.size[1] = 7;
+      b_i = t_opt.size(0) - 1;
+      if (b_index_axis > t_opt.size(0) - 1) {
+        rtDynamicBoundsError(b_index_axis, 0, t_opt.size(0) - 1, &ke_emlrtBCI);
       }
-      if (index_axis > t_opt.size(0) - 1) {
-        rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1, &qe_emlrtBCI);
+      if (b_index_axis > t_opt.size(0) - 1) {
+        rtDynamicBoundsError(b_index_axis, 0, t_opt.size(0) - 1, &ke_emlrtBCI);
       }
-      for (i1 = 0; i1 < 7; i1++) {
-        if (index_axis > i - 1) {
-          rtDynamicBoundsError(index_axis, 0, i - 1, &re_emlrtBCI);
+      for (i = 0; i < 7; i++) {
+        if (b_index_axis > b_i) {
+          rtDynamicBoundsError(b_index_axis, 0, b_i, &le_emlrtBCI);
         }
-        t_opt[index_axis].f1[i1] = 0.0;
+        t_opt[b_index_axis].f1.data[i] = 0.0;
       }
-      if (index_axis > J_opt.size(0) - 1) {
-        rtDynamicBoundsError(index_axis, 0, J_opt.size(0) - 1, &se_emlrtBCI);
+      if (b_index_axis > J_opt.size(0) - 1) {
+        rtDynamicBoundsError(b_index_axis, 0, J_opt.size(0) - 1, &me_emlrtBCI);
       }
-      J_opt[index_axis].f1.set_size(1, J_opt[index_axis].f1.size(1));
-      if (index_axis > J_opt.size(0) - 1) {
-        rtDynamicBoundsError(index_axis, 0, J_opt.size(0) - 1, &se_emlrtBCI);
+      J_opt[b_index_axis].f1.size[0] = 1;
+      if (b_index_axis > J_opt.size(0) - 1) {
+        rtDynamicBoundsError(b_index_axis, 0, J_opt.size(0) - 1, &me_emlrtBCI);
       }
-      J_opt[index_axis].f1.set_size(J_opt[index_axis].f1.size(0), 7);
-      i = J_opt.size(0);
-      if (index_axis > J_opt.size(0) - 1) {
-        rtDynamicBoundsError(index_axis, 0, J_opt.size(0) - 1, &se_emlrtBCI);
+      J_opt[b_index_axis].f1.size[1] = 7;
+      b_i = J_opt.size(0) - 1;
+      if (b_index_axis > J_opt.size(0) - 1) {
+        rtDynamicBoundsError(b_index_axis, 0, J_opt.size(0) - 1, &me_emlrtBCI);
       }
-      if (index_axis > J_opt.size(0) - 1) {
-        rtDynamicBoundsError(index_axis, 0, J_opt.size(0) - 1, &se_emlrtBCI);
+      if (b_index_axis > J_opt.size(0) - 1) {
+        rtDynamicBoundsError(b_index_axis, 0, J_opt.size(0) - 1, &me_emlrtBCI);
       }
-      for (i1 = 0; i1 < 7; i1++) {
-        if (index_axis > i - 1) {
-          rtDynamicBoundsError(index_axis, 0, i - 1, &te_emlrtBCI);
+      for (i = 0; i < 7; i++) {
+        if (b_index_axis > b_i) {
+          rtDynamicBoundsError(b_index_axis, 0, b_i, &ne_emlrtBCI);
         }
-        J_opt[index_axis].f1[i1] = 0.0;
+        J_opt[b_index_axis].f1.data[i] = 0.0;
       }
       b_i = solution_opt.size(0) - 1;
-      if (index_axis > solution_opt.size(0) - 1) {
-        rtDynamicBoundsError(index_axis, 0, solution_opt.size(0) - 1,
-                             &ue_emlrtBCI);
+      if (b_index_axis > solution_opt.size(0) - 1) {
+        rtDynamicBoundsError(b_index_axis, 0, solution_opt.size(0) - 1,
+                             &oe_emlrtBCI);
       }
-      solution_opt[index_axis].f1.size[0] = 1;
-      if (index_axis > b_i) {
-        rtDynamicBoundsError(index_axis, 0, b_i, &ue_emlrtBCI);
+      solution_opt[b_index_axis].f1.size[0] = 1;
+      if (b_index_axis > b_i) {
+        rtDynamicBoundsError(b_index_axis, 0, b_i, &oe_emlrtBCI);
       }
-      solution_opt[index_axis].f1.data[0] = -1;
+      solution_opt[b_index_axis].f1.data[0] = -1;
     }
   }
   //     %% Find timed solution
@@ -3097,41 +2912,42 @@ void synchronize_trajectory(
       max_iterations = 0.0;
       for (index_axis = 0; index_axis <= num_axes; index_axis++) {
         if (index_axis > t_opt.size(0) - 1) {
-          rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1, &ve_emlrtBCI);
+          rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1, &pe_emlrtBCI);
         }
-        max_iterations += static_cast<double>(t_opt[index_axis].f1.size(0));
+        max_iterations += static_cast<double>(t_opt[index_axis].f1.size[0]);
       }
       printf("Debug: Starting synchronization!\n");
       fflush(stdout);
-      t_out.set_size(unnamed_idx_0);
-      J_out.set_size(b_unnamed_idx_0);
-      b_unnamed_idx_0 = 0;
+      t_out.set_size(b_unnamed_idx_0);
+      J_out.set_size(c_unnamed_idx_0);
+      unnamed_idx_0 = 0;
       exitg1 = false;
       while ((!exitg1) &&
-             (b_unnamed_idx_0 <= static_cast<int>(max_iterations) - 1)) {
+             (unnamed_idx_0 <= static_cast<int>(max_iterations) - 1)) {
         bool exitg2;
         T.set_size(num_axes + 1);
         index_axis = 1;
-        for (unnamed_idx_0 = 0; unnamed_idx_0 <= num_axes; unnamed_idx_0++) {
-          index_axis = unnamed_idx_0 + 1;
-          if (unnamed_idx_0 > t_opt_test.size(0) - 1) {
-            rtDynamicBoundsError(unnamed_idx_0, 0, t_opt_test.size(0) - 1,
-                                 &we_emlrtBCI);
+        for (b_index_axis = 0; b_index_axis <= num_axes; b_index_axis++) {
+          index_axis = b_index_axis + 1;
+          if (b_index_axis > t_opt_test.size(0) - 1) {
+            rtDynamicBoundsError(b_index_axis, 0, t_opt_test.size(0) - 1,
+                                 &qe_emlrtBCI);
           }
-          i = t_opt_test[unnamed_idx_0].f1.size(0);
+          i = t_opt_test[b_index_axis].f1.size[0];
           if (1 > i) {
-            rtDynamicBoundsError(1, 1, i, &xe_emlrtBCI);
+            rtDynamicBoundsError(1, 1, i, &re_emlrtBCI);
           }
-          idx = t_opt_test[unnamed_idx_0].f1[0];
-          for (b_t_out = 0; b_t_out < 6; b_t_out++) {
+          idx = t_opt_test[b_index_axis].f1.data[0];
+          for (loop_ub = 0; loop_ub < 6; loop_ub++) {
             idx +=
-                t_opt_test[unnamed_idx_0]
-                    .f1[t_opt_test[unnamed_idx_0].f1.size(0) * (b_t_out + 1)];
+                t_opt_test[b_index_axis]
+                    .f1
+                    .data[t_opt_test[b_index_axis].f1.size[0] * (loop_ub + 1)];
           }
-          if (unnamed_idx_0 + 1 > T.size(0)) {
-            rtDynamicBoundsError(unnamed_idx_0 + 1, 1, T.size(0), &ye_emlrtBCI);
+          if (b_index_axis + 1 > T.size(0)) {
+            rtDynamicBoundsError(b_index_axis + 1, 1, T.size(0), &se_emlrtBCI);
           }
-          T[unnamed_idx_0] = idx;
+          T[b_index_axis] = idx;
         }
         if (T.size(0) != T_catch_up.size(0)) {
           rtSizeEq1DError(T.size(0), T_catch_up.size(0), &d_emlrtECI);
@@ -3143,10 +2959,10 @@ void synchronize_trajectory(
         }
         coder::internal::maximum(t_sync, &idx, &b_i);
         if ((b_i < 1) || (b_i > T.size(0))) {
-          rtDynamicBoundsError(b_i, 1, T.size(0), &af_emlrtBCI);
+          rtDynamicBoundsError(b_i, 1, T.size(0), &te_emlrtBCI);
         }
         if (b_i > T_catch_up.size(0)) {
-          rtDynamicBoundsError(b_i, 1, T_catch_up.size(0), &bf_emlrtBCI);
+          rtDynamicBoundsError(b_i, 1, T_catch_up.size(0), &ue_emlrtBCI);
         }
         t_sync.set_size(T_catch_up.size(0));
         loop_ub = T_catch_up.size(0);
@@ -3168,28 +2984,28 @@ void synchronize_trajectory(
           if (index_axis + 1 != b_i) {
             if (index_axis + 1 > b_sync_V.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, b_sync_V.size(0),
-                                   &cf_emlrtBCI);
+                                   &ve_emlrtBCI);
             }
             if (b_sync_V[index_axis]) {
               guard2 = true;
             } else {
               if (index_axis + 1 > b_sync_A.size(0)) {
                 rtDynamicBoundsError(index_axis + 1, 1, b_sync_A.size(0),
-                                     &si_emlrtBCI);
+                                     &ci_emlrtBCI);
               }
               if (b_sync_A[index_axis]) {
                 guard2 = true;
               } else {
                 if (index_axis + 1 > b_sync_J.size(0)) {
                   rtDynamicBoundsError(index_axis + 1, 1, b_sync_J.size(0),
-                                       &ti_emlrtBCI);
+                                       &di_emlrtBCI);
                 }
                 if (b_sync_J[index_axis]) {
                   guard2 = true;
                 } else {
                   if (index_axis + 1 > b_sync_W.size(0)) {
                     rtDynamicBoundsError(index_axis + 1, 1, b_sync_W.size(0),
-                                         &ui_emlrtBCI);
+                                         &ei_emlrtBCI);
                   }
                   if (b_sync_W[index_axis]) {
                     guard2 = true;
@@ -3205,13 +3021,13 @@ void synchronize_trajectory(
           if (guard2) {
             if (index_axis + 1 > direction.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, direction.size(0),
-                                   &df_emlrtBCI);
+                                   &we_emlrtBCI);
             }
             if (direction[index_axis] == 0) {
               bool b_guard2 = false;
               if (index_axis + 1 > P_wayp.size(0)) {
                 rtDynamicBoundsError(index_axis + 1, 1, P_wayp.size(0),
-                                     &ef_emlrtBCI);
+                                     &xe_emlrtBCI);
               }
               b_guard2 = false;
               if (rtIsNaN(P_wayp[index_axis])) {
@@ -3219,14 +3035,14 @@ void synchronize_trajectory(
               } else {
                 if (index_axis + 1 > V_wayp.size(0)) {
                   rtDynamicBoundsError(index_axis + 1, 1, V_wayp.size(0),
-                                       &qi_emlrtBCI);
+                                       &ai_emlrtBCI);
                 }
                 if (rtIsNaN(V_wayp[index_axis])) {
                   b_guard2 = true;
                 } else {
                   if (index_axis + 1 > A_wayp.size(0)) {
                     rtDynamicBoundsError(index_axis + 1, 1, A_wayp.size(0),
-                                         &ri_emlrtBCI);
+                                         &bi_emlrtBCI);
                   }
                   if (rtIsNaN(A_wayp[index_axis])) {
                     b_guard2 = true;
@@ -3241,30 +3057,64 @@ void synchronize_trajectory(
                 fflush(stdout);
                 if (index_axis > t_opt_test.size(0) - 1) {
                   rtDynamicBoundsError(index_axis, 0, t_opt_test.size(0) - 1,
-                                       &ff_emlrtBCI);
+                                       &ye_emlrtBCI);
                 }
                 if (index_axis > J_opt_test.size(0) - 1) {
                   rtDynamicBoundsError(index_axis, 0, J_opt_test.size(0) - 1,
-                                       &gf_emlrtBCI);
+                                       &af_emlrtBCI);
                 }
-                i = t_opt_test[index_axis].f1.size(0);
+                i = t_opt_test[index_axis].f1.size[0];
                 if (1 > i) {
-                  rtDynamicBoundsError(1, 1, i, &hf_emlrtBCI);
+                  rtDynamicBoundsError(1, 1, i, &bf_emlrtBCI);
                 }
-                i = J_opt_test[index_axis].f1.size(0);
+                i = J_opt_test[index_axis].f1.size[0];
                 if (1 > i) {
-                  rtDynamicBoundsError(1, 1, i, &if_emlrtBCI);
+                  rtDynamicBoundsError(1, 1, i, &cf_emlrtBCI);
                 }
                 for (i = 0; i < 7; i++) {
-                  c_t_opt_test[i] =
+                  b_t_opt_test[i] =
                       t_opt_test[index_axis]
-                          .f1[t_opt_test[index_axis].f1.size(0) * i];
+                          .f1.data[t_opt_test[index_axis].f1.size[0] * i];
                   b_J_opt_test[i] =
                       J_opt_test[index_axis]
-                          .f1[J_opt_test[index_axis].f1.size(0) * i];
+                          .f1.data[J_opt_test[index_axis].f1.size[0] * i];
                 }
-                construct_setp_struct(c_t_opt_test, b_J_opt_test, t18_time,
+                construct_setp_struct(b_t_opt_test, b_J_opt_test, t18_time,
                                       t18_signals_values);
+                if (index_axis + 1 > P_init.size(0)) {
+                  rtDynamicBoundsError(index_axis + 1, 1, P_init.size(0),
+                                       &df_emlrtBCI);
+                }
+                if (index_axis + 1 > V_init.size(0)) {
+                  rtDynamicBoundsError(index_axis + 1, 1, V_init.size(0),
+                                       &ef_emlrtBCI);
+                }
+                if (index_axis + 1 > A_init.size(0)) {
+                  rtDynamicBoundsError(index_axis + 1, 1, A_init.size(0),
+                                       &ff_emlrtBCI);
+                }
+                if (index_axis + 1 > P_wayp.size(0)) {
+                  rtDynamicBoundsError(index_axis + 1, 1, P_wayp.size(0),
+                                       &gf_emlrtBCI);
+                }
+                if (index_axis + 1 > V_wayp.size(0)) {
+                  rtDynamicBoundsError(index_axis + 1, 1, V_wayp.size(0),
+                                       &hf_emlrtBCI);
+                }
+                if (index_axis + 1 > A_wayp.size(0)) {
+                  rtDynamicBoundsError(index_axis + 1, 1, A_wayp.size(0),
+                                       &if_emlrtBCI);
+                }
+                evaluate_to_time(
+                    P_init[index_axis], V_init[index_axis], A_init[index_axis],
+                    t18_time, t18_signals_values, &P_wayp[index_axis],
+                    &V_wayp[index_axis], &A_wayp[index_axis], &idx);
+                printf("Debug: Ax[");
+                fflush(stdout);
+                printint(static_cast<double>(index_axis) + 1.0);
+                printf("] Finding possible multiple solutions for updated "
+                       "state!\n");
+                fflush(stdout);
                 if (index_axis + 1 > P_init.size(0)) {
                   rtDynamicBoundsError(index_axis + 1, 1, P_init.size(0),
                                        &jf_emlrtBCI);
@@ -3289,133 +3139,56 @@ void synchronize_trajectory(
                   rtDynamicBoundsError(index_axis + 1, 1, A_wayp.size(0),
                                        &of_emlrtBCI);
                 }
-                evaluate_to_time(
-                    P_init[index_axis], V_init[index_axis], A_init[index_axis],
-                    t18_time, t18_signals_values, &P_wayp[index_axis],
-                    &V_wayp[index_axis], &A_wayp[index_axis], &idx);
-                printf("Debug: Ax[");
-                fflush(stdout);
-                printint(static_cast<double>(index_axis) + 1.0);
-                printf("] Finding possible multiple solutions for updated "
-                       "state!\n");
-                fflush(stdout);
-                if (index_axis + 1 > P_init.size(0)) {
-                  rtDynamicBoundsError(index_axis + 1, 1, P_init.size(0),
-                                       &pf_emlrtBCI);
-                }
-                if (index_axis + 1 > V_init.size(0)) {
-                  rtDynamicBoundsError(index_axis + 1, 1, V_init.size(0),
-                                       &qf_emlrtBCI);
-                }
-                if (index_axis + 1 > A_init.size(0)) {
-                  rtDynamicBoundsError(index_axis + 1, 1, A_init.size(0),
-                                       &rf_emlrtBCI);
-                }
-                if (index_axis + 1 > P_wayp.size(0)) {
-                  rtDynamicBoundsError(index_axis + 1, 1, P_wayp.size(0),
-                                       &sf_emlrtBCI);
-                }
-                if (index_axis + 1 > V_wayp.size(0)) {
-                  rtDynamicBoundsError(index_axis + 1, 1, V_wayp.size(0),
-                                       &tf_emlrtBCI);
-                }
-                if (index_axis + 1 > A_wayp.size(0)) {
-                  rtDynamicBoundsError(index_axis + 1, 1, A_wayp.size(0),
-                                       &uf_emlrtBCI);
-                }
                 if (index_axis + 1 > V_max.size(0)) {
                   rtDynamicBoundsError(index_axis + 1, 1, V_max.size(0),
-                                       &vf_emlrtBCI);
+                                       &pf_emlrtBCI);
                 }
                 if (index_axis + 1 > V_min.size(0)) {
                   rtDynamicBoundsError(index_axis + 1, 1, V_min.size(0),
-                                       &wf_emlrtBCI);
+                                       &qf_emlrtBCI);
                 }
                 if (index_axis + 1 > A_max.size(0)) {
                   rtDynamicBoundsError(index_axis + 1, 1, A_max.size(0),
-                                       &xf_emlrtBCI);
+                                       &rf_emlrtBCI);
                 }
                 if (index_axis + 1 > A_min.size(0)) {
                   rtDynamicBoundsError(index_axis + 1, 1, A_min.size(0),
-                                       &yf_emlrtBCI);
+                                       &sf_emlrtBCI);
                 }
                 if (index_axis + 1 > J_max.size(0)) {
                   rtDynamicBoundsError(index_axis + 1, 1, J_max.size(0),
-                                       &ag_emlrtBCI);
+                                       &tf_emlrtBCI);
                 }
                 if (index_axis + 1 > J_min.size(0)) {
                   rtDynamicBoundsError(index_axis + 1, 1, J_min.size(0),
-                                       &bg_emlrtBCI);
+                                       &uf_emlrtBCI);
+                }
+                if (index_axis > t_opt_test.size(0) - 1) {
+                  rtDynamicBoundsError(index_axis, 0, t_opt_test.size(0) - 1,
+                                       &vf_emlrtBCI);
+                }
+                if (index_axis > J_opt_test.size(0) - 1) {
+                  rtDynamicBoundsError(index_axis, 0, J_opt_test.size(0) - 1,
+                                       &wf_emlrtBCI);
                 }
                 if (index_axis > solution_opt_test.size(0) - 1) {
                   rtDynamicBoundsError(index_axis, 0,
                                        solution_opt_test.size(0) - 1,
-                                       &cg_emlrtBCI);
+                                       &xf_emlrtBCI);
                 }
                 solve_O(P_init[index_axis], V_init[index_axis],
                         A_init[index_axis], P_wayp[index_axis],
                         V_wayp[index_axis], A_wayp[index_axis],
                         V_max[index_axis], V_min[index_axis], A_max[index_axis],
                         A_min[index_axis], J_max[index_axis], J_min[index_axis],
-                        tmp_data, tmp_size, b_tmp_data, b_tmp_size,
+                        t_opt_test[index_axis].f1.data, iv,
+                        J_opt_test[index_axis].f1.data, iv1,
                         solution_opt_test[index_axis].f1.data, &i);
                 solution_opt_test[index_axis].f1.size[0] = i;
-                loop_ub = tmp_size[0] * 7;
-                if (index_axis > t_opt_test.size(0) - 1) {
-                  rtDynamicBoundsError(index_axis, 0, t_opt_test.size(0) - 1,
-                                       &dg_emlrtBCI);
-                }
-                t_opt_test[index_axis].f1.set_size(
-                    tmp_size[0], t_opt_test[index_axis].f1.size(1));
-                if (index_axis > t_opt_test.size(0) - 1) {
-                  rtDynamicBoundsError(index_axis, 0, t_opt_test.size(0) - 1,
-                                       &dg_emlrtBCI);
-                }
-                t_opt_test[index_axis].f1.set_size(
-                    t_opt_test[index_axis].f1.size(0), 7);
-                b_t_out = t_opt_test.size(0) - 1;
-                if (index_axis > t_opt_test.size(0) - 1) {
-                  rtDynamicBoundsError(index_axis, 0, t_opt_test.size(0) - 1,
-                                       &dg_emlrtBCI);
-                }
-                if (index_axis > t_opt_test.size(0) - 1) {
-                  rtDynamicBoundsError(index_axis, 0, t_opt_test.size(0) - 1,
-                                       &dg_emlrtBCI);
-                }
-                for (i = 0; i < loop_ub; i++) {
-                  if (index_axis > b_t_out) {
-                    rtDynamicBoundsError(index_axis, 0, b_t_out, &eg_emlrtBCI);
-                  }
-                  t_opt_test[index_axis].f1[i] = tmp_data[i];
-                }
-                loop_ub = b_tmp_size[0] * 7;
-                if (index_axis > J_opt_test.size(0) - 1) {
-                  rtDynamicBoundsError(index_axis, 0, J_opt_test.size(0) - 1,
-                                       &fg_emlrtBCI);
-                }
-                J_opt_test[index_axis].f1.set_size(
-                    b_tmp_size[0], J_opt_test[index_axis].f1.size(1));
-                if (index_axis > J_opt_test.size(0) - 1) {
-                  rtDynamicBoundsError(index_axis, 0, J_opt_test.size(0) - 1,
-                                       &fg_emlrtBCI);
-                }
-                J_opt_test[index_axis].f1.set_size(
-                    J_opt_test[index_axis].f1.size(0), 7);
-                b_t_out = J_opt_test.size(0) - 1;
-                if (index_axis > J_opt_test.size(0) - 1) {
-                  rtDynamicBoundsError(index_axis, 0, J_opt_test.size(0) - 1,
-                                       &fg_emlrtBCI);
-                }
-                if (index_axis > J_opt_test.size(0) - 1) {
-                  rtDynamicBoundsError(index_axis, 0, J_opt_test.size(0) - 1,
-                                       &fg_emlrtBCI);
-                }
-                for (i = 0; i < loop_ub; i++) {
-                  if (index_axis > b_t_out) {
-                    rtDynamicBoundsError(index_axis, 0, b_t_out, &gg_emlrtBCI);
-                  }
-                  J_opt_test[index_axis].f1[i] = b_tmp_data[i];
-                }
+                J_opt_test[index_axis].f1.size[0] = iv1[0];
+                J_opt_test[index_axis].f1.size[1] = iv1[1];
+                t_opt_test[index_axis].f1.size[0] = iv[0];
+                t_opt_test[index_axis].f1.size[1] = iv[1];
               }
             }
             printf("Debug: Ax[");
@@ -3425,87 +3198,87 @@ void synchronize_trajectory(
             fflush(stdout);
             if (index_axis + 1 > P_init.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, P_init.size(0),
-                                   &hg_emlrtBCI);
+                                   &yf_emlrtBCI);
             }
             if (index_axis + 1 > V_init.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, V_init.size(0),
-                                   &ig_emlrtBCI);
+                                   &ag_emlrtBCI);
             }
             if (index_axis + 1 > A_init.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, A_init.size(0),
-                                   &jg_emlrtBCI);
+                                   &bg_emlrtBCI);
             }
             if (index_axis + 1 > P_wayp.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, P_wayp.size(0),
-                                   &kg_emlrtBCI);
+                                   &cg_emlrtBCI);
             }
             if (index_axis + 1 > V_wayp.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, V_wayp.size(0),
-                                   &lg_emlrtBCI);
+                                   &dg_emlrtBCI);
             }
             if (index_axis + 1 > A_wayp.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, A_wayp.size(0),
-                                   &mg_emlrtBCI);
+                                   &eg_emlrtBCI);
             }
             if (index_axis + 1 > V_max.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, V_max.size(0),
-                                   &ng_emlrtBCI);
+                                   &fg_emlrtBCI);
             }
             if (index_axis + 1 > V_min.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, V_min.size(0),
-                                   &og_emlrtBCI);
+                                   &gg_emlrtBCI);
             }
             if (index_axis + 1 > A_max.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, A_max.size(0),
-                                   &pg_emlrtBCI);
+                                   &hg_emlrtBCI);
             }
             if (index_axis + 1 > A_min.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, A_min.size(0),
-                                   &qg_emlrtBCI);
+                                   &ig_emlrtBCI);
             }
             if (index_axis + 1 > J_max.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, J_max.size(0),
-                                   &rg_emlrtBCI);
+                                   &jg_emlrtBCI);
             }
             if (index_axis + 1 > J_min.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, J_min.size(0),
-                                   &sg_emlrtBCI);
+                                   &kg_emlrtBCI);
             }
             if (index_axis + 1 > t_sync.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, t_sync.size(0),
-                                   &tg_emlrtBCI);
+                                   &lg_emlrtBCI);
             }
             if (index_axis + 1 > b_sync_V.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, b_sync_V.size(0),
-                                   &ug_emlrtBCI);
+                                   &mg_emlrtBCI);
             }
             if (index_axis + 1 > b_sync_A.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, b_sync_A.size(0),
-                                   &vg_emlrtBCI);
+                                   &ng_emlrtBCI);
             }
             if (index_axis + 1 > b_sync_J.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, b_sync_J.size(0),
-                                   &wg_emlrtBCI);
+                                   &og_emlrtBCI);
             }
             if (index_axis + 1 > b_sync_W.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, b_sync_W.size(0),
-                                   &xg_emlrtBCI);
+                                   &pg_emlrtBCI);
             }
             if (index_axis + 1 > direction.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, direction.size(0),
-                                   &yg_emlrtBCI);
+                                   &qg_emlrtBCI);
             }
             if (index_axis > t_tim.size(0) - 1) {
               rtDynamicBoundsError(index_axis, 0, t_tim.size(0) - 1,
-                                   &ah_emlrtBCI);
+                                   &rg_emlrtBCI);
             }
             if (index_axis > J_tim.size(0) - 1) {
               rtDynamicBoundsError(index_axis, 0, J_tim.size(0) - 1,
-                                   &bh_emlrtBCI);
+                                   &sg_emlrtBCI);
             }
             if (index_axis > solution_tim.size(0) - 1) {
               rtDynamicBoundsError(index_axis, 0, solution_tim.size(0) - 1,
-                                   &ch_emlrtBCI);
+                                   &tg_emlrtBCI);
             }
             solve_T(P_init[index_axis], V_init[index_axis], A_init[index_axis],
                     P_wayp[index_axis], V_wayp[index_axis], A_wayp[index_axis],
@@ -3514,17 +3287,16 @@ void synchronize_trajectory(
                     t_sync[index_axis], b_sync_V[index_axis],
                     b_sync_A[index_axis], b_sync_J[index_axis],
                     b_sync_W[index_axis], direction[index_axis],
-                    t_tim[index_axis].f1.data, b_tmp_size,
-                    J_tim[index_axis].f1.data, iv,
-                    solution_tim[index_axis].f1.data, &i);
+                    t_tim[index_axis].f1.data, iv, J_tim[index_axis].f1.data,
+                    iv1, solution_tim[index_axis].f1.data, &i);
             solution_tim[index_axis].f1.size[0] = i;
-            J_tim[index_axis].f1.size[0] = iv[0];
-            J_tim[index_axis].f1.size[1] = iv[1];
-            t_tim[index_axis].f1.size[0] = b_tmp_size[0];
-            t_tim[index_axis].f1.size[1] = b_tmp_size[1];
+            J_tim[index_axis].f1.size[0] = iv1[0];
+            J_tim[index_axis].f1.size[1] = iv1[1];
+            t_tim[index_axis].f1.size[0] = iv[0];
+            t_tim[index_axis].f1.size[1] = iv[1];
             if (index_axis > solution_tim.size(0) - 1) {
               rtDynamicBoundsError(index_axis, 0, solution_tim.size(0) - 1,
-                                   &dh_emlrtBCI);
+                                   &ug_emlrtBCI);
             }
             if (solution_tim[index_axis].f1.size[0] != 0) {
               printf("Debug: Ax[");
@@ -3534,65 +3306,47 @@ void synchronize_trajectory(
               fflush(stdout);
               if (index_axis > t_tim.size(0) - 1) {
                 rtDynamicBoundsError(index_axis, 0, t_tim.size(0) - 1,
-                                     &eh_emlrtBCI);
+                                     &vg_emlrtBCI);
               }
               i = t_tim[index_axis].f1.size[0];
               if (1 > i) {
-                rtDynamicBoundsError(1, 1, i, &fh_emlrtBCI);
+                rtDynamicBoundsError(1, 1, i, &wg_emlrtBCI);
               }
-              b_t_out = t.size(0) - 1;
-              if (index_axis > t.size(0) - 1) {
-                rtDynamicBoundsError(index_axis, 0, t.size(0) - 1,
-                                     &gh_emlrtBCI);
-              }
-              t[index_axis].f1.set_size(1, t[index_axis].f1.size(1));
-              if (index_axis > b_t_out) {
-                rtDynamicBoundsError(index_axis, 0, b_t_out, &gh_emlrtBCI);
-              }
-              t[index_axis].f1.set_size(t[index_axis].f1.size(0), 11);
+              loop_ub = t.size(0) - 1;
               for (i = 0; i < 11; i++) {
-                if (index_axis > b_t_out) {
-                  rtDynamicBoundsError(index_axis, 0, b_t_out, &gh_emlrtBCI);
+                if (index_axis > loop_ub) {
+                  rtDynamicBoundsError(index_axis, 0, loop_ub, &xg_emlrtBCI);
                 }
-                t[index_axis].f1[t[index_axis].f1.size(0) * i] =
+                t[index_axis].f1[i] =
                     t_tim[index_axis].f1.data[t_tim[index_axis].f1.size[0] * i];
               }
               if (index_axis > J_tim.size(0) - 1) {
                 rtDynamicBoundsError(index_axis, 0, J_tim.size(0) - 1,
-                                     &hh_emlrtBCI);
+                                     &yg_emlrtBCI);
               }
               i = J_tim[index_axis].f1.size[0];
               if (1 > i) {
-                rtDynamicBoundsError(1, 1, i, &ih_emlrtBCI);
+                rtDynamicBoundsError(1, 1, i, &ah_emlrtBCI);
               }
-              b_t_out = J.size(0) - 1;
-              if (index_axis > J.size(0) - 1) {
-                rtDynamicBoundsError(index_axis, 0, J.size(0) - 1,
-                                     &jh_emlrtBCI);
-              }
-              J[index_axis].f1.set_size(1, J[index_axis].f1.size(1));
-              if (index_axis > b_t_out) {
-                rtDynamicBoundsError(index_axis, 0, b_t_out, &jh_emlrtBCI);
-              }
-              J[index_axis].f1.set_size(J[index_axis].f1.size(0), 11);
+              loop_ub = J.size(0) - 1;
               for (i = 0; i < 11; i++) {
-                if (index_axis > b_t_out) {
-                  rtDynamicBoundsError(index_axis, 0, b_t_out, &jh_emlrtBCI);
+                if (index_axis > loop_ub) {
+                  rtDynamicBoundsError(index_axis, 0, loop_ub, &bh_emlrtBCI);
                 }
-                J[index_axis].f1[J[index_axis].f1.size(0) * i] =
+                J[index_axis].f1[i] =
                     J_tim[index_axis].f1.data[J_tim[index_axis].f1.size[0] * i];
               }
               if (index_axis > solution_tim.size(0) - 1) {
                 rtDynamicBoundsError(index_axis, 0, solution_tim.size(0) - 1,
-                                     &kh_emlrtBCI);
+                                     &ch_emlrtBCI);
               }
               i = solution_tim[index_axis].f1.size[0];
               if (1 > i) {
-                rtDynamicBoundsError(1, 1, i, &lh_emlrtBCI);
+                rtDynamicBoundsError(1, 1, i, &dh_emlrtBCI);
               }
               if (index_axis + 1 > solution_out.size(0)) {
                 rtDynamicBoundsError(index_axis + 1, 1, solution_out.size(0),
-                                     &mh_emlrtBCI);
+                                     &eh_emlrtBCI);
               }
               solution_out[index_axis] = solution_tim[index_axis].f1.data[0];
               index_axis++;
@@ -3604,166 +3358,76 @@ void synchronize_trajectory(
               fflush(stdout);
               if (index_axis > t_opt_test.size(0) - 1) {
                 rtDynamicBoundsError(index_axis, 0, t_opt_test.size(0) - 1,
-                                     &yh_emlrtBCI);
+                                     &oh_emlrtBCI);
               }
-              tmp_size[0] = t_opt_test[index_axis].f1.size(0);
-              if (index_axis > t_opt_test.size(0) - 1) {
-                rtDynamicBoundsError(index_axis, 0, t_opt_test.size(0) - 1,
-                                     &yh_emlrtBCI);
-              }
-              tmp_size[1] = 7;
-              if (index_axis > t_opt_test.size(0) - 1) {
-                rtDynamicBoundsError(index_axis, 0, t_opt_test.size(0) - 1,
-                                     &yh_emlrtBCI);
-              }
-              loop_ub = t_opt_test[index_axis].f1.size(0) * 7;
-              for (i = 0; i < loop_ub; i++) {
-                if (index_axis > t_opt_test.size(0) - 1) {
-                  rtDynamicBoundsError(index_axis, 0, t_opt_test.size(0) - 1,
-                                       &ai_emlrtBCI);
-                }
-                tmp_data[i] = t_opt_test[index_axis].f1[i];
-              }
-              coder::circshift(tmp_data, tmp_size);
-              b_i = tmp_size[0] * 7;
-              if (index_axis > t_opt_test.size(0) - 1) {
-                rtDynamicBoundsError(index_axis, 0, t_opt_test.size(0) - 1,
-                                     &bi_emlrtBCI);
-              }
-              t_opt_test[index_axis].f1.set_size(
-                  tmp_size[0], t_opt_test[index_axis].f1.size(1));
-              if (index_axis > t_opt_test.size(0) - 1) {
-                rtDynamicBoundsError(index_axis, 0, t_opt_test.size(0) - 1,
-                                     &bi_emlrtBCI);
-              }
-              t_opt_test[index_axis].f1.set_size(
-                  t_opt_test[index_axis].f1.size(0), 7);
-              b_t_out = t_opt_test.size(0) - 1;
-              if (index_axis > t_opt_test.size(0) - 1) {
-                rtDynamicBoundsError(index_axis, 0, t_opt_test.size(0) - 1,
-                                     &bi_emlrtBCI);
-              }
-              if (index_axis > t_opt_test.size(0) - 1) {
-                rtDynamicBoundsError(index_axis, 0, t_opt_test.size(0) - 1,
-                                     &bi_emlrtBCI);
-              }
-              for (i = 0; i < b_i; i++) {
-                if (index_axis > b_t_out) {
-                  rtDynamicBoundsError(index_axis, 0, b_t_out, &ci_emlrtBCI);
-                }
-                t_opt_test[index_axis].f1[i] = tmp_data[i];
-              }
+              coder::circshift(t_opt_test[index_axis].f1.data,
+                               t_opt_test[index_axis].f1.size);
               if (index_axis > J_opt_test.size(0) - 1) {
                 rtDynamicBoundsError(index_axis, 0, J_opt_test.size(0) - 1,
-                                     &di_emlrtBCI);
+                                     &ph_emlrtBCI);
               }
-              tmp_size[0] = J_opt_test[index_axis].f1.size(0);
-              if (index_axis > J_opt_test.size(0) - 1) {
-                rtDynamicBoundsError(index_axis, 0, J_opt_test.size(0) - 1,
-                                     &di_emlrtBCI);
-              }
-              tmp_size[1] = 7;
-              if (index_axis > J_opt_test.size(0) - 1) {
-                rtDynamicBoundsError(index_axis, 0, J_opt_test.size(0) - 1,
-                                     &di_emlrtBCI);
-              }
-              loop_ub = J_opt_test[index_axis].f1.size(0) * 7;
-              for (i = 0; i < loop_ub; i++) {
-                if (index_axis > J_opt_test.size(0) - 1) {
-                  rtDynamicBoundsError(index_axis, 0, J_opt_test.size(0) - 1,
-                                       &ei_emlrtBCI);
-                }
-                tmp_data[i] = J_opt_test[index_axis].f1[i];
-              }
-              coder::circshift(tmp_data, tmp_size);
-              loop_ub = tmp_size[0] * 7;
-              if (index_axis > J_opt_test.size(0) - 1) {
-                rtDynamicBoundsError(index_axis, 0, J_opt_test.size(0) - 1,
-                                     &fi_emlrtBCI);
-              }
-              J_opt_test[index_axis].f1.set_size(
-                  tmp_size[0], J_opt_test[index_axis].f1.size(1));
-              if (index_axis > J_opt_test.size(0) - 1) {
-                rtDynamicBoundsError(index_axis, 0, J_opt_test.size(0) - 1,
-                                     &fi_emlrtBCI);
-              }
-              J_opt_test[index_axis].f1.set_size(
-                  J_opt_test[index_axis].f1.size(0), 7);
-              b_t_out = J_opt_test.size(0) - 1;
-              if (index_axis > J_opt_test.size(0) - 1) {
-                rtDynamicBoundsError(index_axis, 0, J_opt_test.size(0) - 1,
-                                     &fi_emlrtBCI);
-              }
-              if (index_axis > J_opt_test.size(0) - 1) {
-                rtDynamicBoundsError(index_axis, 0, J_opt_test.size(0) - 1,
-                                     &fi_emlrtBCI);
-              }
-              for (i = 0; i < loop_ub; i++) {
-                if (index_axis > b_t_out) {
-                  rtDynamicBoundsError(index_axis, 0, b_t_out, &gi_emlrtBCI);
-                }
-                J_opt_test[index_axis].f1[i] = tmp_data[i];
-              }
+              coder::circshift(J_opt_test[index_axis].f1.data,
+                               J_opt_test[index_axis].f1.size);
               if (index_axis > solution_opt_test.size(0) - 1) {
                 rtDynamicBoundsError(
-                    index_axis, 0, solution_opt_test.size(0) - 1, &hi_emlrtBCI);
+                    index_axis, 0, solution_opt_test.size(0) - 1, &qh_emlrtBCI);
               }
               coder::circshift(solution_opt_test[index_axis].f1.data,
                                &solution_opt_test[index_axis].f1.size[0]);
-              b_t_out = t_opt_test.size(0) - 1;
+              b_i = t_opt_test.size(0) - 1;
               if (index_axis > t_opt_test.size(0) - 1) {
                 rtDynamicBoundsError(index_axis, 0, t_opt_test.size(0) - 1,
-                                     &ii_emlrtBCI);
+                                     &rh_emlrtBCI);
               }
-              b_i = t_opt_test[index_axis].f1.size(0);
+              loop_ub = t_opt_test[index_axis].f1.size[0];
               if (index_axis > t_opt_test.size(0) - 1) {
                 rtDynamicBoundsError(index_axis, 0, t_opt_test.size(0) - 1,
-                                     &ii_emlrtBCI);
+                                     &rh_emlrtBCI);
               }
-              i = t_opt_test[index_axis].f1.size(0);
-              i1 = t_opt_test[index_axis].f1.size(0);
+              i = t_opt_test[index_axis].f1.size[0];
+              i1 = t_opt_test[index_axis].f1.size[0];
               if ((i1 < 1) || (i1 > i)) {
-                rtDynamicBoundsError(i1, 1, i, &ji_emlrtBCI);
+                rtDynamicBoundsError(i1, 1, i, &sh_emlrtBCI);
               }
               for (i = 0; i < 7; i++) {
-                if (index_axis > b_t_out) {
-                  rtDynamicBoundsError(index_axis, 0, b_t_out, &ki_emlrtBCI);
+                if (index_axis > b_i) {
+                  rtDynamicBoundsError(index_axis, 0, b_i, &th_emlrtBCI);
                 }
                 t_opt_test[index_axis]
-                    .f1[(b_i + t_opt_test[index_axis].f1.size(0) * i) - 1] =
-                    rtMinusInf;
+                    .f1.data[(loop_ub + t_opt_test[index_axis].f1.size[0] * i) -
+                             1] = rtMinusInf;
               }
-              b_t_out = J_opt_test.size(0) - 1;
+              b_i = J_opt_test.size(0) - 1;
               if (index_axis > J_opt_test.size(0) - 1) {
                 rtDynamicBoundsError(index_axis, 0, J_opt_test.size(0) - 1,
-                                     &li_emlrtBCI);
+                                     &uh_emlrtBCI);
               }
-              b_i = J_opt_test[index_axis].f1.size(0);
+              loop_ub = J_opt_test[index_axis].f1.size[0];
               if (index_axis > J_opt_test.size(0) - 1) {
                 rtDynamicBoundsError(index_axis, 0, J_opt_test.size(0) - 1,
-                                     &li_emlrtBCI);
+                                     &uh_emlrtBCI);
               }
-              i = J_opt_test[index_axis].f1.size(0);
-              i1 = J_opt_test[index_axis].f1.size(0);
+              i = J_opt_test[index_axis].f1.size[0];
+              i1 = J_opt_test[index_axis].f1.size[0];
               if ((i1 < 1) || (i1 > i)) {
-                rtDynamicBoundsError(i1, 1, i, &mi_emlrtBCI);
+                rtDynamicBoundsError(i1, 1, i, &vh_emlrtBCI);
               }
               for (i = 0; i < 7; i++) {
-                if (index_axis > b_t_out) {
-                  rtDynamicBoundsError(index_axis, 0, b_t_out, &ni_emlrtBCI);
+                if (index_axis > b_i) {
+                  rtDynamicBoundsError(index_axis, 0, b_i, &wh_emlrtBCI);
                 }
                 J_opt_test[index_axis]
-                    .f1[(b_i + J_opt_test[index_axis].f1.size(0) * i) - 1] =
-                    rtInf;
+                    .f1.data[(loop_ub + J_opt_test[index_axis].f1.size[0] * i) -
+                             1] = rtInf;
               }
               if (index_axis > solution_opt_test.size(0) - 1) {
                 rtDynamicBoundsError(
-                    index_axis, 0, solution_opt_test.size(0) - 1, &oi_emlrtBCI);
+                    index_axis, 0, solution_opt_test.size(0) - 1, &xh_emlrtBCI);
               }
               i = solution_opt_test[index_axis].f1.size[0];
               i1 = solution_opt_test[index_axis].f1.size[0];
               if ((i1 < 1) || (i1 > i)) {
-                rtDynamicBoundsError(i1, 1, i, &pi_emlrtBCI);
+                rtDynamicBoundsError(i1, 1, i, &yh_emlrtBCI);
               }
               solution_opt_test[index_axis].f1.data[i1 - 1] = -1;
               exitg2 = true;
@@ -3772,83 +3436,81 @@ void synchronize_trajectory(
           if (b_guard1) {
             if (index_axis > t_opt_test.size(0) - 1) {
               rtDynamicBoundsError(index_axis, 0, t_opt_test.size(0) - 1,
-                                   &nh_emlrtBCI);
+                                   &fh_emlrtBCI);
             }
-            i = t_opt_test[index_axis].f1.size(0);
+            i = t_opt_test[index_axis].f1.size[0];
             if (1 > i) {
-              rtDynamicBoundsError(1, 1, i, &oh_emlrtBCI);
+              rtDynamicBoundsError(1, 1, i, &gh_emlrtBCI);
             }
+            loop_ub = t.size(0) - 1;
             for (i = 0; i < 7; i++) {
-              b_t_opt_test[i] = t_opt_test[index_axis]
-                                    .f1[t_opt_test[index_axis].f1.size(0) * i];
-            }
-            b_t_opt_test[7] = 0.0;
-            b_t_opt_test[8] = 0.0;
-            b_t_opt_test[9] = 0.0;
-            b_t_opt_test[10] = 0.0;
-            b_t_out = t.size(0) - 1;
-            if (index_axis > t.size(0) - 1) {
-              rtDynamicBoundsError(index_axis, 0, t.size(0) - 1, &ph_emlrtBCI);
-            }
-            t[index_axis].f1.set_size(1, t[index_axis].f1.size(1));
-            if (index_axis > b_t_out) {
-              rtDynamicBoundsError(index_axis, 0, b_t_out, &ph_emlrtBCI);
-            }
-            t[index_axis].f1.set_size(t[index_axis].f1.size(0), 11);
-            if (index_axis > b_t_out) {
-              rtDynamicBoundsError(index_axis, 0, b_t_out, &ph_emlrtBCI);
-            }
-            for (i = 0; i < 11; i++) {
-              if (index_axis > b_t_out) {
-                rtDynamicBoundsError(index_axis, 0, b_t_out, &qh_emlrtBCI);
+              if (index_axis > loop_ub) {
+                rtDynamicBoundsError(index_axis, 0, loop_ub, &hh_emlrtBCI);
               }
-              t[index_axis].f1[i] = b_t_opt_test[i];
+              t[index_axis].f1[i] =
+                  t_opt_test[index_axis]
+                      .f1.data[t_opt_test[index_axis].f1.size[0] * i];
             }
+            if (index_axis > loop_ub) {
+              rtDynamicBoundsError(index_axis, 0, loop_ub, &hh_emlrtBCI);
+            }
+            t[index_axis].f1[7] = 0.0;
+            if (index_axis > loop_ub) {
+              rtDynamicBoundsError(index_axis, 0, loop_ub, &hh_emlrtBCI);
+            }
+            t[index_axis].f1[8] = 0.0;
+            if (index_axis > loop_ub) {
+              rtDynamicBoundsError(index_axis, 0, loop_ub, &hh_emlrtBCI);
+            }
+            t[index_axis].f1[9] = 0.0;
+            if (index_axis > loop_ub) {
+              rtDynamicBoundsError(index_axis, 0, loop_ub, &hh_emlrtBCI);
+            }
+            t[index_axis].f1[10] = 0.0;
             if (index_axis > J_opt_test.size(0) - 1) {
               rtDynamicBoundsError(index_axis, 0, J_opt_test.size(0) - 1,
-                                   &rh_emlrtBCI);
+                                   &ih_emlrtBCI);
             }
-            i = J_opt_test[index_axis].f1.size(0);
+            i = J_opt_test[index_axis].f1.size[0];
             if (1 > i) {
-              rtDynamicBoundsError(1, 1, i, &sh_emlrtBCI);
+              rtDynamicBoundsError(1, 1, i, &jh_emlrtBCI);
             }
+            loop_ub = J.size(0) - 1;
             for (i = 0; i < 7; i++) {
-              b_t_opt_test[i] = J_opt_test[index_axis]
-                                    .f1[J_opt_test[index_axis].f1.size(0) * i];
-            }
-            b_t_opt_test[7] = 0.0;
-            b_t_opt_test[8] = 0.0;
-            b_t_opt_test[9] = 0.0;
-            b_t_opt_test[10] = 0.0;
-            b_t_out = J.size(0) - 1;
-            if (index_axis > J.size(0) - 1) {
-              rtDynamicBoundsError(index_axis, 0, J.size(0) - 1, &th_emlrtBCI);
-            }
-            J[index_axis].f1.set_size(1, J[index_axis].f1.size(1));
-            if (index_axis > b_t_out) {
-              rtDynamicBoundsError(index_axis, 0, b_t_out, &th_emlrtBCI);
-            }
-            J[index_axis].f1.set_size(J[index_axis].f1.size(0), 11);
-            if (index_axis > b_t_out) {
-              rtDynamicBoundsError(index_axis, 0, b_t_out, &th_emlrtBCI);
-            }
-            for (i = 0; i < 11; i++) {
-              if (index_axis > b_t_out) {
-                rtDynamicBoundsError(index_axis, 0, b_t_out, &uh_emlrtBCI);
+              if (index_axis > loop_ub) {
+                rtDynamicBoundsError(index_axis, 0, loop_ub, &kh_emlrtBCI);
               }
-              J[index_axis].f1[i] = b_t_opt_test[i];
+              J[index_axis].f1[i] =
+                  J_opt_test[index_axis]
+                      .f1.data[J_opt_test[index_axis].f1.size[0] * i];
             }
+            if (index_axis > loop_ub) {
+              rtDynamicBoundsError(index_axis, 0, loop_ub, &kh_emlrtBCI);
+            }
+            J[index_axis].f1[7] = 0.0;
+            if (index_axis > loop_ub) {
+              rtDynamicBoundsError(index_axis, 0, loop_ub, &kh_emlrtBCI);
+            }
+            J[index_axis].f1[8] = 0.0;
+            if (index_axis > loop_ub) {
+              rtDynamicBoundsError(index_axis, 0, loop_ub, &kh_emlrtBCI);
+            }
+            J[index_axis].f1[9] = 0.0;
+            if (index_axis > loop_ub) {
+              rtDynamicBoundsError(index_axis, 0, loop_ub, &kh_emlrtBCI);
+            }
+            J[index_axis].f1[10] = 0.0;
             if (index_axis > solution_opt_test.size(0) - 1) {
               rtDynamicBoundsError(index_axis, 0, solution_opt_test.size(0) - 1,
-                                   &vh_emlrtBCI);
+                                   &lh_emlrtBCI);
             }
             i = solution_opt_test[index_axis].f1.size[0];
             if (1 > i) {
-              rtDynamicBoundsError(1, 1, i, &wh_emlrtBCI);
+              rtDynamicBoundsError(1, 1, i, &mh_emlrtBCI);
             }
             if (index_axis + 1 > solution_out.size(0)) {
               rtDynamicBoundsError(index_axis + 1, 1, solution_out.size(0),
-                                   &xh_emlrtBCI);
+                                   &nh_emlrtBCI);
             }
             solution_out[index_axis] = solution_opt_test[index_axis].f1.data[0];
             index_axis++;
@@ -3859,44 +3521,44 @@ void synchronize_trajectory(
         }
         idx = 1.0;
         index_axis = 0;
-        for (unnamed_idx_0 = 0; unnamed_idx_0 <= num_axes; unnamed_idx_0++) {
+        for (b_index_axis = 0; b_index_axis <= num_axes; b_index_axis++) {
           double d;
-          index_axis = unnamed_idx_0;
-          if (unnamed_idx_0 > solution_opt_test.size(0) - 1) {
-            rtDynamicBoundsError(unnamed_idx_0, 0,
-                                 solution_opt_test.size(0) - 1, &vi_emlrtBCI);
+          index_axis = b_index_axis;
+          if (b_index_axis > solution_opt_test.size(0) - 1) {
+            rtDynamicBoundsError(b_index_axis, 0, solution_opt_test.size(0) - 1,
+                                 &fi_emlrtBCI);
           }
           d = (idx + static_cast<double>(
-                         solution_opt_test[unnamed_idx_0].f1.size[0])) -
+                         solution_opt_test[b_index_axis].f1.size[0])) -
               1.0;
           if (idx > d) {
             i1 = 0;
             i = 0;
           } else {
             if ((static_cast<int>(idx) < 1) || (static_cast<int>(idx) > 100)) {
-              rtDynamicBoundsError(static_cast<int>(idx), 1, 100, &xi_emlrtBCI);
+              rtDynamicBoundsError(static_cast<int>(idx), 1, 100, &hi_emlrtBCI);
             }
             i1 = static_cast<int>(idx) - 1;
             if ((static_cast<int>(d) < 1) || (static_cast<int>(d) > 100)) {
-              rtDynamicBoundsError(static_cast<int>(d), 1, 100, &yi_emlrtBCI);
+              rtDynamicBoundsError(static_cast<int>(d), 1, 100, &ii_emlrtBCI);
             }
             i = static_cast<int>(d);
           }
-          if (unnamed_idx_0 > solution_opt_test.size(0) - 1) {
-            rtDynamicBoundsError(unnamed_idx_0, 0,
-                                 solution_opt_test.size(0) - 1, &wi_emlrtBCI);
+          if (b_index_axis > solution_opt_test.size(0) - 1) {
+            rtDynamicBoundsError(b_index_axis, 0, solution_opt_test.size(0) - 1,
+                                 &gi_emlrtBCI);
           }
           i -= i1;
           rtSubAssignSizeCheck(&i, 1,
-                               &solution_opt_test[unnamed_idx_0].f1.size[0], 1,
+                               &solution_opt_test[b_index_axis].f1.size[0], 1,
                                &e_emlrtECI);
-          loop_ub = solution_opt_test[unnamed_idx_0].f1.size[0];
+          loop_ub = solution_opt_test[b_index_axis].f1.size[0];
           for (i = 0; i < loop_ub; i++) {
             solution_opt_test_all[i1 + i] =
-                solution_opt_test[unnamed_idx_0].f1.data[i];
+                solution_opt_test[b_index_axis].f1.data[i];
           }
           idx +=
-              static_cast<double>(solution_opt_test[unnamed_idx_0].f1.size[0]);
+              static_cast<double>(solution_opt_test[b_index_axis].f1.size[0]);
         }
         if (1.0 > idx - 1.0) {
           loop_ub = 0;
@@ -3904,7 +3566,7 @@ void synchronize_trajectory(
           if ((static_cast<int>(idx - 1.0) < 1) ||
               (static_cast<int>(idx - 1.0) > 100)) {
             rtDynamicBoundsError(static_cast<int>(idx - 1.0), 1, 100,
-                                 &wj_emlrtBCI);
+                                 &cj_emlrtBCI);
           }
           loop_ub = static_cast<int>(idx - 1.0);
         }
@@ -3919,7 +3581,7 @@ void synchronize_trajectory(
           printint(static_cast<double>(num_axes + 1));
           printf(" axes after ");
           fflush(stdout);
-          printint(static_cast<double>(b_unnamed_idx_0) + 1.0);
+          printint(static_cast<double>(unnamed_idx_0) + 1.0);
           printf(" iterations. Exiting synchronization!\n");
           fflush(stdout);
           exitg1 = true;
@@ -3930,96 +3592,91 @@ void synchronize_trajectory(
           if (coder::intnnz(solution_opt_test_all_data, loop_ub) == 0) {
             printf("Error: Could not find a timed solution after ");
             fflush(stdout);
-            printint(static_cast<double>(b_unnamed_idx_0) + 1.0);
+            printint(static_cast<double>(unnamed_idx_0) + 1.0);
             printf(" iterations. Exiting synchronization!\n");
             fflush(stdout);
-            for (loop_ub = 0; loop_ub <= num_axes; loop_ub++) {
+            for (unnamed_idx_0 = 0; unnamed_idx_0 <= num_axes;
+                 unnamed_idx_0++) {
               if (index_axis > t_opt.size(0) - 1) {
                 rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1,
-                                     &aj_emlrtBCI);
+                                     &ji_emlrtBCI);
               }
-              i = t_opt[index_axis].f1.size(0);
+              i = t_opt[index_axis].f1.size[0];
               if (1 > i) {
-                rtDynamicBoundsError(1, 1, i, &bj_emlrtBCI);
+                rtDynamicBoundsError(1, 1, i, &ki_emlrtBCI);
               }
+              loop_ub = t.size(0) - 1;
               for (i = 0; i < 7; i++) {
-                b_t_opt_test[i] =
-                    t_opt[index_axis].f1[t_opt[index_axis].f1.size(0) * i];
-              }
-              b_t_opt_test[7] = 0.0;
-              b_t_opt_test[8] = 0.0;
-              b_t_opt_test[9] = 0.0;
-              b_t_opt_test[10] = 0.0;
-              b_t_out = t.size(0) - 1;
-              if (index_axis > t.size(0) - 1) {
-                rtDynamicBoundsError(index_axis, 0, t.size(0) - 1,
-                                     &cj_emlrtBCI);
-              }
-              t[index_axis].f1.set_size(1, t[index_axis].f1.size(1));
-              if (index_axis > b_t_out) {
-                rtDynamicBoundsError(index_axis, 0, b_t_out, &cj_emlrtBCI);
-              }
-              t[index_axis].f1.set_size(t[index_axis].f1.size(0), 11);
-              if (index_axis > b_t_out) {
-                rtDynamicBoundsError(index_axis, 0, b_t_out, &cj_emlrtBCI);
-              }
-              for (i = 0; i < 11; i++) {
-                if (index_axis > b_t_out) {
-                  rtDynamicBoundsError(index_axis, 0, b_t_out, &dj_emlrtBCI);
+                if (index_axis > loop_ub) {
+                  rtDynamicBoundsError(index_axis, 0, loop_ub, &li_emlrtBCI);
                 }
-                t[index_axis].f1[i] = b_t_opt_test[i];
+                t[index_axis].f1[i] =
+                    t_opt[index_axis].f1.data[t_opt[index_axis].f1.size[0] * i];
               }
+              if (index_axis > loop_ub) {
+                rtDynamicBoundsError(index_axis, 0, loop_ub, &li_emlrtBCI);
+              }
+              t[index_axis].f1[7] = 0.0;
+              if (index_axis > loop_ub) {
+                rtDynamicBoundsError(index_axis, 0, loop_ub, &li_emlrtBCI);
+              }
+              t[index_axis].f1[8] = 0.0;
+              if (index_axis > loop_ub) {
+                rtDynamicBoundsError(index_axis, 0, loop_ub, &li_emlrtBCI);
+              }
+              t[index_axis].f1[9] = 0.0;
+              if (index_axis > loop_ub) {
+                rtDynamicBoundsError(index_axis, 0, loop_ub, &li_emlrtBCI);
+              }
+              t[index_axis].f1[10] = 0.0;
               if (index_axis > J_opt.size(0) - 1) {
                 rtDynamicBoundsError(index_axis, 0, J_opt.size(0) - 1,
-                                     &ej_emlrtBCI);
+                                     &mi_emlrtBCI);
               }
-              i = J_opt[index_axis].f1.size(0);
+              i = J_opt[index_axis].f1.size[0];
               if (1 > i) {
-                rtDynamicBoundsError(1, 1, i, &fj_emlrtBCI);
+                rtDynamicBoundsError(1, 1, i, &ni_emlrtBCI);
               }
+              loop_ub = J.size(0) - 1;
               for (i = 0; i < 7; i++) {
-                b_t_opt_test[i] =
-                    J_opt[index_axis].f1[J_opt[index_axis].f1.size(0) * i];
-              }
-              b_t_opt_test[7] = 0.0;
-              b_t_opt_test[8] = 0.0;
-              b_t_opt_test[9] = 0.0;
-              b_t_opt_test[10] = 0.0;
-              b_t_out = J.size(0) - 1;
-              if (index_axis > J.size(0) - 1) {
-                rtDynamicBoundsError(index_axis, 0, J.size(0) - 1,
-                                     &gj_emlrtBCI);
-              }
-              J[index_axis].f1.set_size(1, J[index_axis].f1.size(1));
-              if (index_axis > b_t_out) {
-                rtDynamicBoundsError(index_axis, 0, b_t_out, &gj_emlrtBCI);
-              }
-              J[index_axis].f1.set_size(J[index_axis].f1.size(0), 11);
-              if (index_axis > b_t_out) {
-                rtDynamicBoundsError(index_axis, 0, b_t_out, &gj_emlrtBCI);
-              }
-              for (i = 0; i < 11; i++) {
-                if (index_axis > b_t_out) {
-                  rtDynamicBoundsError(index_axis, 0, b_t_out, &hj_emlrtBCI);
+                if (index_axis > loop_ub) {
+                  rtDynamicBoundsError(index_axis, 0, loop_ub, &oi_emlrtBCI);
                 }
-                J[index_axis].f1[i] = b_t_opt_test[i];
+                J[index_axis].f1[i] =
+                    J_opt[index_axis].f1.data[J_opt[index_axis].f1.size[0] * i];
               }
+              if (index_axis > loop_ub) {
+                rtDynamicBoundsError(index_axis, 0, loop_ub, &oi_emlrtBCI);
+              }
+              J[index_axis].f1[7] = 0.0;
+              if (index_axis > loop_ub) {
+                rtDynamicBoundsError(index_axis, 0, loop_ub, &oi_emlrtBCI);
+              }
+              J[index_axis].f1[8] = 0.0;
+              if (index_axis > loop_ub) {
+                rtDynamicBoundsError(index_axis, 0, loop_ub, &oi_emlrtBCI);
+              }
+              J[index_axis].f1[9] = 0.0;
+              if (index_axis > loop_ub) {
+                rtDynamicBoundsError(index_axis, 0, loop_ub, &oi_emlrtBCI);
+              }
+              J[index_axis].f1[10] = 0.0;
               if (index_axis > solution_opt.size(0) - 1) {
                 rtDynamicBoundsError(index_axis, 0, solution_opt.size(0) - 1,
-                                     &ij_emlrtBCI);
+                                     &pi_emlrtBCI);
               }
               i = solution_opt[index_axis].f1.size[0];
               if (1 > i) {
-                rtDynamicBoundsError(1, 1, i, &jj_emlrtBCI);
+                rtDynamicBoundsError(1, 1, i, &qi_emlrtBCI);
               }
               if (index_axis + 1 > solution_out.size(0)) {
                 rtDynamicBoundsError(index_axis + 1, 1, solution_out.size(0),
-                                     &kj_emlrtBCI);
+                                     &ri_emlrtBCI);
               }
               solution_out[index_axis] = solution_opt[index_axis].f1.data[0];
             }
             exitg1 = true;
-          } else if (static_cast<double>(b_unnamed_idx_0) + 1.0 ==
+          } else if (static_cast<double>(unnamed_idx_0) + 1.0 ==
                      max_iterations) {
             printf("Error: Could not find a timed solution after maximum "
                    "iterations (");
@@ -4027,94 +3684,89 @@ void synchronize_trajectory(
             printint(max_iterations);
             printf("). Exiting synchronization!\n");
             fflush(stdout);
-            for (loop_ub = 0; loop_ub <= num_axes; loop_ub++) {
+            for (unnamed_idx_0 = 0; unnamed_idx_0 <= num_axes;
+                 unnamed_idx_0++) {
               if (index_axis > t_opt.size(0) - 1) {
                 rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1,
-                                     &lj_emlrtBCI);
+                                     &si_emlrtBCI);
               }
-              i = t_opt[index_axis].f1.size(0);
+              i = t_opt[index_axis].f1.size[0];
               if (1 > i) {
-                rtDynamicBoundsError(1, 1, i, &mj_emlrtBCI);
+                rtDynamicBoundsError(1, 1, i, &ti_emlrtBCI);
               }
+              loop_ub = t.size(0) - 1;
               for (i = 0; i < 7; i++) {
-                b_t_opt_test[i] =
-                    t_opt[index_axis].f1[t_opt[index_axis].f1.size(0) * i];
-              }
-              b_t_opt_test[7] = 0.0;
-              b_t_opt_test[8] = 0.0;
-              b_t_opt_test[9] = 0.0;
-              b_t_opt_test[10] = 0.0;
-              b_t_out = t.size(0) - 1;
-              if (index_axis > t.size(0) - 1) {
-                rtDynamicBoundsError(index_axis, 0, t.size(0) - 1,
-                                     &nj_emlrtBCI);
-              }
-              t[index_axis].f1.set_size(1, t[index_axis].f1.size(1));
-              if (index_axis > b_t_out) {
-                rtDynamicBoundsError(index_axis, 0, b_t_out, &nj_emlrtBCI);
-              }
-              t[index_axis].f1.set_size(t[index_axis].f1.size(0), 11);
-              if (index_axis > b_t_out) {
-                rtDynamicBoundsError(index_axis, 0, b_t_out, &nj_emlrtBCI);
-              }
-              for (i = 0; i < 11; i++) {
-                if (index_axis > b_t_out) {
-                  rtDynamicBoundsError(index_axis, 0, b_t_out, &oj_emlrtBCI);
+                if (index_axis > loop_ub) {
+                  rtDynamicBoundsError(index_axis, 0, loop_ub, &ui_emlrtBCI);
                 }
-                t[index_axis].f1[i] = b_t_opt_test[i];
+                t[index_axis].f1[i] =
+                    t_opt[index_axis].f1.data[t_opt[index_axis].f1.size[0] * i];
               }
+              if (index_axis > loop_ub) {
+                rtDynamicBoundsError(index_axis, 0, loop_ub, &ui_emlrtBCI);
+              }
+              t[index_axis].f1[7] = 0.0;
+              if (index_axis > loop_ub) {
+                rtDynamicBoundsError(index_axis, 0, loop_ub, &ui_emlrtBCI);
+              }
+              t[index_axis].f1[8] = 0.0;
+              if (index_axis > loop_ub) {
+                rtDynamicBoundsError(index_axis, 0, loop_ub, &ui_emlrtBCI);
+              }
+              t[index_axis].f1[9] = 0.0;
+              if (index_axis > loop_ub) {
+                rtDynamicBoundsError(index_axis, 0, loop_ub, &ui_emlrtBCI);
+              }
+              t[index_axis].f1[10] = 0.0;
               if (index_axis > J_opt.size(0) - 1) {
                 rtDynamicBoundsError(index_axis, 0, J_opt.size(0) - 1,
-                                     &pj_emlrtBCI);
+                                     &vi_emlrtBCI);
               }
-              i = J_opt[index_axis].f1.size(0);
+              i = J_opt[index_axis].f1.size[0];
               if (1 > i) {
-                rtDynamicBoundsError(1, 1, i, &qj_emlrtBCI);
+                rtDynamicBoundsError(1, 1, i, &wi_emlrtBCI);
               }
+              loop_ub = J.size(0) - 1;
               for (i = 0; i < 7; i++) {
-                b_t_opt_test[i] =
-                    J_opt[index_axis].f1[J_opt[index_axis].f1.size(0) * i];
-              }
-              b_t_opt_test[7] = 0.0;
-              b_t_opt_test[8] = 0.0;
-              b_t_opt_test[9] = 0.0;
-              b_t_opt_test[10] = 0.0;
-              b_t_out = J.size(0) - 1;
-              if (index_axis > J.size(0) - 1) {
-                rtDynamicBoundsError(index_axis, 0, J.size(0) - 1,
-                                     &rj_emlrtBCI);
-              }
-              J[index_axis].f1.set_size(1, J[index_axis].f1.size(1));
-              if (index_axis > b_t_out) {
-                rtDynamicBoundsError(index_axis, 0, b_t_out, &rj_emlrtBCI);
-              }
-              J[index_axis].f1.set_size(J[index_axis].f1.size(0), 11);
-              if (index_axis > b_t_out) {
-                rtDynamicBoundsError(index_axis, 0, b_t_out, &rj_emlrtBCI);
-              }
-              for (i = 0; i < 11; i++) {
-                if (index_axis > b_t_out) {
-                  rtDynamicBoundsError(index_axis, 0, b_t_out, &sj_emlrtBCI);
+                if (index_axis > loop_ub) {
+                  rtDynamicBoundsError(index_axis, 0, loop_ub, &xi_emlrtBCI);
                 }
-                J[index_axis].f1[i] = b_t_opt_test[i];
+                J[index_axis].f1[i] =
+                    J_opt[index_axis].f1.data[J_opt[index_axis].f1.size[0] * i];
               }
+              if (index_axis > loop_ub) {
+                rtDynamicBoundsError(index_axis, 0, loop_ub, &xi_emlrtBCI);
+              }
+              J[index_axis].f1[7] = 0.0;
+              if (index_axis > loop_ub) {
+                rtDynamicBoundsError(index_axis, 0, loop_ub, &xi_emlrtBCI);
+              }
+              J[index_axis].f1[8] = 0.0;
+              if (index_axis > loop_ub) {
+                rtDynamicBoundsError(index_axis, 0, loop_ub, &xi_emlrtBCI);
+              }
+              J[index_axis].f1[9] = 0.0;
+              if (index_axis > loop_ub) {
+                rtDynamicBoundsError(index_axis, 0, loop_ub, &xi_emlrtBCI);
+              }
+              J[index_axis].f1[10] = 0.0;
               if (index_axis > solution_opt.size(0) - 1) {
                 rtDynamicBoundsError(index_axis, 0, solution_opt.size(0) - 1,
-                                     &tj_emlrtBCI);
+                                     &yi_emlrtBCI);
               }
               i = solution_opt[index_axis].f1.size[0];
               if (1 > i) {
-                rtDynamicBoundsError(1, 1, i, &uj_emlrtBCI);
+                rtDynamicBoundsError(1, 1, i, &aj_emlrtBCI);
               }
               if (index_axis + 1 > solution_out.size(0)) {
                 rtDynamicBoundsError(index_axis + 1, 1, solution_out.size(0),
-                                     &vj_emlrtBCI);
+                                     &bj_emlrtBCI);
               }
               solution_out[index_axis] = solution_opt[index_axis].f1.data[0];
             }
             exitg1 = true;
           } else {
-            b_unnamed_idx_0++;
+            unnamed_idx_0++;
           }
         }
       }
@@ -4127,156 +3779,165 @@ void synchronize_trajectory(
   if (guard1) {
     printf("Debug: No axis to be synchronized!\n");
     fflush(stdout);
-    t.set_size(t_opt.size(0));
-    loop_ub = t_opt.size(0);
-    for (i = 0; i < loop_ub; i++) {
-      t[i] = t_opt[i];
-    }
-    J.set_size(J_opt.size(0));
-    loop_ub = J_opt.size(0);
-    for (i = 0; i < loop_ub; i++) {
-      J[i] = J_opt[i];
+    J_out.set_size(c_unnamed_idx_0);
+    t_out.set_size(b_unnamed_idx_0);
+    for (unnamed_idx_0 = 0; unnamed_idx_0 <= num_axes; unnamed_idx_0++) {
+      if (index_axis > t_opt.size(0) - 1) {
+        rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1, &dj_emlrtBCI);
+      }
+      i = t_opt[index_axis].f1.size[0];
+      if (1 > i) {
+        rtDynamicBoundsError(1, 1, i, &ej_emlrtBCI);
+      }
+      loop_ub = t.size(0) - 1;
+      for (i = 0; i < 7; i++) {
+        if (index_axis > loop_ub) {
+          rtDynamicBoundsError(index_axis, 0, loop_ub, &fj_emlrtBCI);
+        }
+        t[index_axis].f1[i] =
+            t_opt[index_axis].f1.data[t_opt[index_axis].f1.size[0] * i];
+      }
+      if (index_axis > loop_ub) {
+        rtDynamicBoundsError(index_axis, 0, loop_ub, &fj_emlrtBCI);
+      }
+      t[index_axis].f1[7] = 0.0;
+      if (index_axis > loop_ub) {
+        rtDynamicBoundsError(index_axis, 0, loop_ub, &fj_emlrtBCI);
+      }
+      t[index_axis].f1[8] = 0.0;
+      if (index_axis > loop_ub) {
+        rtDynamicBoundsError(index_axis, 0, loop_ub, &fj_emlrtBCI);
+      }
+      t[index_axis].f1[9] = 0.0;
+      if (index_axis > loop_ub) {
+        rtDynamicBoundsError(index_axis, 0, loop_ub, &fj_emlrtBCI);
+      }
+      t[index_axis].f1[10] = 0.0;
+      if (index_axis > J_opt.size(0) - 1) {
+        rtDynamicBoundsError(index_axis, 0, J_opt.size(0) - 1, &gj_emlrtBCI);
+      }
+      i = J_opt[index_axis].f1.size[0];
+      if (1 > i) {
+        rtDynamicBoundsError(1, 1, i, &hj_emlrtBCI);
+      }
+      loop_ub = J.size(0) - 1;
+      for (i = 0; i < 7; i++) {
+        if (index_axis > loop_ub) {
+          rtDynamicBoundsError(index_axis, 0, loop_ub, &ij_emlrtBCI);
+        }
+        J[index_axis].f1[i] =
+            J_opt[index_axis].f1.data[J_opt[index_axis].f1.size[0] * i];
+      }
+      if (index_axis > loop_ub) {
+        rtDynamicBoundsError(index_axis, 0, loop_ub, &ij_emlrtBCI);
+      }
+      J[index_axis].f1[7] = 0.0;
+      if (index_axis > loop_ub) {
+        rtDynamicBoundsError(index_axis, 0, loop_ub, &ij_emlrtBCI);
+      }
+      J[index_axis].f1[8] = 0.0;
+      if (index_axis > loop_ub) {
+        rtDynamicBoundsError(index_axis, 0, loop_ub, &ij_emlrtBCI);
+      }
+      J[index_axis].f1[9] = 0.0;
+      if (index_axis > loop_ub) {
+        rtDynamicBoundsError(index_axis, 0, loop_ub, &ij_emlrtBCI);
+      }
+      J[index_axis].f1[10] = 0.0;
+      if (index_axis > solution_opt.size(0) - 1) {
+        rtDynamicBoundsError(index_axis, 0, solution_opt.size(0) - 1,
+                             &jj_emlrtBCI);
+      }
+      i = solution_opt[index_axis].f1.size[0];
+      if (1 > i) {
+        rtDynamicBoundsError(1, 1, i, &kj_emlrtBCI);
+      }
+      if (index_axis + 1 > solution_out.size(0)) {
+        rtDynamicBoundsError(index_axis + 1, 1, solution_out.size(0),
+                             &lj_emlrtBCI);
+      }
+      solution_out[index_axis] = solution_opt[index_axis].f1.data[0];
     }
   }
   for (index_axis = 0; index_axis <= num_axes; index_axis++) {
     signed char i2;
-    signed char sizes_idx_1;
-    bool empty_non_axis_sizes;
     if (index_axis > t_red.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, t_red.size(0) - 1, &xj_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, t_red.size(0) - 1, &mj_emlrtBCI);
     }
     if (index_axis > t.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, t.size(0) - 1, &yj_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, t.size(0) - 1, &nj_emlrtBCI);
+    }
+    if ((t_red[index_axis].f1.size[0] != 1) &&
+        (t_red[index_axis].f1.size[0] != 0)) {
+      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
     }
     if (t_red[index_axis].f1.size[0] != 0) {
-      b_i = t_red[index_axis].f1.size[0];
-    } else if (t[index_axis].f1.size(0) != 0) {
-      b_i = t[index_axis].f1.size(0);
-    } else {
-      if (t_red[index_axis].f1.size[0] > 0) {
-        b_i = t_red[index_axis].f1.size[0];
-      } else {
-        b_i = 0;
-      }
-      if (t[index_axis].f1.size(0) > b_i) {
-        b_i = t[index_axis].f1.size(0);
-      }
-    }
-    if ((t_red[index_axis].f1.size[0] != b_i) &&
-        (t_red[index_axis].f1.size[0] != 0)) {
-      h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
-    }
-    if ((t[index_axis].f1.size(0) != b_i) && (t[index_axis].f1.size(0) != 0)) {
-      h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
-    }
-    empty_non_axis_sizes = (b_i == 0);
-    if (empty_non_axis_sizes || (t_red[index_axis].f1.size[0] != 0)) {
       i2 = 4;
     } else {
       i2 = 0;
     }
-    if (empty_non_axis_sizes || (t[index_axis].f1.size(0) != 0)) {
-      sizes_idx_1 = static_cast<signed char>(t[index_axis].f1.size(1));
-    } else {
-      sizes_idx_1 = 0;
-    }
-    b_t_out = t_out.size(0) - 1;
+    b_i = t_out.size(0) - 1;
     if (index_axis > t_out.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, t_out.size(0) - 1, &ak_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, t_out.size(0) - 1, &oj_emlrtBCI);
     }
-    t_out[index_axis].f1.set_size(b_i, t_out[index_axis].f1.size(1));
-    if (index_axis > b_t_out) {
-      rtDynamicBoundsError(index_axis, 0, b_t_out, &ak_emlrtBCI);
+    t_out[index_axis].f1.set_size(1, t_out[index_axis].f1.size(1));
+    if (index_axis > b_i) {
+      rtDynamicBoundsError(index_axis, 0, b_i, &oj_emlrtBCI);
     }
-    t_out[index_axis].f1.set_size(t_out[index_axis].f1.size(0),
-                                  i2 + sizes_idx_1);
+    t_out[index_axis].f1.set_size(t_out[index_axis].f1.size(0), i2 + 11);
     loop_ub = i2;
     for (i = 0; i < loop_ub; i++) {
-      for (i1 = 0; i1 < b_i; i1++) {
-        if (index_axis > b_t_out) {
-          rtDynamicBoundsError(index_axis, 0, b_t_out, &ak_emlrtBCI);
-        }
-        t_out[index_axis].f1[i1 + t_out[index_axis].f1.size(0) * i] =
-            t_red[index_axis].f1.data[i1 + b_i * i];
+      if (index_axis > b_i) {
+        rtDynamicBoundsError(index_axis, 0, b_i, &oj_emlrtBCI);
       }
+      t_out[index_axis].f1[t_out[index_axis].f1.size(0) * i] =
+          t_red[index_axis].f1.data[i];
     }
-    loop_ub = sizes_idx_1;
-    for (i = 0; i < loop_ub; i++) {
-      for (i1 = 0; i1 < b_i; i1++) {
-        if (index_axis > b_t_out) {
-          rtDynamicBoundsError(index_axis, 0, b_t_out, &ak_emlrtBCI);
-        }
-        t_out[index_axis].f1[i1 + t_out[index_axis].f1.size(0) * (i + i2)] =
-            t[index_axis].f1[i1 + b_i * i];
+    for (i = 0; i < 11; i++) {
+      if (index_axis > b_i) {
+        rtDynamicBoundsError(index_axis, 0, b_i, &oj_emlrtBCI);
       }
+      t_out[index_axis].f1[t_out[index_axis].f1.size(0) * (i + i2)] =
+          t[index_axis].f1[i];
     }
     if (index_axis > J_red.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, J_red.size(0) - 1, &bk_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, J_red.size(0) - 1, &pj_emlrtBCI);
     }
     if (index_axis > J.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, J.size(0) - 1, &ck_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, J.size(0) - 1, &qj_emlrtBCI);
+    }
+    if ((J_red[index_axis].f1.size[0] != 1) &&
+        (J_red[index_axis].f1.size[0] != 0)) {
+      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
     }
     if (J_red[index_axis].f1.size[0] != 0) {
-      b_i = J_red[index_axis].f1.size[0];
-    } else if (J[index_axis].f1.size(0) != 0) {
-      b_i = J[index_axis].f1.size(0);
-    } else {
-      if (J_red[index_axis].f1.size[0] > 0) {
-        b_i = J_red[index_axis].f1.size[0];
-      } else {
-        b_i = 0;
-      }
-      if (J[index_axis].f1.size(0) > b_i) {
-        b_i = J[index_axis].f1.size(0);
-      }
-    }
-    if ((J_red[index_axis].f1.size[0] != b_i) &&
-        (J_red[index_axis].f1.size[0] != 0)) {
-      h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
-    }
-    if ((J[index_axis].f1.size(0) != b_i) && (J[index_axis].f1.size(0) != 0)) {
-      h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
-    }
-    empty_non_axis_sizes = (b_i == 0);
-    if (empty_non_axis_sizes || (J_red[index_axis].f1.size[0] != 0)) {
       i2 = 4;
     } else {
       i2 = 0;
     }
-    if (empty_non_axis_sizes || (J[index_axis].f1.size(0) != 0)) {
-      sizes_idx_1 = static_cast<signed char>(J[index_axis].f1.size(1));
-    } else {
-      sizes_idx_1 = 0;
-    }
-    b_t_out = J_out.size(0) - 1;
+    b_i = J_out.size(0) - 1;
     if (index_axis > J_out.size(0) - 1) {
-      rtDynamicBoundsError(index_axis, 0, J_out.size(0) - 1, &dk_emlrtBCI);
+      rtDynamicBoundsError(index_axis, 0, J_out.size(0) - 1, &rj_emlrtBCI);
     }
-    J_out[index_axis].f1.set_size(b_i, J_out[index_axis].f1.size(1));
-    if (index_axis > b_t_out) {
-      rtDynamicBoundsError(index_axis, 0, b_t_out, &dk_emlrtBCI);
+    J_out[index_axis].f1.set_size(1, J_out[index_axis].f1.size(1));
+    if (index_axis > b_i) {
+      rtDynamicBoundsError(index_axis, 0, b_i, &rj_emlrtBCI);
     }
-    J_out[index_axis].f1.set_size(J_out[index_axis].f1.size(0),
-                                  i2 + sizes_idx_1);
+    J_out[index_axis].f1.set_size(J_out[index_axis].f1.size(0), i2 + 11);
     loop_ub = i2;
     for (i = 0; i < loop_ub; i++) {
-      for (i1 = 0; i1 < b_i; i1++) {
-        if (index_axis > b_t_out) {
-          rtDynamicBoundsError(index_axis, 0, b_t_out, &dk_emlrtBCI);
-        }
-        J_out[index_axis].f1[i1 + J_out[index_axis].f1.size(0) * i] =
-            J_red[index_axis].f1.data[i1 + b_i * i];
+      if (index_axis > b_i) {
+        rtDynamicBoundsError(index_axis, 0, b_i, &rj_emlrtBCI);
       }
+      J_out[index_axis].f1[J_out[index_axis].f1.size(0) * i] =
+          J_red[index_axis].f1.data[i];
     }
-    loop_ub = sizes_idx_1;
-    for (i = 0; i < loop_ub; i++) {
-      for (i1 = 0; i1 < b_i; i1++) {
-        if (index_axis > b_t_out) {
-          rtDynamicBoundsError(index_axis, 0, b_t_out, &dk_emlrtBCI);
-        }
-        J_out[index_axis].f1[i1 + J_out[index_axis].f1.size(0) * (i + i2)] =
-            J[index_axis].f1[i1 + b_i * i];
+    for (i = 0; i < 11; i++) {
+      if (index_axis > b_i) {
+        rtDynamicBoundsError(index_axis, 0, b_i, &rj_emlrtBCI);
       }
+      J_out[index_axis].f1[J_out[index_axis].f1.size(0) * (i + i2)] =
+          J[index_axis].f1[i];
     }
   }
 }

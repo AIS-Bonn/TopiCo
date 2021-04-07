@@ -5,7 +5,7 @@
       "keys": {
         "running-plugins": {
           "type": "repr",
-          "repr": "{u'rqt_publisher/Publisher': [1]}"
+          "repr": "{u'rqt_reconfigure/Param': [1], u'rqt_publisher/Publisher': [1]}"
         }
       },
       "groups": {
@@ -51,7 +51,7 @@
               "keys": {
                 "dockable": {
                   "type": "repr",
-                  "repr": "u'true'"
+                  "repr": "True"
                 },
                 "parent": {
                   "type": "repr",
@@ -68,7 +68,7 @@
               "keys": {
                 "expanded_nodes": {
                   "type": "repr",
-                  "repr": "None"
+                  "repr": "[]"
                 },
                 "splitter": {
                   "type": "repr(QByteArray.hex)",
@@ -77,7 +77,7 @@
                 },
                 "selected_nodes": {
                   "type": "repr",
-                  "repr": "None"
+                  "repr": "[u'/topico']"
                 },
                 "_splitter": {
                   "type": "repr(QByteArray.hex)",
@@ -250,7 +250,7 @@
               "keys": {
                 "publishers": {
                   "type": "repr",
-                  "repr": "u'[{\\'topic_name\\': \\'/topico/init_odometry\\', \\'type_name\\': \\'nav_msgs/Odometry\\', \\'enabled\\': False, \\'rate\\': 10.0, \\'expressions\\': {u\\'/topico/init_odometry/twist/twist/linear/y\\': \\'0.8\\', u\\'/topico/init_odometry/child_frame_id\\': \"\\'\\'\", u\\'/topico/init_odometry/twist/twist/linear/z\\': \\'0.5\\', u\\'/topico/init_odometry/header/frame_id\\': \\'world\\', u\\'/topico/init_odometry/twist/twist/linear/x\\': \\'0.0\\'}, \\'publisher_id\\': 0, \\'counter\\': 59569}, {\\'topic_name\\': \\'/topico/wayp_odometry\\', \\'type_name\\': \\'nav_msgs/Odometry\\', \\'enabled\\': False, \\'rate\\': 10.0, \\'expressions\\': {u\\'/topico/wayp_odometry/header/frame_id\\': \\'world\\', u\\'/topico/wayp_odometry/child_frame_id\\': \"\\'\\'\", u\\'/topico/wayp_odometry/twist/twist/linear/x\\': \\'0.5\\', u\\'/topico/wayp_odometry/twist/twist/linear/y\\': \\'0.5\\', u\\'/topico/wayp_odometry/pose/pose/position/x\\': \\'5\\', u\\'/topico/wayp_odometry/twist/twist/linear/z\\': \\'0.5\\'}, \\'publisher_id\\': 1, \\'counter\\': 59566}]'"
+                  "repr": "u'[{\\'type_name\\': \\'nav_msgs/Odometry\\', \\'topic_name\\': \\'/topico/init_odometry\\', \\'enabled\\': False, \\'rate\\': 10.0, \\'expressions\\': {u\\'/topico/init_odometry/twist/twist/linear/y\\': \\'0.8\\', u\\'/topico/init_odometry/child_frame_id\\': \"\\'\\'\", u\\'/topico/init_odometry/twist/twist/linear/z\\': \\'0.5\\', u\\'/topico/init_odometry/twist/twist/linear/x\\': \\'0.0\\', u\\'/topico/init_odometry/header/frame_id\\': \\'world\\'}, \\'publisher_id\\': 0, \\'counter\\': 2125}, {\\'type_name\\': \\'nav_msgs/Odometry\\', \\'topic_name\\': \\'/topico/wayp_odometry\\', \\'enabled\\': False, \\'rate\\': 10.0, \\'expressions\\': {u\\'/topico/wayp_odometry/header/frame_id\\': \\'world\\', u\\'/topico/wayp_odometry/child_frame_id\\': \"\\'\\'\", u\\'/topico/wayp_odometry/twist/twist/linear/x\\': \\'0.5\\', u\\'/topico/wayp_odometry/twist/twist/linear/y\\': \\'0.5\\', u\\'/topico/wayp_odometry/pose/pose/position/x\\': \\'5\\', u\\'/topico/wayp_odometry/twist/twist/linear/z\\': \\'0.5\\'}, \\'publisher_id\\': 1, \\'counter\\': 2120}]'"
                 }
               },
               "groups": {}
@@ -417,7 +417,7 @@
         },
         "state": {
           "type": "repr(QByteArray.hex)",
-          "repr(QByteArray.hex)": "QtCore.QByteArray('000000ff00000000fd000000010000000300000b0f000005f1fc0100000007fb00000058007200710074005f007000750062006c00690073006800650072005f005f005000750062006c00690073006800650072005f005f0031005f005f005000750062006c00690073006800650072005700690064006700650074010000000000000b0f0000023d00fffffffb0000006c007200710074005f007200650063006f006e006600690067007500720065005f005f0050006100720061006d005f005f0031005f005f005f0070006c007500670069006e0063006f006e007400610069006e00650072005f0074006f0070005f007700690064006700650074010000048d000006820000000000000000fb00000078007200710074005f00720075006e00740069006d0065005f006d006f006e00690074006f0072005f005f00520075006e00740069006d0065004d006f006e00690074006f0072005f005f0031005f005f00520075006e00740069006d0065004d006f006e00690074006f00720057006900640067006500740100000000000003160000000000000000fb00000042007200710074005f007300720076005f005f00530065007200760069006300650073005f005f0031005f005f006d0065007300730061006700650073002e00750069010000082e000002b00000000000000000fb00000042007200710074005f006e00610076005f0076006900650077005f005f004e0061007600690067006100740069006f006e0056006900650077005f005f0031005f005f01000002a3000001b00000000000000000fb00000026007200710074005f007200760069007a005f005f005200560069007a005f005f0031005f005f010000040b000003440000000000000000fb0000004a007200710074005f0071007500610064005f006700750069005f005f007200710074005f0071007500610064005f006700750069005f00620061007300690063005f005f0031005f005f010000092a000001b4000000000000000000000b0f0000000000000004000000040000000800000008fc00000001000000030000000100000036004d0069006e0069006d0069007a006500640044006f0063006b00570069006400670065007400730054006f006f006c0062006100720000000000ffffffff0000000000000000')",
+          "repr(QByteArray.hex)": "QtCore.QByteArray('000000ff00000000fd000000010000000300000b0f000005f1fc0100000007fb00000058007200710074005f007000750062006c00690073006800650072005f005f005000750062006c00690073006800650072005f005f0031005f005f005000750062006c006900730068006500720057006900640067006500740100000000000006f20000023d00fffffffb0000006c007200710074005f007200650063006f006e006600690067007500720065005f005f0050006100720061006d005f005f0031005f005f005f0070006c007500670069006e0063006f006e007400610069006e00650072005f0074006f0070005f00770069006400670065007401000006f8000004170000010900fffffffb00000078007200710074005f00720075006e00740069006d0065005f006d006f006e00690074006f0072005f005f00520075006e00740069006d0065004d006f006e00690074006f0072005f005f0031005f005f00520075006e00740069006d0065004d006f006e00690074006f00720057006900640067006500740100000000000003160000000000000000fb00000042007200710074005f007300720076005f005f00530065007200760069006300650073005f005f0031005f005f006d0065007300730061006700650073002e00750069010000082e000002b00000000000000000fb00000042007200710074005f006e00610076005f0076006900650077005f005f004e0061007600690067006100740069006f006e0056006900650077005f005f0031005f005f01000002a3000001b00000000000000000fb00000026007200710074005f007200760069007a005f005f005200560069007a005f005f0031005f005f010000040b000003440000000000000000fb0000004a007200710074005f0071007500610064005f006700750069005f005f007200710074005f0071007500610064005f006700750069005f00620061007300690063005f005f0031005f005f010000092a000001b4000000000000000000000b0f0000000000000004000000040000000800000008fc00000001000000030000000100000036004d0069006e0069006d0069007a006500640044006f0063006b00570069006400670065007400730054006f006f006c0062006100720000000000ffffffff0000000000000000')",
           "pretty-print": "                 Xrqt_publisher__Publisher__1__PublisherWidget          lrqt_reconfigure__Param__1___plugincontainer_top_widget          xrqt_runtime_monitor__RuntimeMonitor__1__RuntimeMonitorWidget          Brqt_srv__Services__1__messages.ui          Brqt_nav_view__NavigationView__1__          &rqt_rviz__RViz__1__          Jrqt_quad_gui__rqt_quad_gui_basic__1__                            6MinimizedDockWidgetsToolbar        "
         }
       },

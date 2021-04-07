@@ -3,26 +3,21 @@
 // perform academic research at degree granting institutions only.  Not
 // for government, commercial, or other organizational use.
 //
-// unique.h
+// topico_wrapper_terminate.h
 //
-// Code generation for function 'unique'
+// Code generation for function 'topico_wrapper_terminate'
 //
 
-#ifndef UNIQUE_H
-#define UNIQUE_H
+#ifndef TOPICO_WRAPPER_TERMINATE_H
+#define TOPICO_WRAPPER_TERMINATE_H
 
 // Include files
 #include "rtwtypes.h"
-#include "coder_array.h"
 #include <cstddef>
 #include <cstdlib>
 
 // Function Declarations
-namespace coder {
-void unique_vector(const ::coder::array<double, 2U> &a,
-                   ::coder::array<double, 2U> &b);
-
-}
+extern void topico_wrapper_terminate();
 
 #endif
-// End of code generation (unique.h)
+// End of code generation (topico_wrapper_terminate.h)

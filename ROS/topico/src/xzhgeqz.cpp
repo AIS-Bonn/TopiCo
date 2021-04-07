@@ -13,7 +13,7 @@
 #include "eml_int_forloop_overflow_check.h"
 #include "rt_nonfinite.h"
 #include "sqrt.h"
-#include "topico_data.h"
+#include "topico_wrapper_data.h"
 #include "xzlanhs.h"
 #include "xzlartg.h"
 #include <algorithm>

@@ -5,7 +5,7 @@
 //
 // rtGetInf.h
 //
-// Code generation for function 'topico'
+// Code generation for function 'topico_wrapper'
 //
 
 #ifndef RTGETINF_H

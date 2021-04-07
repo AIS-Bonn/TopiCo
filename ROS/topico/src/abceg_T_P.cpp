@@ -12,9 +12,9 @@
 #include "abceg_T_P.h"
 #include "roots.h"
 #include "rt_nonfinite.h"
-#include "topico_data.h"
-#include "topico_rtwutil.h"
-#include "topico_types.h"
+#include "topico_wrapper_data.h"
+#include "topico_wrapper_rtwutil.h"
+#include "topico_wrapper_types.h"
 #include <algorithm>
 #include <cmath>
 
@@ -539,15 +539,15 @@ void abceg_T_P(double P_init, double V_init, double A_init, double P_wayp,
   l9 = 1.0 / J_max * i_l9_tmp;
   p = (t3_size == 6);
   if (!p) {
-    h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+    h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
   }
   p = ((t3_size == 6) && p);
   if (!p) {
-    h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+    h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
   }
   p = ((t3_size == 6) && p);
   if (!p) {
-    h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+    h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
   }
   t[0].re = -l9;
   t[0].im = 0.0;

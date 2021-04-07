@@ -11,13 +11,13 @@
 // Include files
 #include "eml_int_forloop_overflow_check.h"
 #include "rt_nonfinite.h"
-#include "topico_types.h"
+#include "topico_wrapper_types.h"
 #include <sstream>
 #include <stdexcept>
 #include <string>
 
 // Variable Definitions
-static rtRunTimeErrorInfo f_emlrtRTEI = {
+static rtRunTimeErrorInfo e_emlrtRTEI = {
     88,                             // lineNo
     9,                              // colNo
     "check_forloop_overflow_error", // fName
@@ -45,12 +45,12 @@ static void e_rtErrorWithMessageID(const char *b, const char *aFcnName,
 namespace coder {
 void b_check_forloop_overflow_error()
 {
-  e_rtErrorWithMessageID("uint32", f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
+  e_rtErrorWithMessageID("uint32", e_emlrtRTEI.fName, e_emlrtRTEI.lineNo);
 }
 
 void check_forloop_overflow_error()
 {
-  e_rtErrorWithMessageID("int32", f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
+  e_rtErrorWithMessageID("int32", e_emlrtRTEI.fName, e_emlrtRTEI.lineNo);
 }
 
 } // namespace coder

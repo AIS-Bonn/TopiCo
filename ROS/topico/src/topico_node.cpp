@@ -40,13 +40,13 @@
 #include <ros/ros.h>
 #include <nav_msgs/Path.h>
 #include <nav_msgs/Odometry.h>
-//#include <dynamic_reconfigure/server.h>
-//#include <topico/TopiCoConfig.h>
+#include <dynamic_reconfigure/server.h>
+#include <topico/TopiCoConfig.h>
 
 #include "rt_nonfinite.h"
-#include "topico.h"
-#include "topico_terminate.h"
-#include "topico_types.h"
+#include "topico_wrapper.h"
+#include "topico_wrapper_terminate.h"
+#include "topico_wrapper_types.h"
 #include "coder_array.h"
 #include <sstream>
 #include <stdexcept>
@@ -58,8 +58,39 @@ bool b_init_updated = false;
 uint num_dim  = 3;
 uint num_wayp = 1;
 
+// Declare Inputs
 coder::array<double, 2U> State_start;
 coder::array<double, 3U> Waypoints;
+coder::array<double, 2U> V_max;
+coder::array<double, 2U> V_min;
+coder::array<double, 2U> A_max;
+coder::array<double, 2U> A_min;
+coder::array<double, 2U> J_max;
+coder::array<double, 2U> J_min;
+coder::array<double, 1U> A_global;
+coder::array<bool, 2U> b_sync_V;
+coder::array<bool, 2U> b_sync_A;
+coder::array<bool, 2U> b_sync_J;
+coder::array<bool, 2U> b_sync_W;
+coder::array<bool, 2U> b_rotate;
+coder::array<bool, 2U> b_hard_V_lim;
+coder::array<bool, 2U> b_catch_up;
+coder::array<signed char, 2U> direction;
+double ts_rollout;
+
+void init_callback(const nav_msgs::Odometry::ConstPtr& msg)
+{
+  b_init_updated = true;
+  State_start[(0 + num_dim * 0)] = msg->pose.pose.position.x; //Initial X Position
+  State_start[(1 + num_dim * 0)] = msg->pose.pose.position.y; //Initial Y Position
+  State_start[(2 + num_dim * 0)] = msg->pose.pose.position.z; //Initial Z Position
+  State_start[(0 + num_dim * 1)] = msg->twist.twist.linear.x; //Initial X Velocity
+  State_start[(1 + num_dim * 1)] = msg->twist.twist.linear.y; //Initial Y Velocity
+  State_start[(2 + num_dim * 1)] = msg->twist.twist.linear.z; //Initial Z Velocity
+  State_start[(0 + num_dim * 2)] = 0.0;                       //Initial X Acceleration
+  State_start[(1 + num_dim * 2)] = 0.0;                       //Initial Y Acceleration
+  State_start[(2 + num_dim * 2)] = 0.0;                       //Initial Z Acceleration
+}
 
 
 void wayp_callback(const nav_msgs::Odometry::ConstPtr& msg)
@@ -83,24 +114,40 @@ void wayp_callback(const nav_msgs::Odometry::ConstPtr& msg)
   Waypoints[(2 + num_dim * 4) + num_dim * 5 * idx_wayp] = 0.0;                       //reserved
 }
 
-void init_callback(const nav_msgs::Odometry::ConstPtr& msg)
+
+void dynamic_reconfigure_callback(topico::TopiCoConfig &config, uint32_t level)
 {
-  b_init_updated = true;
-  State_start[(0 + num_dim * 0)] = msg->pose.pose.position.x; //Initial X Position
-  State_start[(1 + num_dim * 0)] = msg->pose.pose.position.y; //Initial Y Position
-  State_start[(2 + num_dim * 0)] = msg->pose.pose.position.z; //Initial Z Position
-  State_start[(0 + num_dim * 1)] = msg->twist.twist.linear.x; //Initial X Velocity
-  State_start[(1 + num_dim * 1)] = msg->twist.twist.linear.y; //Initial Y Velocity
-  State_start[(2 + num_dim * 1)] = msg->twist.twist.linear.z; //Initial Z Velocity
-  State_start[(0 + num_dim * 2)] = 0.0;                       //Initial X Acceleration
-  State_start[(1 + num_dim * 2)] = 0.0;                       //Initial Y Acceleration
-  State_start[(2 + num_dim * 2)] = 0.0;                       //Initial Z Acceleration
+  for (int idx_dim = 0; idx_dim < num_dim; idx_dim++) {  
+    A_global[idx_dim] = 0.0; 
+    for (int idx_wayp = 0; idx_wayp < num_wayp; idx_wayp++) {
+      V_max[idx_dim + num_dim * idx_wayp]        = config.V_max;
+      V_min[idx_dim + num_dim * idx_wayp]        = config.V_min;
+      A_max[idx_dim + num_dim * idx_wayp]        = config.A_max;
+      A_min[idx_dim + num_dim * idx_wayp]        = config.A_min;
+      J_max[idx_dim + num_dim * idx_wayp]        = config.J_max;
+      J_min[idx_dim + num_dim * idx_wayp]        = config.J_min;
+      b_sync_V[idx_dim + num_dim * idx_wayp]     = config.b_sync_V;
+      b_sync_A[idx_dim + num_dim * idx_wayp]     = config.b_sync_A;
+      b_sync_J[idx_dim + num_dim * idx_wayp]     = config.b_sync_J;
+      b_sync_W[idx_dim + num_dim * idx_wayp]     = config.b_sync_W;
+      b_hard_V_lim[idx_dim + num_dim * idx_wayp] = config.b_hard_V_lim;
+      b_catch_up[idx_dim + num_dim * idx_wayp]   = config.b_catch_up;
+      direction[idx_dim + num_dim * idx_wayp]    = config.direction;
+    }
+  }  
+  for (int idx_dim = 0; idx_dim < num_dim-1; idx_dim++) {  
+    for (int idx_wayp = 0; idx_wayp < num_wayp; idx_wayp++) {
+      b_rotate[idx_dim + num_dim * idx_wayp]     = config.b_rotate;
+    }
+  }
+  ts_rollout = config.ts_rollout;
+  
+  printf("Debug: Setting new parameters!\n");
 }
 
 
 int main(int argc, char **argv)
-{  
-    
+{
   ros::init(argc, argv, "topico");
   ros::NodeHandle nh("~");
   ros::Rate loop_rate(100);
@@ -111,24 +158,6 @@ int main(int argc, char **argv)
   
   std::string map_frame;
   nh.param<std::string>( "frame_id", map_frame, "world" );
-
-  // Declare Inputs
-  coder::array<double, 2U> V_max;
-  coder::array<double, 2U> V_min;
-  coder::array<double, 2U> A_max;
-  coder::array<double, 2U> A_min;
-  coder::array<double, 2U> J_max;
-  coder::array<double, 2U> J_min;
-  coder::array<double, 1U> A_global;
-  coder::array<bool, 2U> b_sync_V;
-  coder::array<bool, 2U> b_sync_A;
-  coder::array<bool, 2U> b_sync_J;
-  coder::array<bool, 2U> b_sync_W;
-  coder::array<bool, 2U> b_rotate;
-  coder::array<bool, 2U> b_hard_V_lim;
-  coder::array<bool, 2U> b_catch_up;
-  coder::array<signed char, 2U> direction;
-  double ts_rollout;
 
   // Declare Outputs
   coder::array<struct0_T, 2U> J_setp_struct;
@@ -160,6 +189,11 @@ int main(int argc, char **argv)
   direction.set_size(num_dim,num_wayp);
   
   bool b_initialized = false;
+  
+  dynamic_reconfigure::Server<topico::TopiCoConfig> server;
+  dynamic_reconfigure::Server<topico::TopiCoConfig>::CallbackType f;
+  f = boost::bind(&dynamic_reconfigure_callback, _1, _2);
+  server.setCallback(f);
  
   
   while (ros::ok())
@@ -171,36 +205,11 @@ int main(int argc, char **argv)
       b_initialized = true;
     }
 
-    if (b_initialized == true && (b_init_updated == true || b_wayp_updated == true)) {
+    if (b_initialized == true && (b_init_updated == true || b_wayp_updated == true)) { // only replan when new data arrived...
       b_wayp_updated = false;
       b_init_updated = false;
-      for (int idx_dim = 0; idx_dim < num_dim; idx_dim++) {  
-        A_global[idx_dim] = 0.0; 
-        for (int idx_wayp = 0; idx_wayp < num_wayp; idx_wayp++) {
-          V_max[idx_dim + num_dim * idx_wayp]        = 1.0;
-          V_min[idx_dim + num_dim * idx_wayp]        =-1.0;
-          A_max[idx_dim + num_dim * idx_wayp]        = 0.5;
-          A_min[idx_dim + num_dim * idx_wayp]        =-0.5;
-          J_max[idx_dim + num_dim * idx_wayp]        = 1.0;
-          J_min[idx_dim + num_dim * idx_wayp]        =-1.0;
-          b_sync_V[idx_dim + num_dim * idx_wayp]     = true;
-          b_sync_A[idx_dim + num_dim * idx_wayp]     = true;
-          b_sync_J[idx_dim + num_dim * idx_wayp]     = false;
-          b_sync_W[idx_dim + num_dim * idx_wayp]     = false;
-          b_hard_V_lim[idx_dim + num_dim * idx_wayp] = false;
-          b_catch_up[idx_dim + num_dim * idx_wayp]   = true;
-          direction[idx_dim + num_dim * idx_wayp]    = 0;
-        }
-      }  
-      for (int idx_dim = 0; idx_dim < num_dim-1; idx_dim++) {  
-        for (int idx_wayp = 0; idx_wayp < num_wayp; idx_wayp++) {
-          b_rotate[idx_dim + num_dim * idx_wayp]     = false;
-        }
-      }
-      ts_rollout = 0.1;
-
-      
-      topico(State_start, Waypoints, V_max, V_min, A_max, A_min, J_max, J_min, A_global, b_sync_V, b_sync_A, b_sync_J, b_sync_W, b_rotate, b_hard_V_lim, b_catch_up, direction, ts_rollout, J_setp_struct,solution_out, T_waypoints, P, V, A, J, t);
+ 
+      topico_wrapper(State_start, Waypoints, V_max, V_min, A_max, A_min, J_max, J_min, A_global, b_sync_V, b_sync_A, b_sync_J, b_sync_W, b_rotate, b_hard_V_lim, b_catch_up, direction, ts_rollout, J_setp_struct,solution_out, T_waypoints, P, V, A, J, t);
     
       
       nav_msgs::Path path_rollout;
@@ -214,13 +223,14 @@ int main(int argc, char **argv)
         path_rollout.poses[idx].pose.position.y = P[3*idx+1];
         path_rollout.poses[idx].pose.position.z = P[3*idx+2];
       }
-      path_pub.publish(path_rollout);  
+      path_pub.publish(path_rollout);
+    } else if(b_initialized == false) {
+      printf("Warning: Initial state and/or waypoint not published yet!\n");       
     }
-    
     loop_rate.sleep();
   }
 
-  topico_terminate();
+  topico_wrapper_terminate();
   return 0;
 }
 

@@ -17,11 +17,11 @@
 #include <cstdlib>
 
 // Type Declarations
-struct cell_wrap_15;
+struct cell_wrap_17;
 
 // Function Declarations
-void cut_to_time(const cell_wrap_15 *t_in, const cell_wrap_15 *J_in, double T,
-                 cell_wrap_15 *t_out, cell_wrap_15 *J_out);
+void cut_to_time(const cell_wrap_17 *t_in, const cell_wrap_17 *J_in, double T,
+                 cell_wrap_17 *t_out, cell_wrap_17 *J_out);
 
 #endif
 // End of code generation (cut_to_time.h)

@@ -12,7 +12,7 @@
 #include "xzlarfg.h"
 #include "eml_int_forloop_overflow_check.h"
 #include "rt_nonfinite.h"
-#include "topico_rtwutil.h"
+#include "topico_wrapper_rtwutil.h"
 #include "xnrm2.h"
 #include <cmath>
 

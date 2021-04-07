@@ -12,14 +12,14 @@
 #include "diff.h"
 #include "eml_int_forloop_overflow_check.h"
 #include "rt_nonfinite.h"
-#include "topico_types.h"
+#include "topico_wrapper_types.h"
 #include "coder_array.h"
 #include <sstream>
 #include <stdexcept>
 #include <string>
 
 // Variable Definitions
-static rtRunTimeErrorInfo l_emlrtRTEI = {
+static rtRunTimeErrorInfo k_emlrtRTEI = {
     51,                                                              // lineNo
     19,                                                              // colNo
     "diff",                                                          // fName
@@ -27,10 +27,10 @@ static rtRunTimeErrorInfo l_emlrtRTEI = {
 };
 
 // Function Declarations
-static void rtErrorWithMessageID(const char *aFcnName, int aLineNum);
+static void f_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 
 // Function Definitions
-static void rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+static void f_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
 {
   std::stringstream outStream;
   outStream
@@ -57,7 +57,7 @@ void diff(const ::coder::array<double, 1U> &x, ::coder::array<double, 1U> &y)
     y.set_size(0);
   } else {
     if (x.size(0) == 1) {
-      rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+      f_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
     }
     y.set_size(x.size(0) - 1);
     if (x.size(0) - 1 != 0) {
@@ -96,7 +96,7 @@ void diff(const ::coder::array<double, 2U> &x, ::coder::array<double, 2U> &y)
     } else {
       double work_data;
       if (x.size(1) == 1) {
-        rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+        f_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
       }
       y.set_size(1, x.size(1) - 1);
       work_data = x[0];

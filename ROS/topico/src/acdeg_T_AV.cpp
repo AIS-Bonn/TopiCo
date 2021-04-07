@@ -12,7 +12,7 @@
 #include "acdeg_T_AV.h"
 #include "rt_nonfinite.h"
 #include "sqrt.h"
-#include "topico_data.h"
+#include "topico_wrapper_data.h"
 #include <cmath>
 
 // Function Definitions

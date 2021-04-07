@@ -12,7 +12,7 @@
 #include "minOrMax.h"
 #include "eml_int_forloop_overflow_check.h"
 #include "rt_nonfinite.h"
-#include "topico_types.h"
+#include "topico_wrapper_types.h"
 #include "coder_array.h"
 #include "rt_nonfinite.h"
 #include <sstream>
@@ -20,10 +20,10 @@
 #include <string>
 
 // Function Declarations
-static void f_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
+static void e_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 
 // Function Definitions
-static void f_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+static void e_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
 {
   std::stringstream outStream;
   outStream << "If the working dimension of MAX or MIN is variable in length, "
@@ -106,7 +106,7 @@ double maximum(const ::coder::array<double, 1U> &x)
   double ex;
   int last;
   if (x.size(0) < 1) {
-    f_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    e_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
   }
   last = x.size(0);
   if (x.size(0) <= 2) {

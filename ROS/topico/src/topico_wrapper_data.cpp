@@ -3,29 +3,29 @@
 // perform academic research at degree granting institutions only.  Not
 // for government, commercial, or other organizational use.
 //
-// topico_data.cpp
+// topico_wrapper_data.cpp
 //
-// Code generation for function 'topico_data'
+// Code generation for function 'topico_wrapper_data'
 //
 
 // Include files
-#include "topico_data.h"
+#include "topico_wrapper_data.h"
 #include "rt_nonfinite.h"
-#include "topico_types.h"
+#include "topico_wrapper_types.h"
 
 // Variable Definitions
 unsigned char nlut[8];
 
 unsigned char condlut[48];
 
-rtRunTimeErrorInfo h_emlrtRTEI = {
+rtRunTimeErrorInfo g_emlrtRTEI = {
     103,                                                            // lineNo
     9,                                                              // colNo
     "eml_idivide",                                                  // fName
     "/usr/local/MATLAB/R2021a/toolbox/eml/lib/matlab/ops/idivide.m" // pName
 };
 
-rtRunTimeErrorInfo k_emlrtRTEI = {
+rtRunTimeErrorInfo j_emlrtRTEI = {
     271,                                                              // lineNo
     27,                                                               // colNo
     "check_non_axis_size",                                            // fName
@@ -55,6 +55,6 @@ rtRunTimeErrorInfo q_emlrtRTEI =
         "scalexpAlloc.m" // pName
 };
 
-bool isInitialized_topico_mex = false;
+bool isInitialized_topico_wrapper = false;
 
-// End of code generation (topico_data.cpp)
+// End of code generation (topico_wrapper_data.cpp)

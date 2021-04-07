@@ -12,8 +12,8 @@
 #include "abcefg_O_AVP.h"
 #include "rt_nonfinite.h"
 #include "sqrt.h"
-#include "topico_data.h"
-#include "topico_rtwutil.h"
+#include "topico_wrapper_data.h"
+#include "topico_wrapper_rtwutil.h"
 
 // Function Definitions
 void abcefg_O_AVP(double P_init, double V_init, double A_init, double P_wayp,

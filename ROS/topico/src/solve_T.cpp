@@ -99,9 +99,9 @@
 #include "sort.h"
 #include "sub2ind.h"
 #include "sum.h"
-#include "topico_data.h"
-#include "topico_rtwutil.h"
-#include "topico_types.h"
+#include "topico_wrapper_data.h"
+#include "topico_wrapper_rtwutil.h"
+#include "topico_wrapper_types.h"
 #include "coder_array.h"
 #include "rt_nonfinite.h"
 #include <algorithm>
@@ -692,11 +692,11 @@ void solve_T(double P_init, double V_init, double A_init, double P_wayp,
       }
       if ((t_1_size[0] != sizes_idx_0) &&
           ((t_1_size[0] != 0) && (t_1_size[1] != 0))) {
-        h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+        h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
       }
       if ((J_1_size[0] != sizes_idx_0) &&
           ((J_1_size[0] != 0) && (J_1_size[1] != 0))) {
-        h_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+        h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
       }
       empty_non_axis_sizes = (sizes_idx_0 == 0);
       if (empty_non_axis_sizes || ((t_1_size[0] != 0) && (t_1_size[1] != 0))) {
