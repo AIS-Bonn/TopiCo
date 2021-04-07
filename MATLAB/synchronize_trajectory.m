@@ -224,8 +224,11 @@ function [t_out,J_out,solution_out] = synchronize_trajectory(P_init,V_init,A_ini
         end
     else
         fprintf('Debug: No axis to be synchronized!\n');
-        t = t_opt;
-        J = J_opt;
+        for idx_axis = 1:num_axes
+            t{index_axis,:} = [t_opt{index_axis,:}(1,:),zeros(1,4)];
+            J{index_axis,:} = [J_opt{index_axis,:}(1,:),zeros(1,4)];
+            solution_out(index_axis,1) = solution_opt{index_axis,:}(1,:);
+        end
     end
     
     for index_axis = 1:num_axes
