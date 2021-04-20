@@ -52,10 +52,19 @@ function [t_out,J_out] = cut_to_time(t_in,J_in,T) %#codegen
             t_out{index_axis} = cat(2,t_in{index_axis},T(index_axis) - t_cumsum(end));
             J_out{index_axis} = cat(2,J_in{index_axis},0);
         else
+
             idx = t_cumsum <= T(index_axis);
+
             t_cut = t_in{index_axis}(idx);
-            t_out{index_axis} = cat(2,t_cut,T(index_axis) - sum(t_cut));
+
+            if  ~isempty(t_cut)
+                t_out{index_axis} = cat(2,t_cut,T(index_axis) - sum(t_cut));
+            else
+                t_out{index_axis} = T(index_axis);
+            end
+         
             J_out{index_axis} = J_in{index_axis}(1:size(t_cut,2)+1);
+           
         end
     end
 
