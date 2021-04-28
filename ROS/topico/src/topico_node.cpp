@@ -92,7 +92,6 @@ void init_callback(const nav_msgs::Odometry::ConstPtr& msg)
   State_start[(2 + num_dim * 2)] = 0.0;                       //Initial Z Acceleration
 }
 
-
 void wayp_callback(const nav_msgs::Odometry::ConstPtr& msg)
 {
   b_wayp_updated = true;
@@ -195,25 +194,24 @@ int main(int argc, char **argv)
   f = boost::bind(&dynamic_reconfigure_callback, _1, _2);
   server.setCallback(f);
  
+  nav_msgs::Path path_rollout;
+  int size_rollout = P.size(1);
   
   while (ros::ok())
   {
     ros::spinOnce();
     ros::Time t_now = ros::Time::now();
     
-    if (b_wayp_updated == true && b_init_updated ==  true) {
+    if (b_wayp_updated && b_init_updated) {
       b_initialized = true;
     }
 
-    if (b_initialized == true && (b_init_updated == true || b_wayp_updated == true)) { // only replan when new data arrived...
+    if (b_initialized && (b_init_updated || b_wayp_updated)) { // only replan when new data arrived...
       b_wayp_updated = false;
       b_init_updated = false;
  
       topico_wrapper(State_start, Waypoints, V_max, V_min, A_max, A_min, J_max, J_min, A_global, b_sync_V, b_sync_A, b_sync_J, b_sync_W, b_rotate, b_hard_V_lim, b_catch_up, direction, ts_rollout, J_setp_struct,solution_out, T_waypoints, P, V, A, J, t);
-    
-      
-      nav_msgs::Path path_rollout;
-      int size_rollout = P.size(1);
+
       path_rollout.poses.resize(size_rollout);
       path_rollout.header.stamp = t_now;
       path_rollout.header.frame_id = map_frame;
@@ -224,7 +222,7 @@ int main(int argc, char **argv)
         path_rollout.poses[idx].pose.position.z = P[3*idx+2];
       }
       path_pub.publish(path_rollout);
-    } else if(b_initialized == false) {
+    } else if(!b_initialized) {
       printf("Warning: Initial state and/or waypoint not published yet!\n");       
     }
     loop_rate.sleep();
