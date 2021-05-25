@@ -139,8 +139,7 @@ function [t_out,J_out,solution_out] = synchronize_trajectory(P_init,V_init,A_ini
             solution_opt{index_axis,1} = int32(-1);
         end
     end
-    
-    
+
 
     %% Find timed solution
     if (num_axes > 1 && any(b_sync_V == true | b_sync_A == true | b_sync_J == true | b_sync_W == true))
@@ -206,7 +205,7 @@ function [t_out,J_out,solution_out] = synchronize_trajectory(P_init,V_init,A_ini
                 break;
             elseif (nnz(solution_opt_test_all ~= -1) == 0)       
                 fprintf('Error: Could not find a timed solution after ');printint(index_iteration);fprintf(' iterations. Exiting synchronization!\n');
-                for idx_axis = 1:num_axes
+                for index_axis = 1:num_axes
                     t{index_axis,:} = [t_opt{index_axis,:}(1,:),zeros(1,4)];
                     J{index_axis,:} = [J_opt{index_axis,:}(1,:),zeros(1,4)];
                     solution_out(index_axis,1) = solution_opt{index_axis,:}(1,:);
@@ -214,7 +213,7 @@ function [t_out,J_out,solution_out] = synchronize_trajectory(P_init,V_init,A_ini
                 break;
             elseif (index_iteration == max_iterations)
                 fprintf('Error: Could not find a timed solution after maximum iterations (');printint(max_iterations);fprintf('). Exiting synchronization!\n');
-                for idx_axis = 1:num_axes
+                for index_axis = 1:num_axes
                     t{index_axis,:} = [t_opt{index_axis,:}(1,:),zeros(1,4)];
                     J{index_axis,:} = [J_opt{index_axis,:}(1,:),zeros(1,4)];
                     solution_out(index_axis,1) = solution_opt{index_axis,:}(1,:);
@@ -224,7 +223,7 @@ function [t_out,J_out,solution_out] = synchronize_trajectory(P_init,V_init,A_ini
         end
     else
         fprintf('Debug: No axis to be synchronized!\n');
-        for idx_axis = 1:num_axes
+        for index_axis = 1:num_axes
             t{index_axis,:} = [t_opt{index_axis,:}(1,:),zeros(1,4)];
             J{index_axis,:} = [J_opt{index_axis,:}(1,:),zeros(1,4)];
             solution_out(index_axis,1) = solution_opt{index_axis,:}(1,:);

@@ -60,9 +60,11 @@ function [P,V,A,J,t] = rollout_t(P_init,V_init,A_init,J_setp_struct,ts,T) %#code
         ts = 1.0;
     end
     
-    num_iterations_warning_threshold = 10000;
+    num_iterations_warning_threshold = uint32(10000);
     if (num_iterations > num_iterations_warning_threshold)
         fprintf('Warning: Very many rollout iterations (');printint(num_iterations); fprintf(' > ');printint(num_iterations_warning_threshold);fprintf(')!\n');
+    
+        num_iterations = uint32(double(num_iterations) * double(num_iterations_warning_threshold) / double(num_iterations));
     end
  
     P = zeros(num_axes,num_iterations);
