@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // acde_NO_VP.cpp
 //
@@ -90,7 +90,7 @@ void acde_NO_VP(double P_init, double V_init, double A_init, double P_wayp,
   //  --------------------------------------------------------------------
   //  Generated on 28-Aug-2019 13:51:13
   if (J_max < 0.0) {
-    f_rtErrorWithMessageID("sqrt", o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
+    f_rtErrorWithMessageID("sqrt", n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
   }
   l7 = std::sqrt(J_max);
   l17_tmp = A_init * A_init;

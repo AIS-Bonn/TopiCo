@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // acdeg_TV_AVP.cpp
 //
@@ -515,7 +515,7 @@ void acdeg_TV_AVP(double P_init, double V_init, double A_init, double P_wayp,
       p = false;
     }
     if (!p) {
-      m_rtErrorWithMessageID(q_emlrtRTEI.fName, q_emlrtRTEI.lineNo);
+      m_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
     }
     z_size_idx_0 = static_cast<signed char>(t4_size);
     p = true;
@@ -563,7 +563,7 @@ void acdeg_TV_AVP(double P_init, double V_init, double A_init, double P_wayp,
       p = false;
     }
     if (!p) {
-      m_rtErrorWithMessageID(q_emlrtRTEI.fName, q_emlrtRTEI.lineNo);
+      m_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
     }
     for (i = 0; i < t4_size; i++) {
       ic_l8_tmp = x_data[i].re;
@@ -690,23 +690,23 @@ void acdeg_TV_AVP(double P_init, double V_init, double A_init, double P_wayp,
     }
     p = (t4_size == 5);
     if (!p) {
-      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
     }
     p = ((t4_size == 5) && p);
     if (!p) {
-      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
     }
     p = ((t4_size == 5) && p);
     if (!p) {
-      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
     }
     p = ((t4_size == 5) && p);
     if (!p) {
-      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
     }
     p = ((t4_size == 5) && p);
     if (!p) {
-      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
     }
     if (0 <= t4_size - 1) {
       std::copy(&z_data[0], &z_data[t4_size], &t[0]);

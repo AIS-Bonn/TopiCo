@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // topico_wrapper.cpp
 //
@@ -1235,6 +1235,9 @@ void topico_wrapper(const coder::array<double, 2U> &State_start,
   //  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   //  POSSIBILITY OF SUCH DAMAGE.
   //  --------------------------------------------------------------------
+  //  This wrapper only exist to prohibit namespace conflicts with the C++ ROS
+  //  Node. Thus, we generate code with the "topico_wrapper" entry function,
+  //  instead of just "topico".
   //  ---------------------------------------------------------------------
   //  Package:    TopiCo (https://github.com/AIS-Bonn/TopiCo)
   //  Version:    2021-03-18 12:09:55

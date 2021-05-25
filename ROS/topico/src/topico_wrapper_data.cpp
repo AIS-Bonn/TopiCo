@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // topico_wrapper_data.cpp
 //
@@ -18,35 +18,35 @@ unsigned char nlut[8];
 
 unsigned char condlut[48];
 
-rtRunTimeErrorInfo g_emlrtRTEI = {
+rtRunTimeErrorInfo f_emlrtRTEI = {
     103,                                                            // lineNo
     9,                                                              // colNo
     "eml_idivide",                                                  // fName
     "/usr/local/MATLAB/R2021a/toolbox/eml/lib/matlab/ops/idivide.m" // pName
 };
 
-rtRunTimeErrorInfo j_emlrtRTEI = {
+rtRunTimeErrorInfo i_emlrtRTEI = {
     271,                                                              // lineNo
     27,                                                               // colNo
     "check_non_axis_size",                                            // fName
     "/usr/local/MATLAB/R2021a/toolbox/eml/eml/+coder/+internal/cat.m" // pName
 };
 
-rtRunTimeErrorInfo o_emlrtRTEI = {
+rtRunTimeErrorInfo n_emlrtRTEI = {
     13,                                                            // lineNo
     9,                                                             // colNo
     "sqrt",                                                        // fName
     "/usr/local/MATLAB/R2021a/toolbox/eml/lib/matlab/elfun/sqrt.m" // pName
 };
 
-rtRunTimeErrorInfo p_emlrtRTEI = {
+rtRunTimeErrorInfo o_emlrtRTEI = {
     83,                                                           // lineNo
     5,                                                            // colNo
     "fltpower",                                                   // fName
     "/usr/local/MATLAB/R2021a/toolbox/eml/lib/matlab/ops/power.m" // pName
 };
 
-rtRunTimeErrorInfo q_emlrtRTEI =
+rtRunTimeErrorInfo p_emlrtRTEI =
     {
         19,             // lineNo
         23,             // colNo

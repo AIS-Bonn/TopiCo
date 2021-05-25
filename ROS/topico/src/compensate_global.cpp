@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // compensate_global.cpp
 //
@@ -25,23 +25,23 @@ void compensate_global(coder::array<double, 2U> &State_in,
                        coder::array<double, 2U> &A_min_out)
 {
   static rtEqualityCheckInfo c_emlrtECI = {
-      2,                                                       // nDims
-      46,                                                      // lineNo
-      17,                                                      // colNo
-      "compensate_global",                                     // fName
-      "/home/lmbeul/Desktop/TopiCo/MATLAB/compensate_global.m" // pName
-  };
-  static rtEqualityCheckInfo d_emlrtECI = {
       -1,                                                      // nDims
       45,                                                      // lineNo
       22,                                                      // colNo
       "compensate_global",                                     // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/compensate_global.m" // pName
   };
-  static rtEqualityCheckInfo e_emlrtECI = {
+  static rtEqualityCheckInfo d_emlrtECI = {
       -1,                                                      // nDims
       45,                                                      // lineNo
       5,                                                       // colNo
+      "compensate_global",                                     // fName
+      "/home/lmbeul/Desktop/TopiCo/MATLAB/compensate_global.m" // pName
+  };
+  static rtEqualityCheckInfo e_emlrtECI = {
+      2,                                                       // nDims
+      46,                                                      // lineNo
+      17,                                                      // colNo
       "compensate_global",                                     // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/compensate_global.m" // pName
   };
@@ -96,9 +96,9 @@ void compensate_global(coder::array<double, 2U> &State_in,
   //  --------------------------------------------------------------------
   i = State_in.size(0);
   if (i != A_global.size(0)) {
-    rtSizeEq1DError(i, A_global.size(0), &d_emlrtECI);
+    rtSizeEq1DError(i, A_global.size(0), &c_emlrtECI);
   }
-  rtSubAssignSizeCheck(State_in.size(), 1, State_in.size(), 1, &e_emlrtECI);
+  rtSubAssignSizeCheck(State_in.size(), 1, State_in.size(), 1, &d_emlrtECI);
   b_State_in = State_in.size(0) - 1;
   c_State_in.set_size(b_State_in + 1);
   for (i = 0; i <= b_State_in; i++) {
@@ -113,7 +113,7 @@ void compensate_global(coder::array<double, 2U> &State_in,
   iv[1] = (*(int(*)[2])((coder::array<double, 2U> *)&A_max_in)->size())[1];
   iv1[0] = (*(int(*)[2])A_max_out.size())[0];
   iv1[1] = (*(int(*)[2])A_max_out.size())[1];
-  rtSizeEqNDCheck(&iv[0], &iv1[0], &c_emlrtECI);
+  rtSizeEqNDCheck(&iv[0], &iv1[0], &e_emlrtECI);
   b_State_in = A_max_in.size(0) * A_max_in.size(1);
   A_max_out.set_size(A_max_in.size(0), A_max_in.size(1));
   for (i = 0; i < b_State_in; i++) {

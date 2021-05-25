@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // indexShapeCheck.cpp
 //
@@ -17,7 +17,7 @@
 #include <string>
 
 // Variable Definitions
-static rtRunTimeErrorInfo i_emlrtRTEI = {
+static rtRunTimeErrorInfo h_emlrtRTEI = {
     121,           // lineNo
     5,             // colNo
     "errOrWarnIf", // fName
@@ -69,14 +69,14 @@ void indexShapeCheck(const int matrixSize[2])
     }
   }
   if (nonSingletonDimFound && (matrixSize[0] != 1)) {
-    l_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
+    l_rtErrorWithMessageID(h_emlrtRTEI.fName, h_emlrtRTEI.lineNo);
   }
 }
 
 void indexShapeCheck(int matrixSize)
 {
   if (matrixSize == 1) {
-    g_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
+    g_rtErrorWithMessageID(h_emlrtRTEI.fName, h_emlrtRTEI.lineNo);
   }
 }
 

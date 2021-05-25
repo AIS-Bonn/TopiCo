@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // check_inputs.cpp
 //
@@ -585,14 +585,14 @@ void check_inputs(const coder::array<double, 2U> &State_start,
       "check_inputs",                                     // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/check_inputs.m" // pName
   };
-  static rtRunTimeErrorInfo t_emlrtRTEI = {
+  static rtRunTimeErrorInfo s_emlrtRTEI = {
       52,                  // lineNo
       13,                  // colNo
       "reshapeSizeChecks", // fName
       "/usr/local/MATLAB/R2021a/toolbox/eml/eml/+coder/+internal/"
       "reshapeSizeChecks.m" // pName
   };
-  static rtRunTimeErrorInfo u_emlrtRTEI = {
+  static rtRunTimeErrorInfo t_emlrtRTEI = {
       59,                  // lineNo
       23,                  // colNo
       "reshapeSizeChecks", // fName
@@ -873,13 +873,13 @@ void check_inputs(const coder::array<double, 2U> &State_start,
     maxdimlen = nx;
   }
   if (Waypoints.size(0) > maxdimlen) {
-    b_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    b_rtErrorWithMessageID(s_emlrtRTEI.fName, s_emlrtRTEI.lineNo);
   }
   if (Waypoints.size(2) > maxdimlen) {
-    b_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    b_rtErrorWithMessageID(s_emlrtRTEI.fName, s_emlrtRTEI.lineNo);
   }
   if (Waypoints.size(0) * Waypoints.size(2) != nx) {
-    rtErrorWithMessageID(u_emlrtRTEI.fName, u_emlrtRTEI.lineNo);
+    rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
   }
   b_Waypoints[0] = Waypoints.size(0);
   b_Waypoints[1] = Waypoints.size(2);
@@ -923,13 +923,13 @@ void check_inputs(const coder::array<double, 2U> &State_start,
     maxdimlen = nx;
   }
   if (Waypoints.size(0) > maxdimlen) {
-    b_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    b_rtErrorWithMessageID(s_emlrtRTEI.fName, s_emlrtRTEI.lineNo);
   }
   if (Waypoints.size(2) > maxdimlen) {
-    b_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    b_rtErrorWithMessageID(s_emlrtRTEI.fName, s_emlrtRTEI.lineNo);
   }
   if (Waypoints.size(0) * Waypoints.size(2) != nx) {
-    rtErrorWithMessageID(u_emlrtRTEI.fName, u_emlrtRTEI.lineNo);
+    rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
   }
   b_Waypoints[0] = Waypoints.size(0);
   b_Waypoints[1] = Waypoints.size(2);
@@ -973,13 +973,13 @@ void check_inputs(const coder::array<double, 2U> &State_start,
     maxdimlen = nx;
   }
   if (Waypoints.size(0) > maxdimlen) {
-    b_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    b_rtErrorWithMessageID(s_emlrtRTEI.fName, s_emlrtRTEI.lineNo);
   }
   if (Waypoints.size(2) > maxdimlen) {
-    b_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    b_rtErrorWithMessageID(s_emlrtRTEI.fName, s_emlrtRTEI.lineNo);
   }
   if (Waypoints.size(0) * Waypoints.size(2) != nx) {
-    rtErrorWithMessageID(u_emlrtRTEI.fName, u_emlrtRTEI.lineNo);
+    rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
   }
   b_Waypoints[0] = Waypoints.size(0);
   b_Waypoints[1] = Waypoints.size(2);
@@ -1023,13 +1023,13 @@ void check_inputs(const coder::array<double, 2U> &State_start,
     maxdimlen = nx;
   }
   if (Waypoints.size(0) > maxdimlen) {
-    b_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    b_rtErrorWithMessageID(s_emlrtRTEI.fName, s_emlrtRTEI.lineNo);
   }
   if (Waypoints.size(2) > maxdimlen) {
-    b_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    b_rtErrorWithMessageID(s_emlrtRTEI.fName, s_emlrtRTEI.lineNo);
   }
   if (Waypoints.size(0) * Waypoints.size(2) != nx) {
-    rtErrorWithMessageID(u_emlrtRTEI.fName, u_emlrtRTEI.lineNo);
+    rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
   }
   b_Waypoints[0] = Waypoints.size(0);
   b_Waypoints[1] = Waypoints.size(2);

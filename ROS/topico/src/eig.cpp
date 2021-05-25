@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // eig.cpp
 //
@@ -43,7 +43,7 @@ namespace coder {
 void eig(const double A_data[], const int A_size[2], creal_T V_data[],
          int *V_size)
 {
-  static rtRunTimeErrorInfo t_emlrtRTEI = {
+  static rtRunTimeErrorInfo s_emlrtRTEI = {
       62,                                                            // lineNo
       27,                                                            // colNo
       "eig",                                                         // fName
@@ -61,7 +61,7 @@ void eig(const double A_data[], const int A_size[2], creal_T V_data[],
   int ilo;
   int j;
   if (A_size[0] != A_size[1]) {
-    o_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    o_rtErrorWithMessageID(s_emlrtRTEI.fName, s_emlrtRTEI.lineNo);
   }
   if (internal::anyNonFinite(A_data, A_size)) {
     *V_size = A_size[0];
@@ -317,7 +317,7 @@ void eig(const double A_data[], const int A_size[2], creal_T V_data[],
         ilascl = false;
       }
       if (!ilascl) {
-        m_rtErrorWithMessageID(q_emlrtRTEI.fName, q_emlrtRTEI.lineNo);
+        m_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
       }
       if (*V_size <= b_i) {
         z_size_idx_0 = static_cast<signed char>(*V_size);
@@ -369,7 +369,7 @@ void eig(const double A_data[], const int A_size[2], creal_T V_data[],
         ilascl = false;
       }
       if (!ilascl) {
-        m_rtErrorWithMessageID(q_emlrtRTEI.fName, q_emlrtRTEI.lineNo);
+        m_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
       }
       for (i = 0; i < *V_size; i++) {
         double ai;

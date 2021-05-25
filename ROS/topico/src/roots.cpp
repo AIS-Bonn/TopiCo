@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // roots.cpp
 //
@@ -23,14 +23,14 @@
 #include <string>
 
 // Variable Definitions
-static rtRunTimeErrorInfo r_emlrtRTEI = {
+static rtRunTimeErrorInfo q_emlrtRTEI = {
     24,                                                               // lineNo
     5,                                                                // colNo
     "roots",                                                          // fName
     "/usr/local/MATLAB/R2021a/toolbox/eml/lib/matlab/polyfun/roots.m" // pName
 };
 
-static rtRunTimeErrorInfo s_emlrtRTEI = {
+static rtRunTimeErrorInfo r_emlrtRTEI = {
     99,                                                               // lineNo
     5,                                                                // colNo
     "roots",                                                          // fName
@@ -62,7 +62,7 @@ void b_roots(const double c[7], creal_T r_data[], int *r_size)
   int k2;
   int nTrailingZeros;
   if (!internal::flatVectorAllOrAny(c, iv)) {
-    n_rtErrorWithMessageID(r_emlrtRTEI.fName, r_emlrtRTEI.lineNo);
+    n_rtErrorWithMessageID(q_emlrtRTEI.fName, q_emlrtRTEI.lineNo);
   }
   std::memset(&r_data[0], 0, 6U * sizeof(creal_T));
   k1 = 1;
@@ -127,7 +127,7 @@ void b_roots(const double c[7], creal_T r_data[], int *r_size)
       }
       *r_size = (companDim - k2) + 7;
       if (*r_size > 7) {
-        i_rtErrorWithMessageID(s_emlrtRTEI.fName, s_emlrtRTEI.lineNo);
+        i_rtErrorWithMessageID(r_emlrtRTEI.fName, r_emlrtRTEI.lineNo);
       }
     }
   } else if (1 > 7 - k2) {
@@ -148,7 +148,7 @@ void roots(const double c[6], creal_T r_data[], int *r_size)
   int k2;
   int nTrailingZeros;
   if (!internal::flatVectorAllOrAny(c, iv)) {
-    n_rtErrorWithMessageID(r_emlrtRTEI.fName, r_emlrtRTEI.lineNo);
+    n_rtErrorWithMessageID(q_emlrtRTEI.fName, q_emlrtRTEI.lineNo);
   }
   std::memset(&r_data[0], 0, 5U * sizeof(creal_T));
   k1 = 1;
@@ -213,7 +213,7 @@ void roots(const double c[6], creal_T r_data[], int *r_size)
       }
       *r_size = (companDim - k2) + 6;
       if (*r_size > 6) {
-        i_rtErrorWithMessageID(s_emlrtRTEI.fName, s_emlrtRTEI.lineNo);
+        i_rtErrorWithMessageID(r_emlrtRTEI.fName, r_emlrtRTEI.lineNo);
       }
     }
   } else if (1 > 6 - k2) {

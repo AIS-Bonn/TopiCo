@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // xzlartg.cpp
 //
@@ -102,7 +102,7 @@ void xzlartg(const creal_T f, const creal_T g, double *cs, creal_T *sn)
       } else {
         double g2s;
         if (g2 < 0.0) {
-          f_rtErrorWithMessageID("sqrt", o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
+          f_rtErrorWithMessageID("sqrt", n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
         }
         g2s = std::sqrt(g2);
         *cs = rt_hypotd_snf(fs_re, fs_im) / g2s;
@@ -125,7 +125,7 @@ void xzlartg(const creal_T f, const creal_T g, double *cs, creal_T *sn)
     } else {
       scale = g2 / f2 + 1.0;
       if (scale < 0.0) {
-        f_rtErrorWithMessageID("sqrt", o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
+        f_rtErrorWithMessageID("sqrt", n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
       }
       scale = std::sqrt(scale);
       *cs = 1.0 / scale;
@@ -230,7 +230,7 @@ void xzlartg(const creal_T f, const creal_T g, double *cs, creal_T *sn,
         sn->im = -gs_im / f2;
       } else {
         if (g2 < 0.0) {
-          f_rtErrorWithMessageID("sqrt", o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
+          f_rtErrorWithMessageID("sqrt", n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
         }
         g2 = std::sqrt(g2);
         *cs = rt_hypotd_snf(fs_re, fs_im) / g2;
@@ -255,7 +255,7 @@ void xzlartg(const creal_T f, const creal_T g, double *cs, creal_T *sn,
     } else {
       f2s = g2 / f2 + 1.0;
       if (f2s < 0.0) {
-        f_rtErrorWithMessageID("sqrt", o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
+        f_rtErrorWithMessageID("sqrt", n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
       }
       f2s = std::sqrt(f2s);
       r->re = f2s * fs_re;

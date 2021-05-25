@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // abceg_T_P.cpp
 //
@@ -354,7 +354,7 @@ void abceg_T_P(double P_init, double V_init, double A_init, double P_wayp,
     p = false;
   }
   if (!p) {
-    m_rtErrorWithMessageID(q_emlrtRTEI.fName, q_emlrtRTEI.lineNo);
+    m_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
   }
   z_size_idx_0 = static_cast<signed char>(t3_size);
   p = true;
@@ -402,7 +402,7 @@ void abceg_T_P(double P_init, double V_init, double A_init, double P_wayp,
     p = false;
   }
   if (!p) {
-    m_rtErrorWithMessageID(q_emlrtRTEI.fName, q_emlrtRTEI.lineNo);
+    m_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
   }
   for (i = 0; i < t3_size; i++) {
     l_l9_tmp = t7_data[i].re;
@@ -539,15 +539,15 @@ void abceg_T_P(double P_init, double V_init, double A_init, double P_wayp,
   l9 = 1.0 / J_max * i_l9_tmp;
   p = (t3_size == 6);
   if (!p) {
-    h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+    h_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
   }
   p = ((t3_size == 6) && p);
   if (!p) {
-    h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+    h_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
   }
   p = ((t3_size == 6) && p);
   if (!p) {
-    h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+    h_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
   }
   t[0].re = -l9;
   t[0].im = 0.0;

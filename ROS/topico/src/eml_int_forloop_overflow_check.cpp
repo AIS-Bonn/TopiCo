@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // eml_int_forloop_overflow_check.cpp
 //
@@ -15,15 +15,6 @@
 #include <sstream>
 #include <stdexcept>
 #include <string>
-
-// Variable Definitions
-static rtRunTimeErrorInfo e_emlrtRTEI = {
-    88,                             // lineNo
-    9,                              // colNo
-    "check_forloop_overflow_error", // fName
-    "/usr/local/MATLAB/R2021a/toolbox/eml/lib/matlab/eml/"
-    "eml_int_forloop_overflow_check.m" // pName
-};
 
 // Function Declarations
 static void e_rtErrorWithMessageID(const char *b, const char *aFcnName,
@@ -43,14 +34,16 @@ static void e_rtErrorWithMessageID(const char *b, const char *aFcnName,
 }
 
 namespace coder {
-void b_check_forloop_overflow_error()
-{
-  e_rtErrorWithMessageID("uint32", e_emlrtRTEI.fName, e_emlrtRTEI.lineNo);
-}
-
 void check_forloop_overflow_error()
 {
-  e_rtErrorWithMessageID("int32", e_emlrtRTEI.fName, e_emlrtRTEI.lineNo);
+  static rtRunTimeErrorInfo s_emlrtRTEI = {
+      88,                             // lineNo
+      9,                              // colNo
+      "check_forloop_overflow_error", // fName
+      "/usr/local/MATLAB/R2021a/toolbox/eml/lib/matlab/eml/"
+      "eml_int_forloop_overflow_check.m" // pName
+  };
+  e_rtErrorWithMessageID("int32", s_emlrtRTEI.fName, s_emlrtRTEI.lineNo);
 }
 
 } // namespace coder

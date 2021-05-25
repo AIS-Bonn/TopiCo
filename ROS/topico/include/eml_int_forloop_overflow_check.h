@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // eml_int_forloop_overflow_check.h
 //
@@ -18,11 +18,9 @@
 
 // Function Declarations
 namespace coder {
-void b_check_forloop_overflow_error();
-
 void check_forloop_overflow_error();
 
-} // namespace coder
+}
 
 #endif
 // End of code generation (eml_int_forloop_overflow_check.h)

@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // diff.cpp
 //
@@ -19,7 +19,7 @@
 #include <string>
 
 // Variable Definitions
-static rtRunTimeErrorInfo k_emlrtRTEI = {
+static rtRunTimeErrorInfo j_emlrtRTEI = {
     51,                                                              // lineNo
     19,                                                              // colNo
     "diff",                                                          // fName
@@ -57,7 +57,7 @@ void diff(const ::coder::array<double, 1U> &x, ::coder::array<double, 1U> &y)
     y.set_size(0);
   } else {
     if (x.size(0) == 1) {
-      f_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+      f_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
     }
     y.set_size(x.size(0) - 1);
     if (x.size(0) - 1 != 0) {
@@ -96,7 +96,7 @@ void diff(const ::coder::array<double, 2U> &x, ::coder::array<double, 2U> &y)
     } else {
       double work_data;
       if (x.size(1) == 1) {
-        f_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+        f_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
       }
       y.set_size(1, x.size(1) - 1);
       work_data = x[0];

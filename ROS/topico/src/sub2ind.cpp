@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // sub2ind.cpp
 //
@@ -17,7 +17,7 @@
 #include <string>
 
 // Variable Definitions
-static rtRunTimeErrorInfo n_emlrtRTEI = {
+static rtRunTimeErrorInfo m_emlrtRTEI = {
     41,                                                               // lineNo
     19,                                                               // colNo
     "eml_sub2ind",                                                    // fName
@@ -42,16 +42,16 @@ int b_eml_sub2ind(double varargin_1, double varargin_2, double varargin_4,
                   double varargin_5)
 {
   if (!(varargin_1 <= 3.0)) {
-    j_rtErrorWithMessageID(n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
+    j_rtErrorWithMessageID(m_emlrtRTEI.fName, m_emlrtRTEI.lineNo);
   }
   if (!(varargin_2 <= 2.0)) {
-    j_rtErrorWithMessageID(n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
+    j_rtErrorWithMessageID(m_emlrtRTEI.fName, m_emlrtRTEI.lineNo);
   }
   if (!(varargin_4 <= 2.0)) {
-    j_rtErrorWithMessageID(n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
+    j_rtErrorWithMessageID(m_emlrtRTEI.fName, m_emlrtRTEI.lineNo);
   }
   if (!(varargin_5 <= 2.0)) {
-    j_rtErrorWithMessageID(n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
+    j_rtErrorWithMessageID(m_emlrtRTEI.fName, m_emlrtRTEI.lineNo);
   }
   return ((static_cast<int>(varargin_1) +
            3 * (static_cast<int>(varargin_2) - 1)) +
@@ -63,16 +63,16 @@ int eml_sub2ind(double varargin_1, double varargin_3, double varargin_4,
                 double varargin_5)
 {
   if (!(varargin_1 <= 3.0)) {
-    j_rtErrorWithMessageID(n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
+    j_rtErrorWithMessageID(m_emlrtRTEI.fName, m_emlrtRTEI.lineNo);
   }
   if (!(varargin_3 <= 2.0)) {
-    j_rtErrorWithMessageID(n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
+    j_rtErrorWithMessageID(m_emlrtRTEI.fName, m_emlrtRTEI.lineNo);
   }
   if (!(varargin_4 <= 2.0)) {
-    j_rtErrorWithMessageID(n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
+    j_rtErrorWithMessageID(m_emlrtRTEI.fName, m_emlrtRTEI.lineNo);
   }
   if (!(varargin_5 <= 2.0)) {
-    j_rtErrorWithMessageID(n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
+    j_rtErrorWithMessageID(m_emlrtRTEI.fName, m_emlrtRTEI.lineNo);
   }
   return ((static_cast<int>(varargin_1) +
            6 * (static_cast<int>(varargin_3) - 1)) +
@@ -83,13 +83,13 @@ int eml_sub2ind(double varargin_1, double varargin_3, double varargin_4,
 int eml_sub2ind(double varargin_1, double varargin_2, double varargin_3)
 {
   if (!(varargin_1 <= 2.0)) {
-    j_rtErrorWithMessageID(n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
+    j_rtErrorWithMessageID(m_emlrtRTEI.fName, m_emlrtRTEI.lineNo);
   }
   if (!(varargin_2 <= 2.0)) {
-    j_rtErrorWithMessageID(n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
+    j_rtErrorWithMessageID(m_emlrtRTEI.fName, m_emlrtRTEI.lineNo);
   }
   if (!(varargin_3 <= 2.0)) {
-    j_rtErrorWithMessageID(n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
+    j_rtErrorWithMessageID(m_emlrtRTEI.fName, m_emlrtRTEI.lineNo);
   }
   return (static_cast<int>(varargin_1) +
           ((static_cast<int>(varargin_2) - 1) << 1)) +
@@ -100,19 +100,19 @@ int eml_sub2ind(double varargin_1, double varargin_2, double varargin_3,
                 double varargin_4, double varargin_5)
 {
   if (!(varargin_1 <= 3.0)) {
-    j_rtErrorWithMessageID(n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
+    j_rtErrorWithMessageID(m_emlrtRTEI.fName, m_emlrtRTEI.lineNo);
   }
   if (!(varargin_2 <= 2.0)) {
-    j_rtErrorWithMessageID(n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
+    j_rtErrorWithMessageID(m_emlrtRTEI.fName, m_emlrtRTEI.lineNo);
   }
   if (!(varargin_3 <= 2.0)) {
-    j_rtErrorWithMessageID(n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
+    j_rtErrorWithMessageID(m_emlrtRTEI.fName, m_emlrtRTEI.lineNo);
   }
   if (!(varargin_4 <= 2.0)) {
-    j_rtErrorWithMessageID(n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
+    j_rtErrorWithMessageID(m_emlrtRTEI.fName, m_emlrtRTEI.lineNo);
   }
   if (!(varargin_5 <= 2.0)) {
-    j_rtErrorWithMessageID(n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
+    j_rtErrorWithMessageID(m_emlrtRTEI.fName, m_emlrtRTEI.lineNo);
   }
   return (((static_cast<int>(varargin_1) +
             3 * (static_cast<int>(varargin_2) - 1)) +

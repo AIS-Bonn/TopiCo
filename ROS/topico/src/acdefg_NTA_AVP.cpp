@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // acdefg_NTA_AVP.cpp
 //
@@ -136,7 +136,7 @@ void acdefg_NTA_AVP(double P_init, double V_init, double A_init, double P_wayp,
   l9_tmp = J_max * J_max;
   l12_tmp = J_min * J_max;
   if (J_max < 0.0) {
-    k_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
+    k_rtErrorWithMessageID(o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
   }
   l24 = rt_powd_snf(J_max, 2.5);
   l8_tmp = l6_tmp * l6_tmp;

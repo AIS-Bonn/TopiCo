@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // solve_T.cpp
 //
@@ -692,11 +692,11 @@ void solve_T(double P_init, double V_init, double A_init, double P_wayp,
       }
       if ((t_1_size[0] != sizes_idx_0) &&
           ((t_1_size[0] != 0) && (t_1_size[1] != 0))) {
-        h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+        h_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
       }
       if ((J_1_size[0] != sizes_idx_0) &&
           ((J_1_size[0] != 0) && (J_1_size[1] != 0))) {
-        h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+        h_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
       }
       empty_non_axis_sizes = (sizes_idx_0 == 0);
       if (empty_non_axis_sizes || ((t_1_size[0] != 0) && (t_1_size[1] != 0))) {

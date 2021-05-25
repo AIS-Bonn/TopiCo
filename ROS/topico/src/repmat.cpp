@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // repmat.cpp
 //
@@ -40,7 +40,7 @@ namespace coder {
 void repmat(const ::coder::array<double, 1U> &a, double varargin_2,
             ::coder::array<double, 2U> &b)
 {
-  static rtRunTimeErrorInfo t_emlrtRTEI = {
+  static rtRunTimeErrorInfo s_emlrtRTEI = {
       58,                   // lineNo
       23,                   // colNo
       "assertValidSizeArg", // fName
@@ -50,8 +50,8 @@ void repmat(const ::coder::array<double, 1U> &a, double varargin_2,
   int i;
   int nrows;
   if (varargin_2 != varargin_2) {
-    rtErrorWithMessageID(MIN_int32_T, MAX_int32_T, t_emlrtRTEI.fName,
-                         t_emlrtRTEI.lineNo);
+    rtErrorWithMessageID(MIN_int32_T, MAX_int32_T, s_emlrtRTEI.fName,
+                         s_emlrtRTEI.lineNo);
   }
   i = static_cast<int>(varargin_2);
   b.set_size(a.size(0), i);

@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // validateattributes.cpp
 //
@@ -561,7 +561,7 @@ void validateattributes(const ::coder::array<double, 2U> &a,
 
 void validateattributes(double a)
 {
-  static rtRunTimeErrorInfo t_emlrtRTEI = {
+  static rtRunTimeErrorInfo s_emlrtRTEI = {
       14,                 // lineNo
       37,                 // colNo
       "validatepositive", // fName
@@ -576,8 +576,8 @@ void validateattributes(double a)
   }
   p = !(a <= 0.0);
   if (!p) {
-    d_rtErrorWithMessageID("input number 18, ts_rollout,", t_emlrtRTEI.fName,
-                           t_emlrtRTEI.lineNo);
+    d_rtErrorWithMessageID("input number 18, ts_rollout,", s_emlrtRTEI.fName,
+                           s_emlrtRTEI.lineNo);
   }
 }
 

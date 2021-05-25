@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // check.cpp
 //
@@ -54,7 +54,7 @@ static rtBoundsCheckInfo kb_emlrtBCI = {
 static rtBoundsCheckInfo lb_emlrtBCI = {
     -1,                                           // iFirst
     -1,                                           // iLast
-    81,                                           // lineNo
+    82,                                           // lineNo
     25,                                           // colNo
     "valid",                                      // aName
     "check",                                      // fName
@@ -178,11 +178,8 @@ void b_check(const creal_T t_data[], const int t_size[2], const double J[7],
         double a;
         double b_a;
         unsigned char valid_0;
-        unsigned char valid_2;
-        unsigned char valid_7;
         bool guard1 = false;
         bool guard2 = false;
-        bool guard3 = false;
         if (b_index + 1 > t_size[0]) {
           rtDynamicBoundsError(b_index + 1, 1, t_size[0], &ib_emlrtBCI);
         }
@@ -240,10 +237,6 @@ void b_check(const creal_T t_data[], const int t_size[2], const double J[7],
         }
         valid_0 = check_feasibility(V_init, A_init, V_max, rtMinusInf, A_max,
                                     A_min, J_max, J_min);
-        valid_2 = check_feasibility(v[1], c_a[1], V_max, rtMinusInf, A_max,
-                                    A_min, J_max, J_min);
-        valid_7 = check_feasibility(v[6], c_a[6], V_max, rtMinusInf, A_max,
-                                    A_min, J_max, J_min);
         for (loop_ub = 0; loop_ub < 7; loop_ub++) {
           x[loop_ub] = (v[loop_ub] <= V_max);
         }
@@ -260,7 +253,6 @@ void b_check(const creal_T t_data[], const int t_size[2], const double J[7],
         }
         guard1 = false;
         guard2 = false;
-        guard3 = false;
         if (y) {
           for (loop_ub = 0; loop_ub < 7; loop_ub++) {
             x[loop_ub] = (v[loop_ub] >= rtMinusInf);
@@ -276,15 +268,19 @@ void b_check(const creal_T t_data[], const int t_size[2], const double J[7],
               loop_ub++;
             }
           }
-          if (y && (valid_0 == 0) && (valid_2 == 0) && (valid_7 == 0)) {
+          if (y && (valid_0 == 0) &&
+              (check_feasibility(v[1], c_a[1], V_max, rtMinusInf, A_max, A_min,
+                                 J_max, J_min) == 0) &&
+              (check_feasibility(v[6], c_a[6], V_max, rtMinusInf, A_max, A_min,
+                                 J_max, J_min) == 0)) {
             guard1 = true;
           } else {
-            guard3 = true;
+            guard2 = true;
           }
         } else {
-          guard3 = true;
+          guard2 = true;
         }
-        if (guard3) {
+        if (guard2) {
           for (loop_ub = 0; loop_ub < 5; loop_ub++) {
             b_x[loop_ub] = (v[loop_ub + 2] <= V_max);
           }
@@ -315,47 +311,6 @@ void b_check(const creal_T t_data[], const int t_size[2], const double J[7],
               }
             }
             if (y && (valid_0 != 0)) {
-              guard1 = true;
-            } else {
-              guard2 = true;
-            }
-          } else {
-            guard2 = true;
-          }
-        }
-        if (guard2) {
-          for (loop_ub = 0; loop_ub < 7; loop_ub++) {
-            x[loop_ub] = (v[loop_ub] <= V_max);
-          }
-          y = true;
-          loop_ub = 0;
-          exitg1 = false;
-          while ((!exitg1) && (loop_ub <= 6)) {
-            if (!x[loop_ub]) {
-              y = false;
-              exitg1 = true;
-            } else {
-              loop_ub++;
-            }
-          }
-          if (y) {
-            for (loop_ub = 0; loop_ub < 7; loop_ub++) {
-              x[loop_ub] = (v[loop_ub] >= rtMinusInf);
-            }
-            y = true;
-            loop_ub = 0;
-            exitg1 = false;
-            while ((!exitg1) && (loop_ub <= 6)) {
-              if (!x[loop_ub]) {
-                y = false;
-                exitg1 = true;
-              } else {
-                loop_ub++;
-              }
-            }
-            if (y && ((valid_0 == 0) || (valid_0 == 5) || (valid_0 == 6)) &&
-                ((valid_2 == 0) || (valid_2 == 5) || (valid_2 == 6)) &&
-                ((valid_7 == 5) || (valid_7 == 6))) {
               guard1 = true;
             }
           }
@@ -557,11 +512,8 @@ void c_check(const creal_T t_data[], const int t_size[2], const double J[7],
         double a_tmp;
         double b_a;
         unsigned char valid_0;
-        unsigned char valid_2;
-        unsigned char valid_7;
         bool guard1 = false;
         bool guard2 = false;
-        bool guard3 = false;
         if (b_index + 1 > t_size[0]) {
           rtDynamicBoundsError(b_index + 1, 1, t_size[0], &ib_emlrtBCI);
         }
@@ -627,10 +579,6 @@ void c_check(const creal_T t_data[], const int t_size[2], const double J[7],
         }
         valid_0 = check_feasibility(V_init, A_init, V_max, V_min, A_max, A_min,
                                     J_max, J_min);
-        valid_2 = check_feasibility(v[1], c_a[1], V_max, V_min, A_max, A_min,
-                                    J_max, J_min);
-        valid_7 = check_feasibility(v[6], c_a[6], V_max, V_min, A_max, A_min,
-                                    J_max, J_min);
         for (loop_ub = 0; loop_ub < 7; loop_ub++) {
           x[loop_ub] = (v[loop_ub] <= V_max);
         }
@@ -647,7 +595,6 @@ void c_check(const creal_T t_data[], const int t_size[2], const double J[7],
         }
         guard1 = false;
         guard2 = false;
-        guard3 = false;
         if (y) {
           for (loop_ub = 0; loop_ub < 7; loop_ub++) {
             x[loop_ub] = (v[loop_ub] >= V_min);
@@ -663,15 +610,19 @@ void c_check(const creal_T t_data[], const int t_size[2], const double J[7],
               loop_ub++;
             }
           }
-          if (y && (valid_0 == 0) && (valid_2 == 0) && (valid_7 == 0)) {
+          if (y && (valid_0 == 0) &&
+              (check_feasibility(v[1], c_a[1], V_max, V_min, A_max, A_min,
+                                 J_max, J_min) == 0) &&
+              (check_feasibility(v[6], c_a[6], V_max, V_min, A_max, A_min,
+                                 J_max, J_min) == 0)) {
             guard1 = true;
           } else {
-            guard3 = true;
+            guard2 = true;
           }
         } else {
-          guard3 = true;
+          guard2 = true;
         }
-        if (guard3) {
+        if (guard2) {
           for (loop_ub = 0; loop_ub < 5; loop_ub++) {
             b_x[loop_ub] = (v[loop_ub + 2] <= V_max);
           }
@@ -702,47 +653,6 @@ void c_check(const creal_T t_data[], const int t_size[2], const double J[7],
               }
             }
             if (y && (valid_0 != 0)) {
-              guard1 = true;
-            } else {
-              guard2 = true;
-            }
-          } else {
-            guard2 = true;
-          }
-        }
-        if (guard2) {
-          for (loop_ub = 0; loop_ub < 7; loop_ub++) {
-            x[loop_ub] = (v[loop_ub] <= V_max);
-          }
-          y = true;
-          loop_ub = 0;
-          exitg1 = false;
-          while ((!exitg1) && (loop_ub <= 6)) {
-            if (!x[loop_ub]) {
-              y = false;
-              exitg1 = true;
-            } else {
-              loop_ub++;
-            }
-          }
-          if (y) {
-            for (loop_ub = 0; loop_ub < 7; loop_ub++) {
-              x[loop_ub] = (v[loop_ub] >= V_min);
-            }
-            y = true;
-            loop_ub = 0;
-            exitg1 = false;
-            while ((!exitg1) && (loop_ub <= 6)) {
-              if (!x[loop_ub]) {
-                y = false;
-                exitg1 = true;
-              } else {
-                loop_ub++;
-              }
-            }
-            if (y && ((valid_0 == 0) || (valid_0 == 5) || (valid_0 == 6)) &&
-                ((valid_2 == 0) || (valid_2 == 5) || (valid_2 == 6)) &&
-                ((valid_7 == 5) || (valid_7 == 6))) {
               guard1 = true;
             }
           }
@@ -945,11 +855,8 @@ void check(const creal_T t_data[], const int t_size[2], const double J[7],
         double a;
         double b_a;
         unsigned char valid_0;
-        unsigned char valid_2;
-        unsigned char valid_7;
         bool guard1 = false;
         bool guard2 = false;
-        bool guard3 = false;
         if (b_index + 1 > t_size[0]) {
           rtDynamicBoundsError(b_index + 1, 1, t_size[0], &ib_emlrtBCI);
         }
@@ -1007,10 +914,6 @@ void check(const creal_T t_data[], const int t_size[2], const double J[7],
         }
         valid_0 = check_feasibility(V_init, A_init, rtInf, V_min, A_max, A_min,
                                     J_max, J_min);
-        valid_2 = check_feasibility(v[1], c_a[1], rtInf, V_min, A_max, A_min,
-                                    J_max, J_min);
-        valid_7 = check_feasibility(v[6], c_a[6], rtInf, V_min, A_max, A_min,
-                                    J_max, J_min);
         for (loop_ub = 0; loop_ub < 7; loop_ub++) {
           x[loop_ub] = (v[loop_ub] <= rtInf);
         }
@@ -1027,7 +930,6 @@ void check(const creal_T t_data[], const int t_size[2], const double J[7],
         }
         guard1 = false;
         guard2 = false;
-        guard3 = false;
         if (y) {
           for (loop_ub = 0; loop_ub < 7; loop_ub++) {
             x[loop_ub] = (v[loop_ub] >= V_min);
@@ -1043,15 +945,19 @@ void check(const creal_T t_data[], const int t_size[2], const double J[7],
               loop_ub++;
             }
           }
-          if (y && (valid_0 == 0) && (valid_2 == 0) && (valid_7 == 0)) {
+          if (y && (valid_0 == 0) &&
+              (check_feasibility(v[1], c_a[1], rtInf, V_min, A_max, A_min,
+                                 J_max, J_min) == 0) &&
+              (check_feasibility(v[6], c_a[6], rtInf, V_min, A_max, A_min,
+                                 J_max, J_min) == 0)) {
             guard1 = true;
           } else {
-            guard3 = true;
+            guard2 = true;
           }
         } else {
-          guard3 = true;
+          guard2 = true;
         }
-        if (guard3) {
+        if (guard2) {
           for (loop_ub = 0; loop_ub < 5; loop_ub++) {
             b_x[loop_ub] = (v[loop_ub + 2] <= rtInf);
           }
@@ -1082,47 +988,6 @@ void check(const creal_T t_data[], const int t_size[2], const double J[7],
               }
             }
             if (y && (valid_0 != 0)) {
-              guard1 = true;
-            } else {
-              guard2 = true;
-            }
-          } else {
-            guard2 = true;
-          }
-        }
-        if (guard2) {
-          for (loop_ub = 0; loop_ub < 7; loop_ub++) {
-            x[loop_ub] = (v[loop_ub] <= rtInf);
-          }
-          y = true;
-          loop_ub = 0;
-          exitg1 = false;
-          while ((!exitg1) && (loop_ub <= 6)) {
-            if (!x[loop_ub]) {
-              y = false;
-              exitg1 = true;
-            } else {
-              loop_ub++;
-            }
-          }
-          if (y) {
-            for (loop_ub = 0; loop_ub < 7; loop_ub++) {
-              x[loop_ub] = (v[loop_ub] >= V_min);
-            }
-            y = true;
-            loop_ub = 0;
-            exitg1 = false;
-            while ((!exitg1) && (loop_ub <= 6)) {
-              if (!x[loop_ub]) {
-                y = false;
-                exitg1 = true;
-              } else {
-                loop_ub++;
-              }
-            }
-            if (y && ((valid_0 == 0) || (valid_0 == 5) || (valid_0 == 6)) &&
-                ((valid_2 == 0) || (valid_2 == 5) || (valid_2 == 6)) &&
-                ((valid_7 == 5) || (valid_7 == 6))) {
               guard1 = true;
             }
           }
@@ -1321,11 +1186,8 @@ void d_check(const creal_T t_data[], const int t_size[2], const double J[7],
         double a;
         double b_a;
         unsigned char valid_0;
-        unsigned char valid_2;
-        unsigned char valid_7;
         bool guard1 = false;
         bool guard2 = false;
-        bool guard3 = false;
         if (b_index + 1 > t_size[0]) {
           rtDynamicBoundsError(b_index + 1, 1, t_size[0], &ib_emlrtBCI);
         }
@@ -1383,10 +1245,6 @@ void d_check(const creal_T t_data[], const int t_size[2], const double J[7],
         }
         valid_0 = check_feasibility(V_init, A_init, V_max, V_min, A_max, A_min,
                                     J_max, J_min);
-        valid_2 = check_feasibility(v[1], c_a[1], V_max, V_min, A_max, A_min,
-                                    J_max, J_min);
-        valid_7 = check_feasibility(v[6], c_a[6], V_max, V_min, A_max, A_min,
-                                    J_max, J_min);
         for (loop_ub = 0; loop_ub < 7; loop_ub++) {
           x[loop_ub] = (v[loop_ub] <= V_max);
         }
@@ -1403,7 +1261,6 @@ void d_check(const creal_T t_data[], const int t_size[2], const double J[7],
         }
         guard1 = false;
         guard2 = false;
-        guard3 = false;
         if (y) {
           for (loop_ub = 0; loop_ub < 7; loop_ub++) {
             x[loop_ub] = (v[loop_ub] >= V_min);
@@ -1419,15 +1276,19 @@ void d_check(const creal_T t_data[], const int t_size[2], const double J[7],
               loop_ub++;
             }
           }
-          if (y && (valid_0 == 0) && (valid_2 == 0) && (valid_7 == 0)) {
+          if (y && (valid_0 == 0) &&
+              (check_feasibility(v[1], c_a[1], V_max, V_min, A_max, A_min,
+                                 J_max, J_min) == 0) &&
+              (check_feasibility(v[6], c_a[6], V_max, V_min, A_max, A_min,
+                                 J_max, J_min) == 0)) {
             guard1 = true;
           } else {
-            guard3 = true;
+            guard2 = true;
           }
         } else {
-          guard3 = true;
+          guard2 = true;
         }
-        if (guard3) {
+        if (guard2) {
           for (loop_ub = 0; loop_ub < 5; loop_ub++) {
             b_x[loop_ub] = (v[loop_ub + 2] <= V_max);
           }
@@ -1458,47 +1319,6 @@ void d_check(const creal_T t_data[], const int t_size[2], const double J[7],
               }
             }
             if (y && (valid_0 != 0)) {
-              guard1 = true;
-            } else {
-              guard2 = true;
-            }
-          } else {
-            guard2 = true;
-          }
-        }
-        if (guard2) {
-          for (loop_ub = 0; loop_ub < 7; loop_ub++) {
-            x[loop_ub] = (v[loop_ub] <= V_max);
-          }
-          y = true;
-          loop_ub = 0;
-          exitg1 = false;
-          while ((!exitg1) && (loop_ub <= 6)) {
-            if (!x[loop_ub]) {
-              y = false;
-              exitg1 = true;
-            } else {
-              loop_ub++;
-            }
-          }
-          if (y) {
-            for (loop_ub = 0; loop_ub < 7; loop_ub++) {
-              x[loop_ub] = (v[loop_ub] >= V_min);
-            }
-            y = true;
-            loop_ub = 0;
-            exitg1 = false;
-            while ((!exitg1) && (loop_ub <= 6)) {
-              if (!x[loop_ub]) {
-                y = false;
-                exitg1 = true;
-              } else {
-                loop_ub++;
-              }
-            }
-            if (y && ((valid_0 == 0) || (valid_0 == 5) || (valid_0 == 6)) &&
-                ((valid_2 == 0) || (valid_2 == 5) || (valid_2 == 6)) &&
-                ((valid_7 == 5) || (valid_7 == 6))) {
               guard1 = true;
             }
           }
@@ -1717,11 +1537,8 @@ void e_check(const creal_T t_data[], const int t_size[2], const double J[7],
           double a;
           double b_a;
           unsigned char valid_0;
-          unsigned char valid_2;
-          unsigned char valid_7;
           bool guard1 = false;
           bool guard2 = false;
-          bool guard3 = false;
           if (b_index + 1 > t_size[0]) {
             rtDynamicBoundsError(b_index + 1, 1, t_size[0], &nb_emlrtBCI);
           }
@@ -1790,10 +1607,6 @@ void e_check(const creal_T t_data[], const int t_size[2], const double J[7],
           }
           valid_0 = check_feasibility(V_init, A_init, V_max, V_min, A_max,
                                       A_min, J_max, J_min);
-          valid_2 = check_feasibility(v[1], c_a[1], V_max, V_min, A_max, A_min,
-                                      J_max, J_min);
-          valid_7 = check_feasibility(v[6], c_a[6], V_max, V_min, A_max, A_min,
-                                      J_max, J_min);
           for (loop_ub = 0; loop_ub < 7; loop_ub++) {
             x[loop_ub] = (v[loop_ub] <= V_max);
           }
@@ -1810,7 +1623,6 @@ void e_check(const creal_T t_data[], const int t_size[2], const double J[7],
           }
           guard1 = false;
           guard2 = false;
-          guard3 = false;
           if (y) {
             for (loop_ub = 0; loop_ub < 7; loop_ub++) {
               x[loop_ub] = (v[loop_ub] >= V_min);
@@ -1826,15 +1638,19 @@ void e_check(const creal_T t_data[], const int t_size[2], const double J[7],
                 loop_ub++;
               }
             }
-            if (y && (valid_0 == 0) && (valid_2 == 0) && (valid_7 == 0)) {
+            if (y && (valid_0 == 0) &&
+                (check_feasibility(v[1], c_a[1], V_max, V_min, A_max, A_min,
+                                   J_max, J_min) == 0) &&
+                (check_feasibility(v[6], c_a[6], V_max, V_min, A_max, A_min,
+                                   J_max, J_min) == 0)) {
               guard1 = true;
             } else {
-              guard3 = true;
+              guard2 = true;
             }
           } else {
-            guard3 = true;
+            guard2 = true;
           }
-          if (guard3) {
+          if (guard2) {
             for (loop_ub = 0; loop_ub < 5; loop_ub++) {
               b_x[loop_ub] = (v[loop_ub + 2] <= V_max);
             }
@@ -1865,47 +1681,6 @@ void e_check(const creal_T t_data[], const int t_size[2], const double J[7],
                 }
               }
               if (y && (valid_0 != 0)) {
-                guard1 = true;
-              } else {
-                guard2 = true;
-              }
-            } else {
-              guard2 = true;
-            }
-          }
-          if (guard2) {
-            for (loop_ub = 0; loop_ub < 7; loop_ub++) {
-              x[loop_ub] = (v[loop_ub] <= V_max);
-            }
-            y = true;
-            loop_ub = 0;
-            exitg1 = false;
-            while ((!exitg1) && (loop_ub <= 6)) {
-              if (!x[loop_ub]) {
-                y = false;
-                exitg1 = true;
-              } else {
-                loop_ub++;
-              }
-            }
-            if (y) {
-              for (loop_ub = 0; loop_ub < 7; loop_ub++) {
-                x[loop_ub] = (v[loop_ub] >= V_min);
-              }
-              y = true;
-              loop_ub = 0;
-              exitg1 = false;
-              while ((!exitg1) && (loop_ub <= 6)) {
-                if (!x[loop_ub]) {
-                  y = false;
-                  exitg1 = true;
-                } else {
-                  loop_ub++;
-                }
-              }
-              if (y && ((valid_0 == 0) || (valid_0 == 5) || (valid_0 == 6)) &&
-                  ((valid_2 == 0) || (valid_2 == 5) || (valid_2 == 6)) &&
-                  ((valid_7 == 5) || (valid_7 == 6))) {
                 guard1 = true;
               }
             }

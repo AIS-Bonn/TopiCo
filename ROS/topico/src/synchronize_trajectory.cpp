@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // synchronize_trajectory.cpp
 //
@@ -104,7 +104,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo af_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      167,                                                           // lineNo
+      166,                                                           // lineNo
       223,                                                           // colNo
       "J_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
@@ -114,7 +114,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ag_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       119,                                                           // colNo
       "V_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -124,7 +124,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ah_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      176,                                                           // lineNo
+      175,                                                           // lineNo
       61,                                                            // colNo
       "J_tim{index_axis}",                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -134,7 +134,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ai_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      165,                                                           // lineNo
+      164,                                                           // lineNo
       98,                                                            // colNo
       "V_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -144,7 +144,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo aj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      220,                                                           // lineNo
+      219,                                                           // lineNo
       77,                                                            // colNo
       "solution_opt{index_axis,:}",                                  // aName
       "synchronize_trajectory",                                      // fName
@@ -184,7 +184,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo bf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      167,                                                           // lineNo
+      166,                                                           // lineNo
       207,                                                           // colNo
       "t_opt_test{index_axis}",                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -194,7 +194,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo bg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       138,                                                           // colNo
       "A_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -204,7 +204,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo bh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      176,                                                           // lineNo
+      175,                                                           // lineNo
       25,                                                            // colNo
       "J",                                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -214,7 +214,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo bi_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      165,                                                           // lineNo
+      164,                                                           // lineNo
       127,                                                           // colNo
       "A_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -224,7 +224,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo bj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      220,                                                           // lineNo
+      219,                                                           // lineNo
       21,                                                            // colNo
       "solution_out",                                                // aName
       "synchronize_trajectory",                                      // fName
@@ -264,7 +264,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo cf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      167,                                                           // lineNo
+      166,                                                           // lineNo
       235,                                                           // colNo
       "J_opt_test{index_axis}",                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -274,7 +274,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo cg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       157,                                                           // colNo
       "P_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -284,7 +284,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ch_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      177,                                                           // lineNo
+      176,                                                           // lineNo
       67,                                                            // colNo
       "solution_tim",                                                // aName
       "synchronize_trajectory",                                      // fName
@@ -294,7 +294,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ci_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      164,                                                           // lineNo
+      163,                                                           // lineNo
       80,                                                            // colNo
       "b_sync_A",                                                    // aName
       "synchronize_trajectory",                                      // fName
@@ -304,7 +304,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo cj_emlrtBCI = {
       1,                                                             // iFirst
       100,                                                           // iLast
-      202,                                                           // lineNo
+      201,                                                           // lineNo
       61,                                                            // colNo
       "solution_opt_test_all",                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -344,7 +344,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo df_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      167,                                                           // lineNo
+      166,                                                           // lineNo
       105,                                                           // colNo
       "P_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -354,7 +354,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo dg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       176,                                                           // colNo
       "V_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -364,7 +364,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo dh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      177,                                                           // lineNo
+      176,                                                           // lineNo
       79,                                                            // colNo
       "solution_tim{index_axis}",                                    // aName
       "synchronize_trajectory",                                      // fName
@@ -374,7 +374,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo di_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      164,                                                           // lineNo
+      163,                                                           // lineNo
       112,                                                           // colNo
       "b_sync_J",                                                    // aName
       "synchronize_trajectory",                                      // fName
@@ -384,7 +384,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo dj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      228,                                                           // lineNo
+      227,                                                           // lineNo
       38,                                                            // colNo
       "t_opt",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -424,7 +424,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ef_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      167,                                                           // lineNo
+      166,                                                           // lineNo
       124,                                                           // colNo
       "V_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -434,7 +434,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo eg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       195,                                                           // colNo
       "A_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -444,7 +444,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo eh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      177,                                                           // lineNo
+      176,                                                           // lineNo
       25,                                                            // colNo
       "solution_out",                                                // aName
       "synchronize_trajectory",                                      // fName
@@ -454,7 +454,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ei_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      164,                                                           // lineNo
+      163,                                                           // lineNo
       144,                                                           // colNo
       "b_sync_W",                                                    // aName
       "synchronize_trajectory",                                      // fName
@@ -464,7 +464,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ej_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      228,                                                           // lineNo
+      227,                                                           // lineNo
       52,                                                            // colNo
       "t_opt{index_axis,:}",                                         // aName
       "synchronize_trajectory",                                      // fName
@@ -504,7 +504,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ff_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      167,                                                           // lineNo
+      166,                                                           // lineNo
       143,                                                           // colNo
       "A_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -514,7 +514,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo fg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       214,                                                           // colNo
       "V_max",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -524,7 +524,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo fh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      189,                                                           // lineNo
+      188,                                                           // lineNo
       51,                                                            // colNo
       "t_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
@@ -534,7 +534,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo fi_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      198,                                                           // lineNo
+      197,                                                           // lineNo
       65,                                                            // colNo
       "solution_opt_test",                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -544,7 +544,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo fj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      228,                                                           // lineNo
+      227,                                                           // lineNo
       13,                                                            // colNo
       "t",                                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -584,7 +584,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo gf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      167,                                                           // lineNo
+      166,                                                           // lineNo
       26,                                                            // colNo
       "P_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -594,7 +594,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo gg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       232,                                                           // colNo
       "V_min",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -604,7 +604,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo gh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      189,                                                           // lineNo
+      188,                                                           // lineNo
       65,                                                            // colNo
       "t_opt_test{index_axis,:}",                                    // aName
       "synchronize_trajectory",                                      // fName
@@ -614,7 +614,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo gi_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      199,                                                           // lineNo
+      198,                                                           // lineNo
       95,                                                            // colNo
       "solution_opt_test",                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -624,7 +624,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo gj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      229,                                                           // lineNo
+      228,                                                           // lineNo
       38,                                                            // colNo
       "J_opt",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -664,7 +664,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo hf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      167,                                                           // lineNo
+      166,                                                           // lineNo
       45,                                                            // colNo
       "V_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -674,7 +674,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo hg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       250,                                                           // colNo
       "A_max",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -684,7 +684,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo hh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      189,                                                           // lineNo
+      188,                                                           // lineNo
       21,                                                            // colNo
       "t",                                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -694,7 +694,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo hi_emlrtBCI = {
       1,                                                             // iFirst
       100,                                                           // iLast
-      199,                                                           // lineNo
+      198,                                                           // lineNo
       39,                                                            // colNo
       "solution_opt_test_all",                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -704,7 +704,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo hj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      229,                                                           // lineNo
+      228,                                                           // lineNo
       52,                                                            // colNo
       "J_opt{index_axis,:}",                                         // aName
       "synchronize_trajectory",                                      // fName
@@ -744,7 +744,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo if_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      167,                                                           // lineNo
+      166,                                                           // lineNo
       64,                                                            // colNo
       "A_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -754,7 +754,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ig_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       268,                                                           // colNo
       "A_min",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -764,7 +764,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ih_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      190,                                                           // lineNo
+      189,                                                           // lineNo
       51,                                                            // colNo
       "J_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
@@ -774,7 +774,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ii_emlrtBCI = {
       1,                                                             // iFirst
       100,                                                           // iLast
-      199,                                                           // lineNo
+      198,                                                           // lineNo
       43,                                                            // colNo
       "solution_opt_test_all",                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -784,7 +784,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ij_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      229,                                                           // lineNo
+      228,                                                           // lineNo
       13,                                                            // colNo
       "J",                                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -824,7 +824,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo jf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
+      168,                                                           // lineNo
       113,                                                           // colNo
       "P_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -834,7 +834,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo jg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       286,                                                           // colNo
       "J_max",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -844,7 +844,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo jh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      190,                                                           // lineNo
+      189,                                                           // lineNo
       65,                                                            // colNo
       "J_opt_test{index_axis,:}",                                    // aName
       "synchronize_trajectory",                                      // fName
@@ -854,7 +854,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ji_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      210,                                                           // lineNo
+      209,                                                           // lineNo
       46,                                                            // colNo
       "t_opt",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -864,7 +864,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo jj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      230,                                                           // lineNo
+      229,                                                           // lineNo
       55,                                                            // colNo
       "solution_opt",                                                // aName
       "synchronize_trajectory",                                      // fName
@@ -904,7 +904,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo kf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
+      168,                                                           // lineNo
       132,                                                           // colNo
       "V_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -914,7 +914,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo kg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       304,                                                           // colNo
       "J_min",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -924,7 +924,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo kh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      190,                                                           // lineNo
+      189,                                                           // lineNo
       21,                                                            // colNo
       "J",                                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -934,7 +934,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ki_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      210,                                                           // lineNo
+      209,                                                           // lineNo
       60,                                                            // colNo
       "t_opt{index_axis,:}",                                         // aName
       "synchronize_trajectory",                                      // fName
@@ -944,7 +944,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo kj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      230,                                                           // lineNo
+      229,                                                           // lineNo
       69,                                                            // colNo
       "solution_opt{index_axis,:}",                                  // aName
       "synchronize_trajectory",                                      // fName
@@ -984,7 +984,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo lf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
+      168,                                                           // lineNo
       151,                                                           // colNo
       "A_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -994,7 +994,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo lg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       322,                                                           // colNo
       "t_sync",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -1004,7 +1004,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo lh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      191,                                                           // lineNo
+      190,                                                           // lineNo
       68,                                                            // colNo
       "solution_opt_test",                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -1014,7 +1014,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo li_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      210,                                                           // lineNo
+      209,                                                           // lineNo
       21,                                                            // colNo
       "t",                                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -1024,7 +1024,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo lj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      230,                                                           // lineNo
+      229,                                                           // lineNo
       13,                                                            // colNo
       "solution_out",                                                // aName
       "synchronize_trajectory",                                      // fName
@@ -1064,7 +1064,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo mf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
+      168,                                                           // lineNo
       170,                                                           // colNo
       "P_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -1074,7 +1074,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo mg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       341,                                                           // colNo
       "b_sync_V",                                                    // aName
       "synchronize_trajectory",                                      // fName
@@ -1084,7 +1084,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo mh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      191,                                                           // lineNo
+      190,                                                           // lineNo
       82,                                                            // colNo
       "solution_opt_test{index_axis,:}",                             // aName
       "synchronize_trajectory",                                      // fName
@@ -1094,7 +1094,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo mi_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      211,                                                           // lineNo
+      210,                                                           // lineNo
       46,                                                            // colNo
       "J_opt",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -1104,7 +1104,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo mj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      235,                                                           // lineNo
+      234,                                                           // lineNo
       36,                                                            // colNo
       "t_red",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -1154,7 +1154,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo nf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
+      168,                                                           // lineNo
       189,                                                           // colNo
       "V_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -1164,7 +1164,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ng_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       362,                                                           // colNo
       "b_sync_A",                                                    // aName
       "synchronize_trajectory",                                      // fName
@@ -1174,7 +1174,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo nh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      191,                                                           // lineNo
+      190,                                                           // lineNo
       21,                                                            // colNo
       "solution_out",                                                // aName
       "synchronize_trajectory",                                      // fName
@@ -1184,7 +1184,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ni_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      211,                                                           // lineNo
+      210,                                                           // lineNo
       60,                                                            // colNo
       "J_opt{index_axis,:}",                                         // aName
       "synchronize_trajectory",                                      // fName
@@ -1194,7 +1194,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo nj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      235,                                                           // lineNo
+      234,                                                           // lineNo
       50,                                                            // colNo
       "t",                                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -1244,7 +1244,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo of_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
+      168,                                                           // lineNo
       208,                                                           // colNo
       "A_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -1254,7 +1254,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo og_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       383,                                                           // colNo
       "b_sync_J",                                                    // aName
       "synchronize_trajectory",                                      // fName
@@ -1264,7 +1264,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo oh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      180,                                                           // lineNo
+      179,                                                           // lineNo
       60,                                                            // colNo
       "t_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
@@ -1274,7 +1274,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo oi_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      211,                                                           // lineNo
+      210,                                                           // lineNo
       21,                                                            // colNo
       "J",                                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -1284,7 +1284,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo oj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      235,                                                           // lineNo
+      234,                                                           // lineNo
       9,                                                             // colNo
       "t_out",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -1324,7 +1324,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo pe_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      152,                                                           // lineNo
+      151,                                                           // lineNo
       61,                                                            // colNo
       "t_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
@@ -1334,7 +1334,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo pf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
+      168,                                                           // lineNo
       227,                                                           // colNo
       "V_max",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -1344,7 +1344,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo pg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       404,                                                           // colNo
       "b_sync_W",                                                    // aName
       "synchronize_trajectory",                                      // fName
@@ -1354,7 +1354,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ph_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      181,                                                           // lineNo
+      180,                                                           // lineNo
       60,                                                            // colNo
       "J_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
@@ -1364,7 +1364,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo pi_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      212,                                                           // lineNo
+      211,                                                           // lineNo
       63,                                                            // colNo
       "solution_opt",                                                // aName
       "synchronize_trajectory",                                      // fName
@@ -1374,7 +1374,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo pj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      236,                                                           // lineNo
+      235,                                                           // lineNo
       36,                                                            // colNo
       "J_red",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -1414,7 +1414,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo qe_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      158,                                                           // lineNo
+      157,                                                           // lineNo
       48,                                                            // colNo
       "t_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
@@ -1424,7 +1424,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo qf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
+      168,                                                           // lineNo
       245,                                                           // colNo
       "V_min",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -1434,7 +1434,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo qg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       425,                                                           // colNo
       "direction",                                                   // aName
       "synchronize_trajectory",                                      // fName
@@ -1444,7 +1444,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo qh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      182,                                                           // lineNo
+      181,                                                           // lineNo
       67,                                                            // colNo
       "solution_opt_test",                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -1454,7 +1454,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo qi_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      212,                                                           // lineNo
+      211,                                                           // lineNo
       77,                                                            // colNo
       "solution_opt{index_axis,:}",                                  // aName
       "synchronize_trajectory",                                      // fName
@@ -1464,7 +1464,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo qj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      236,                                                           // lineNo
+      235,                                                           // lineNo
       50,                                                            // colNo
       "J",                                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -1504,7 +1504,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo re_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      158,                                                           // lineNo
+      157,                                                           // lineNo
       60,                                                            // colNo
       "t_opt_test{index_axis}",                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -1514,7 +1514,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo rf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
+      168,                                                           // lineNo
       263,                                                           // colNo
       "A_max",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -1524,7 +1524,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo rg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       22,                                                            // colNo
       "t_tim",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -1534,7 +1534,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo rh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      183,                                                           // lineNo
+      182,                                                           // lineNo
       36,                                                            // colNo
       "t_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
@@ -1544,7 +1544,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ri_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      212,                                                           // lineNo
+      211,                                                           // lineNo
       21,                                                            // colNo
       "solution_out",                                                // aName
       "synchronize_trajectory",                                      // fName
@@ -1554,7 +1554,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo rj_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      236,                                                           // lineNo
+      235,                                                           // lineNo
       9,                                                             // colNo
       "J_out",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -1594,7 +1594,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo se_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      158,                                                           // lineNo
+      157,                                                           // lineNo
       17,                                                            // colNo
       "T",                                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -1604,7 +1604,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo sf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
+      168,                                                           // lineNo
       281,                                                           // colNo
       "A_min",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -1614,7 +1614,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo sg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       42,                                                            // colNo
       "J_tim",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -1624,7 +1624,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo sh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      183,                                                           // lineNo
+      182,                                                           // lineNo
       48,                                                            // colNo
       "t_opt_test{index_axis}",                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -1634,7 +1634,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo si_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      218,                                                           // lineNo
+      217,                                                           // lineNo
       46,                                                            // colNo
       "t_opt",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -1674,7 +1674,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo te_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      161,                                                           // lineNo
+      160,                                                           // lineNo
       22,                                                            // colNo
       "T",                                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -1684,7 +1684,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo tf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
+      168,                                                           // lineNo
       299,                                                           // colNo
       "J_max",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -1694,7 +1694,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo tg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       62,                                                            // colNo
       "solution_tim",                                                // aName
       "synchronize_trajectory",                                      // fName
@@ -1704,7 +1704,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo th_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      183,                                                           // lineNo
+      182,                                                           // lineNo
       25,                                                            // colNo
       "t_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
@@ -1714,7 +1714,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ti_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      218,                                                           // lineNo
+      217,                                                           // lineNo
       60,                                                            // colNo
       "t_opt{index_axis,:}",                                         // aName
       "synchronize_trajectory",                                      // fName
@@ -1754,7 +1754,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ue_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      161,                                                           // lineNo
+      160,                                                           // lineNo
       49,                                                            // colNo
       "T_catch_up",                                                  // aName
       "synchronize_trajectory",                                      // fName
@@ -1764,7 +1764,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo uf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
+      168,                                                           // lineNo
       317,                                                           // colNo
       "J_min",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -1774,7 +1774,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ug_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      173,                                                           // lineNo
+      172,                                                           // lineNo
       47,                                                            // colNo
       "solution_tim",                                                // aName
       "synchronize_trajectory",                                      // fName
@@ -1784,7 +1784,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo uh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      184,                                                           // lineNo
+      183,                                                           // lineNo
       36,                                                            // colNo
       "J_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
@@ -1794,7 +1794,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ui_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      218,                                                           // lineNo
+      217,                                                           // lineNo
       21,                                                            // colNo
       "t",                                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -1834,7 +1834,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ve_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      164,                                                           // lineNo
+      163,                                                           // lineNo
       48,                                                            // colNo
       "b_sync_V",                                                    // aName
       "synchronize_trajectory",                                      // fName
@@ -1844,7 +1844,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo vf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
+      168,                                                           // lineNo
       26,                                                            // colNo
       "t_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
@@ -1854,7 +1854,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo vg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      175,                                                           // lineNo
+      174,                                                           // lineNo
       49,                                                            // colNo
       "t_tim",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -1864,7 +1864,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo vh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      184,                                                           // lineNo
+      183,                                                           // lineNo
       48,                                                            // colNo
       "J_opt_test{index_axis}",                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -1874,7 +1874,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo vi_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      219,                                                           // lineNo
+      218,                                                           // lineNo
       46,                                                            // colNo
       "J_opt",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -1914,7 +1914,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo we_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      165,                                                           // lineNo
+      164,                                                           // lineNo
       25,                                                            // colNo
       "direction",                                                   // aName
       "synchronize_trajectory",                                      // fName
@@ -1924,7 +1924,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo wf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
+      168,                                                           // lineNo
       49,                                                            // colNo
       "J_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
@@ -1934,7 +1934,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo wg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      175,                                                           // lineNo
+      174,                                                           // lineNo
       61,                                                            // colNo
       "t_tim{index_axis}",                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -1944,7 +1944,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo wh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      184,                                                           // lineNo
+      183,                                                           // lineNo
       25,                                                            // colNo
       "J_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
@@ -1954,7 +1954,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo wi_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      219,                                                           // lineNo
+      218,                                                           // lineNo
       60,                                                            // colNo
       "J_opt{index_axis,:}",                                         // aName
       "synchronize_trajectory",                                      // fName
@@ -1994,7 +1994,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo xe_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      165,                                                           // lineNo
+      164,                                                           // lineNo
       69,                                                            // colNo
       "P_wayp",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -2004,7 +2004,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo xf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      169,                                                           // lineNo
+      168,                                                           // lineNo
       72,                                                            // colNo
       "solution_opt_test",                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -2014,7 +2014,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo xg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      175,                                                           // lineNo
+      174,                                                           // lineNo
       25,                                                            // colNo
       "t",                                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -2024,7 +2024,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo xh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      185,                                                           // lineNo
+      184,                                                           // lineNo
       43,                                                            // colNo
       "solution_opt_test",                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -2034,7 +2034,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo xi_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      219,                                                           // lineNo
+      218,                                                           // lineNo
       21,                                                            // colNo
       "J",                                                           // aName
       "synchronize_trajectory",                                      // fName
@@ -2074,7 +2074,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo ye_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      167,                                                           // lineNo
+      166,                                                           // lineNo
       195,                                                           // colNo
       "t_opt_test",                                                  // aName
       "synchronize_trajectory",                                      // fName
@@ -2084,7 +2084,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo yf_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      172,                                                           // lineNo
+      171,                                                           // lineNo
       100,                                                           // colNo
       "P_init",                                                      // aName
       "synchronize_trajectory",                                      // fName
@@ -2094,7 +2094,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo yg_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      176,                                                           // lineNo
+      175,                                                           // lineNo
       49,                                                            // colNo
       "J_tim",                                                       // aName
       "synchronize_trajectory",                                      // fName
@@ -2104,7 +2104,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo yh_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      185,                                                           // lineNo
+      184,                                                           // lineNo
       25,                                                            // colNo
       "solution_opt_test{index_axis}",                               // aName
       "synchronize_trajectory",                                      // fName
@@ -2114,7 +2114,7 @@ void synchronize_trajectory(
   static rtBoundsCheckInfo yi_emlrtBCI = {
       -1,                                                            // iFirst
       -1,                                                            // iLast
-      220,                                                           // lineNo
+      219,                                                           // lineNo
       63,                                                            // colNo
       "solution_opt",                                                // aName
       "synchronize_trajectory",                                      // fName
@@ -2123,21 +2123,21 @@ void synchronize_trajectory(
   };
   static rtEqualityCheckInfo c_emlrtECI = {
       -1,                                                           // nDims
-      146,                                                          // lineNo
+      145,                                                          // lineNo
       29,                                                           // colNo
       "synchronize_trajectory",                                     // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m" // pName
   };
   static rtEqualityCheckInfo d_emlrtECI = {
       -1,                                                           // nDims
-      160,                                                          // lineNo
+      159,                                                          // lineNo
       32,                                                           // colNo
       "synchronize_trajectory",                                     // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m" // pName
   };
   static rtEqualityCheckInfo e_emlrtECI = {
       -1,                                                           // nDims
-      199,                                                          // lineNo
+      198,                                                          // lineNo
       17,                                                           // colNo
       "synchronize_trajectory",                                     // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/synchronize_trajectory.m" // pName
@@ -2170,9 +2170,10 @@ void synchronize_trajectory(
   int iv[2];
   int iv1[2];
   int b_i;
-  int b_index_axis;
   int b_unnamed_idx_0;
   int c_unnamed_idx_0;
+  int d_unnamed_idx_0;
+  int e_unnamed_idx_0;
   int i;
   int i1;
   int index_axis;
@@ -2493,6 +2494,7 @@ void synchronize_trajectory(
     }
   }
   i1 = P_init.size(0);
+  d_unnamed_idx_0 = P_init.size(0);
   t.set_size(P_init.size(0));
   for (index_axis = 0; index_axis < i1; index_axis++) {
     // coder
@@ -2505,6 +2507,7 @@ void synchronize_trajectory(
     }
   }
   i1 = P_init.size(0);
+  e_unnamed_idx_0 = P_init.size(0);
   J.set_size(P_init.size(0));
   for (index_axis = 0; index_axis < i1; index_axis++) {
     // coder
@@ -2717,134 +2720,132 @@ void synchronize_trajectory(
   }
   //     %% Find optimal solution
   // parfor index_axis = 1:num_axes
-  index_axis = 0;
   J_opt.set_size(unnamed_idx_0);
   t_opt.set_size(i);
-  for (b_index_axis = 0; b_index_axis <= num_axes; b_index_axis++) {
-    index_axis = b_index_axis;
+  for (index_axis = 0; index_axis <= num_axes; index_axis++) {
     printf("Debug: Ax[");
     fflush(stdout);
-    printint(static_cast<double>(b_index_axis) + 1.0);
+    printint(static_cast<double>(index_axis) + 1.0);
     printf("] Generating optimal solutions!\n");
     fflush(stdout);
-    if (b_index_axis + 1 > P_init.size(0)) {
-      rtDynamicBoundsError(b_index_axis + 1, 1, P_init.size(0), &td_emlrtBCI);
+    if (index_axis + 1 > P_init.size(0)) {
+      rtDynamicBoundsError(index_axis + 1, 1, P_init.size(0), &td_emlrtBCI);
     }
-    if (b_index_axis + 1 > V_init.size(0)) {
-      rtDynamicBoundsError(b_index_axis + 1, 1, V_init.size(0), &ud_emlrtBCI);
+    if (index_axis + 1 > V_init.size(0)) {
+      rtDynamicBoundsError(index_axis + 1, 1, V_init.size(0), &ud_emlrtBCI);
     }
-    if (b_index_axis + 1 > A_init.size(0)) {
-      rtDynamicBoundsError(b_index_axis + 1, 1, A_init.size(0), &vd_emlrtBCI);
+    if (index_axis + 1 > A_init.size(0)) {
+      rtDynamicBoundsError(index_axis + 1, 1, A_init.size(0), &vd_emlrtBCI);
     }
-    if (b_index_axis + 1 > P_wayp.size(0)) {
-      rtDynamicBoundsError(b_index_axis + 1, 1, P_wayp.size(0), &wd_emlrtBCI);
+    if (index_axis + 1 > P_wayp.size(0)) {
+      rtDynamicBoundsError(index_axis + 1, 1, P_wayp.size(0), &wd_emlrtBCI);
     }
-    if (b_index_axis + 1 > V_wayp.size(0)) {
-      rtDynamicBoundsError(b_index_axis + 1, 1, V_wayp.size(0), &xd_emlrtBCI);
+    if (index_axis + 1 > V_wayp.size(0)) {
+      rtDynamicBoundsError(index_axis + 1, 1, V_wayp.size(0), &xd_emlrtBCI);
     }
-    if (b_index_axis + 1 > A_wayp.size(0)) {
-      rtDynamicBoundsError(b_index_axis + 1, 1, A_wayp.size(0), &yd_emlrtBCI);
+    if (index_axis + 1 > A_wayp.size(0)) {
+      rtDynamicBoundsError(index_axis + 1, 1, A_wayp.size(0), &yd_emlrtBCI);
     }
-    if (b_index_axis + 1 > V_max.size(0)) {
-      rtDynamicBoundsError(b_index_axis + 1, 1, V_max.size(0), &ae_emlrtBCI);
+    if (index_axis + 1 > V_max.size(0)) {
+      rtDynamicBoundsError(index_axis + 1, 1, V_max.size(0), &ae_emlrtBCI);
     }
-    if (b_index_axis + 1 > V_min.size(0)) {
-      rtDynamicBoundsError(b_index_axis + 1, 1, V_min.size(0), &be_emlrtBCI);
+    if (index_axis + 1 > V_min.size(0)) {
+      rtDynamicBoundsError(index_axis + 1, 1, V_min.size(0), &be_emlrtBCI);
     }
-    if (b_index_axis + 1 > A_max.size(0)) {
-      rtDynamicBoundsError(b_index_axis + 1, 1, A_max.size(0), &ce_emlrtBCI);
+    if (index_axis + 1 > A_max.size(0)) {
+      rtDynamicBoundsError(index_axis + 1, 1, A_max.size(0), &ce_emlrtBCI);
     }
-    if (b_index_axis + 1 > A_min.size(0)) {
-      rtDynamicBoundsError(b_index_axis + 1, 1, A_min.size(0), &de_emlrtBCI);
+    if (index_axis + 1 > A_min.size(0)) {
+      rtDynamicBoundsError(index_axis + 1, 1, A_min.size(0), &de_emlrtBCI);
     }
-    if (b_index_axis + 1 > J_max.size(0)) {
-      rtDynamicBoundsError(b_index_axis + 1, 1, J_max.size(0), &ee_emlrtBCI);
+    if (index_axis + 1 > J_max.size(0)) {
+      rtDynamicBoundsError(index_axis + 1, 1, J_max.size(0), &ee_emlrtBCI);
     }
-    if (b_index_axis + 1 > J_min.size(0)) {
-      rtDynamicBoundsError(b_index_axis + 1, 1, J_min.size(0), &fe_emlrtBCI);
+    if (index_axis + 1 > J_min.size(0)) {
+      rtDynamicBoundsError(index_axis + 1, 1, J_min.size(0), &fe_emlrtBCI);
     }
-    if (b_index_axis > t_opt.size(0) - 1) {
-      rtDynamicBoundsError(b_index_axis, 0, t_opt.size(0) - 1, &ge_emlrtBCI);
+    if (index_axis > t_opt.size(0) - 1) {
+      rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1, &ge_emlrtBCI);
     }
-    if (b_index_axis > J_opt.size(0) - 1) {
-      rtDynamicBoundsError(b_index_axis, 0, J_opt.size(0) - 1, &he_emlrtBCI);
+    if (index_axis > J_opt.size(0) - 1) {
+      rtDynamicBoundsError(index_axis, 0, J_opt.size(0) - 1, &he_emlrtBCI);
     }
-    if (b_index_axis > solution_opt.size(0) - 1) {
-      rtDynamicBoundsError(b_index_axis, 0, solution_opt.size(0) - 1,
+    if (index_axis > solution_opt.size(0) - 1) {
+      rtDynamicBoundsError(index_axis, 0, solution_opt.size(0) - 1,
                            &ie_emlrtBCI);
     }
-    solve_O(P_init[b_index_axis], V_init[b_index_axis], A_init[b_index_axis],
-            P_wayp[b_index_axis], V_wayp[b_index_axis], A_wayp[b_index_axis],
-            V_max[b_index_axis], V_min[b_index_axis], A_max[b_index_axis],
-            A_min[b_index_axis], J_max[b_index_axis], J_min[b_index_axis],
-            t_opt[b_index_axis].f1.data, iv, J_opt[b_index_axis].f1.data, iv1,
-            solution_opt[b_index_axis].f1.data, &i);
-    solution_opt[b_index_axis].f1.size[0] = i;
-    J_opt[b_index_axis].f1.size[0] = iv1[0];
-    J_opt[b_index_axis].f1.size[1] = iv1[1];
-    t_opt[b_index_axis].f1.size[0] = iv[0];
-    t_opt[b_index_axis].f1.size[1] = iv[1];
-    if (b_index_axis > solution_opt.size(0) - 1) {
-      rtDynamicBoundsError(b_index_axis, 0, solution_opt.size(0) - 1,
+    solve_O(P_init[index_axis], V_init[index_axis], A_init[index_axis],
+            P_wayp[index_axis], V_wayp[index_axis], A_wayp[index_axis],
+            V_max[index_axis], V_min[index_axis], A_max[index_axis],
+            A_min[index_axis], J_max[index_axis], J_min[index_axis],
+            t_opt[index_axis].f1.data, iv, J_opt[index_axis].f1.data, iv1,
+            solution_opt[index_axis].f1.data, &i);
+    solution_opt[index_axis].f1.size[0] = i;
+    J_opt[index_axis].f1.size[0] = iv1[0];
+    J_opt[index_axis].f1.size[1] = iv1[1];
+    t_opt[index_axis].f1.size[0] = iv[0];
+    t_opt[index_axis].f1.size[1] = iv[1];
+    if (index_axis > solution_opt.size(0) - 1) {
+      rtDynamicBoundsError(index_axis, 0, solution_opt.size(0) - 1,
                            &je_emlrtBCI);
     }
-    if (solution_opt[b_index_axis].f1.size[0] == 0) {
+    if (solution_opt[index_axis].f1.size[0] == 0) {
       // So that coder does not crash
       printf("Error: This usually can NOT happen. Using idle trajectory to "
              "prevent segfault!\n");
       fflush(stdout);
-      if (b_index_axis > t_opt.size(0) - 1) {
-        rtDynamicBoundsError(b_index_axis, 0, t_opt.size(0) - 1, &ke_emlrtBCI);
+      if (index_axis > t_opt.size(0) - 1) {
+        rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1, &ke_emlrtBCI);
       }
-      t_opt[b_index_axis].f1.size[0] = 1;
-      if (b_index_axis > t_opt.size(0) - 1) {
-        rtDynamicBoundsError(b_index_axis, 0, t_opt.size(0) - 1, &ke_emlrtBCI);
+      t_opt[index_axis].f1.size[0] = 1;
+      if (index_axis > t_opt.size(0) - 1) {
+        rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1, &ke_emlrtBCI);
       }
-      t_opt[b_index_axis].f1.size[1] = 7;
+      t_opt[index_axis].f1.size[1] = 7;
       b_i = t_opt.size(0) - 1;
-      if (b_index_axis > t_opt.size(0) - 1) {
-        rtDynamicBoundsError(b_index_axis, 0, t_opt.size(0) - 1, &ke_emlrtBCI);
+      if (index_axis > t_opt.size(0) - 1) {
+        rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1, &ke_emlrtBCI);
       }
-      if (b_index_axis > t_opt.size(0) - 1) {
-        rtDynamicBoundsError(b_index_axis, 0, t_opt.size(0) - 1, &ke_emlrtBCI);
+      if (index_axis > t_opt.size(0) - 1) {
+        rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1, &ke_emlrtBCI);
       }
       for (i = 0; i < 7; i++) {
-        if (b_index_axis > b_i) {
-          rtDynamicBoundsError(b_index_axis, 0, b_i, &le_emlrtBCI);
+        if (index_axis > b_i) {
+          rtDynamicBoundsError(index_axis, 0, b_i, &le_emlrtBCI);
         }
-        t_opt[b_index_axis].f1.data[i] = 0.0;
+        t_opt[index_axis].f1.data[i] = 0.0;
       }
-      if (b_index_axis > J_opt.size(0) - 1) {
-        rtDynamicBoundsError(b_index_axis, 0, J_opt.size(0) - 1, &me_emlrtBCI);
+      if (index_axis > J_opt.size(0) - 1) {
+        rtDynamicBoundsError(index_axis, 0, J_opt.size(0) - 1, &me_emlrtBCI);
       }
-      J_opt[b_index_axis].f1.size[0] = 1;
-      if (b_index_axis > J_opt.size(0) - 1) {
-        rtDynamicBoundsError(b_index_axis, 0, J_opt.size(0) - 1, &me_emlrtBCI);
+      J_opt[index_axis].f1.size[0] = 1;
+      if (index_axis > J_opt.size(0) - 1) {
+        rtDynamicBoundsError(index_axis, 0, J_opt.size(0) - 1, &me_emlrtBCI);
       }
-      J_opt[b_index_axis].f1.size[1] = 7;
+      J_opt[index_axis].f1.size[1] = 7;
       b_i = J_opt.size(0) - 1;
-      if (b_index_axis > J_opt.size(0) - 1) {
-        rtDynamicBoundsError(b_index_axis, 0, J_opt.size(0) - 1, &me_emlrtBCI);
+      if (index_axis > J_opt.size(0) - 1) {
+        rtDynamicBoundsError(index_axis, 0, J_opt.size(0) - 1, &me_emlrtBCI);
       }
-      if (b_index_axis > J_opt.size(0) - 1) {
-        rtDynamicBoundsError(b_index_axis, 0, J_opt.size(0) - 1, &me_emlrtBCI);
+      if (index_axis > J_opt.size(0) - 1) {
+        rtDynamicBoundsError(index_axis, 0, J_opt.size(0) - 1, &me_emlrtBCI);
       }
       for (i = 0; i < 7; i++) {
-        if (b_index_axis > b_i) {
-          rtDynamicBoundsError(b_index_axis, 0, b_i, &ne_emlrtBCI);
+        if (index_axis > b_i) {
+          rtDynamicBoundsError(index_axis, 0, b_i, &ne_emlrtBCI);
         }
-        J_opt[b_index_axis].f1.data[i] = 0.0;
+        J_opt[index_axis].f1.data[i] = 0.0;
       }
       b_i = solution_opt.size(0) - 1;
-      if (b_index_axis > solution_opt.size(0) - 1) {
-        rtDynamicBoundsError(b_index_axis, 0, solution_opt.size(0) - 1,
+      if (index_axis > solution_opt.size(0) - 1) {
+        rtDynamicBoundsError(index_axis, 0, solution_opt.size(0) - 1,
                              &oe_emlrtBCI);
       }
-      solution_opt[b_index_axis].f1.size[0] = 1;
-      if (b_index_axis > b_i) {
-        rtDynamicBoundsError(b_index_axis, 0, b_i, &oe_emlrtBCI);
+      solution_opt[index_axis].f1.size[0] = 1;
+      if (index_axis > b_i) {
+        rtDynamicBoundsError(index_axis, 0, b_i, &oe_emlrtBCI);
       }
-      solution_opt[b_index_axis].f1.data[0] = -1;
+      solution_opt[index_axis].f1.data[0] = -1;
     }
   }
   //     %% Find timed solution
@@ -2920,34 +2921,35 @@ void synchronize_trajectory(
       fflush(stdout);
       t_out.set_size(b_unnamed_idx_0);
       J_out.set_size(c_unnamed_idx_0);
-      unnamed_idx_0 = 0;
+      e_unnamed_idx_0 = 0;
       exitg1 = false;
       while ((!exitg1) &&
-             (unnamed_idx_0 <= static_cast<int>(max_iterations) - 1)) {
+             (e_unnamed_idx_0 <= static_cast<int>(max_iterations) - 1)) {
         bool exitg2;
         T.set_size(num_axes + 1);
         index_axis = 1;
-        for (b_index_axis = 0; b_index_axis <= num_axes; b_index_axis++) {
-          index_axis = b_index_axis + 1;
-          if (b_index_axis > t_opt_test.size(0) - 1) {
-            rtDynamicBoundsError(b_index_axis, 0, t_opt_test.size(0) - 1,
+        for (d_unnamed_idx_0 = 0; d_unnamed_idx_0 <= num_axes;
+             d_unnamed_idx_0++) {
+          index_axis = d_unnamed_idx_0 + 1;
+          if (d_unnamed_idx_0 > t_opt_test.size(0) - 1) {
+            rtDynamicBoundsError(d_unnamed_idx_0, 0, t_opt_test.size(0) - 1,
                                  &qe_emlrtBCI);
           }
-          i = t_opt_test[b_index_axis].f1.size[0];
+          i = t_opt_test[d_unnamed_idx_0].f1.size[0];
           if (1 > i) {
             rtDynamicBoundsError(1, 1, i, &re_emlrtBCI);
           }
-          idx = t_opt_test[b_index_axis].f1.data[0];
+          idx = t_opt_test[d_unnamed_idx_0].f1.data[0];
           for (loop_ub = 0; loop_ub < 6; loop_ub++) {
-            idx +=
-                t_opt_test[b_index_axis]
-                    .f1
-                    .data[t_opt_test[b_index_axis].f1.size[0] * (loop_ub + 1)];
+            idx += t_opt_test[d_unnamed_idx_0]
+                       .f1.data[t_opt_test[d_unnamed_idx_0].f1.size[0] *
+                                (loop_ub + 1)];
           }
-          if (b_index_axis + 1 > T.size(0)) {
-            rtDynamicBoundsError(b_index_axis + 1, 1, T.size(0), &se_emlrtBCI);
+          if (d_unnamed_idx_0 + 1 > T.size(0)) {
+            rtDynamicBoundsError(d_unnamed_idx_0 + 1, 1, T.size(0),
+                                 &se_emlrtBCI);
           }
-          T[b_index_axis] = idx;
+          T[d_unnamed_idx_0] = idx;
         }
         if (T.size(0) != T_catch_up.size(0)) {
           rtSizeEq1DError(T.size(0), T_catch_up.size(0), &d_emlrtECI);
@@ -3520,16 +3522,14 @@ void synchronize_trajectory(
           solution_opt_test_all[b_i] = -1;
         }
         idx = 1.0;
-        index_axis = 0;
-        for (b_index_axis = 0; b_index_axis <= num_axes; b_index_axis++) {
+        for (index_axis = 0; index_axis <= num_axes; index_axis++) {
           double d;
-          index_axis = b_index_axis;
-          if (b_index_axis > solution_opt_test.size(0) - 1) {
-            rtDynamicBoundsError(b_index_axis, 0, solution_opt_test.size(0) - 1,
+          if (index_axis > solution_opt_test.size(0) - 1) {
+            rtDynamicBoundsError(index_axis, 0, solution_opt_test.size(0) - 1,
                                  &fi_emlrtBCI);
           }
-          d = (idx + static_cast<double>(
-                         solution_opt_test[b_index_axis].f1.size[0])) -
+          d = (idx +
+               static_cast<double>(solution_opt_test[index_axis].f1.size[0])) -
               1.0;
           if (idx > d) {
             i1 = 0;
@@ -3544,21 +3544,19 @@ void synchronize_trajectory(
             }
             i = static_cast<int>(d);
           }
-          if (b_index_axis > solution_opt_test.size(0) - 1) {
-            rtDynamicBoundsError(b_index_axis, 0, solution_opt_test.size(0) - 1,
+          if (index_axis > solution_opt_test.size(0) - 1) {
+            rtDynamicBoundsError(index_axis, 0, solution_opt_test.size(0) - 1,
                                  &gi_emlrtBCI);
           }
           i -= i1;
-          rtSubAssignSizeCheck(&i, 1,
-                               &solution_opt_test[b_index_axis].f1.size[0], 1,
-                               &e_emlrtECI);
-          loop_ub = solution_opt_test[b_index_axis].f1.size[0];
+          rtSubAssignSizeCheck(&i, 1, &solution_opt_test[index_axis].f1.size[0],
+                               1, &e_emlrtECI);
+          loop_ub = solution_opt_test[index_axis].f1.size[0];
           for (i = 0; i < loop_ub; i++) {
             solution_opt_test_all[i1 + i] =
-                solution_opt_test[b_index_axis].f1.data[i];
+                solution_opt_test[index_axis].f1.data[i];
           }
-          idx +=
-              static_cast<double>(solution_opt_test[b_index_axis].f1.size[0]);
+          idx += static_cast<double>(solution_opt_test[index_axis].f1.size[0]);
         }
         if (1.0 > idx - 1.0) {
           loop_ub = 0;
@@ -3581,7 +3579,7 @@ void synchronize_trajectory(
           printint(static_cast<double>(num_axes + 1));
           printf(" axes after ");
           fflush(stdout);
-          printint(static_cast<double>(unnamed_idx_0) + 1.0);
+          printint(static_cast<double>(e_unnamed_idx_0) + 1.0);
           printf(" iterations. Exiting synchronization!\n");
           fflush(stdout);
           exitg1 = true;
@@ -3592,11 +3590,10 @@ void synchronize_trajectory(
           if (coder::intnnz(solution_opt_test_all_data, loop_ub) == 0) {
             printf("Error: Could not find a timed solution after ");
             fflush(stdout);
-            printint(static_cast<double>(unnamed_idx_0) + 1.0);
+            printint(static_cast<double>(e_unnamed_idx_0) + 1.0);
             printf(" iterations. Exiting synchronization!\n");
             fflush(stdout);
-            for (unnamed_idx_0 = 0; unnamed_idx_0 <= num_axes;
-                 unnamed_idx_0++) {
+            for (index_axis = 0; index_axis <= num_axes; index_axis++) {
               if (index_axis > t_opt.size(0) - 1) {
                 rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1,
                                      &ji_emlrtBCI);
@@ -3676,7 +3673,7 @@ void synchronize_trajectory(
               solution_out[index_axis] = solution_opt[index_axis].f1.data[0];
             }
             exitg1 = true;
-          } else if (static_cast<double>(unnamed_idx_0) + 1.0 ==
+          } else if (static_cast<double>(e_unnamed_idx_0) + 1.0 ==
                      max_iterations) {
             printf("Error: Could not find a timed solution after maximum "
                    "iterations (");
@@ -3684,8 +3681,7 @@ void synchronize_trajectory(
             printint(max_iterations);
             printf("). Exiting synchronization!\n");
             fflush(stdout);
-            for (unnamed_idx_0 = 0; unnamed_idx_0 <= num_axes;
-                 unnamed_idx_0++) {
+            for (index_axis = 0; index_axis <= num_axes; index_axis++) {
               if (index_axis > t_opt.size(0) - 1) {
                 rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1,
                                      &si_emlrtBCI);
@@ -3766,7 +3762,7 @@ void synchronize_trajectory(
             }
             exitg1 = true;
           } else {
-            unnamed_idx_0++;
+            e_unnamed_idx_0++;
           }
         }
       }
@@ -3779,9 +3775,11 @@ void synchronize_trajectory(
   if (guard1) {
     printf("Debug: No axis to be synchronized!\n");
     fflush(stdout);
-    J_out.set_size(c_unnamed_idx_0);
+    t.set_size(d_unnamed_idx_0);
+    J.set_size(e_unnamed_idx_0);
     t_out.set_size(b_unnamed_idx_0);
-    for (unnamed_idx_0 = 0; unnamed_idx_0 <= num_axes; unnamed_idx_0++) {
+    J_out.set_size(c_unnamed_idx_0);
+    for (index_axis = 0; index_axis <= num_axes; index_axis++) {
       if (index_axis > t_opt.size(0) - 1) {
         rtDynamicBoundsError(index_axis, 0, t_opt.size(0) - 1, &dj_emlrtBCI);
       }
@@ -3869,7 +3867,7 @@ void synchronize_trajectory(
     }
     if ((t_red[index_axis].f1.size[0] != 1) &&
         (t_red[index_axis].f1.size[0] != 0)) {
-      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
     }
     if (t_red[index_axis].f1.size[0] != 0) {
       i2 = 4;
@@ -3908,7 +3906,7 @@ void synchronize_trajectory(
     }
     if ((J_red[index_axis].f1.size[0] != 1) &&
         (J_red[index_axis].f1.size[0] != 0)) {
-      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
     }
     if (J_red[index_axis].f1.size[0] != 0) {
       i2 = 4;

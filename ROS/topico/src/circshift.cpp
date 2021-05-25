@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // circshift.cpp
 //
@@ -38,7 +38,7 @@ void circshift(double a_data[], const int a_size[2])
     ns = 0;
     shiftright = false;
     if (1 > a_size[dim]) {
-      d_rtErrorWithMessageID(g_emlrtRTEI.fName, g_emlrtRTEI.lineNo);
+      d_rtErrorWithMessageID(f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
     }
     if (1 > (a_size[dim] >> 1)) {
       ns = a_size[dim] - 2;

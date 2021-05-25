@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // acdefg_T_P.cpp
 //
@@ -294,7 +294,7 @@ void acdefg_T_P(double P_init, double V_init, double A_init, double P_wayp,
   l45 = coder::d_power(l43);
   l98 = rt_powd_snf(a, 1.5);
   if (a < 0.0) {
-    k_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
+    k_rtErrorWithMessageID(o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
   }
   l134.re = l34.re * l53.re - l34.im * l53.im;
   l134.im = l34.re * l53.im + l34.im * l53.re;
@@ -842,7 +842,7 @@ void acdefg_T_P(double P_init, double V_init, double A_init, double P_wayp,
     l134.im = 0.0;
     coder::internal::scalar::b_sqrt(&l134);
     if (-J_min < 0.0) {
-      k_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
+      k_rtErrorWithMessageID(o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
     }
     l35.re = -J_min;
     l35.im = 0.0;

@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // rollout_t.cpp
 //
@@ -12,10 +12,8 @@
 #include "rollout_t.h"
 #include "eml_int_forloop_overflow_check.h"
 #include "evaluate_to_time.h"
-#include "i64ddiv.h"
 #include "printint.h"
 #include "rt_nonfinite.h"
-#include "topico_wrapper_data.h"
 #include "topico_wrapper_internal_types.h"
 #include "topico_wrapper_rtwutil.h"
 #include "topico_wrapper_types.h"
@@ -112,7 +110,7 @@ void rollout_t(const coder::array<double, 1U> &P_init,
   static rtBoundsCheckInfo pb_emlrtBCI = {
       -1,                                               // iFirst
       -1,                                               // iLast
-      76,                                               // lineNo
+      78,                                               // lineNo
       239,                                              // colNo
       "t",                                              // aName
       "rollout_t",                                      // fName
@@ -122,7 +120,7 @@ void rollout_t(const coder::array<double, 1U> &P_init,
   static rtBoundsCheckInfo qb_emlrtBCI = {
       -1,                                               // iFirst
       -1,                                               // iLast
-      76,                                               // lineNo
+      78,                                               // lineNo
       211,                                              // colNo
       "J_setp_struct",                                  // aName
       "rollout_t",                                      // fName
@@ -132,7 +130,7 @@ void rollout_t(const coder::array<double, 1U> &P_init,
   static rtBoundsCheckInfo rb_emlrtBCI = {
       -1,                                               // iFirst
       -1,                                               // iLast
-      76,                                               // lineNo
+      78,                                               // lineNo
       104,                                              // colNo
       "J",                                              // aName
       "rollout_t",                                      // fName
@@ -142,7 +140,7 @@ void rollout_t(const coder::array<double, 1U> &P_init,
   static rtBoundsCheckInfo sb_emlrtBCI = {
       -1,                                               // iFirst
       -1,                                               // iLast
-      76,                                               // lineNo
+      78,                                               // lineNo
       74,                                               // colNo
       "A",                                              // aName
       "rollout_t",                                      // fName
@@ -152,7 +150,7 @@ void rollout_t(const coder::array<double, 1U> &P_init,
   static rtBoundsCheckInfo tb_emlrtBCI = {
       -1,                                               // iFirst
       -1,                                               // iLast
-      76,                                               // lineNo
+      78,                                               // lineNo
       44,                                               // colNo
       "V",                                              // aName
       "rollout_t",                                      // fName
@@ -162,7 +160,7 @@ void rollout_t(const coder::array<double, 1U> &P_init,
   static rtBoundsCheckInfo ub_emlrtBCI = {
       -1,                                               // iFirst
       -1,                                               // iLast
-      76,                                               // lineNo
+      78,                                               // lineNo
       14,                                               // colNo
       "P",                                              // aName
       "rollout_t",                                      // fName
@@ -172,7 +170,7 @@ void rollout_t(const coder::array<double, 1U> &P_init,
   static rtBoundsCheckInfo vb_emlrtBCI = {
       -1,                                               // iFirst
       -1,                                               // iLast
-      76,                                               // lineNo
+      78,                                               // lineNo
       237,                                              // colNo
       "t",                                              // aName
       "rollout_t",                                      // fName
@@ -182,7 +180,7 @@ void rollout_t(const coder::array<double, 1U> &P_init,
   static rtBoundsCheckInfo wb_emlrtBCI = {
       -1,                                               // iFirst
       -1,                                               // iLast
-      76,                                               // lineNo
+      78,                                               // lineNo
       192,                                              // colNo
       "A_init",                                         // aName
       "rollout_t",                                      // fName
@@ -192,7 +190,7 @@ void rollout_t(const coder::array<double, 1U> &P_init,
   static rtBoundsCheckInfo xb_emlrtBCI = {
       -1,                                               // iFirst
       -1,                                               // iLast
-      76,                                               // lineNo
+      78,                                               // lineNo
       173,                                              // colNo
       "V_init",                                         // aName
       "rollout_t",                                      // fName
@@ -202,7 +200,7 @@ void rollout_t(const coder::array<double, 1U> &P_init,
   static rtBoundsCheckInfo yb_emlrtBCI = {
       -1,                                               // iFirst
       -1,                                               // iLast
-      76,                                               // lineNo
+      78,                                               // lineNo
       154,                                              // colNo
       "P_init",                                         // aName
       "rollout_t",                                      // fName
@@ -210,34 +208,34 @@ void rollout_t(const coder::array<double, 1U> &P_init,
       0                                                 // checkKind
   };
   static rtDoubleCheckInfo b_emlrtDCI = {
-      69,                                               // lineNo
-      24,                                               // colNo
-      "rollout_t",                                      // fName
-      "/home/lmbeul/Desktop/TopiCo/MATLAB/rollout_t.m", // pName
-      1                                                 // checkKind
-  };
-  static rtDoubleCheckInfo c_emlrtDCI = {
-      70,                                               // lineNo
-      24,                                               // colNo
-      "rollout_t",                                      // fName
-      "/home/lmbeul/Desktop/TopiCo/MATLAB/rollout_t.m", // pName
-      1                                                 // checkKind
-  };
-  static rtDoubleCheckInfo d_emlrtDCI = {
       71,                                               // lineNo
       24,                                               // colNo
       "rollout_t",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/rollout_t.m", // pName
       1                                                 // checkKind
   };
-  static rtDoubleCheckInfo emlrtDCI = {
-      68,                                               // lineNo
+  static rtDoubleCheckInfo c_emlrtDCI = {
+      72,                                               // lineNo
       24,                                               // colNo
       "rollout_t",                                      // fName
       "/home/lmbeul/Desktop/TopiCo/MATLAB/rollout_t.m", // pName
       1                                                 // checkKind
   };
-  static rtRunTimeErrorInfo t_emlrtRTEI = {
+  static rtDoubleCheckInfo d_emlrtDCI = {
+      73,                                               // lineNo
+      24,                                               // colNo
+      "rollout_t",                                      // fName
+      "/home/lmbeul/Desktop/TopiCo/MATLAB/rollout_t.m", // pName
+      1                                                 // checkKind
+  };
+  static rtDoubleCheckInfo emlrtDCI = {
+      70,                                               // lineNo
+      24,                                               // colNo
+      "rollout_t",                                      // fName
+      "/home/lmbeul/Desktop/TopiCo/MATLAB/rollout_t.m", // pName
+      1                                                 // checkKind
+  };
+  static rtRunTimeErrorInfo s_emlrtRTEI = {
       417,                                                          // lineNo
       15,                                                           // colNo
       "assert_pmaxsize",                                            // fName
@@ -320,77 +318,17 @@ void rollout_t(const coder::array<double, 1U> &P_init,
     ts = 1.0;
   }
   if (num_iterations > 10000U) {
-    unsigned long divisor;
-    unsigned long number;
-    bool b_leading;
     printf("Warning: Very many rollout iterations (");
     fflush(stdout);
-    number = num_iterations;
-    b_leading = true;
-    divisor = 10000000000000000000UL;
-    while (divisor >= 1UL) {
-      unsigned long d;
-      if (divisor == 0UL) {
-        d_rtErrorWithMessageID(g_emlrtRTEI.fName, g_emlrtRTEI.lineNo);
-      }
-      d = _u64_div__(number, divisor);
-      b_leading = ((d == 0UL) && b_leading);
-      if (!b_leading) {
-        number = _u64_minus__(number, mulv_u64(d, divisor));
-        switch (d) {
-        case 0UL:
-          printf("0");
-          fflush(stdout);
-          break;
-        case 1UL:
-          printf("1");
-          fflush(stdout);
-          break;
-        case 2UL:
-          printf("2");
-          fflush(stdout);
-          break;
-        case 3UL:
-          printf("3");
-          fflush(stdout);
-          break;
-        case 4UL:
-          printf("4");
-          fflush(stdout);
-          break;
-        case 5UL:
-          printf("5");
-          fflush(stdout);
-          break;
-        case 6UL:
-          printf("6");
-          fflush(stdout);
-          break;
-        case 7UL:
-          printf("7");
-          fflush(stdout);
-          break;
-        case 8UL:
-          printf("8");
-          fflush(stdout);
-          break;
-        case 9UL:
-          printf("9");
-          fflush(stdout);
-          break;
-        }
-      }
-      divisor = coder::internal::i64ddiv(divisor);
-    }
-    if (b_leading) {
-      printf("0");
-      fflush(stdout);
-    }
+    printint(num_iterations);
     printf(" > ");
     fflush(stdout);
-    printint(static_cast<double>(10000.0));
+    printint(10000U);
     printf(")!\n");
     fflush(stdout);
+    num_iterations = static_cast<unsigned int>(
+        rt_roundd_snf(static_cast<double>(num_iterations) * 10000.0 /
+                      static_cast<double>(num_iterations)));
   }
   P.set_size(J_setp_struct.size(1), P.size(1));
   if (static_cast<double>(num_iterations) != static_cast<int>(num_iterations)) {
@@ -453,7 +391,7 @@ void rollout_t(const coder::array<double, 1U> &P_init,
       ncols = 0;
     }
     if (ndbl > 2.147483647E+9) {
-      q_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+      q_rtErrorWithMessageID(s_emlrtRTEI.fName, s_emlrtRTEI.lineNo);
     }
     y.set_size(1, ncols);
     if (ncols > 0) {
@@ -493,9 +431,6 @@ void rollout_t(const coder::array<double, 1U> &P_init,
   }
   jcol = J_setp_struct.size(1);
   for (ibmat = 0; ibmat < jcol; ibmat++) {
-    if ((1U <= num_iterations) && (num_iterations > 4294967294U)) {
-      coder::b_check_forloop_overflow_error();
-    }
     nm1d2 = static_cast<int>(num_iterations);
     for (ncols = 0; ncols < nm1d2; ncols++) {
       if (1 > t.size(0)) {

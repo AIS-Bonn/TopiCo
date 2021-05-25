@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // acdeg_T_AP.cpp
 //
@@ -128,23 +128,23 @@ void acdeg_T_AP(double P_init, double V_init, double A_init, double P_wayp,
   l11_tmp = l9_tmp * l9_tmp;
   a = J_max + -J_min;
   if (-J_min < 0.0) {
-    k_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
+    k_rtErrorWithMessageID(o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
   }
   l21 = rt_powd_snf(-J_min, 3.5);
   if (-J_min < 0.0) {
-    k_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
+    k_rtErrorWithMessageID(o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
   }
   l22 = rt_powd_snf(-J_min, 4.5);
   if (-J_min < 0.0) {
-    k_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
+    k_rtErrorWithMessageID(o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
   }
   l23 = rt_powd_snf(-J_min, 5.5);
   if (-J_min < 0.0) {
-    k_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
+    k_rtErrorWithMessageID(o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
   }
   l24 = rt_powd_snf(a, 1.5);
   if (a < 0.0) {
-    k_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
+    k_rtErrorWithMessageID(o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
   }
   a = J_max * V_max;
   l28_tmp = J_max * V_init;

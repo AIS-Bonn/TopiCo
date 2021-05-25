@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // acdeg_O_AP.cpp
 //
@@ -184,7 +184,7 @@ void acdeg_O_AP(double P_init, double V_init, double A_init, double P_wayp,
   d1 = l10_tmp * im;
   l31 = rt_powd_snf(l14, 1.5);
   if (l14 < 0.0) {
-    k_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
+    k_rtErrorWithMessageID(o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
   }
   l32 = rt_powd_snf(l14, 2.5);
   A_init_re_tmp_tmp = A_init * l14_tmp;

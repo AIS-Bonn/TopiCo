@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // find.cpp
 //
@@ -17,7 +17,7 @@
 #include "coder_array.h"
 
 // Variable Definitions
-static rtRunTimeErrorInfo l_emlrtRTEI = {
+static rtRunTimeErrorInfo k_emlrtRTEI = {
     392,                                                           // lineNo
     1,                                                             // colNo
     "find_first_indices",                                          // fName
@@ -28,7 +28,7 @@ static rtRunTimeErrorInfo l_emlrtRTEI = {
 namespace coder {
 void b_eml_find(const ::coder::array<bool, 2U> &x, int i_data[], int i_size[2])
 {
-  static rtRunTimeErrorInfo t_emlrtRTEI = {
+  static rtRunTimeErrorInfo s_emlrtRTEI = {
       81,                                                            // lineNo
       1,                                                             // colNo
       "eml_find",                                                    // fName
@@ -41,7 +41,7 @@ void b_eml_find(const ::coder::array<bool, 2U> &x, int i_data[], int i_size[2])
   bool exitg1;
   k = (1 <= x.size(1));
   if (k > x.size(1)) {
-    i_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    i_rtErrorWithMessageID(s_emlrtRTEI.fName, s_emlrtRTEI.lineNo);
   }
   idx = 0;
   i.set_size(1, k);
@@ -64,7 +64,7 @@ void b_eml_find(const ::coder::array<bool, 2U> &x, int i_data[], int i_size[2])
     }
   }
   if (idx > k) {
-    i_rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+    i_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
   }
   if (k == 1) {
     if (idx == 0) {
@@ -109,7 +109,7 @@ void eml_find(const ::coder::array<bool, 2U> &x, ::coder::array<int, 2U> &i)
     }
   }
   if (idx > x.size(1)) {
-    i_rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+    i_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
   }
   if (x.size(1) == 1) {
     if (idx == 0) {

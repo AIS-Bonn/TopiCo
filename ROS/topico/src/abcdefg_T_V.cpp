@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // abcdefg_T_V.cpp
 //
@@ -79,11 +79,11 @@ void abcdefg_T_V(double V_init, double A_init, double V_wayp, double V_max,
   //  Generated on 02-Sep-2019 15:54:56
   l2 = 1.0 / J_max;
   if (J_max < 0.0) {
-    f_rtErrorWithMessageID("sqrt", o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
+    f_rtErrorWithMessageID("sqrt", n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
   }
   l7 = V_wayp + -V_min;
   if (l7 < 0.0) {
-    f_rtErrorWithMessageID("sqrt", o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
+    f_rtErrorWithMessageID("sqrt", n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
   }
   l7 = std::sqrt(l7);
   l7 *= 1.4142135623730951 * std::sqrt(J_max);

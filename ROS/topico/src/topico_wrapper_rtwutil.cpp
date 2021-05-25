@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // topico_wrapper_rtwutil.cpp
 //
@@ -20,24 +20,6 @@
 #include <string>
 
 // Function Definitions
-unsigned long _u64_div__(unsigned long b, unsigned long c)
-{
-  if (c == 0UL) {
-    rtDivisionByZeroErrorN();
-  }
-  return b / c;
-}
-
-unsigned long _u64_minus__(unsigned long b, unsigned long c)
-{
-  unsigned long a;
-  a = b - c;
-  if (b < c) {
-    rtIntegerOverflowErrorN();
-  }
-  return a;
-}
-
 void d_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
 {
   std::stringstream outStream;
@@ -92,58 +74,6 @@ void m_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
   outStream << "Matrix dimensions must agree.";
   outStream << "\n";
   ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
-  throw std::runtime_error(outStream.str());
-}
-
-void mul_wide_u64(unsigned long in0, unsigned long in1,
-                  unsigned long *ptrOutBitsHi, unsigned long *ptrOutBitsLo)
-{
-  unsigned long in0Hi;
-  unsigned long in0Lo;
-  unsigned long in1Hi;
-  unsigned long in1Lo;
-  unsigned long outBitsLo;
-  unsigned long productHiLo;
-  unsigned long productLoHi;
-  in0Hi = in0 >> 32UL;
-  in0Lo = in0 & 4294967295UL;
-  in1Hi = in1 >> 32UL;
-  in1Lo = in1 & 4294967295UL;
-  productHiLo = in0Hi * in1Lo;
-  productLoHi = in0Lo * in1Hi;
-  in0Lo *= in1Lo;
-  in1Lo = 0UL;
-  outBitsLo = in0Lo + (productLoHi << 32UL);
-  if (outBitsLo < in0Lo) {
-    in1Lo = 1UL;
-  }
-  in0Lo = outBitsLo;
-  outBitsLo += productHiLo << 32UL;
-  if (outBitsLo < in0Lo) {
-    in1Lo++;
-  }
-  *ptrOutBitsHi =
-      ((in1Lo + in0Hi * in1Hi) + (productLoHi >> 32UL)) + (productHiLo >> 32UL);
-  *ptrOutBitsLo = outBitsLo;
-}
-
-unsigned long mulv_u64(unsigned long a, unsigned long b)
-{
-  unsigned long result;
-  unsigned long u64_chi;
-  mul_wide_u64(a, b, &u64_chi, &result);
-  if (u64_chi) {
-    rtIntegerOverflowErrorN();
-  }
-  return result;
-}
-
-void rtDivisionByZeroErrorN()
-{
-  std::stringstream outStream;
-  outStream << "Division by zero detected.\nEarly termination due to division "
-               "by zero.";
-  outStream << "\n";
   throw std::runtime_error(outStream.str());
 }
 
@@ -377,6 +307,23 @@ double rt_powd_snf(double u0, double u1)
     } else {
       y = std::pow(u0, u1);
     }
+  }
+  return y;
+}
+
+double rt_roundd_snf(double u)
+{
+  double y;
+  if (std::abs(u) < 4.503599627370496E+15) {
+    if (u >= 0.5) {
+      y = std::floor(u + 0.5);
+    } else if (u > -0.5) {
+      y = u * 0.0;
+    } else {
+      y = std::ceil(u - 0.5);
+    }
+  } else {
+    y = u;
   }
   return y;
 }

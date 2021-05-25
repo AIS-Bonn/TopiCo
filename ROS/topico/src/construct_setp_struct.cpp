@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // construct_setp_struct.cpp
 //
@@ -87,7 +87,7 @@ void b_construct_setp_struct(
     sizes_idx_0 = 1;
   }
   if ((t_in2_size[0] != sizes_idx_0) && (t_in2_size[0] != 0)) {
-    h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+    h_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
   }
   if (t_in2_size[0] != 0) {
     sizes_idx_1 = 7;
@@ -110,7 +110,7 @@ void b_construct_setp_struct(
     sizes_idx_0 = 1;
   }
   if ((J_in2_size[0] != sizes_idx_0) && (J_in2_size[0] != 0)) {
-    h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+    h_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
   }
   if (J_in2_size[0] != 0) {
     sizes_idx_1 = 7;

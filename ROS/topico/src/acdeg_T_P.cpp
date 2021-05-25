@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // acdeg_T_P.cpp
 //
@@ -520,7 +520,7 @@ void acdeg_T_P(double P_init, double V_init, double A_init, double P_wayp,
   l19 = rt_powd_snf(J_min, 9.0);
   l22 = rt_powd_snf(J_min, 11.0);
   if (J_max < 0.0) {
-    f_rtErrorWithMessageID("sqrt", o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
+    f_rtErrorWithMessageID("sqrt", n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
   }
   l29_tmp = std::sqrt(J_max);
   l8 = l4 * l4;
@@ -536,35 +536,35 @@ void acdeg_T_P(double P_init, double V_init, double A_init, double P_wayp,
   l39 = rt_powd_snf(l29_tmp, 17.0);
   l42 = rt_powd_snf(-J_min, 4.5);
   if (-J_min < 0.0) {
-    k_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
+    k_rtErrorWithMessageID(o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
   }
   l43 = rt_powd_snf(-J_min, 5.5);
   if (-J_min < 0.0) {
-    k_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
+    k_rtErrorWithMessageID(o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
   }
   l44 = rt_powd_snf(-J_min, 6.5);
   if (-J_min < 0.0) {
-    k_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
+    k_rtErrorWithMessageID(o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
   }
   l45 = rt_powd_snf(-J_min, 7.5);
   if (-J_min < 0.0) {
-    k_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
+    k_rtErrorWithMessageID(o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
   }
   l46 = rt_powd_snf(-J_min, 8.5);
   if (-J_min < 0.0) {
-    k_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
+    k_rtErrorWithMessageID(o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
   }
   l47 = rt_powd_snf(-J_min, 9.5);
   if (-J_min < 0.0) {
-    k_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
+    k_rtErrorWithMessageID(o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
   }
   l48 = rt_powd_snf(-J_min, 10.5);
   if (-J_min < 0.0) {
-    k_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
+    k_rtErrorWithMessageID(o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
   }
   l49 = rt_powd_snf(-J_min, 11.5);
   if (-J_min < 0.0) {
-    k_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
+    k_rtErrorWithMessageID(o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
   }
   l82_tmp = A_init * l9;
   l82 = l82_tmp * l12 * 18.0;

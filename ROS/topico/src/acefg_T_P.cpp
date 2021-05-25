@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // acefg_T_P.cpp
 //
@@ -553,19 +553,19 @@ void acefg_T_P(double P_init, double V_init, double A_init, double P_wayp,
     }
     b = (t1_size == 6);
     if (!b) {
-      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
     }
     b = ((t1_size == 6) && b);
     if (!b) {
-      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
     }
     b = ((t1_size == 6) && b);
     if (!b) {
-      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
     }
     b = ((t1_size == 6) && b);
     if (!b) {
-      h_rtErrorWithMessageID(j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
     }
     if (0 <= t1_size - 1) {
       std::copy(&t1_data[0], &t1_data[t1_size], &t[0]);

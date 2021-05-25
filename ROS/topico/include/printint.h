@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // printint.h
 //
@@ -17,6 +17,8 @@
 #include <cstdlib>
 
 // Function Declarations
+void printint(unsigned int number);
+
 void printint(int number);
 
 void printint(double number);

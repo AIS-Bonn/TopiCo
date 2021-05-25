@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // topico_wrapper_data.h
 //
@@ -20,11 +20,11 @@
 // Variable Declarations
 extern unsigned char nlut[8];
 extern unsigned char condlut[48];
-extern rtRunTimeErrorInfo g_emlrtRTEI;
-extern rtRunTimeErrorInfo j_emlrtRTEI;
+extern rtRunTimeErrorInfo f_emlrtRTEI;
+extern rtRunTimeErrorInfo i_emlrtRTEI;
+extern rtRunTimeErrorInfo n_emlrtRTEI;
 extern rtRunTimeErrorInfo o_emlrtRTEI;
 extern rtRunTimeErrorInfo p_emlrtRTEI;
-extern rtRunTimeErrorInfo q_emlrtRTEI;
 extern bool isInitialized_topico_wrapper;
 
 #endif

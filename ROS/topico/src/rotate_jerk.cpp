@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // rotate_jerk.cpp
 //
@@ -82,7 +82,7 @@ void rotate_jerk(double alpha, const coder::array<double, 2U> &t_1,
       "/home/lmbeul/Desktop/TopiCo/MATLAB/rotate_jerk.m", // pName
       0                                                   // checkKind
   };
-  static rtRunTimeErrorInfo t_emlrtRTEI = {
+  static rtRunTimeErrorInfo s_emlrtRTEI = {
       236,                                                           // lineNo
       1,                                                             // colNo
       "unique_vector",                                               // fName
@@ -326,7 +326,7 @@ void rotate_jerk(double alpha, const coder::array<double, 2U> &t_1,
   }
   p += pEnd;
   if (p > J_x.size(1)) {
-    i_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    i_rtErrorWithMessageID(s_emlrtRTEI.fName, s_emlrtRTEI.lineNo);
   }
   if (1 > p) {
     p = 0;

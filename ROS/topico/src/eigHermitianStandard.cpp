@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // eigHermitianStandard.cpp
 //
@@ -42,7 +42,7 @@ namespace coder {
 void eigHermitianStandard(const double A_data[], const int A_size[2],
                           double V_data[], int *V_size)
 {
-  static rtRunTimeErrorInfo t_emlrtRTEI = {
+  static rtRunTimeErrorInfo s_emlrtRTEI = {
       18,                                                              // lineNo
       15,                                                              // colNo
       "schur",                                                         // fName
@@ -62,7 +62,7 @@ void eigHermitianStandard(const double A_data[], const int A_size[2],
     std::copy(&A_data[0], &A_data[i], &T_data[0]);
   }
   if (A_size[0] != A_size[1]) {
-    p_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    p_rtErrorWithMessageID(s_emlrtRTEI.fName, s_emlrtRTEI.lineNo);
   }
   if (internal::anyNonFinite(A_data, A_size)) {
     T_size[0] = static_cast<signed char>(A_size[0]);

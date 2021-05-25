@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // minOrMax.cpp
 //
@@ -96,7 +96,7 @@ void maximum(const ::coder::array<double, 1U> &x, double *ex, int *idx)
 
 double maximum(const ::coder::array<double, 1U> &x)
 {
-  static rtRunTimeErrorInfo t_emlrtRTEI = {
+  static rtRunTimeErrorInfo s_emlrtRTEI = {
       124,             // lineNo
       27,              // colNo
       "unaryMinOrMax", // fName
@@ -106,7 +106,7 @@ double maximum(const ::coder::array<double, 1U> &x)
   double ex;
   int last;
   if (x.size(0) < 1) {
-    e_rtErrorWithMessageID(t_emlrtRTEI.fName, t_emlrtRTEI.lineNo);
+    e_rtErrorWithMessageID(s_emlrtRTEI.fName, s_emlrtRTEI.lineNo);
   }
   last = x.size(0);
   if (x.size(0) <= 2) {

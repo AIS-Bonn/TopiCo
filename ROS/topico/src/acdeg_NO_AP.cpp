@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // acdeg_NO_AP.cpp
 //
@@ -140,7 +140,7 @@ void acdeg_NO_AP(double P_init, double V_init, double A_init, double P_wayp,
   l31 = A_init * J_min;
   l5_tmp = A_init * J_max;
   if (J_max < 0.0) {
-    f_rtErrorWithMessageID("sqrt", o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
+    f_rtErrorWithMessageID("sqrt", n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
   }
   l15_tmp = J_min * J_min;
   b_l15_tmp = J_min * J_max;
@@ -197,7 +197,7 @@ void acdeg_NO_AP(double P_init, double V_init, double A_init, double P_wayp,
   l29[1].im = b_J_max * im;
   l31 = rt_powd_snf(l23, 1.5);
   if (l23 < 0.0) {
-    k_rtErrorWithMessageID(p_emlrtRTEI.fName, p_emlrtRTEI.lineNo);
+    k_rtErrorWithMessageID(o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
   }
   l32 = rt_powd_snf(l23, 2.5);
   A_init_re_tmp_tmp = A_init * l15_tmp;

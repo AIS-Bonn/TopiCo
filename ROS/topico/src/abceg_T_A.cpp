@@ -1,7 +1,7 @@
 //
-// Student License - for use by students to meet course requirements and
-// perform academic research at degree granting institutions only.  Not
-// for government, commercial, or other organizational use.
+// Academic License - for use in teaching, academic research, and meeting
+// course requirements at degree granting institutions only.  Not for
+// government, commercial, or other organizational use.
 //
 // abceg_T_A.cpp
 //
@@ -70,7 +70,7 @@ void abceg_T_A(double V_init, double A_init, double A_wayp, double V_max,
          x_tmp * V_max * 2.0) +
         A_max * J_min * J_max * T * 2.0);
   if (l2 < 0.0) {
-    f_rtErrorWithMessageID("sqrt", o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
+    f_rtErrorWithMessageID("sqrt", n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
   }
   l2 = std::sqrt(l2);
   l2 /= J_min * J_min - x_tmp;
