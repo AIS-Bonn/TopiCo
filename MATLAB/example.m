@@ -39,6 +39,7 @@
 
 clearvars;
 close all;
+addpath(genpath(pwd));
 
 %% ----------   Variables    ----------
 index_example = 1;
