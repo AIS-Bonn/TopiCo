@@ -39,11 +39,42 @@
 
 function [n] = select_type(P_wayp,V_wayp,A_wayp) %#codegen
 
-    persistent nlut;
-    if isempty(nlut)
-        nlut = uint8([0,7,6,2,5,3,4,1]);
-    end
 
-    n = nlut(sub2ind([2,2,2],~isnan(P_wayp)+1,~isnan(V_wayp)+1,~isnan(A_wayp)+1));
+select = 0;
+
+if ~isnan(P_wayp)
+    select = 100;   
+end 
+
+if ~isnan(V_wayp)
+    select = select+10;   
+end 
+
+if ~isnan(A_wayp)
+    select = select+1;   
+end    
+
+switch select
+    
+    case 0
+        n = 0;
+    case 1
+        n = 5;   
+    case 10
+        n = 6;     
+    case 11
+        n = 4;         
+    case 100
+        n = 7;
+    case 101
+        n = 3;     
+    case 110
+        n = 2;          
+    case 111
+        n = 1;  
+    otherwise
+        n=0;    
+end        
+        
 
 end
