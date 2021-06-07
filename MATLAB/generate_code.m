@@ -37,8 +37,10 @@
 % POSSIBILITY OF SUCH DAMAGE.
 %% --------------------------------------------------------------------
 
-addpath('a','ab','abc','abcd','abcde','abcdef','abcdefg','abcdeg','abcef','abcefg','abceg','ac','acd','acde','acdef','acdefg','acdeg','acef','acefg','aceg');
 cd(fileparts(mfilename('fullpath')));
+addpath(genpath(pwd));
+
+disable_fprintf(false); % if true, fprintf is disabled to improve performance
 
 for index_code_gen = 2
 
@@ -59,7 +61,7 @@ for index_code_gen = 2
         cfg = coder.config('lib','ecoder',false);
         cfg.BuildConfiguration = 'Faster Runs';
         cfg.GenerateReport = false;
-        cfg.RuntimeChecks = true;
+        cfg.RuntimeChecks = false;
         cfg.EnableOpenMP = false;
         cfg.GenCodeOnly = true;
         cfg.SaturateOnIntegerOverflow = false;
