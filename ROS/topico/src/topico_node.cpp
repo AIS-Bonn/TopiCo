@@ -213,7 +213,6 @@ int main(int argc, char **argv)
       topico_wrapper(State_start, Waypoints, V_max, V_min, A_max, A_min, J_max, J_min, A_global, b_sync_V, b_sync_A, b_sync_J, b_sync_W, b_rotate, b_hard_V_lim, b_catch_up, direction, ts_rollout, J_setp_struct,solution_out, T_waypoints, P, V, A, J, t);
 
       int size_rollout = P.size(1);
-      // path_rollout.poses.resize(size_rollout);
       path_rollout.header.stamp = t_now;
       path_rollout.header.frame_id = map_frame;
       path_rollout.joint_names.push_back("X");
