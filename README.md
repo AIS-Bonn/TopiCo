@@ -41,6 +41,13 @@ The variable `index_example` selects the example.
 - Example 5 generates a predefined trajectory with two consecutive waypoints for a single axis with undefined (NaN) components of the first waypoint.  
 - Example 6 generates a random trajectory with up to five consecutive waypoints for up to seven axes.
 
+# ROS
+
+You can also generate trajectories via the ROS node of TopiCo, currently, for up to three axes at once.
+To generate the trajectories, first specify the initial positions and velocities of the axes via the `init_odometry` topic of type [`nav_msgs/Odometry`](http://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html).
+You'll then recieve the trajectories on the `trajectory_rollout` topic.
+The message is of type [`trajectory_msgs/JointTrajectory`](http://docs.ros.org/en/noetic/api/trajectory_msgs/html/msg/JointTrajectory.html), however, be ware that we misuse the `effort` field of the  [`trajectory_msgs/JointTrajectoryPoint`](http://docs.ros.org/en/noetic/api/trajectory_msgs/html/msg/JointTrajectoryPoint.html) message to publish the trajectory's jerk.
+Finally, if you want to change the trajectory settings and limits, you can do so via dynamic reconfiguration.
 
 # Meaning of variables and size of matrices
 

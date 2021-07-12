@@ -11,7 +11,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions
 // are met:
-// 
+//
 // * Redistributions of source code must retain the above copyright
 //   notice, this list of conditions and the following disclaimer.
 // * Redistributions in binary form must reproduce the above
@@ -22,7 +22,7 @@
 //   VI nor the names of its contributors may be used to endorse or
 //   promote products derived from this software without specific
 //   prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 // "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
 // LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
@@ -38,7 +38,8 @@
 // --------------------------------------------------------------------
 
 #include <ros/ros.h>
-#include <nav_msgs/Path.h>
+#include <trajectory_msgs/JointTrajectory.h>
+#include <trajectory_msgs/JointTrajectoryPoint.h>
 #include <nav_msgs/Odometry.h>
 #include <dynamic_reconfigure/server.h>
 #include <topico/TopiCoConfig.h>
@@ -116,8 +117,8 @@ void wayp_callback(const nav_msgs::Odometry::ConstPtr& msg)
 
 void dynamic_reconfigure_callback(topico::TopiCoConfig &config, uint32_t level)
 {
-  for (int idx_dim = 0; idx_dim < num_dim; idx_dim++) {  
-    A_global[idx_dim] = 0.0; 
+  for (int idx_dim = 0; idx_dim < num_dim; idx_dim++) {
+    A_global[idx_dim] = 0.0;
     for (int idx_wayp = 0; idx_wayp < num_wayp; idx_wayp++) {
       V_max[idx_dim + num_dim * idx_wayp]        = config.V_max;
       V_min[idx_dim + num_dim * idx_wayp]        = config.V_min;
@@ -133,14 +134,14 @@ void dynamic_reconfigure_callback(topico::TopiCoConfig &config, uint32_t level)
       b_catch_up[idx_dim + num_dim * idx_wayp]   = config.b_catch_up;
       direction[idx_dim + num_dim * idx_wayp]    = config.direction;
     }
-  }  
-  for (int idx_dim = 0; idx_dim < num_dim-1; idx_dim++) {  
+  }
+  for (int idx_dim = 0; idx_dim < num_dim-1; idx_dim++) {
     for (int idx_wayp = 0; idx_wayp < num_wayp; idx_wayp++) {
       b_rotate[idx_dim + num_dim * idx_wayp]     = config.b_rotate;
     }
   }
   ts_rollout = config.ts_rollout;
-  
+
   printf("Debug: Setting new parameters!\n");
 }
 
@@ -150,11 +151,11 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "topico");
   ros::NodeHandle nh("~");
   ros::Rate loop_rate(100);
-  
+
   ros::Subscriber wayp_sub = nh.subscribe("wayp_odometry", 1, wayp_callback,ros::TransportHints().tcpNoDelay());
   ros::Subscriber init_sub = nh.subscribe("init_odometry", 1, init_callback,ros::TransportHints().tcpNoDelay());
-  ros::Publisher path_pub  = nh.advertise<nav_msgs::Path>("trajectory_rollout", 0);
-  
+  ros::Publisher path_pub  = nh.advertise<trajectory_msgs::JointTrajectory>("trajectory_rollout", 0);
+
   std::string map_frame;
   nh.param<std::string>( "frame_id", map_frame, "world" );
 
@@ -186,21 +187,21 @@ int main(int argc, char **argv)
   b_hard_V_lim.set_size(num_dim,num_wayp);
   b_catch_up.set_size(num_dim,num_wayp);
   direction.set_size(num_dim,num_wayp);
-  
+
   bool b_initialized = false;
-  
+
   dynamic_reconfigure::Server<topico::TopiCoConfig> server;
   dynamic_reconfigure::Server<topico::TopiCoConfig>::CallbackType f;
   f = boost::bind(&dynamic_reconfigure_callback, _1, _2);
   server.setCallback(f);
- 
-  nav_msgs::Path path_rollout;
-  
+
+  trajectory_msgs::JointTrajectory path_rollout;
+
   while (ros::ok())
   {
     ros::spinOnce();
     ros::Time t_now = ros::Time::now();
-    
+
     if (b_wayp_updated && b_init_updated) {
       b_initialized = true;
     }
@@ -208,22 +209,44 @@ int main(int argc, char **argv)
     if (b_initialized && (b_init_updated || b_wayp_updated)) { // only replan when new data arrived...
       b_wayp_updated = false;
       b_init_updated = false;
- 
+
       topico_wrapper(State_start, Waypoints, V_max, V_min, A_max, A_min, J_max, J_min, A_global, b_sync_V, b_sync_A, b_sync_J, b_sync_W, b_rotate, b_hard_V_lim, b_catch_up, direction, ts_rollout, J_setp_struct,solution_out, T_waypoints, P, V, A, J, t);
 
       int size_rollout = P.size(1);
-      path_rollout.poses.resize(size_rollout);
       path_rollout.header.stamp = t_now;
       path_rollout.header.frame_id = map_frame;
+      path_rollout.joint_names.push_back("X");
+      path_rollout.joint_names.push_back("Y");
+      path_rollout.joint_names.push_back("Z");
+
       for (int idx = 0; idx < size_rollout; idx++)
       {
-        path_rollout.poses[idx].pose.position.x = P[3*idx+0];
-        path_rollout.poses[idx].pose.position.y = P[3*idx+1];
-        path_rollout.poses[idx].pose.position.z = P[3*idx+2];
+        //Define the current joint state
+        trajectory_msgs::JointTrajectoryPoint current_jtp;
+
+        current_jtp.time_from_start = ros::Duration(t[idx]);
+
+        current_jtp.positions.push_back(P[3*idx+0]); //Waypoint X Position
+        current_jtp.positions.push_back(P[3*idx+1]); //Waypoint Y Position
+        current_jtp.positions.push_back(P[3*idx+2]); //Waypoint Z Position
+
+        current_jtp.velocities.push_back(V[3*idx+0]); //Waypoint X Velocity
+        current_jtp.velocities.push_back(V[3*idx+1]); //Waypoint Y Velocity
+        current_jtp.velocities.push_back(V[3*idx+2]); //Waypoint Z Velocity
+
+        current_jtp.accelerations.push_back(A[3*idx+0]); //Waypoint X Acceleration
+        current_jtp.accelerations.push_back(A[3*idx+1]); //Waypoint Y Acceleration
+        current_jtp.accelerations.push_back(A[3*idx+2]); //Waypoint Z Acceleration
+
+        current_jtp.effort.push_back(J[3*idx+0]); //Waypoint X Jerk
+        current_jtp.effort.push_back(J[3*idx+1]); //Waypoint Y Jerk
+        current_jtp.effort.push_back(J[3*idx+2]); //Waypoint Z Jerk
+
+        path_rollout.points.push_back(current_jtp);
       }
       path_pub.publish(path_rollout);
     } else if(!b_initialized) {
-      printf("Warning: Initial state and/or waypoint not published yet!\n");       
+      printf("Warning: Initial state and/or waypoint not published yet!\n");
     }
     loop_rate.sleep();
   }
